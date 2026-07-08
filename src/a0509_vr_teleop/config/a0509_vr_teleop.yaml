@@ -1,0 +1,67 @@
+/**:
+  ros__parameters:
+    control_rate_hz: 10.0
+    tick_sec: 0.1
+    servol_time_sec: 0.5
+    linear_ramp_mm_per_tick: 20.0
+    angular_ramp_deg_per_tick: 3.0
+    enable_robot_output: false
+    robot_namespace: "/dsr01"
+    servol_topic: "/dsr01/servol_rt_stream"
+    servol_vel: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    servol_acc: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+    controller_state_topic: "/vr/controller_state"
+    raw_target_topic: "/teleop/raw_target_pose"
+    projected_target_topic: "/teleop/projected_target_pose"
+    safety_status_topic: "/teleop/safety_status"
+    monitor_vis_topic: "/teleop/monitor_vis"
+    markers_topic: "/teleop/markers"
+    debug_servol_topic: "/teleop/debug_servol_rt_stream"
+
+    initial_safe_pose: [400.0, 0.0, 350.0, 0.0, 150.0, 0.0]
+    robot_tcp_anchor_pose: [400.0, 0.0, 350.0, 0.0, 150.0, 0.0]
+
+    workspace:
+      x_min_mm: 250.0
+      x_max_mm: 750.0
+      y_min_mm: -350.0
+      y_max_mm: 350.0
+      z_min_mm: 120.0
+      z_max_mm: 600.0
+      rx_min_deg: -180.0
+      rx_max_deg: 180.0
+      ry_min_deg: -180.0
+      ry_max_deg: 180.0
+      rz_min_deg: -180.0
+      rz_max_deg: 180.0
+
+    watchdog:
+      vr_timeout_sec: 0.3
+      robot_state_timeout_sec: 0.5
+    vr_timeout_sec: 0.3
+    robot_state_timeout_sec: 0.5
+
+    safety:
+      require_deadman: true
+      outside_workspace_policy: "project_to_boundary"
+      projection_method: "segment_boundary"
+      hold_on_tracking_lost: true
+      hold_on_deadman_release: true
+    require_deadman: true
+    outside_workspace_policy: "project_to_boundary"
+    projection_method: "segment_boundary"
+    hold_on_tracking_lost: true
+    hold_on_deadman_release: true
+
+    listen_host: "0.0.0.0"
+    listen_port: 5005
+
+    # dsr_controller2 publishes these only when use_rt_topic_pub is enabled.
+    # The exact namespace can vary by launch configuration, so keep them parameterized.
+    actual_tcp_topic: "/rt_topic/actual_tcp_position"
+    actual_joint_topic: "/rt_topic/actual_joint_position"
+    robot_state_topic: "/rt_topic/robot_state"
+    robot_error_topic: "/dsr01/error"
+
+    frame_id: "base_link"

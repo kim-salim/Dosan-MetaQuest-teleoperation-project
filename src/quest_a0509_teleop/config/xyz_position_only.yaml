@@ -1,0 +1,125 @@
+xyz_mapper_node:
+  ros__parameters:
+    input_pose_topic: /q2r_right_hand_pose
+    target_posx_topic: /vr/target_posx
+    status_topic: /vr/status
+    robot_anchor_posx_topic: /vr/robot_anchor_posx
+    teleop_ready_topic: /vr/teleop_ready
+    require_prepare_before_target: true
+    robot_anchor_xyz_mm: [400.0, 0.0, 350.0]
+    robot_anchor_rpy_deg: [0.0, 0.0, 0.0]
+    scale_xyz: [0.5, 0.5, 0.5]
+    axis_sign: [1.0, -1.0, 1.0]
+    # Robot x <- Quest y, Robot y <- Quest x, Robot z <- Quest z.
+    axis_map: [1, 0, 2]
+    enable_xy_yaw_correction: true
+    xy_yaw_correction_deg: 0.0
+    xy_yaw_calibration_duration_sec: 2.0
+    xy_yaw_calibration_min_distance_m: 0.04
+    xy_yaw_calibration_service: /vr/calibrate_xy_yaw_to_x_plus
+    publish_rate_hz: 30.0
+    auto_recenter_on_first_pose: true
+    recenter_vr_on_robot_anchor_update: true
+    input_timeout_sec: 0.5
+    enable_pose_low_pass_filter: true
+    pose_filter_alpha: 0.4
+    max_vr_jump_m: 0.15
+    enable_orientation_mapping: true
+    scale_rpy: [0.0, 0.7, 0.0]
+    rot_axis_sign: [-1.0, -1.0, -1.0]
+    # Robot rx <- Quest pitch disabled, Robot ry <- Quest roll, Robot rz <- Quest yaw disabled.
+    rot_axis_map: [1, 0, 2]
+    enable_orientation_low_pass_filter: true
+    orientation_filter_alpha: 0.4
+    max_vr_rot_jump_deg: 45.0
+    roll_only_deadband_deg: 1.0
+    roll_only_filter_alpha: 0.35
+    roll_lock_toggle_service: /vr/toggle_roll_lock
+
+quest_input_button_node:
+  ros__parameters:
+    input_topic: /q2r_right_hand_inputs
+    status_topic: /vr/status
+    grip_input_field: press_middle
+    grip_threshold: 0.5
+    debounce_sec: 0.7
+    teleop_ready_topic: /vr/teleop_ready
+    require_teleop_ready: true
+    toggle_roll_lock_service: /vr/toggle_roll_lock
+    quest2ros_python_path: /home/salim2001/quest2ros2_ws/install/quest2ros/local/lib/python3.10/dist-packages
+    quest2ros_library_path: /home/salim2001/quest2ros2_ws/install/quest2ros/lib
+
+safety_guard_node:
+  ros__parameters:
+    target_posx_topic: /vr/target_posx
+    safe_posx_topic: /vr/safe_posx
+    status_topic: /vr/status
+    robot_anchor_posx_topic: /vr/robot_anchor_posx
+    workspace_min_xyz_mm: [250.0, -350.0, 150.0]
+    workspace_max_xyz_mm: [650.0, 350.0, 600.0]
+    max_step_xyz_mm: [20.0, 20.0, 20.0]
+    enable_orientation_limits: true
+    max_orientation_delta_deg: [90.0, 90.0, 90.0]
+    max_step_rpy_deg: [2.0, 2.0, 2.0]
+    publish_rate_hz: 30.0
+
+servol_rt_streamer_node:
+  ros__parameters:
+    safe_posx_topic: /vr/safe_posx
+    doosan_servol_topic: /dsr01/servol_rt_stream
+    status_topic: /vr/status
+    teleop_ready_topic: /vr/teleop_ready
+    robot_namespace: /dsr01
+    dry_run: true
+    live_enabled: false
+    require_live_enable: true
+    require_prepare_before_live: true
+    require_robot_ready: true
+    safe_robot_states: [1, 2]
+    robot_state_check_interval_sec: 1.0
+    publish_rate_hz: 10.0
+    servol_time_sec: 0.5
+    stream_ramp_linear_mm_per_tick: 7.5
+    stream_ramp_rot_deg_per_tick: 3.0
+
+robot_prep_node:
+  ros__parameters:
+    robot_namespace: /dsr01
+    status_topic: /vr/status
+    robot_anchor_posx_topic: /vr/robot_anchor_posx
+    teleop_ready_topic: /vr/teleop_ready
+    recenter_service: /vr/recenter
+    set_live_service: /vr/set_live_robot_output
+    prepare_joint_deg: [0.0, 0.0, 90.0, 0.0, 30.0, 0.0]
+    prepare_joint_tolerance_deg: 2.0
+    prepare_max_step_deg: 10.0
+    prepare_j3_escape_deg: 20.0
+    prepare_j5_escape_deg: 30.0
+    prepare_j3_step_deg: 5.0
+    prepare_j5_step_deg: 3.0
+    prepare_vel_deg_per_sec: 30.0
+    prepare_acc_deg_per_sec2: 30.0
+    prepare_time_sec: 0.0
+    prepare_preflight_wait_sec: 3.0
+    prepare_set_anchor_after_move: true
+    safe_robot_states: [1, 2]
+    stop_mode: 1
+
+teleop_check_gui:
+  ros__parameters:
+    status_topic: /vr/status
+    input_pose_topic: /q2r_right_hand_pose
+    target_posx_topic: /vr/target_posx
+    safe_posx_topic: /vr/safe_posx
+    robot_anchor_posx_topic: /vr/robot_anchor_posx
+    teleop_ready_topic: /vr/teleop_ready
+    recenter_service: /vr/recenter
+    prepare_service: /vr/prepare_robot
+    set_anchor_service: /vr/set_robot_anchor_to_current_tcp
+    calibrate_xy_yaw_service: /vr/calibrate_xy_yaw_to_x_plus
+    start_rt_service: /vr/start_rt_control
+    stop_rt_service: /vr/stop_rt_control
+    hold_service: /vr/hold_servol
+    stop_robot_service: /vr/stop_robot
+    reset_safe_off_service: /vr/reset_safe_off
+    set_live_service: /vr/set_live_robot_output

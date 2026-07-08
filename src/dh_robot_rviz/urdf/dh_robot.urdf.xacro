@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="dh_robot">
+  <material name="gray">
+    <color rgba="0.55 0.58 0.62 1.0"/>
+  </material>
+  <material name="blue">
+    <color rgba="0.1 0.3 0.9 1.0"/>
+  </material>
+  <material name="orange">
+    <color rgba="1.0 0.45 0.05 1.0"/>
+  </material>
+
+  <xacro:macro name="small_sphere" params="name radius color">
+    <link name="${name}">
+      <visual>
+        <geometry>
+          <sphere radius="${radius}"/>
+        </geometry>
+        <material name="${color}"/>
+      </visual>
+    </link>
+  </xacro:macro>
+
+  <xacro:macro name="dh_fixed" params="parent child a d alpha">
+    <joint name="${parent}_to_${child}_dh_offset" type="fixed">
+      <parent link="${parent}"/>
+      <child link="${child}"/>
+      <origin xyz="${a} 0 ${d}" rpy="${alpha} 0 0"/>
+    </joint>
+  </xacro:macro>
+
+  <link name="world"/>
+
+  <xacro:small_sphere name="base_link" radius="0.022" color="gray"/>
+  <joint name="world_to_base" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="theta1_link"/>
+  <joint name="q0" type="revolute">
+    <parent link="base_link"/>
+    <child link="theta1_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.141592653589793" upper="3.141592653589793" effort="1" velocity="1"/>
+  </joint>
+  <xacro:small_sphere name="frame1" radius="0.018" color="blue"/>
+  <xacro:dh_fixed parent="theta1_link" child="frame1" a="0" d="0.095" alpha="1.5707963267948966"/>
+
+  <link name="theta2_link"/>
+  <joint name="q1" type="revolute">
+    <parent link="frame1"/>
+    <child link="theta2_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-2.0943951023931953" upper="2.0943951023931953" effort="1" velocity="1"/>
+  </joint>
+  <xacro:small_sphere name="frame2" radius="0.018" color="blue"/>
+  <xacro:dh_fixed parent="theta2_link" child="frame2" a="0.244" d="0" alpha="0"/>
+
+  <link name="theta3_link"/>
+  <joint name="q2_clockwise" type="revolute">
+    <parent link="frame2"/>
+    <child link="theta3_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 -1"/>
+    <limit lower="-2.0943951023931953" upper="2.0943951023931953" effort="1" velocity="1"/>
+  </joint>
+  <xacro:small_sphere name="frame3" radius="0.018" color="blue"/>
+  <xacro:dh_fixed parent="theta3_link" child="frame3" a="0.1628" d="0" alpha="0"/>
+
+  <link name="theta4_link"/>
+  <joint name="q3_clockwise" type="revolute">
+    <parent link="frame3"/>
+    <child link="theta4_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 -1"/>
+    <limit lower="-2.0943951023931953" upper="2.0943951023931953" effort="1" velocity="1"/>
+  </joint>
+  <xacro:small_sphere name="frame4" radius="0.018" color="blue"/>
+  <xacro:dh_fixed parent="theta4_link" child="frame4" a="0.096" d="0" alpha="-1.5707963267948966"/>
+
+  <xacro:small_sphere name="tool0" radius="0.014" color="orange"/>
+  <joint name="tool_offset" type="fixed">
+    <parent link="frame4"/>
+    <child link="tool0"/>
+    <origin xyz="0 0 0.011" rpy="0 0 0"/>
+  </joint>
+</robot>
