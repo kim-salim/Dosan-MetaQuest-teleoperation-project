@@ -1,0 +1,4 @@
+[submodule "src/doosan-robot2"]
+	path = src/doosan-robot2
+	url = https://github.com/kim-salim/doosan-robot2.git
+	branch = agent/a0509-runtime-changes
