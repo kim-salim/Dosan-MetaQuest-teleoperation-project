@@ -26,6 +26,3 @@ log/
 .vscode/
 .idea/
 .DS_Store
-
-# External dependency managed separately
-src/doosan-robot2/
