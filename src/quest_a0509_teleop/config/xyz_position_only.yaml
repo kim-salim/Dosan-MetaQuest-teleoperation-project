@@ -46,8 +46,6 @@ quest_input_button_node:
     teleop_ready_topic: /vr/teleop_ready
     require_teleop_ready: true
     toggle_roll_lock_service: /vr/toggle_roll_lock
-    quest2ros_python_path: /home/salim2001/quest2ros2_ws/install/quest2ros/local/lib/python3.10/dist-packages
-    quest2ros_library_path: /home/salim2001/quest2ros2_ws/install/quest2ros/lib
 
 safety_guard_node:
   ros__parameters:
