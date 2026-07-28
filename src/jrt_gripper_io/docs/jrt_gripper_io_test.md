@@ -193,7 +193,7 @@ Relevant parameters:
 Terminal 1:
 
 ```bash
-cd ~/quest2ros2_ws
+cd ~/ros2_ws
 source /opt/ros/humble/setup.bash
 source install/setup.bash
 ros2 launch ros_tcp_endpoint endpoint.py
