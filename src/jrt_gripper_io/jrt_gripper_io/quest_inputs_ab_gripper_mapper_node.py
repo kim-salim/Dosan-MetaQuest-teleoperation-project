@@ -3,22 +3,13 @@
 from __future__ import annotations
 
 import json
-import os
-import sys
 import time
-from ctypes import CDLL, RTLD_GLOBAL
 from typing import Any, Optional
 
 import rclpy
 from rclpy.executors import ExternalShutdownException
 from rclpy.node import Node
 from std_msgs.msg import String
-
-
-DEFAULT_QUEST2ROS_PYTHON_PATH = (
-    "/home/salim2001/quest2ros2_ws/install/quest2ros/local/lib/python3.10/dist-packages"
-)
-DEFAULT_QUEST2ROS_LIBRARY_PATH = "/home/salim2001/quest2ros2_ws/install/quest2ros/lib"
 
 
 def _field_pressed(msg: Any, field: str, threshold: float) -> bool:
@@ -43,13 +34,6 @@ class QuestInputsAbGripperMapperNode(Node):
         self.watchdog_timeout_sec = float(
             self.get_parameter("watchdog_timeout_sec").value
         )
-        self.quest2ros_python_path = str(
-            self.get_parameter("quest2ros_python_path").value
-        )
-        self.quest2ros_library_path = str(
-            self.get_parameter("quest2ros_library_path").value
-        )
-
         self.command_pub = self.create_publisher(String, self.command_topic, 10)
         self._start_time = time.monotonic()
         self._last_input_time: float | None = None
@@ -61,7 +45,7 @@ class QuestInputsAbGripperMapperNode(Node):
             self.input_sub = None
             self.get_logger().error(
                 "Quest2ROS input mapper disabled: quest2ros.msg.OVR2ROSInputs "
-                "is unavailable. Source quest2ros2_ws or check quest2ros paths."
+                "is unavailable. Build and source the integrated workspace."
             )
         else:
             self.input_sub = self.create_subscription(
@@ -96,43 +80,16 @@ class QuestInputsAbGripperMapperNode(Node):
         self.declare_parameter("b_button_field", "button_upper")
         self.declare_parameter("button_threshold", 0.5)
         self.declare_parameter("watchdog_timeout_sec", 0.3)
-        self.declare_parameter("quest2ros_python_path", DEFAULT_QUEST2ROS_PYTHON_PATH)
-        self.declare_parameter("quest2ros_library_path", DEFAULT_QUEST2ROS_LIBRARY_PATH)
 
     def _load_inputs_msg_type(self) -> Optional[type]:
         try:
             from quest2ros.msg import OVR2ROSInputs
 
-            self._load_quest2ros_libraries()
             OVR2ROSInputs.__class__.__import_type_support__()
             return OVR2ROSInputs
-        except Exception:
-            if self.quest2ros_python_path and self.quest2ros_python_path not in sys.path:
-                sys.path.insert(0, self.quest2ros_python_path)
-            try:
-                from quest2ros.msg import OVR2ROSInputs
-
-                self._load_quest2ros_libraries()
-                OVR2ROSInputs.__class__.__import_type_support__()
-                return OVR2ROSInputs
-            except Exception as exc:
-                self.get_logger().error(f"failed to import OVR2ROSInputs: {exc}")
-                return None
-
-    def _load_quest2ros_libraries(self) -> None:
-        if not self.quest2ros_library_path:
-            return
-        library_names = (
-            "libquest2ros__rosidl_generator_c.so",
-            "libquest2ros__rosidl_typesupport_c.so",
-            "libquest2ros__rosidl_typesupport_introspection_c.so",
-            "libquest2ros__rosidl_typesupport_fastrtps_c.so",
-            "libquest2ros__rosidl_generator_py.so",
-        )
-        for name in library_names:
-            path = os.path.join(self.quest2ros_library_path, name)
-            if os.path.exists(path):
-                CDLL(path, mode=RTLD_GLOBAL)
+        except Exception as exc:
+            self.get_logger().error(f"failed to import OVR2ROSInputs: {exc}")
+            return None
 
     def _on_inputs(self, msg: Any) -> None:
         self._last_input_time = time.monotonic()

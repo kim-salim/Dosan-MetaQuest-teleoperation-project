@@ -145,10 +145,10 @@ Robot output, only when `dry_run:=false`:
 
 ## Quest2ROS TCP Endpoint
 
-Start the Quest2ROS TCP endpoint from the Quest2ROS workspace:
+Start the bundled Quest2ROS TCP endpoint from this workspace:
 
 ```bash
-cd ~/quest2ros2_ws
+cd ~/ros2_ws
 source /opt/ros/humble/setup.bash
 source install/setup.bash
 ros2 launch ros_tcp_endpoint endpoint.py
@@ -162,8 +162,7 @@ The endpoint converts Quest2ROS app data into ROS topics such as
 ```bash
 cd ~/ros2_ws
 source /opt/ros/humble/setup.bash
-source install/setup.bash
-colcon build --symlink-install --packages-select quest_a0509_teleop
+colcon build --symlink-install --packages-up-to quest_a0509_teleop
 source install/setup.bash
 ```
 

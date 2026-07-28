@@ -785,15 +785,9 @@ configured field: press_middle
 
 Quest2ROS type import:
 
-- 정상 Python import를 먼저 시도한다.
-- 실패하면 아래 절대 경로를 `sys.path`와 shared-library preload에 사용한다.
-
-```text
-/home/salim2001/quest2ros2_ws/install/quest2ros/local/lib/python3.10/dist-packages
-/home/salim2001/quest2ros2_ws/install/quest2ros/lib
-```
-
-이는 현재 사용자 홈 구조에 결합된 설정이다.
+- `quest2ros` 패키지는 메인 workspace의 `src/quest2ros`에 포함된다.
+- 메인 workspace의 `install/setup.bash`를 source한 뒤 정상 Python import를 사용한다.
+- 외부 workspace 절대 경로와 shared-library 수동 preload는 사용하지 않는다.
 
 ### 6.7 teleop_check_gui
 
@@ -1731,15 +1725,11 @@ quest2ros 또는 별도 외부 의존성 문서
 - 단일 `robot_name`에서 topic/service를 조합
 - launch 시 불일치 검증
 
-#### P2. Quest2ROS 절대 경로
+#### 해결됨: Quest2ROS 절대 경로
 
-`/home/salim2001/quest2ros2_ws/...`에 고정된 fallback은 다른 사용자와 Docker에서 깨진다.
-
-권장:
-
-- overlay workspace를 정상 source
-- package dependency 또는 configurable empty default
-- shared-library 수동 preload 제거 가능성 검토
+`quest2ros`와 `ros_tcp_endpoint`를 메인 workspace에 포함하고 package dependency를
+선언했다. 메인 overlay를 정상 source하며, 외부 workspace fallback과 shared-library
+수동 preload는 제거했다.
 
 #### P2. Docker와 호스트 ROS domain 불일치
 
@@ -1906,8 +1896,8 @@ exec "$@"
 
 - `src/doosan-robot2`는 사용자 fork의 commit `8f4fa87`를 가리키는 submodule이므로
   clone 및 Docker build 전에 submodule 초기화가 필요하다.
-- Quest2ROS 패키지는 이 workspace에 포함되지 않는다.
-- Quest input 노드의 절대 `/home/salim2001/...` fallback은 container 내부에서 유효하지 않다.
+- `quest2ros`와 `ros_tcp_endpoint`는 이 workspace의 `src/`에 포함된다.
+- Quest input 노드는 source된 메인 overlay에서 메시지 타입을 정상 import한다.
 - GUI는 X11/Wayland bridge가 추가로 필요하다.
 - Doosan virtual emulator가 별도 Docker container를 실행하므로 host Docker socket과 image가 필요하다.
 
@@ -1927,7 +1917,7 @@ ros2 launch quest_a0509_teleop a0509_full_bringup_with_gripper.launch.py \
 
 전제:
 
-- Quest2ROS endpoint는 별도 workspace에서 실행
+- 통합된 Quest2ROS endpoint는 `start_endpoint:=true`로 실행 가능
 - 또는 실제 Quest topic 대신 별도 test publisher 준비
 
 확인:

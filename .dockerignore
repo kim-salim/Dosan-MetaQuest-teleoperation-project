@@ -5,6 +5,7 @@ log/
 .ros/
 .colcon/
 
+**/.git
 **/.git/
 **/.github/
 **/.vscode/

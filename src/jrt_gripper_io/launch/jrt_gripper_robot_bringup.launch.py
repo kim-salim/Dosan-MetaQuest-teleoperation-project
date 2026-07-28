@@ -38,8 +38,6 @@ def generate_launch_description() -> LaunchDescription:
     startup_all_off = LaunchConfiguration("startup_all_off")
     shutdown_all_off = LaunchConfiguration("shutdown_all_off")
     dry_run = LaunchConfiguration("dry_run")
-    quest2ros_python_path = LaunchConfiguration("quest2ros_python_path")
-    quest2ros_library_path = LaunchConfiguration("quest2ros_library_path")
 
     dsr_bringup = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -104,17 +102,6 @@ def generate_launch_description() -> LaunchDescription:
             DeclareLaunchArgument("startup_all_off", default_value="true"),
             DeclareLaunchArgument("shutdown_all_off", default_value="true"),
             DeclareLaunchArgument("dry_run", default_value="false"),
-            DeclareLaunchArgument(
-                "quest2ros_python_path",
-                default_value=(
-                    "/home/salim2001/quest2ros2_ws/install/quest2ros/local/lib/"
-                    "python3.10/dist-packages"
-                ),
-            ),
-            DeclareLaunchArgument(
-                "quest2ros_library_path",
-                default_value="/home/salim2001/quest2ros2_ws/install/quest2ros/lib",
-            ),
             dsr_bringup,
             Node(
                 package="jrt_gripper_io",
@@ -135,8 +122,6 @@ def generate_launch_description() -> LaunchDescription:
                             value_type=float,
                         ),
                         "command_topic": command_topic,
-                        "quest2ros_python_path": quest2ros_python_path,
-                        "quest2ros_library_path": quest2ros_library_path,
                     }
                 ],
                 condition=IfCondition(

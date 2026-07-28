@@ -3,10 +3,7 @@
 from __future__ import annotations
 
 import json
-import os
-import sys
 import time
-from ctypes import CDLL, RTLD_GLOBAL
 from typing import Any, Optional
 
 import rclpy
@@ -15,12 +12,6 @@ from rclpy.node import Node
 from std_msgs.msg import Bool
 from std_msgs.msg import String
 from std_srvs.srv import Trigger
-
-
-DEFAULT_QUEST2ROS_PYTHON_PATH = (
-    "/home/salim2001/quest2ros2_ws/install/quest2ros/local/lib/python3.10/dist-packages"
-)
-DEFAULT_QUEST2ROS_LIBRARY_PATH = "/home/salim2001/quest2ros2_ws/install/quest2ros/lib"
 
 
 def _string_list(value: Any) -> list[str]:
@@ -47,9 +38,6 @@ class QuestInputButtonNode(Node):
         self.toggle_roll_lock_service = self.get_parameter(
             "toggle_roll_lock_service"
         ).value
-        self.quest2ros_python_path = self.get_parameter("quest2ros_python_path").value
-        self.quest2ros_library_path = self.get_parameter("quest2ros_library_path").value
-
         self.status_pub = self.create_publisher(String, self.status_topic, 10)
         self.toggle_roll_lock_client = self.create_client(
             Trigger,
@@ -73,7 +61,7 @@ class QuestInputButtonNode(Node):
             self.input_sub = None
             self._publish_status(
                 "Quest input button bridge disabled: quest2ros.msg.OVR2ROSInputs "
-                "is unavailable. Set quest2ros_python_path or source quest2ros2_ws.",
+                "is unavailable. Build and source the integrated workspace.",
                 warn=True,
             )
             return
@@ -113,46 +101,19 @@ class QuestInputButtonNode(Node):
         self.declare_parameter("teleop_ready_topic", "/vr/teleop_ready")
         self.declare_parameter("require_teleop_ready", True)
         self.declare_parameter("toggle_roll_lock_service", "/vr/toggle_roll_lock")
-        self.declare_parameter("quest2ros_python_path", DEFAULT_QUEST2ROS_PYTHON_PATH)
-        self.declare_parameter("quest2ros_library_path", DEFAULT_QUEST2ROS_LIBRARY_PATH)
 
     def _load_inputs_msg_type(self) -> Optional[type]:
         try:
             from quest2ros.msg import OVR2ROSInputs
 
-            self._load_quest2ros_libraries()
             OVR2ROSInputs.__class__.__import_type_support__()
             return OVR2ROSInputs
-        except Exception:
-            if self.quest2ros_python_path and self.quest2ros_python_path not in sys.path:
-                sys.path.insert(0, self.quest2ros_python_path)
-            try:
-                from quest2ros.msg import OVR2ROSInputs
-
-                self._load_quest2ros_libraries()
-                OVR2ROSInputs.__class__.__import_type_support__()
-                return OVR2ROSInputs
-            except Exception as exc:
-                self._publish_status(
-                    f"failed to import quest2ros.msg.OVR2ROSInputs: {exc}",
-                    warn=True,
-                )
-                return None
-
-    def _load_quest2ros_libraries(self) -> None:
-        if not self.quest2ros_library_path:
-            return
-        library_names = (
-            "libquest2ros__rosidl_generator_c.so",
-            "libquest2ros__rosidl_typesupport_c.so",
-            "libquest2ros__rosidl_typesupport_introspection_c.so",
-            "libquest2ros__rosidl_typesupport_fastrtps_c.so",
-            "libquest2ros__rosidl_generator_py.so",
-        )
-        for name in library_names:
-            path = os.path.join(self.quest2ros_library_path, name)
-            if os.path.exists(path):
-                CDLL(path, mode=RTLD_GLOBAL)
+        except Exception as exc:
+            self._publish_status(
+                f"failed to import quest2ros.msg.OVR2ROSInputs: {exc}",
+                warn=True,
+            )
+            return None
 
     def _on_inputs(self, msg: Any) -> None:
         now = time.monotonic()

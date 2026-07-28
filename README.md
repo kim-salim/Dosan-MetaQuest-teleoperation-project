@@ -66,7 +66,7 @@ Prerequisites:
 - Ubuntu 22.04
 - ROS 2 Humble
 - Doosan controller dependencies described by `src/doosan-robot2/README.md`
-- A separately built Quest2ROS workspace for `quest2ros/msg/OVR2ROSInputs`
+- The bundled `quest2ros` message and `ros_tcp_endpoint` packages under `src/`
 
 ```bash
 source /opt/ros/humble/setup.bash
