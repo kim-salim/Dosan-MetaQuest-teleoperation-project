@@ -1,0 +1,7 @@
+data/
+outputs/
+cache/
+user-home/
+.env
+*.log
+__pycache__/

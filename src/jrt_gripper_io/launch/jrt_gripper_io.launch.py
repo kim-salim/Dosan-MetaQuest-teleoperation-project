@@ -12,11 +12,14 @@ def generate_launch_description() -> LaunchDescription:
     watchdog_timeout_sec = LaunchConfiguration("watchdog_timeout_sec")
     command_topic = LaunchConfiguration("command_topic")
     set_tool_do_service = LaunchConfiguration("set_tool_do_service")
+    get_tool_do_service = LaunchConfiguration("get_tool_do_service")
     close_do_index = LaunchConfiguration("close_do_index")
     open_do_index = LaunchConfiguration("open_do_index")
     active_value = LaunchConfiguration("active_value")
     inactive_value = LaunchConfiguration("inactive_value")
     service_timeout_sec = LaunchConfiguration("service_timeout_sec")
+    readback_timeout_sec = LaunchConfiguration("readback_timeout_sec")
+    readback_poll_sec = LaunchConfiguration("readback_poll_sec")
     command_mode = LaunchConfiguration("command_mode")
     pulse_sec = LaunchConfiguration("pulse_sec")
     interlock_sec = LaunchConfiguration("interlock_sec")
@@ -34,15 +37,21 @@ def generate_launch_description() -> LaunchDescription:
             DeclareLaunchArgument("command_topic", default_value="/jrt_gripper/cmd"),
             DeclareLaunchArgument(
                 "set_tool_do_service",
-                default_value="/dsr01/io/set_tool_digital_output",
+                default_value="/dsr01/dsr_controller2/io/set_tool_digital_output",
             ),
-            DeclareLaunchArgument("close_do_index", default_value="1"),
-            DeclareLaunchArgument("open_do_index", default_value="2"),
+            DeclareLaunchArgument(
+                "get_tool_do_service",
+                default_value="/dsr01/dsr_controller2/io/get_tool_digital_output",
+            ),
+            DeclareLaunchArgument("close_do_index", default_value="2"),
+            DeclareLaunchArgument("open_do_index", default_value="1"),
             DeclareLaunchArgument("active_value", default_value="1"),
             DeclareLaunchArgument("inactive_value", default_value="0"),
             DeclareLaunchArgument("service_timeout_sec", default_value="1.0"),
+            DeclareLaunchArgument("readback_timeout_sec", default_value="0.5"),
+            DeclareLaunchArgument("readback_poll_sec", default_value="0.01"),
             DeclareLaunchArgument("command_mode", default_value="pulse"),
-            DeclareLaunchArgument("pulse_sec", default_value="0.20"),
+            DeclareLaunchArgument("pulse_sec", default_value="0.50"),
             DeclareLaunchArgument("interlock_sec", default_value="0.05"),
             DeclareLaunchArgument("debounce_sec", default_value="0.30"),
             DeclareLaunchArgument("startup_all_off", default_value="true"),
@@ -81,6 +90,7 @@ def generate_launch_description() -> LaunchDescription:
                     {
                         "command_topic": command_topic,
                         "set_tool_do_service": set_tool_do_service,
+                        "get_tool_do_service": get_tool_do_service,
                         "close_do_index": ParameterValue(
                             close_do_index,
                             value_type=int,
@@ -99,6 +109,14 @@ def generate_launch_description() -> LaunchDescription:
                         ),
                         "service_timeout_sec": ParameterValue(
                             service_timeout_sec,
+                            value_type=float,
+                        ),
+                        "readback_timeout_sec": ParameterValue(
+                            readback_timeout_sec,
+                            value_type=float,
+                        ),
+                        "readback_poll_sec": ParameterValue(
+                            readback_poll_sec,
                             value_type=float,
                         ),
                         "command_mode": command_mode,

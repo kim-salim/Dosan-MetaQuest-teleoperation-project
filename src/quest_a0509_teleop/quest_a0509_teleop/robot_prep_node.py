@@ -10,10 +10,13 @@ from typing import Iterable, Optional
 
 import rclpy
 from rclpy.callback_groups import ReentrantCallbackGroup
-from rclpy.executors import MultiThreadedExecutor
+from rclpy.executors import ExternalShutdownException, MultiThreadedExecutor
 from rclpy.node import Node
 from std_msgs.msg import Bool, Float64MultiArray, String
+from rclpy.qos import DurabilityPolicy, QoSProfile, ReliabilityPolicy
 from std_srvs.srv import SetBool, Trigger
+
+from quest_a0509_teleop.prep_safety import PreparationStopToken
 
 try:
     from dsr_msgs2.srv import (
@@ -70,6 +73,9 @@ class RobotPrepNode(Node):
         self._declare_parameters()
 
         self.robot_namespace = str(self.get_parameter("robot_namespace").value).strip("/")
+        self.controller_name = str(self.get_parameter("controller_name").value).strip("/")
+        if not self.robot_namespace or not self.controller_name:
+            raise ValueError("robot_namespace and controller_name must not be empty")
         self.status_topic = self.get_parameter("status_topic").value
         self.robot_anchor_posx_topic = self.get_parameter("robot_anchor_posx_topic").value
         self.teleop_ready_topic = self.get_parameter("teleop_ready_topic").value
@@ -107,11 +113,16 @@ class RobotPrepNode(Node):
         self.teleop_ready = False
 
         self.status_pub = self.create_publisher(String, self.status_topic, 10)
-        self.teleop_ready_pub = self.create_publisher(Bool, self.teleop_ready_topic, 10)
+        state_qos = QoSProfile(
+            depth=1,
+            reliability=ReliabilityPolicy.RELIABLE,
+            durability=DurabilityPolicy.TRANSIENT_LOCAL,
+        )
+        self.teleop_ready_pub = self.create_publisher(Bool, self.teleop_ready_topic, state_qos)
         self.robot_anchor_pub = self.create_publisher(
             Float64MultiArray,
             self.robot_anchor_posx_topic,
-            10,
+            state_qos,
         )
         self.recenter_client = self.create_client(
             Trigger,
@@ -126,6 +137,7 @@ class RobotPrepNode(Node):
 
         self._make_doosan_clients()
         self.operation_lock = threading.Lock()
+        self.prepare_stop = PreparationStopToken()
 
         self.prepare_srv = self.create_service(
             Trigger,
@@ -180,12 +192,13 @@ class RobotPrepNode(Node):
 
     def _declare_parameters(self) -> None:
         self.declare_parameter("robot_namespace", "/dsr01")
+        self.declare_parameter("controller_name", "dsr_controller2")
         self.declare_parameter("status_topic", "/vr/status")
         self.declare_parameter("robot_anchor_posx_topic", "/vr/robot_anchor_posx")
         self.declare_parameter("teleop_ready_topic", "/vr/teleop_ready")
         self.declare_parameter("recenter_service", "/vr/recenter")
         self.declare_parameter("set_live_service", "/vr/set_live_robot_output")
-        self.declare_parameter("prepare_joint_deg", [0.0, 0.0, 90.0, 0.0, 30.0, 0.0])
+        self.declare_parameter("prepare_joint_deg", [0.0, 0.0, 90.0, 0.0, 60.0, 0.0])
         self.declare_parameter("prepare_joint_tolerance_deg", 2.0)
         self.declare_parameter("prepare_max_step_deg", 10.0)
         self.declare_parameter("prepare_j3_escape_deg", 20.0)
@@ -201,7 +214,7 @@ class RobotPrepNode(Node):
         self.declare_parameter("stop_mode", STOP_MODE_QSTOP)
 
     def _make_doosan_clients(self) -> None:
-        prefix = f"/{self.robot_namespace}"
+        prefix = f"/{self.robot_namespace}/{self.controller_name}"
         self.get_posj_client = (
             self.create_client(
                 GetCurrentPosj,
@@ -309,6 +322,7 @@ class RobotPrepNode(Node):
     ) -> Trigger.Response:
         try:
             with self.operation_lock:
+                self.prepare_stop.begin()
                 self._prepare_robot()
             response.success = True
             response.message = "Robot moved to prep pose and anchor was updated."
@@ -345,12 +359,23 @@ class RobotPrepNode(Node):
         response: Trigger.Response,
     ) -> Trigger.Response:
         try:
-            with self.operation_lock:
-                self._publish_teleop_ready(False, "stop robot requested")
-                self._set_live(False)
+            self.prepare_stop.request()
+            self._publish_teleop_ready(False, "stop robot requested")
+            errors = []
+            try:
                 self._move_stop()
+            except Exception as exc:
+                errors.append(f"MoveStop: {exc}")
+            try:
+                self._set_live(False)
+            except Exception as exc:
+                errors.append(f"disable live: {exc}")
+            if errors:
+                raise RuntimeError("; ".join(errors))
             response.success = True
-            response.message = "Live output disabled and MoveStop was sent."
+            response.message = (
+                "Preparation cancellation requested, MoveStop sent, and live output disabled."
+            )
         except Exception as exc:
             response.success = False
             response.message = f"Stop robot failed: {exc}"
@@ -420,16 +445,19 @@ class RobotPrepNode(Node):
         return response
 
     def _prepare_robot(self) -> None:
+        self.prepare_stop.check()
         self._publish_teleop_ready(False, "prepare started")
         self._require_doosan_motion_clients()
+        self.prepare_stop.check()
         state = self._get_robot_state()
         if state not in self.safe_robot_states:
             raise RuntimeError(f"robot_state={state} is not ready for prep motion.")
         self._publish_status(
             f"prepare preflight wait {self.prepare_preflight_wait_sec:.1f}s before motion"
         )
-        time.sleep(self.prepare_preflight_wait_sec)
+        self.prepare_stop.wait(self.prepare_preflight_wait_sec)
         current = self._get_current_posj()
+        self.prepare_stop.check()
         phases = self._joint_escape_phases(current, self.prepare_joint_deg)
         waypoint_count = sum(len(waypoints) for _label, waypoints in phases)
         self._publish_status(
@@ -447,6 +475,7 @@ class RobotPrepNode(Node):
         if not phases:
             self._publish_status("robot already near prep joint pose")
         for index, (label, waypoints) in enumerate(phases, start=1):
+            self.prepare_stop.check()
             if not waypoints:
                 continue
             self._publish_status(
@@ -454,11 +483,13 @@ class RobotPrepNode(Node):
                 f"points={len(waypoints)} target={waypoints[-1]}"
             )
             self._move_spline_joint_abs(waypoints)
+            self.prepare_stop.check()
             reached = self._wait_for_joint_target(waypoints[-1])
             self._publish_status(
                 f"prep phase {index}/{len(phases)} reached posj={reached}"
             )
         self._wait_for_motion_idle()
+        self.prepare_stop.check()
         final_posj = self._get_current_posj()
         final_error = max(
             abs(final_posj[index] - self.prepare_joint_deg[index])
@@ -469,6 +500,7 @@ class RobotPrepNode(Node):
                 f"prep final error {final_error:.2f} deg exceeds "
                 f"{self.prepare_joint_tolerance_deg:.2f} deg"
             )
+        self.prepare_stop.check()
         posx = self._get_current_posx()
         self._publish_status(
             "prep pose ready: "
@@ -477,6 +509,7 @@ class RobotPrepNode(Node):
         if self.prepare_set_anchor_after_move:
             self._publish_robot_anchor(posx)
             self._call_recenter_best_effort()
+        self.prepare_stop.check()
         self._publish_teleop_ready(True, "prepare complete")
 
     def _require_doosan_motion_clients(self) -> None:
@@ -568,15 +601,16 @@ class RobotPrepNode(Node):
         deadline = time.monotonic() + self._phase_timeout(target)
         last_pos: Optional[list[float]] = None
         while time.monotonic() < deadline:
+            self.prepare_stop.check()
             state = self._get_robot_state()
             if state not in self.safe_robot_states:
                 raise RuntimeError(f"robot_state={state} while waiting for prep motion.")
             last_pos = self._get_current_posj()
             max_error = max(abs(last_pos[index] - target[index]) for index in range(6))
             if max_error <= self.prepare_joint_tolerance_deg:
-                time.sleep(0.5)
+                self.prepare_stop.wait(0.5)
                 return last_pos
-            time.sleep(0.5)
+            self.prepare_stop.wait(0.5)
         if last_pos is None:
             raise TimeoutError("prep motion wait did not receive joint state")
         raise TimeoutError(
@@ -585,10 +619,12 @@ class RobotPrepNode(Node):
         )
 
     def _wait_for_motion_idle(self) -> None:
+        self.prepare_stop.check()
         if self.check_motion_client is None or CheckMotion is None:
             return
         deadline = time.monotonic() + 10.0
         while time.monotonic() < deadline:
+            self.prepare_stop.check()
             response = self._call_service(
                 self.check_motion_client,
                 CheckMotion.Request(),
@@ -596,7 +632,10 @@ class RobotPrepNode(Node):
             )
             if response.success and int(response.status) == 0:
                 return
-            time.sleep(0.5)
+            self.prepare_stop.wait(0.5)
+        raise TimeoutError(
+            "robot motion did not become idle within 10.0 seconds"
+        )
 
     def _phase_timeout(self, target: list[float]) -> float:
         if self.prepare_time_sec > 0.0:
@@ -712,17 +751,19 @@ class RobotPrepNode(Node):
 
     def _set_live(self, enabled: bool) -> None:
         if not self.set_live_client.wait_for_service(timeout_sec=0.5):
-            self._publish_status(
-                f"set live service unavailable: {self.set_live_service_name}",
-                warn=True,
+            raise RuntimeError(
+                f"set live service unavailable: {self.set_live_service_name}"
             )
-            return
         request = SetBool.Request()
         request.data = bool(enabled)
         response = self._call_service(self.set_live_client, request, timeout_sec=3.0)
+        if not bool(response.success):
+            raise RuntimeError(
+                "set live request rejected: "
+                f"enabled={bool(enabled)} message={response.message}"
+            )
         self._publish_status(
-            f"set live response success={response.success} message={response.message}",
-            warn=not response.success,
+            f"set live response success=True message={response.message}"
         )
 
     def _call_service(self, client, request, timeout_sec: float):
@@ -770,10 +811,13 @@ def main(args: list[str] | None = None) -> None:
     executor.add_node(node)
     try:
         executor.spin()
+    except (KeyboardInterrupt, ExternalShutdownException):
+        pass
     finally:
         executor.shutdown()
         node.destroy_node()
-        rclpy.shutdown()
+        if rclpy.ok():
+            rclpy.shutdown()
 
 
 if __name__ == "__main__":

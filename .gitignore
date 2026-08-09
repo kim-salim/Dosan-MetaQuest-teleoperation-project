@@ -26,3 +26,14 @@ log/
 .vscode/
 .idea/
 .DS_Store
+
+# Local credentials / private connection information
+salim_imformation
+.env
+**/.env
+!**/.env.example
+*.pem
+*.key
+
+# Python-generated package metadata
+**/*.egg-info/

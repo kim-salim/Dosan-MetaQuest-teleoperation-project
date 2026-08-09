@@ -59,12 +59,15 @@ class RosPublisher(RosSender):
         try:
             msg = convert_data(self.topic, data)
             if msg:
-                print(f"[DEBUG] Publishing parsed message to {self.topic}")
                 self.pub.publish(msg)
             else:
-                print(f"[WARNING] Could not convert data for topic {self.topic}")
+                self.get_logger().warning(
+                    f"Could not convert data for topic {self.topic}"
+                )
         except Exception as e:
-            print(f"[ERROR] Failed to process message for topic {self.topic}: {e}")
+            self.get_logger().error(
+                f"Failed to process message for topic {self.topic}: {e}"
+            )
 
         return None
 

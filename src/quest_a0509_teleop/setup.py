@@ -29,7 +29,10 @@ setup(
             "servol_rt_streamer_node = quest_a0509_teleop.servol_rt_streamer_node:main",
             "robot_prep_node = quest_a0509_teleop.robot_prep_node:main",
             "teleop_check_gui = quest_a0509_teleop.teleop_check_gui:main",
+            "metaquest_calibration_gui = quest_a0509_teleop.metaquest_calibration_gui:main",
             "quest_input_button_node = quest_a0509_teleop.quest_input_button_node:main",
+            "a0509_command_mux_node = quest_a0509_teleop.a0509_command_mux_node:main",
+            "metaquest_full_session = quest_a0509_teleop.metaquest_full_session_node:main",
         ],
     },
 )

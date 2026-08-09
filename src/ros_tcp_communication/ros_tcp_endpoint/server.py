@@ -123,7 +123,6 @@ class TcpServer(Node):
             self.send_unity_error("Don't understand SysCommand.'{}'".format(topic))
         else:
             message_json = data.decode("utf-8").strip("\x00 \t\r\n")
-            print(f"[DEBUG] Received raw message: {message_json}")
             try:
                 params, end = json.JSONDecoder().raw_decode(message_json)
                 trailing = message_json[end:].strip("\x00 \t\r\n")

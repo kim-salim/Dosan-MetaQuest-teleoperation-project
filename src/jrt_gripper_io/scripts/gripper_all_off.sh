@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-SERVICE_NAME="${SERVICE_NAME:-/dsr01/io/set_tool_digital_output}"
+SERVICE_NAME="${SERVICE_NAME:-/dsr01/dsr_controller2/io/set_tool_digital_output}"
 SERVICE_TYPE="${SERVICE_TYPE:-dsr_msgs2/srv/SetToolDigitalOutput}"
-CLOSE_INDEX="${CLOSE_INDEX:-1}"
-OPEN_INDEX="${OPEN_INDEX:-2}"
+CLOSE_INDEX="${CLOSE_INDEX:-2}"
+OPEN_INDEX="${OPEN_INDEX:-1}"
 OFF_VALUE=0
 
 check_service() {

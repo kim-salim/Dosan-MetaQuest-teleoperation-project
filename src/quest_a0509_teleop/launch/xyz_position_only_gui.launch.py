@@ -23,7 +23,7 @@ def generate_launch_description():
             DeclareLaunchArgument("config_file", default_value=default_config),
             DeclareLaunchArgument("dry_run", default_value="true"),
             DeclareLaunchArgument("robot_namespace", default_value="/dsr01"),
-            DeclareLaunchArgument("doosan_servol_topic", default_value="/dsr01/servol_rt_stream"),
+            DeclareLaunchArgument("doosan_servol_topic", default_value="/dsr01/dsr_controller2/servol_rt_stream"),
             Node(
                 package="quest_a0509_teleop",
                 executable="xyz_mapper_node",

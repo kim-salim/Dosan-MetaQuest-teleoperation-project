@@ -193,9 +193,6 @@ class ClientThread(threading.Thread):
         try:
             while not halt_event.is_set():
                 destination, data = self.read_message(self.conn)
-
-                print(f"[DEBUG] Received raw message for {destination}: {list(data)}")
-
                 # Process this message that was sent from Unity
                 if self.tcp_server.pending_srv_id is not None:
                     # if we've been told that the next message will be a service request/response, process it as such

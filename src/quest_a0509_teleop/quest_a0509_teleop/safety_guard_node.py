@@ -8,7 +8,13 @@ import time
 from typing import Iterable, Optional
 
 import rclpy
+from rclpy.executors import ExternalShutdownException
 from rclpy.node import Node
+from rclpy.qos import DurabilityPolicy, QoSProfile, ReliabilityPolicy
+from quest_a0509_teleop.doosan_orientation import (
+    limit_doosan_zyz_geodesic_deg,
+)
+
 from std_msgs.msg import Float64MultiArray, String
 
 
@@ -21,6 +27,24 @@ def _vector3(values: Iterable[float], name: str) -> list[float]:
     return output
 
 
+def _bool_vector3(values: Iterable[bool], name: str) -> list[bool]:
+    output = list(values)
+    if len(output) != 3:
+        raise ValueError(f"{name} must contain exactly 3 values")
+    if any(type(value) is not bool for value in output):
+        raise ValueError(f"{name} must contain only booleans: {output}")
+    return output
+
+
+def clamp_workspace_axis(
+    value: float, minimum: float, maximum: float, minimum_enabled: bool
+) -> float:
+    output = float(value)
+    if minimum_enabled:
+        output = max(output, float(minimum))
+    return min(output, float(maximum))
+
+
 def _posx(values: Iterable[float], name: str) -> list[float]:
     output = [float(value) for value in values]
     if len(output) != 6:
@@ -28,10 +52,6 @@ def _posx(values: Iterable[float], name: str) -> list[float]:
     if any(not math.isfinite(value) for value in output):
         raise ValueError(f"{name} contains non-finite values: {output}")
     return output
-
-
-def _shortest_angle_delta_deg(target: float, current: float) -> float:
-    return (target - current + 180.0) % 360.0 - 180.0
 
 
 class SafetyGuardNode(Node):
@@ -46,15 +66,15 @@ class SafetyGuardNode(Node):
             self.get_parameter("workspace_min_xyz_mm").value,
             "workspace_min_xyz_mm",
         )
+        self.workspace_min_limit_enabled = _bool_vector3(
+            self.get_parameter("workspace_min_limit_enabled").value,
+            "workspace_min_limit_enabled",
+        )
         self.workspace_max_xyz_mm = _vector3(
             self.get_parameter("workspace_max_xyz_mm").value,
             "workspace_max_xyz_mm",
         )
         self.robot_anchor_posx_topic = self.get_parameter("robot_anchor_posx_topic").value
-        self.max_step_xyz_mm = _vector3(
-            self.get_parameter("max_step_xyz_mm").value,
-            "max_step_xyz_mm",
-        )
         self.enable_orientation_limits = bool(
             self.get_parameter("enable_orientation_limits").value
         )
@@ -62,25 +82,23 @@ class SafetyGuardNode(Node):
             self.get_parameter("max_orientation_delta_deg").value,
             "max_orientation_delta_deg",
         )
-        self.max_step_rpy_deg = _vector3(
-            self.get_parameter("max_step_rpy_deg").value,
-            "max_step_rpy_deg",
-        )
+        self.publish_rate_hz = float(self.get_parameter("publish_rate_hz").value)
+        if self.publish_rate_hz <= 0.0:
+            raise ValueError("publish_rate_hz must be > 0.0")
         for index in range(3):
-            if self.workspace_min_xyz_mm[index] > self.workspace_max_xyz_mm[index]:
+            if (
+                self.workspace_min_limit_enabled[index]
+                and self.workspace_min_xyz_mm[index] > self.workspace_max_xyz_mm[index]
+            ):
                 raise ValueError("workspace_min_xyz_mm must be <= workspace_max_xyz_mm")
-            if self.max_step_xyz_mm[index] < 0.0:
-                raise ValueError("max_step_xyz_mm values must be non-negative")
             if self.max_orientation_delta_deg[index] < 0.0:
                 raise ValueError("max_orientation_delta_deg values must be non-negative")
-            if self.max_step_rpy_deg[index] < 0.0:
-                raise ValueError("max_step_rpy_deg values must be non-negative")
 
         self.latest_target: Optional[list[float]] = None
-        self.last_safe: Optional[list[float]] = None
         self.orientation_anchor_rpy_deg: Optional[list[float]] = None
+        self.last_safe_orientation_zyz_deg: Optional[list[float]] = None
         self.last_event_text = ""
-        self.last_safe_log_time = 0.0
+        self.last_status_log_time = 0.0
 
         self.safe_pub = self.create_publisher(Float64MultiArray, self.safe_posx_topic, 10)
         self.status_pub = self.create_publisher(String, self.status_topic, 10)
@@ -88,26 +106,34 @@ class SafetyGuardNode(Node):
             Float64MultiArray,
             self.target_posx_topic,
             self._on_target,
-            10,
+            1,
+        )
+        state_qos = QoSProfile(
+            depth=1,
+            reliability=ReliabilityPolicy.RELIABLE,
+            durability=DurabilityPolicy.TRANSIENT_LOCAL,
         )
         self.robot_anchor_sub = self.create_subscription(
             Float64MultiArray,
             self.robot_anchor_posx_topic,
             self._on_robot_anchor_posx,
-            10,
+            state_qos,
         )
-        period = 1.0 / float(self.get_parameter("publish_rate_hz").value)
-        self.timer = self.create_timer(period, self._tick)
+        self.timer = self.create_timer(1.0 / self.publish_rate_hz, self._tick)
         self._publish_status(
             "safety_guard_node started: target="
             f"{self.target_posx_topic}, safe={self.safe_posx_topic}, "
             f"workspace_min_xyz_mm={self.workspace_min_xyz_mm}, "
             f"workspace_max_xyz_mm={self.workspace_max_xyz_mm}, "
+            f"workspace_min_limit_enabled={self.workspace_min_limit_enabled}, "
             f"robot_anchor_posx_topic={self.robot_anchor_posx_topic}, "
-            f"max_step_xyz_mm={self.max_step_xyz_mm}, "
+            "robot_anchor_qos=KEEP_LAST(depth=1, RELIABLE, TRANSIENT_LOCAL), "
             f"enable_orientation_limits={self.enable_orientation_limits}, "
             f"max_orientation_delta_deg={self.max_orientation_delta_deg}, "
-            f"max_step_rpy_deg={self.max_step_rpy_deg}"
+            "orientation_limit_mode=quaternion_geodesic, "
+            f"orientation_geodesic_limit_deg={self.max_orientation_delta_deg[1]}, "
+            f"publish_rate_hz={self.publish_rate_hz}, "
+            "processing_mode=fixed_rate_clamp_only, ramp_owner=streamer"
         )
 
     def _declare_parameters(self) -> None:
@@ -117,17 +143,20 @@ class SafetyGuardNode(Node):
         self.declare_parameter("robot_anchor_posx_topic", "/vr/robot_anchor_posx")
         self.declare_parameter("workspace_min_xyz_mm", [250.0, -350.0, 150.0])
         self.declare_parameter("workspace_max_xyz_mm", [650.0, 350.0, 600.0])
-        self.declare_parameter("max_step_xyz_mm", [20.0, 20.0, 20.0])
+        self.declare_parameter(
+            "workspace_min_limit_enabled", [True, True, True]
+        )
         self.declare_parameter("enable_orientation_limits", True)
         self.declare_parameter("max_orientation_delta_deg", [15.0, 15.0, 20.0])
-        self.declare_parameter("max_step_rpy_deg", [2.0, 2.0, 2.0])
         self.declare_parameter("publish_rate_hz", 30.0)
 
     def _on_target(self, msg: Float64MultiArray) -> None:
         try:
-            self.latest_target = _posx(msg.data, "target_posx")
+            target = _posx(msg.data, "target_posx")
         except ValueError as exc:
             self._publish_status(f"ignored invalid target_posx: {exc}", warn=True)
+            return
+        self.latest_target = target
 
     def _on_robot_anchor_posx(self, msg: Float64MultiArray) -> None:
         try:
@@ -136,6 +165,7 @@ class SafetyGuardNode(Node):
             self._publish_status(f"ignored invalid robot anchor posx: {exc}", warn=True)
             return
         self.orientation_anchor_rpy_deg = posx[3:6]
+        self.last_safe_orientation_zyz_deg = self.orientation_anchor_rpy_deg[:]
         self._publish_status(
             "orientation safety anchor updated: "
             + json.dumps({"rpy_deg": self.orientation_anchor_rpy_deg}, sort_keys=True)
@@ -150,77 +180,71 @@ class SafetyGuardNode(Node):
         clamped_axes = []
         for index, axis in enumerate(("x", "y", "z")):
             before = clamped[index]
-            clamped[index] = min(
-                max(before, self.workspace_min_xyz_mm[index]),
+            clamped[index] = clamp_workspace_axis(
+                before,
+                self.workspace_min_xyz_mm[index],
                 self.workspace_max_xyz_mm[index],
+                self.workspace_min_limit_enabled[index],
             )
             if clamped[index] != before:
                 clamped_axes.append(axis)
+        orientation_delta_deg: Optional[float] = None
         if self.enable_orientation_limits:
             if self.orientation_anchor_rpy_deg is None:
                 self.orientation_anchor_rpy_deg = raw[3:6]
+                self.last_safe_orientation_zyz_deg = raw[3:6]
                 self._publish_status(
                     "orientation safety anchor initialized from first target: "
-                    + json.dumps({"rpy_deg": self.orientation_anchor_rpy_deg}, sort_keys=True)
+                    + json.dumps(
+                        {"zyz_deg": self.orientation_anchor_rpy_deg},
+                        sort_keys=True,
+                    )
                 )
-            for offset, axis in enumerate(("rx", "ry", "rz")):
-                index = offset + 3
-                anchor = self.orientation_anchor_rpy_deg[offset]
-                delta = _shortest_angle_delta_deg(raw[index], anchor)
-                max_delta = self.max_orientation_delta_deg[offset]
-                limited_delta = min(max(delta, -max_delta), max_delta)
-                clamped[index] = anchor + limited_delta
-                if abs(limited_delta - delta) > 1.0e-9:
-                    clamped_axes.append(axis)
-
-        if self.last_safe is None:
-            safe = clamped[:]
-            ramp_axes = []
-            self._publish_status("safe_posx initialized: " + json.dumps({"data": safe}, sort_keys=True))
+            reference_zyz = (
+                self.last_safe_orientation_zyz_deg
+                if self.last_safe_orientation_zyz_deg is not None
+                else self.orientation_anchor_rpy_deg
+            )
+            limited_zyz, orientation_delta_deg, orientation_limited = (
+                limit_doosan_zyz_geodesic_deg(
+                    self.orientation_anchor_rpy_deg,
+                    raw[3:6],
+                    self.max_orientation_delta_deg[1],
+                    reference_zyz,
+                )
+            )
+            clamped[3:6] = limited_zyz
+            self.last_safe_orientation_zyz_deg = limited_zyz[:]
+            if orientation_limited:
+                clamped_axes.append("orientation")
         else:
-            safe = clamped[:]
-            ramp_axes = []
-            for index, axis in enumerate(("x", "y", "z")):
-                delta = clamped[index] - self.last_safe[index]
-                max_step = self.max_step_xyz_mm[index]
-                if abs(delta) > max_step:
-                    safe[index] = self.last_safe[index] + math.copysign(max_step, delta)
-                    ramp_axes.append(axis)
-            for offset, axis in enumerate(("rx", "ry", "rz")):
-                index = offset + 3
-                delta = _shortest_angle_delta_deg(clamped[index], self.last_safe[index])
-                max_step = self.max_step_rpy_deg[offset]
-                if abs(delta) > max_step:
-                    safe[index] = self.last_safe[index] + math.copysign(max_step, delta)
-                    ramp_axes.append(axis)
-                else:
-                    safe[index] = self.last_safe[index] + delta
+            self.last_safe_orientation_zyz_deg = raw[3:6]
 
-        self.last_safe = safe[:]
         msg = Float64MultiArray()
-        msg.data = safe
+        msg.data = clamped
         self.safe_pub.publish(msg)
 
         event = {
             "raw": raw,
-            "safe": safe,
+            "safe": clamped,
             "clamped_axes": clamped_axes,
-            "ramp_limited_axes": ramp_axes,
+            "orientation_geodesic_delta_deg": orientation_delta_deg,
+            "orientation_geodesic_limit_deg": self.max_orientation_delta_deg[1],
         }
-        if clamped_axes or ramp_axes:
-            self._publish_event("safety event: " + json.dumps(event, sort_keys=True), warn=bool(clamped_axes))
+        if clamped_axes:
+            self._publish_event("safety event: " + json.dumps(event, sort_keys=True), warn=True)
         else:
             now = time.monotonic()
-            if now - self.last_safe_log_time >= 1.0:
-                self._publish_status("safe_posx=" + json.dumps({"data": safe}, sort_keys=True))
-                self.last_safe_log_time = now
+            if now - self.last_status_log_time >= 1.0:
+                self._publish_status("safe_posx=" + json.dumps({"data": clamped}, sort_keys=True))
+                self.last_status_log_time = now
 
     def _publish_event(self, text: str, warn: bool = False) -> None:
         now = time.monotonic()
-        if text != self.last_event_text or now - self.last_safe_log_time >= 1.0:
+        if text != self.last_event_text or now - self.last_status_log_time >= 1.0:
             self._publish_status(text, warn=warn)
             self.last_event_text = text
-            self.last_safe_log_time = now
+            self.last_status_log_time = now
 
     def _publish_status(self, text: str, warn: bool = False) -> None:
         self.status_pub.publish(String(data=text))
@@ -235,9 +259,12 @@ def main(args: list[str] | None = None) -> None:
     node = SafetyGuardNode()
     try:
         rclpy.spin(node)
+    except (KeyboardInterrupt, ExternalShutdownException):
+        pass
     finally:
         node.destroy_node()
-        rclpy.shutdown()
+        if rclpy.ok():
+            rclpy.shutdown()
 
 
 if __name__ == "__main__":

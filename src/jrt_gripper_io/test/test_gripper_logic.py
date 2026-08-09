@@ -1,4 +1,5 @@
 from jrt_gripper_io.gripper_logic import (
+    PendingGripperCommand,
     ToolDoStep,
     command_from_buttons,
     plan_tool_do_command,
@@ -53,3 +54,26 @@ def test_pulse_close_sequence_has_interlock_and_pulse_delays():
         ToolDoStep(1, 1, 0.2),
         ToolDoStep(1, 0, 0.0),
     ]
+
+
+def test_pending_motion_command_keeps_only_latest_value():
+    pending = PendingGripperCommand()
+    assert pending.offer("close") == "close"
+    assert pending.offer("open") == "open"
+    assert pending.pop() == "open"
+    assert pending.command is None
+
+
+def test_pending_stop_cannot_be_overwritten_by_motion():
+    pending = PendingGripperCommand()
+    pending.offer("close")
+    assert pending.offer("stop") == "stop"
+    assert pending.offer("open") == "stop"
+    assert pending.pop() == "stop"
+
+
+def test_pending_clear_motion_preserves_stop():
+    pending = PendingGripperCommand()
+    pending.offer("stop")
+    pending.clear_motion()
+    assert pending.command == "stop"

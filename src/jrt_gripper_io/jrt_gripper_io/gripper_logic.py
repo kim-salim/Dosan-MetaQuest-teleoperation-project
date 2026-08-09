@@ -50,6 +50,36 @@ def normalize_command(command: str) -> str:
     return "stop"
 
 
+class PendingGripperCommand:
+    """Coalesce one pending command while making stop impossible to overwrite."""
+
+    def __init__(self) -> None:
+        self._command: str | None = None
+
+    @property
+    def command(self) -> str | None:
+        return self._command
+
+    def offer(self, command: str) -> str:
+        normalized = normalize_command(command)
+        if self._command == "stop" and normalized != "stop":
+            return self._command
+        self._command = normalized
+        return normalized
+
+    def pop(self) -> str | None:
+        command = self._command
+        self._command = None
+        return command
+
+    def clear(self) -> None:
+        self._command = None
+
+    def clear_motion(self) -> None:
+        if self._command in {"open", "close"}:
+            self._command = None
+
+
 def normalize_command_mode(command_mode: str) -> str:
     """Normalize command mode strings; unknown values fall back to pulse."""
     value = (command_mode or "").strip().lower()
@@ -88,7 +118,7 @@ def plan_tool_do_sequence(
     inactive_value: int = OFF_VALUE,
     *,
     command_mode: str = "pulse",
-    pulse_sec: float = 0.20,
+    pulse_sec: float = 0.50,
     interlock_sec: float = 0.05,
 ) -> list[ToolDoStep]:
     """Return ordered Tool DO writes for a gripper command.
