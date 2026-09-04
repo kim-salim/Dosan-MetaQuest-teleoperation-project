@@ -1,0 +1,136 @@
+{
+  "version": "task_c_representative_bridge_v1_closed_holding",
+  "dataset_a_label": "ACT-A blue block on table",
+  "dataset_b_label": "ACT-B blue block under table",
+  "standardization": {
+    "a": {
+      "start_offset_frames": 30,
+      "end_offset_frames": -30,
+      "minimum_transport_clearance_mm": 50.0,
+      "minimum_z_mm": 400.0,
+      "phase_points": 101,
+      "velocity_window_frames": 15,
+      "velocity_method": "linear_regression",
+      "velocity_epsilon": 1e-09,
+      "minimum_episodes": 30,
+      "floor_quantile": 1.0
+    },
+    "b": {
+      "start_offset_frames": 30,
+      "end_offset_frames": -30,
+      "minimum_transport_clearance_mm": 50.0,
+      "minimum_z_mm": null,
+      "phase_points": 101,
+      "velocity_window_frames": 15,
+      "velocity_method": "linear_regression",
+      "velocity_epsilon": 1e-09,
+      "minimum_episodes": 30,
+      "floor_quantile": 0.95
+    }
+  },
+  "search": {
+    "coarse_phase_step": 0.05,
+    "refine_phase_step": 0.01,
+    "refine_half_width": 0.05,
+    "refine_seed_pairs": 5,
+    "final_validation_top_n": 100,
+    "final_validation_length_margin": 0.01,
+    "robust_required_fraction": 0.5,
+    "initial_terminal_velocity": "zero",
+    "duration_search": {
+      "bridge_duration_min_s": 2.0,
+      "bridge_duration_max_s": 8.0,
+      "bridge_duration_step_s": 0.5
+    }
+  },
+  "sampling": {
+    "coarse_sample_hz": 30.0,
+    "final_sample_hz": 60.0,
+    "runtime_sample_hz": 60.0,
+    "curvature_epsilon": 1e-09
+  },
+  "workspace": {
+    "mode": "observed_dataset_envelope_plus_margin",
+    "margin_mm": 75.0,
+    "robot_certified": false
+  },
+  "feasibility": {
+    "velocity_limit_mm_s": 300.0,
+    "axis_velocity_limit_mm_s": 300.0,
+    "acceleration_limit_mm_s2": 300.0,
+    "boundary_acceleration_jump_limit_mm_s2": 300.0,
+    "curvature_limit_per_mm": 0.25,
+    "jerk_limit_mm_s3": 800.0,
+    "integrated_squared_jerk_limit": 1000000.0,
+    "backtracking_ratio_limit": 2.5,
+    "enforce_payload_transport_floor": true,
+    "transport_floor_tolerance_mm": 0.000001
+  },
+  "selection": {
+    "primary_objective": "total_C_length_mm",
+    "near_shortest_delta": 0.005,
+    "top_k": 10,
+    "runtime_entry_top_k": 1
+  },
+  "semantic_compatibility": {
+    "a_allowed_labels": ["a_representative_closed_holding_transport"],
+    "b_allowed_labels": ["b_representative_closed_holding_transport"],
+    "require_same_gripper": true,
+    "required_a_completed_subgoals": ["grasp_complete"]
+  },
+  "live_boundary": {
+    "prearm_radius_mm": 40.0,
+    "commit_radius_mm": 20.0,
+    "minimum_prearm_support_fraction": 0.8,
+    "minimum_commit_support_fraction": 0.5,
+    "direction_cosine_minimum": 0.7,
+    "approach_frames": 3,
+    "commit_stable_frames": 3,
+    "approach_epsilon_mm": 0.05
+  },
+  "runtime": {
+    "policy_checkpoints": {
+      "ACT-A": "/home/rvlab/lerobot_models/act_a0509_blue_block_bs16_30k_20260810_181114/030000/pretrained_model",
+      "ACT-B": "/home/rvlab/lerobot_models/act_a0509_blue_block_v2_bs16_30k_20260810_200240/030000/pretrained_model"
+    },
+    "action_hz": 30.0,
+    "tail_duration_search": {
+      "bridge_duration_min_s": 0.2,
+      "bridge_duration_max_s": 2.5,
+      "bridge_duration_step_s": 0.1
+    },
+    "handoff": {
+      "control_hz": 30.0,
+      "a_chunk_velocity_window_steps": 15,
+      "warmup_inferences": 2,
+      "velocity_history_capacity": 120,
+      "velocity_window_frames": 15,
+      "velocity_smoothing_method": "linear_regression",
+      "velocity_epsilon": 1e-09,
+      "b_prime_lead_s": 1.25,
+      "b_final_refresh_enabled": true,
+      "b_final_refresh_lead_s": 0.25,
+      "b_inference_timeout_s": 1.0,
+      "b_chunk_max_observation_age_s": 1.5,
+      "b_chunk_velocity_window_steps": 15,
+      "b_chunk_velocity_method": "linear_regression",
+      "b_first_action_position_jump_limit_mm": 75.0,
+      "b_predicted_velocity_limit_mm_s": 300.0,
+      "handoff_position_tolerance_mm": 10.0,
+      "handoff_velocity_tolerance_mm_s": 75.0,
+      "handoff_first_target_tolerance_mm": 75.0
+    }
+  },
+  "safety": {
+    "gripper_bridge_state": "closed",
+    "holding_state": "assumed_true_from_closed_gripper",
+    "payload_state": "A_OBJECT_HELD_ASSUMED",
+    "orientation_status": "pending",
+    "orientation_bridge_generated": false,
+    "collision_status": "NOT_CHECKED_WITH_PAYLOAD",
+    "ik_status": "NOT_CHECKED",
+    "robot_executable": false,
+    "dry_run_only": true,
+    "publish_robot_commands": false
+  }
+}

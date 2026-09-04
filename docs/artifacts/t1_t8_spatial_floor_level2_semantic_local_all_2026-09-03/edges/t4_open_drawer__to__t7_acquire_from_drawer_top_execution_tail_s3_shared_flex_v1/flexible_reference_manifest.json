@@ -1,0 +1,175 @@
+{
+  "bridge": {
+    "duration_s": 4.0,
+    "nominal_length_mm": 295.70892200475475,
+    "transport_floor_mm": null
+  },
+  "composition_id": "t4_open_drawer__to__t7_acquire_from_drawer_top",
+  "generation": {
+    "bridge_admission_mode": "flexible_level2",
+    "bridge_algorithm": "cubic_bezier_tangent_regularized_v1",
+    "bridge_profile": {
+      "bridge_admission_mode": "flexible_level2",
+      "bridge_algorithm": "cubic_bezier_tangent_regularized_v1",
+      "bridge_duration_s": 4.0,
+      "edge_specific_tuning": false,
+      "maximum_endpoint_speed_adjustment_mm_s": 12.0,
+      "minimum_tangent_handle_chord_ratio": 0.04,
+      "physical_validation_performed": false,
+      "profile_config": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/config/realtime/a0509_flexible_bridge_profiles_v1.json",
+      "profile_id": "semantic_local_execution_tail_tangent_v1",
+      "profile_sha256": "aa15342d720234914ec8b53da9a8056cbeb1e529da5389bfff63f2a915d8dc0b",
+      "robot_commands_published": 0,
+      "runtime_contract": {
+        "acceleration_limit_mm_s2": 4000.0,
+        "acknowledged_command_span_steps": 2,
+        "axis_velocity_limit_mm_s": 225.0,
+        "control_hz": 30.0,
+        "curvature_limit_per_mm": 0.25,
+        "derived_flex_axis_speed_envelope_mm_s": 112.5,
+        "derived_unadjusted_axis_speed_ceiling_mm_s": 112.5,
+        "integrated_squared_jerk_limit": 10000000.0,
+        "jerk_limit_mm_s3": 4000.0,
+        "linear_ramp_mm_per_tick": 7.5,
+        "orientation_ramp_deg_per_tick": 1.25,
+        "velocity_limit_mm_s": 300.0
+      },
+      "schema_version": "a0509.flexible_bridge_generation_profile_resolution.v1",
+      "source_reference_modes": [
+        "execution_tail"
+      ],
+      "transport_floor_policy": "edge_semantic_contract"
+    },
+    "method": "flexible_reference",
+    "reference_only": true,
+    "runtime_source_reference": {
+      "phase_window": [
+        0.17,
+        0.23
+      ],
+      "selection_method": "minimum_window_rms_to_component_median_real_episode_v1",
+      "support_bank": "t4_s3_execution_tail_source_bank.json"
+    },
+    "runtime_successor_reference": {
+      "authority": "bridge_reference_and_metadata_only",
+      "interior_path_margin_mm": 15.0,
+      "phase_window": [
+        0.0,
+        1.0
+      ],
+      "runtime_phase_gate": false,
+      "selected_reference_phase": 0.9400000000000001,
+      "selection_method": "minimum_semantic_prefix_bridge_suffix_with_empirical_interior_margin_v1",
+      "semantic_local_objective": {
+        "bridge_length_mm": 295.70892200475475,
+        "source_prefix_mm": 78.33986285209161,
+        "successor_suffix_mm": 20.474617747171635,
+        "total_length_mm": 394.52340260401803
+      },
+      "support_bank": "t7_s1_entry_reference_bank.json"
+    },
+    "tangent_regularization": {
+      "maximum_endpoint_speed_adjustment_mm_s": 12.0,
+      "minimum_handle_chord_ratio": 0.04
+    }
+  },
+  "handoff_id": "h_semantic_7b546c7d5c94",
+  "schema_version": "a0509.task_c_handoff_episode.v2",
+  "source": {
+    "approach_frames": 3,
+    "commit_radius_mm": 20.0,
+    "commit_stable_frames": 3,
+    "direction_cosine_minimum": 0.7,
+    "nominal_pose": {
+      "orientation_quat_xyzw": [
+        0.0022446684565037775,
+        0.986063727261345,
+        0.006537100477663203,
+        0.16622440723410414
+      ],
+      "position_mm": [
+        384.8419494628906,
+        -172.270751953125,
+        368.4000549316406
+      ]
+    },
+    "nominal_velocity_mm_s": [
+      -39.99220354967028,
+      14.999721549618876,
+      97.46950988644507
+    ],
+    "phase": 0.17,
+    "prearm_radius_mm": 40.0,
+    "segment": "S3",
+    "semantic": {
+      "contact_mode": "free_motion_assumed",
+      "entry_preconditions": [
+        "blue_block=on_black_table",
+        "drawer=open",
+        "gripper=open",
+        "held_object=none"
+      ],
+      "gripper_state": "open",
+      "held_object": "none",
+      "semantic_state": "approach_blue_block_on_black_table"
+    },
+    "support_episode": 23,
+    "support_frame": 640,
+    "support_orientation_radius_deg": 30.0,
+    "support_radius_mm": 23.165579872654945,
+    "task": "T4"
+  },
+  "successor": {
+    "approach_frames": 3,
+    "commit_radius_mm": 20.0,
+    "commit_stable_frames": 3,
+    "direction_cosine_minimum": 0.7,
+    "nominal_pose": {
+      "orientation_quat_xyzw": [
+        0.0001537958575550918,
+        0.9481718931976846,
+        0.0007316040361805833,
+        0.3177569858434071
+      ],
+      "position_mm": [
+        609.88720703125,
+        -172.07638549804688,
+        352.3131103515625
+      ]
+    },
+    "nominal_velocity_mm_s": [
+      11.163066887923458,
+      4.143565668246871,
+      -15.10831502568101
+    ],
+    "phase": 0.9400000000000001,
+    "prearm_radius_mm": 40.0,
+    "segment": "S1",
+    "semantic": {
+      "contact_mode": "free_motion_assumed",
+      "entry_preconditions": [
+        "blue_block=on_top_of_drawer",
+        "gripper=open",
+        "held_object=none"
+      ],
+      "gripper_state": "open",
+      "held_object": "none",
+      "semantic_state": "approach_blue_block_on_top_of_drawer"
+    },
+    "support_episode": 21,
+    "support_frame": 204,
+    "support_orientation_radius_deg": 30.0,
+    "support_radius_mm": 90.0,
+    "task": "T7"
+  },
+  "validation": {
+    "collision_checked": false,
+    "dry_run_only": true,
+    "hard_filter_passed": false,
+    "ik_checked": false,
+    "robot_executable": false,
+    "semantic_authority": "external_planner",
+    "semantic_checks_enforced_by_runtime": false,
+    "semantic_diagnostics": []
+  }
+}

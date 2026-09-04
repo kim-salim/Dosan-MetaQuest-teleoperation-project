@@ -1,0 +1,144 @@
+{
+  "bridge": {
+    "duration_s": 4.0,
+    "nominal_length_mm": 468.6713453289233,
+    "transport_floor_mm": null
+  },
+  "composition_id": "t7_acquire_from_drawer_top__to__t6_stack_on_support_block",
+  "generation": {
+    "bridge_admission_mode": "flexible_level2",
+    "bridge_algorithm": "cubic_bezier_tangent_regularized_v1",
+    "method": "flexible_reference",
+    "reference_only": true,
+    "runtime_source_reference": {
+      "phase_window": [
+        0.16,
+        0.21
+      ],
+      "selection_method": "minimum_window_rms_to_component_median_real_episode_v1",
+      "support_bank": "t7_s2_runtime_source_bank.json"
+    },
+    "runtime_successor_reference": {
+      "authority": "bridge_reference_and_metadata_only",
+      "interior_path_margin_mm": 15.0,
+      "phase_window": [
+        0.11,
+        0.76
+      ],
+      "runtime_phase_gate": false,
+      "selected_reference_phase": 0.73,
+      "selection_method": "minimum_semantic_prefix_bridge_suffix_with_empirical_interior_margin_v1",
+      "semantic_local_objective": {
+        "bridge_length_mm": 468.6713453289233,
+        "source_prefix_mm": 108.27650875423126,
+        "successor_suffix_mm": 145.7649927199181,
+        "total_length_mm": 722.7128468030726
+      },
+      "support_bank": "t6_s2_entry_reference_bank.json"
+    },
+    "tangent_regularization": {
+      "maximum_endpoint_speed_adjustment_mm_s": 12.0,
+      "minimum_handle_chord_ratio": 0.04
+    }
+  },
+  "handoff_id": "h_semantic_88b17a6aa53a",
+  "schema_version": "a0509.task_c_handoff_episode.v2",
+  "source": {
+    "approach_frames": 3,
+    "commit_radius_mm": 20.0,
+    "commit_stable_frames": 3,
+    "direction_cosine_minimum": 0.7,
+    "nominal_pose": {
+      "orientation_quat_xyzw": [
+        -0.008709790565671968,
+        0.9673257657202072,
+        -0.0019715367899959804,
+        0.253379390568378
+      ],
+      "position_mm": [
+        590.4822998046875,
+        -179.3843536376953,
+        447.4809265136719
+      ]
+    },
+    "nominal_velocity_mm_s": [
+      -36.28750210523734,
+      30.968203752080406,
+      101.1995186648613
+    ],
+    "phase": 0.16,
+    "prearm_radius_mm": 40.0,
+    "segment": "S2",
+    "semantic": {
+      "contact_mode": "free_transport_assumed",
+      "entry_preconditions": [
+        "blue_block=held",
+        "gripper=closed",
+        "held_object=blue_block"
+      ],
+      "gripper_state": "closed",
+      "held_object": "blue_block",
+      "semantic_state": "lift_transport_and_align_blue_block_to_black_table"
+    },
+    "support_episode": 15,
+    "support_frame": 313,
+    "support_orientation_radius_deg": 30.0,
+    "support_radius_mm": 23.363041815274293,
+    "task": "T7"
+  },
+  "successor": {
+    "approach_frames": 3,
+    "commit_radius_mm": 20.0,
+    "commit_stable_frames": 3,
+    "direction_cosine_minimum": 0.7,
+    "nominal_pose": {
+      "orientation_quat_xyzw": [
+        0.00017334940876466756,
+        0.9756306713870532,
+        0.0004419764702938019,
+        0.2194187039785584
+      ],
+      "position_mm": [
+        546.2490234375,
+        207.84657287597656,
+        456.05975341796875
+      ]
+    },
+    "nominal_velocity_mm_s": [
+      48.073876945915316,
+      21.6328946043769,
+      -32.60202052968822
+    ],
+    "phase": 0.73,
+    "prearm_radius_mm": 40.0,
+    "segment": "S2",
+    "semantic": {
+      "contact_mode": "free_transport_assumed",
+      "entry_preconditions": [
+        "gripper=closed",
+        "held_object=moving_blue_block",
+        "moving_blue_block=held",
+        "stack=unassembled",
+        "support_blue_block=on_black_table"
+      ],
+      "gripper_state": "closed",
+      "held_object": "moving_blue_block",
+      "semantic_state": "lift_transport_align_and_stack_blue_block_on_support_block"
+    },
+    "support_episode": 11,
+    "support_frame": 421,
+    "support_orientation_radius_deg": 30.0,
+    "support_radius_mm": 90.0,
+    "task": "T6"
+  },
+  "validation": {
+    "collision_checked": false,
+    "dry_run_only": true,
+    "hard_filter_passed": false,
+    "ik_checked": false,
+    "robot_executable": false,
+    "semantic_authority": "external_planner",
+    "semantic_checks_enforced_by_runtime": false,
+    "semantic_diagnostics": []
+  }
+}

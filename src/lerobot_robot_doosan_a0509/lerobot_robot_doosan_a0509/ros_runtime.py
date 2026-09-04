@@ -2,14 +2,30 @@
 
 from __future__ import annotations
 
+import os
 import threading
 from typing import ClassVar
 
 import rclpy
 from rclpy.context import Context
-from rclpy.executors import ExternalShutdownException, MultiThreadedExecutor
+from rclpy.executors import (
+    ExternalShutdownException,
+    MultiThreadedExecutor,
+    SingleThreadedExecutor,
+)
 from rclpy.node import Node
+from lerobot_robot_doosan_a0509.runtime_scheduling import pin_current_thread_from_env
 
+
+
+def _environment_positive_int(name: str, default: int) -> int:
+    raw = os.environ.get(name)
+    if raw is None:
+        return default
+    value = int(raw)
+    if value <= 0:
+        raise ValueError(f"{name} must be positive, got {value}")
+    return value
 
 class RosRuntime:
     _lock: ClassVar[threading.RLock] = threading.RLock()
@@ -19,7 +35,15 @@ class RosRuntime:
     def __init__(self) -> None:
         self.context = Context()
         rclpy.init(context=self.context)
-        self.executor = MultiThreadedExecutor(num_threads=4, context=self.context)
+        executor_threads = _environment_positive_int(
+            "LEROBOT_A0509_ROS_EXECUTOR_THREADS", 4
+        )
+        if executor_threads == 1:
+            self.executor = SingleThreadedExecutor(context=self.context)
+        else:
+            self.executor = MultiThreadedExecutor(
+                num_threads=executor_threads, context=self.context
+            )
         self._closed = False
         self._thread = threading.Thread(
             target=self._spin,
@@ -71,6 +95,7 @@ class RosRuntime:
             self._shutdown()
 
     def _spin(self) -> None:
+        pin_current_thread_from_env("LEROBOT_A0509_ROS_CPU_SET")
         try:
             self.executor.spin()
         except ExternalShutdownException:

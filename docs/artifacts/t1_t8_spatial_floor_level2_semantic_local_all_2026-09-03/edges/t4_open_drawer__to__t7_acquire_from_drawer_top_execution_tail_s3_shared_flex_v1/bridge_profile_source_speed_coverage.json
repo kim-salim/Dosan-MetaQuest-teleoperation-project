@@ -1,0 +1,146 @@
+{
+  "analytical_limits": {
+    "endpoint_speed_adjustment_semantics": "minimum_handle_low_speed_increase_only",
+    "interpretation": "high-speed gate only; geometry, dynamics, worker latency, and physical task success remain independently gated",
+    "profile_axis_speed_gate_mm_s": 112.5,
+    "unadjusted_axis_speed_ceiling_mm_s": 112.5
+  },
+  "full_source_phase_window": {
+    "episode_count": 30,
+    "profile_admissible_episode_count": 25,
+    "profile_admissible_fraction": 0.8333333333333334,
+    "unadjusted_episode_count": 25,
+    "unadjusted_fraction": 0.8333333333333334,
+    "worst_episode_best_axis_speed_mm_s": 121.46398484567953
+  },
+  "nominal_phase_prefix": {
+    "episode_count": 30,
+    "profile_admissible_episode_count": 23,
+    "profile_admissible_fraction": 0.7666666666666667,
+    "unadjusted_episode_count": 23,
+    "unadjusted_fraction": 0.7666666666666667,
+    "worst_episode_best_axis_speed_mm_s": 132.8039772385863
+  },
+  "per_phase": [
+    {
+      "phase": 0.17,
+      "profile_admissible_count": 20,
+      "sample_count": 30,
+      "unadjusted_count": 20
+    },
+    {
+      "phase": 0.175,
+      "profile_admissible_count": 20,
+      "sample_count": 30,
+      "unadjusted_count": 20
+    },
+    {
+      "phase": 0.18,
+      "profile_admissible_count": 19,
+      "sample_count": 30,
+      "unadjusted_count": 19
+    },
+    {
+      "phase": 0.185,
+      "profile_admissible_count": 21,
+      "sample_count": 30,
+      "unadjusted_count": 21
+    },
+    {
+      "phase": 0.19,
+      "profile_admissible_count": 21,
+      "sample_count": 30,
+      "unadjusted_count": 21
+    },
+    {
+      "phase": 0.195,
+      "profile_admissible_count": 22,
+      "sample_count": 30,
+      "unadjusted_count": 22
+    },
+    {
+      "phase": 0.2,
+      "profile_admissible_count": 22,
+      "sample_count": 30,
+      "unadjusted_count": 22
+    },
+    {
+      "phase": 0.205,
+      "profile_admissible_count": 22,
+      "sample_count": 30,
+      "unadjusted_count": 22
+    },
+    {
+      "phase": 0.21,
+      "profile_admissible_count": 23,
+      "sample_count": 30,
+      "unadjusted_count": 23
+    },
+    {
+      "phase": 0.215,
+      "profile_admissible_count": 23,
+      "sample_count": 30,
+      "unadjusted_count": 23
+    },
+    {
+      "phase": 0.22,
+      "profile_admissible_count": 23,
+      "sample_count": 30,
+      "unadjusted_count": 23
+    },
+    {
+      "phase": 0.225,
+      "profile_admissible_count": 23,
+      "sample_count": 30,
+      "unadjusted_count": 23
+    },
+    {
+      "phase": 0.23,
+      "profile_admissible_count": 25,
+      "sample_count": 30,
+      "unadjusted_count": 25
+    }
+  ],
+  "physical_validation_performed": false,
+  "profile": {
+    "bridge_admission_mode": "flexible_level2",
+    "bridge_algorithm": "cubic_bezier_tangent_regularized_v1",
+    "bridge_duration_s": 4.0,
+    "edge_specific_tuning": false,
+    "maximum_endpoint_speed_adjustment_mm_s": 12.0,
+    "minimum_tangent_handle_chord_ratio": 0.04,
+    "physical_validation_performed": false,
+    "profile_config": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/config/realtime/a0509_flexible_bridge_profiles_v1.json",
+    "profile_id": "semantic_local_execution_tail_tangent_v1",
+    "profile_sha256": "aa15342d720234914ec8b53da9a8056cbeb1e529da5389bfff63f2a915d8dc0b",
+    "robot_commands_published": 0,
+    "runtime_contract": {
+      "acceleration_limit_mm_s2": 4000.0,
+      "acknowledged_command_span_steps": 2,
+      "axis_velocity_limit_mm_s": 225.0,
+      "control_hz": 30.0,
+      "curvature_limit_per_mm": 0.25,
+      "derived_flex_axis_speed_envelope_mm_s": 112.5,
+      "derived_unadjusted_axis_speed_ceiling_mm_s": 112.5,
+      "integrated_squared_jerk_limit": 10000000.0,
+      "jerk_limit_mm_s3": 4000.0,
+      "linear_ramp_mm_per_tick": 7.5,
+      "orientation_ramp_deg_per_tick": 1.25,
+      "velocity_limit_mm_s": 300.0
+    },
+    "schema_version": "a0509.flexible_bridge_generation_profile_resolution.v1",
+    "source_reference_modes": [
+      "execution_tail"
+    ],
+    "transport_floor_policy": "edge_semantic_contract"
+  },
+  "robot_commands_published": 0,
+  "schema_version": "a0509.bridge_profile_source_speed_coverage.v1",
+  "source_nominal_phase": 0.2,
+  "source_operator": "T4.open_drawer",
+  "source_phase_window": [
+    0.17,
+    0.23
+  ],
+  "source_segment": "S3"
+}

@@ -1,0 +1,337 @@
+{
+  "execution": {
+    "blockers": [],
+    "initial_state_authority": "operator_asserted_not_perception_verified",
+    "kind": "multi_v2",
+    "physical_validation_performed": false,
+    "runtime_compilable": true
+  },
+  "fingerprint": "4bc933263ffa4c700e3132cd7d5e8b9823a1c3821df1ebbb698500c5289492f8",
+  "request": {
+    "allow_intermediate_release": false,
+    "bridge_admission_mode": "flexible_level2",
+    "enabled_operator_ids": [
+      "T2.acquire_from_floor",
+      "T6.stack_on_support_block"
+    ],
+    "final_inference_steps": 1800,
+    "forward_only": true,
+    "goal": {
+      "blue_block_location": "stacked",
+      "gripper": "open",
+      "holding": "none",
+      "stack": "assembled",
+      "support_blue_block_location": "black_table"
+    },
+    "initial_state": {
+      "blue_block_location": "left_floor",
+      "contact_mode": "free_space",
+      "cursor_t1": 0,
+      "cursor_t2": 0,
+      "cursor_t3": 0,
+      "cursor_t4": 0,
+      "cursor_t5": 0,
+      "cursor_t6": 0,
+      "cursor_t7": 0,
+      "cursor_t8": 0,
+      "drawer": "unknown",
+      "gripper": "open",
+      "holding": "none",
+      "last_policy": null,
+      "stack": "unassembled",
+      "support_blue_block_location": "black_table",
+      "white_container": "unknown"
+    },
+    "level2_only": true,
+    "max_plans": 3,
+    "policy_switch_penalty": 0.25,
+    "same_policy_continuation_penalty": 0.0,
+    "schema_version": "a0509.web_episode_plan_request.v1"
+  },
+  "schema_version": "a0509.web_episode_plan_result.v1",
+  "search": {
+    "diagnostics": {
+      "expanded_states": 2,
+      "generated_states": 3,
+      "rejected_by_operator": {
+        "T2.acquire_from_floor": {
+          "forward_only:entry_order=10<cursor=20": 1,
+          "precondition:blue_block_location:expected=left_floor:actual=held": 1,
+          "precondition:contact_mode:expected=free_space:actual=free_transport": 1,
+          "precondition:gripper:expected=open:actual=closed": 1,
+          "precondition:holding:expected=none:actual=blue_block": 1
+        },
+        "T6.stack_on_support_block": {
+          "precondition:blue_block_location:expected=held:actual=left_floor": 1,
+          "precondition:contact_mode:expected=free_transport:actual=free_space": 1,
+          "precondition:gripper:expected=closed:actual=open": 1,
+          "precondition:holding:expected=blue_block:actual=none": 1
+        }
+      },
+      "stale_frontier_entries": 0
+    },
+    "plans": [
+      {
+        "final_state": {
+          "blue_block_location": "stacked",
+          "contact_mode": "free_space",
+          "cursor_t1": 0,
+          "cursor_t2": 20,
+          "cursor_t3": 0,
+          "cursor_t4": 0,
+          "cursor_t5": 0,
+          "cursor_t6": 30,
+          "cursor_t7": 0,
+          "cursor_t8": 0,
+          "drawer": "unknown",
+          "gripper": "open",
+          "holding": "none",
+          "last_policy": "T6",
+          "stack": "assembled",
+          "support_blue_block_location": "black_table",
+          "white_container": "unknown"
+        },
+        "operators": [
+          "T2.acquire_from_floor",
+          "T6.stack_on_support_block"
+        ],
+        "policy_sequence": [
+          "T2",
+          "T6"
+        ],
+        "steps": [
+          {
+            "cost": {
+              "base_cost": 1.0,
+              "policy_switch_penalty": 0.0,
+              "same_policy_continuation_penalty": 0.0,
+              "total": 1.0,
+              "transition_cost": 0.0
+            },
+            "operator": "T2.acquire_from_floor",
+            "policy_id": "T2",
+            "state_after": {
+              "blue_block_location": "held",
+              "contact_mode": "free_transport",
+              "cursor_t1": 0,
+              "cursor_t2": 20,
+              "cursor_t3": 0,
+              "cursor_t4": 0,
+              "cursor_t5": 0,
+              "cursor_t6": 0,
+              "cursor_t7": 0,
+              "cursor_t8": 0,
+              "drawer": "unknown",
+              "gripper": "closed",
+              "holding": "blue_block",
+              "last_policy": "T2",
+              "stack": "unassembled",
+              "support_blue_block_location": "black_table",
+              "white_container": "unknown"
+            },
+            "state_before": {
+              "blue_block_location": "left_floor",
+              "contact_mode": "free_space",
+              "cursor_t1": 0,
+              "cursor_t2": 0,
+              "cursor_t3": 0,
+              "cursor_t4": 0,
+              "cursor_t5": 0,
+              "cursor_t6": 0,
+              "cursor_t7": 0,
+              "cursor_t8": 0,
+              "drawer": "unknown",
+              "gripper": "open",
+              "holding": "none",
+              "last_policy": null,
+              "stack": "unassembled",
+              "support_blue_block_location": "black_table",
+              "white_container": "unknown"
+            }
+          },
+          {
+            "cost": {
+              "base_cost": 1.0,
+              "policy_switch_penalty": 0.25,
+              "same_policy_continuation_penalty": 0.0,
+              "total": 1.25,
+              "transition_cost": 0.0
+            },
+            "operator": "T6.stack_on_support_block",
+            "policy_id": "T6",
+            "state_after": {
+              "blue_block_location": "stacked",
+              "contact_mode": "free_space",
+              "cursor_t1": 0,
+              "cursor_t2": 20,
+              "cursor_t3": 0,
+              "cursor_t4": 0,
+              "cursor_t5": 0,
+              "cursor_t6": 30,
+              "cursor_t7": 0,
+              "cursor_t8": 0,
+              "drawer": "unknown",
+              "gripper": "open",
+              "holding": "none",
+              "last_policy": "T6",
+              "stack": "assembled",
+              "support_blue_block_location": "black_table",
+              "white_container": "unknown"
+            },
+            "state_before": {
+              "blue_block_location": "held",
+              "contact_mode": "free_transport",
+              "cursor_t1": 0,
+              "cursor_t2": 20,
+              "cursor_t3": 0,
+              "cursor_t4": 0,
+              "cursor_t5": 0,
+              "cursor_t6": 0,
+              "cursor_t7": 0,
+              "cursor_t8": 0,
+              "drawer": "unknown",
+              "gripper": "closed",
+              "holding": "blue_block",
+              "last_policy": "T2",
+              "stack": "unassembled",
+              "support_blue_block_location": "black_table",
+              "white_container": "unknown"
+            }
+          }
+        ],
+        "total_cost": 2.25
+      }
+    ],
+    "status": "PLAN_FOUND"
+  },
+  "selected_plan": {
+    "final_state": {
+      "blue_block_location": "stacked",
+      "contact_mode": "free_space",
+      "cursor_t1": 0,
+      "cursor_t2": 20,
+      "cursor_t3": 0,
+      "cursor_t4": 0,
+      "cursor_t5": 0,
+      "cursor_t6": 30,
+      "cursor_t7": 0,
+      "cursor_t8": 0,
+      "drawer": "unknown",
+      "gripper": "open",
+      "holding": "none",
+      "last_policy": "T6",
+      "stack": "assembled",
+      "support_blue_block_location": "black_table",
+      "white_container": "unknown"
+    },
+    "operators": [
+      "T2.acquire_from_floor",
+      "T6.stack_on_support_block"
+    ],
+    "policy_sequence": [
+      "T2",
+      "T6"
+    ],
+    "steps": [
+      {
+        "cost": {
+          "base_cost": 1.0,
+          "policy_switch_penalty": 0.0,
+          "same_policy_continuation_penalty": 0.0,
+          "total": 1.0,
+          "transition_cost": 0.0
+        },
+        "operator": "T2.acquire_from_floor",
+        "policy_id": "T2",
+        "state_after": {
+          "blue_block_location": "held",
+          "contact_mode": "free_transport",
+          "cursor_t1": 0,
+          "cursor_t2": 20,
+          "cursor_t3": 0,
+          "cursor_t4": 0,
+          "cursor_t5": 0,
+          "cursor_t6": 0,
+          "cursor_t7": 0,
+          "cursor_t8": 0,
+          "drawer": "unknown",
+          "gripper": "closed",
+          "holding": "blue_block",
+          "last_policy": "T2",
+          "stack": "unassembled",
+          "support_blue_block_location": "black_table",
+          "white_container": "unknown"
+        },
+        "state_before": {
+          "blue_block_location": "left_floor",
+          "contact_mode": "free_space",
+          "cursor_t1": 0,
+          "cursor_t2": 0,
+          "cursor_t3": 0,
+          "cursor_t4": 0,
+          "cursor_t5": 0,
+          "cursor_t6": 0,
+          "cursor_t7": 0,
+          "cursor_t8": 0,
+          "drawer": "unknown",
+          "gripper": "open",
+          "holding": "none",
+          "last_policy": null,
+          "stack": "unassembled",
+          "support_blue_block_location": "black_table",
+          "white_container": "unknown"
+        }
+      },
+      {
+        "cost": {
+          "base_cost": 1.0,
+          "policy_switch_penalty": 0.25,
+          "same_policy_continuation_penalty": 0.0,
+          "total": 1.25,
+          "transition_cost": 0.0
+        },
+        "operator": "T6.stack_on_support_block",
+        "policy_id": "T6",
+        "state_after": {
+          "blue_block_location": "stacked",
+          "contact_mode": "free_space",
+          "cursor_t1": 0,
+          "cursor_t2": 20,
+          "cursor_t3": 0,
+          "cursor_t4": 0,
+          "cursor_t5": 0,
+          "cursor_t6": 30,
+          "cursor_t7": 0,
+          "cursor_t8": 0,
+          "drawer": "unknown",
+          "gripper": "open",
+          "holding": "none",
+          "last_policy": "T6",
+          "stack": "assembled",
+          "support_blue_block_location": "black_table",
+          "white_container": "unknown"
+        },
+        "state_before": {
+          "blue_block_location": "held",
+          "contact_mode": "free_transport",
+          "cursor_t1": 0,
+          "cursor_t2": 20,
+          "cursor_t3": 0,
+          "cursor_t4": 0,
+          "cursor_t5": 0,
+          "cursor_t6": 0,
+          "cursor_t7": 0,
+          "cursor_t8": 0,
+          "drawer": "unknown",
+          "gripper": "closed",
+          "holding": "blue_block",
+          "last_policy": "T2",
+          "stack": "unassembled",
+          "support_blue_block_location": "black_table",
+          "white_container": "unknown"
+        }
+      }
+    ],
+    "total_cost": 2.25
+  }
+}

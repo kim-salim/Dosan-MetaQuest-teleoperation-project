@@ -1,0 +1,27 @@
+{
+  "schema_version": "a0509.cross_task_handoff_validation.v2",
+  "workspace": {
+    "minimum_mm": [50.0, -350.0, 0.0],
+    "minimum_limit_enabled": [true, true, false],
+    "maximum_mm": [650.0, 350.0, 600.0],
+    "robot_certified": false
+  },
+  "dynamics": {
+    "velocity_limit_mm_s": 300.0,
+    "axis_velocity_limit_mm_s": 225.0,
+    "acceleration_limit_mm_s2": 4000.0,
+    "curvature_limit_per_mm": 0.25,
+    "jerk_limit_mm_s3": 4000.0,
+    "integrated_squared_jerk_limit": 10000000.0,
+    "backtracking_ratio_limit": 2.5
+  },
+  "downstream": {
+    "control_hz": 30.0,
+    "linear_ramp_mm_per_tick": 7.5,
+    "orientation_ramp_deg_per_tick": 1.25
+  },
+  "sample_hz": 60.0,
+  "curvature_epsilon": 1e-09,
+  "ik_checker_available": false,
+  "collision_checker_available": false
+}

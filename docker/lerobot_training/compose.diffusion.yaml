@@ -1,0 +1,41 @@
+name: lerobot-a0509-diffusion
+
+services:
+  trainer:
+    image: ${LEROBOT_DIFFUSION_IMAGE:-lerobot-a0509-diffusion:0.6.0-torch2.11-cu130}
+    build:
+      context: .
+      dockerfile: Dockerfile.diffusion
+      args:
+        LEROBOT_VERSION: ${LEROBOT_VERSION:-0.6.0}
+        HOST_UID: ${HOST_UID:-6010}
+        HOST_GID: ${HOST_GID:-6010}
+    user: "${HOST_UID:-6010}:${HOST_GID:-6010}"
+    init: true
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
+    shm_size: 32gb
+    environment:
+      CUDA_VISIBLE_DEVICES: "0"
+      NVIDIA_VISIBLE_DEVICES: "0"
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility
+      EXPECTED_GPU_UUID: ${EXPECTED_GPU_UUID:-}
+      HOME: /workspace/user-home
+      HF_HOME: /workspace/cache/huggingface
+      HF_LEROBOT_HOME: /workspace/cache/huggingface/lerobot
+      TORCH_HOME: /workspace/cache/torch
+      XDG_CACHE_HOME: /workspace/cache/xdg
+    volumes:
+      - ${LEROBOT_DATA_DIR:-./data}:/workspace/data:ro
+      - ${LEROBOT_DIFFUSION_OUTPUT_DIR:-./outputs-diffusion}:/workspace/outputs
+      - ${LEROBOT_DIFFUSION_CACHE_DIR:-./cache-diffusion}:/workspace/cache
+      - ${LEROBOT_DIFFUSION_USER_HOME_DIR:-./user-home-diffusion}:/workspace/user-home
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ["0"]
+              capabilities: [gpu]
+    command: ["bash"]

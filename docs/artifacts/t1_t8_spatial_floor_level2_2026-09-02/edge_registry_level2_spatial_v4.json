@@ -1,0 +1,2479 @@
+{
+  "composition_id": "a0509_t1_t8_spatial_floor_level2_20260902",
+  "edges": [
+    {
+      "admission_status": "flexible_semantic_candidate",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": false,
+        "fresh_successor_shadow_pass": false,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_acquire_from_black_table__to__t2_deliver_to_black_table/flexible_reference_manifest.json",
+      "policy_shadow": null,
+      "source_operator": "T1.acquire_from_black_table",
+      "successor_operator": "T2.deliver_to_black_table",
+      "uncertainty_penalty": 0.75,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_acquire_from_black_table__to__t3_deliver_to_floor/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_acquire_from_black_table__to__t3_deliver_to_floor/flexible_policy_shadow.json",
+      "source_operator": "T1.acquire_from_black_table",
+      "successor_operator": "T3.deliver_to_floor",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_acquire_from_black_table__to__t4_deliver_to_drawer/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_acquire_from_black_table__to__t4_deliver_to_drawer/flexible_policy_shadow.json",
+      "source_operator": "T1.acquire_from_black_table",
+      "successor_operator": "T4.deliver_to_drawer",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_acquire_from_black_table__to__t5_deliver_to_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_acquire_from_black_table__to__t5_deliver_to_black_table/flexible_policy_shadow.json",
+      "source_operator": "T1.acquire_from_black_table",
+      "successor_operator": "T5.deliver_to_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_acquire_from_black_table__to__t6_stack_on_support_block/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_acquire_from_black_table__to__t6_stack_on_support_block/flexible_policy_shadow.json",
+      "source_operator": "T1.acquire_from_black_table",
+      "successor_operator": "T6.stack_on_support_block",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_acquire_from_black_table__to__t7_deliver_to_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_acquire_from_black_table__to__t7_deliver_to_black_table/flexible_policy_shadow.json",
+      "source_operator": "T1.acquire_from_black_table",
+      "successor_operator": "T7.deliver_to_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_acquire_from_black_table__to__t8_deliver_unstacked_to_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_acquire_from_black_table__to__t8_deliver_unstacked_to_black_table/flexible_policy_shadow.json",
+      "source_operator": "T1.acquire_from_black_table",
+      "successor_operator": "T8.deliver_unstacked_to_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "tangent_regularized_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_deliver_to_white_container__to__t4_open_drawer/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_deliver_to_white_container__to__t4_open_drawer/flexible_policy_shadow.json",
+      "source_operator": "T1.deliver_to_white_container",
+      "successor_operator": "T4.open_drawer",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_deliver_to_white_container__to__t5_open_drawer/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_deliver_to_white_container__to__t5_open_drawer/flexible_policy_shadow.json",
+      "source_operator": "T1.deliver_to_white_container",
+      "successor_operator": "T5.open_drawer",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_open_white_container__to__t2_acquire_from_floor/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_open_white_container__to__t2_acquire_from_floor/flexible_policy_shadow.json",
+      "source_operator": "T1.open_white_container",
+      "successor_operator": "T2.acquire_from_floor",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_open_white_container__to__t3_acquire_from_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_open_white_container__to__t3_acquire_from_black_table/flexible_policy_shadow.json",
+      "source_operator": "T1.open_white_container",
+      "successor_operator": "T3.acquire_from_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_open_white_container__to__t4_acquire_from_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_open_white_container__to__t4_acquire_from_black_table/flexible_policy_shadow.json",
+      "source_operator": "T1.open_white_container",
+      "successor_operator": "T4.acquire_from_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_open_white_container__to__t4_close_drawer/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_open_white_container__to__t4_close_drawer/flexible_policy_shadow.json",
+      "source_operator": "T1.open_white_container",
+      "successor_operator": "T4.close_drawer",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_open_white_container__to__t4_open_drawer/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_open_white_container__to__t4_open_drawer/flexible_policy_shadow.json",
+      "source_operator": "T1.open_white_container",
+      "successor_operator": "T4.open_drawer",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_open_white_container__to__t5_acquire_from_drawer/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_open_white_container__to__t5_acquire_from_drawer/flexible_policy_shadow.json",
+      "source_operator": "T1.open_white_container",
+      "successor_operator": "T5.acquire_from_drawer",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_open_white_container__to__t5_close_drawer/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_open_white_container__to__t5_close_drawer/flexible_policy_shadow.json",
+      "source_operator": "T1.open_white_container",
+      "successor_operator": "T5.close_drawer",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_open_white_container__to__t5_open_drawer/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_open_white_container__to__t5_open_drawer/flexible_policy_shadow.json",
+      "source_operator": "T1.open_white_container",
+      "successor_operator": "T5.open_drawer",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_open_white_container__to__t6_acquire_moving_block/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_open_white_container__to__t6_acquire_moving_block/flexible_policy_shadow.json",
+      "source_operator": "T1.open_white_container",
+      "successor_operator": "T6.acquire_moving_block",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_open_white_container__to__t7_acquire_from_drawer_top/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_open_white_container__to__t7_acquire_from_drawer_top/flexible_policy_shadow.json",
+      "source_operator": "T1.open_white_container",
+      "successor_operator": "T7.acquire_from_drawer_top",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_open_white_container__to__t8_acquire_top_block_from_stack/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t1_open_white_container__to__t8_acquire_top_block_from_stack/flexible_policy_shadow.json",
+      "source_operator": "T1.open_white_container",
+      "successor_operator": "T8.acquire_top_block_from_stack",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t2_acquire_from_floor__to__t1_deliver_to_white_container/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t2_acquire_from_floor__to__t1_deliver_to_white_container/flexible_policy_shadow.json",
+      "source_operator": "T2.acquire_from_floor",
+      "successor_operator": "T1.deliver_to_white_container",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t2_acquire_from_floor__to__t3_deliver_to_floor/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t2_acquire_from_floor__to__t3_deliver_to_floor/flexible_policy_shadow.json",
+      "source_operator": "T2.acquire_from_floor",
+      "successor_operator": "T3.deliver_to_floor",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t2_acquire_from_floor__to__t4_deliver_to_drawer/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t2_acquire_from_floor__to__t4_deliver_to_drawer/flexible_policy_shadow.json",
+      "source_operator": "T2.acquire_from_floor",
+      "successor_operator": "T4.deliver_to_drawer",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t2_acquire_from_floor__to__t5_deliver_to_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t2_acquire_from_floor__to__t5_deliver_to_black_table/flexible_policy_shadow.json",
+      "source_operator": "T2.acquire_from_floor",
+      "successor_operator": "T5.deliver_to_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t2_acquire_from_floor__to__t6_stack_on_support_block/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t2_acquire_from_floor__to__t6_stack_on_support_block/flexible_policy_shadow.json",
+      "source_operator": "T2.acquire_from_floor",
+      "successor_operator": "T6.stack_on_support_block",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t2_acquire_from_floor__to__t7_deliver_to_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t2_acquire_from_floor__to__t7_deliver_to_black_table/flexible_policy_shadow.json",
+      "source_operator": "T2.acquire_from_floor",
+      "successor_operator": "T7.deliver_to_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t2_acquire_from_floor__to__t8_deliver_unstacked_to_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t2_acquire_from_floor__to__t8_deliver_unstacked_to_black_table/flexible_policy_shadow.json",
+      "source_operator": "T2.acquire_from_floor",
+      "successor_operator": "T8.deliver_unstacked_to_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "tangent_regularized_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t2_deliver_to_black_table__to__t1_acquire_from_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t2_deliver_to_black_table__to__t1_acquire_from_black_table/flexible_policy_shadow.json",
+      "source_operator": "T2.deliver_to_black_table",
+      "successor_operator": "T1.acquire_from_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t2_deliver_to_black_table__to__t1_open_white_container/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t2_deliver_to_black_table__to__t1_open_white_container/flexible_policy_shadow.json",
+      "source_operator": "T2.deliver_to_black_table",
+      "successor_operator": "T1.open_white_container",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t2_deliver_to_black_table__to__t3_acquire_from_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t2_deliver_to_black_table__to__t3_acquire_from_black_table/flexible_policy_shadow.json",
+      "source_operator": "T2.deliver_to_black_table",
+      "successor_operator": "T3.acquire_from_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t2_deliver_to_black_table__to__t4_acquire_from_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t2_deliver_to_black_table__to__t4_acquire_from_black_table/flexible_policy_shadow.json",
+      "source_operator": "T2.deliver_to_black_table",
+      "successor_operator": "T4.acquire_from_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t2_deliver_to_black_table__to__t4_open_drawer/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t2_deliver_to_black_table__to__t4_open_drawer/flexible_policy_shadow.json",
+      "source_operator": "T2.deliver_to_black_table",
+      "successor_operator": "T4.open_drawer",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_semantic_candidate",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": false,
+        "fresh_successor_shadow_pass": false,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t2_deliver_to_black_table__to__t5_close_drawer/flexible_reference_manifest.json",
+      "policy_shadow": null,
+      "source_operator": "T2.deliver_to_black_table",
+      "successor_operator": "T5.close_drawer",
+      "uncertainty_penalty": 0.75,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t2_deliver_to_black_table__to__t5_open_drawer/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t2_deliver_to_black_table__to__t5_open_drawer/flexible_policy_shadow.json",
+      "source_operator": "T2.deliver_to_black_table",
+      "successor_operator": "T5.open_drawer",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t3_acquire_from_black_table__to__t1_deliver_to_white_container/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t3_acquire_from_black_table__to__t1_deliver_to_white_container/flexible_policy_shadow.json",
+      "source_operator": "T3.acquire_from_black_table",
+      "successor_operator": "T1.deliver_to_white_container",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t3_acquire_from_black_table__to__t2_deliver_to_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t3_acquire_from_black_table__to__t2_deliver_to_black_table/flexible_policy_shadow.json",
+      "source_operator": "T3.acquire_from_black_table",
+      "successor_operator": "T2.deliver_to_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t3_acquire_from_black_table__to__t4_deliver_to_drawer/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t3_acquire_from_black_table__to__t4_deliver_to_drawer/flexible_policy_shadow.json",
+      "source_operator": "T3.acquire_from_black_table",
+      "successor_operator": "T4.deliver_to_drawer",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t3_acquire_from_black_table__to__t5_deliver_to_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t3_acquire_from_black_table__to__t5_deliver_to_black_table/flexible_policy_shadow.json",
+      "source_operator": "T3.acquire_from_black_table",
+      "successor_operator": "T5.deliver_to_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "tangent_regularized_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t3_acquire_from_black_table__to__t6_stack_on_support_block/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t3_acquire_from_black_table__to__t6_stack_on_support_block/flexible_policy_shadow.json",
+      "source_operator": "T3.acquire_from_black_table",
+      "successor_operator": "T6.stack_on_support_block",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t3_acquire_from_black_table__to__t7_deliver_to_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t3_acquire_from_black_table__to__t7_deliver_to_black_table/flexible_policy_shadow.json",
+      "source_operator": "T3.acquire_from_black_table",
+      "successor_operator": "T7.deliver_to_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "tangent_regularized_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t3_acquire_from_black_table__to__t8_deliver_unstacked_to_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t3_acquire_from_black_table__to__t8_deliver_unstacked_to_black_table/flexible_policy_shadow.json",
+      "source_operator": "T3.acquire_from_black_table",
+      "successor_operator": "T8.deliver_unstacked_to_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t3_deliver_to_floor__to__t1_open_white_container/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t3_deliver_to_floor__to__t1_open_white_container/flexible_policy_shadow.json",
+      "source_operator": "T3.deliver_to_floor",
+      "successor_operator": "T1.open_white_container",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "tangent_regularized_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t3_deliver_to_floor__to__t4_open_drawer/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t3_deliver_to_floor__to__t4_open_drawer/flexible_policy_shadow.json",
+      "source_operator": "T3.deliver_to_floor",
+      "successor_operator": "T4.open_drawer",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t3_deliver_to_floor__to__t5_open_drawer/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t3_deliver_to_floor__to__t5_open_drawer/flexible_policy_shadow.json",
+      "source_operator": "T3.deliver_to_floor",
+      "successor_operator": "T5.open_drawer",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_acquire_from_black_table__to__t1_deliver_to_white_container/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_acquire_from_black_table__to__t1_deliver_to_white_container/flexible_policy_shadow.json",
+      "source_operator": "T4.acquire_from_black_table",
+      "successor_operator": "T1.deliver_to_white_container",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_acquire_from_black_table__to__t2_deliver_to_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_acquire_from_black_table__to__t2_deliver_to_black_table/flexible_policy_shadow.json",
+      "source_operator": "T4.acquire_from_black_table",
+      "successor_operator": "T2.deliver_to_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_acquire_from_black_table__to__t3_deliver_to_floor/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_acquire_from_black_table__to__t3_deliver_to_floor/flexible_policy_shadow.json",
+      "source_operator": "T4.acquire_from_black_table",
+      "successor_operator": "T3.deliver_to_floor",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_acquire_from_black_table__to__t5_deliver_to_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_acquire_from_black_table__to__t5_deliver_to_black_table/flexible_policy_shadow.json",
+      "source_operator": "T4.acquire_from_black_table",
+      "successor_operator": "T5.deliver_to_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_acquire_from_black_table__to__t6_stack_on_support_block/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_acquire_from_black_table__to__t6_stack_on_support_block/flexible_policy_shadow.json",
+      "source_operator": "T4.acquire_from_black_table",
+      "successor_operator": "T6.stack_on_support_block",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_acquire_from_black_table__to__t7_deliver_to_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_acquire_from_black_table__to__t7_deliver_to_black_table/flexible_policy_shadow.json",
+      "source_operator": "T4.acquire_from_black_table",
+      "successor_operator": "T7.deliver_to_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_acquire_from_black_table__to__t8_deliver_unstacked_to_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_acquire_from_black_table__to__t8_deliver_unstacked_to_black_table/flexible_policy_shadow.json",
+      "source_operator": "T4.acquire_from_black_table",
+      "successor_operator": "T8.deliver_unstacked_to_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "state_match",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_close_drawer__to__t1_open_white_container/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_close_drawer__to__t1_open_white_container/flexible_policy_shadow.json",
+      "source_operator": "T4.close_drawer",
+      "successor_operator": "T1.open_white_container",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "state_match",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_close_drawer__to__t5_open_drawer/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_close_drawer__to__t5_open_drawer/flexible_policy_shadow.json",
+      "source_operator": "T4.close_drawer",
+      "successor_operator": "T5.open_drawer",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_deliver_to_drawer__to__t1_open_white_container/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_deliver_to_drawer__to__t1_open_white_container/flexible_policy_shadow.json",
+      "source_operator": "T4.deliver_to_drawer",
+      "successor_operator": "T1.open_white_container",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_deliver_to_drawer__to__t5_acquire_from_drawer/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_deliver_to_drawer__to__t5_acquire_from_drawer/flexible_policy_shadow.json",
+      "source_operator": "T4.deliver_to_drawer",
+      "successor_operator": "T5.acquire_from_drawer",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_open_drawer__to__t1_acquire_from_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_open_drawer__to__t1_acquire_from_black_table/flexible_policy_shadow.json",
+      "source_operator": "T4.open_drawer",
+      "successor_operator": "T1.acquire_from_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_open_drawer__to__t1_open_white_container/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_open_drawer__to__t1_open_white_container/flexible_policy_shadow.json",
+      "source_operator": "T4.open_drawer",
+      "successor_operator": "T1.open_white_container",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_open_drawer__to__t2_acquire_from_floor/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_open_drawer__to__t2_acquire_from_floor/flexible_policy_shadow.json",
+      "source_operator": "T4.open_drawer",
+      "successor_operator": "T2.acquire_from_floor",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_open_drawer__to__t3_acquire_from_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_open_drawer__to__t3_acquire_from_black_table/flexible_policy_shadow.json",
+      "source_operator": "T4.open_drawer",
+      "successor_operator": "T3.acquire_from_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_open_drawer__to__t5_acquire_from_drawer/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_open_drawer__to__t5_acquire_from_drawer/flexible_policy_shadow.json",
+      "source_operator": "T4.open_drawer",
+      "successor_operator": "T5.acquire_from_drawer",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_open_drawer__to__t5_close_drawer/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_open_drawer__to__t5_close_drawer/flexible_policy_shadow.json",
+      "source_operator": "T4.open_drawer",
+      "successor_operator": "T5.close_drawer",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_open_drawer__to__t6_acquire_moving_block/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_open_drawer__to__t6_acquire_moving_block/flexible_policy_shadow.json",
+      "source_operator": "T4.open_drawer",
+      "successor_operator": "T6.acquire_moving_block",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_open_drawer__to__t7_acquire_from_drawer_top/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_open_drawer__to__t7_acquire_from_drawer_top/flexible_policy_shadow.json",
+      "source_operator": "T4.open_drawer",
+      "successor_operator": "T7.acquire_from_drawer_top",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_open_drawer__to__t8_acquire_top_block_from_stack/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t4_open_drawer__to__t8_acquire_top_block_from_stack/flexible_policy_shadow.json",
+      "source_operator": "T4.open_drawer",
+      "successor_operator": "T8.acquire_top_block_from_stack",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_acquire_from_drawer__to__t1_deliver_to_white_container/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_acquire_from_drawer__to__t1_deliver_to_white_container/flexible_policy_shadow.json",
+      "source_operator": "T5.acquire_from_drawer",
+      "successor_operator": "T1.deliver_to_white_container",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_acquire_from_drawer__to__t2_deliver_to_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_acquire_from_drawer__to__t2_deliver_to_black_table/flexible_policy_shadow.json",
+      "source_operator": "T5.acquire_from_drawer",
+      "successor_operator": "T2.deliver_to_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "tangent_regularized_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_acquire_from_drawer__to__t3_deliver_to_floor/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_acquire_from_drawer__to__t3_deliver_to_floor/flexible_policy_shadow.json",
+      "source_operator": "T5.acquire_from_drawer",
+      "successor_operator": "T3.deliver_to_floor",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_acquire_from_drawer__to__t4_deliver_to_drawer/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_acquire_from_drawer__to__t4_deliver_to_drawer/flexible_policy_shadow.json",
+      "source_operator": "T5.acquire_from_drawer",
+      "successor_operator": "T4.deliver_to_drawer",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_acquire_from_drawer__to__t6_stack_on_support_block/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_acquire_from_drawer__to__t6_stack_on_support_block/flexible_policy_shadow.json",
+      "source_operator": "T5.acquire_from_drawer",
+      "successor_operator": "T6.stack_on_support_block",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_acquire_from_drawer__to__t7_deliver_to_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_acquire_from_drawer__to__t7_deliver_to_black_table/flexible_policy_shadow.json",
+      "source_operator": "T5.acquire_from_drawer",
+      "successor_operator": "T7.deliver_to_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_acquire_from_drawer__to__t8_deliver_unstacked_to_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_acquire_from_drawer__to__t8_deliver_unstacked_to_black_table/flexible_policy_shadow.json",
+      "source_operator": "T5.acquire_from_drawer",
+      "successor_operator": "T8.deliver_unstacked_to_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "tangent_regularized_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "state_match",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_close_drawer__to__t1_acquire_from_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_close_drawer__to__t1_acquire_from_black_table/flexible_policy_shadow.json",
+      "source_operator": "T5.close_drawer",
+      "successor_operator": "T1.acquire_from_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "state_match",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_close_drawer__to__t1_open_white_container/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_close_drawer__to__t1_open_white_container/flexible_policy_shadow.json",
+      "source_operator": "T5.close_drawer",
+      "successor_operator": "T1.open_white_container",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "state_match",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_close_drawer__to__t3_acquire_from_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_close_drawer__to__t3_acquire_from_black_table/flexible_policy_shadow.json",
+      "source_operator": "T5.close_drawer",
+      "successor_operator": "T3.acquire_from_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "state_match",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_close_drawer__to__t4_open_drawer/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_close_drawer__to__t4_open_drawer/flexible_policy_shadow.json",
+      "source_operator": "T5.close_drawer",
+      "successor_operator": "T4.open_drawer",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_deliver_to_black_table__to__t1_acquire_from_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_deliver_to_black_table__to__t1_acquire_from_black_table/flexible_policy_shadow.json",
+      "source_operator": "T5.deliver_to_black_table",
+      "successor_operator": "T1.acquire_from_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_deliver_to_black_table__to__t1_open_white_container/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_deliver_to_black_table__to__t1_open_white_container/flexible_policy_shadow.json",
+      "source_operator": "T5.deliver_to_black_table",
+      "successor_operator": "T1.open_white_container",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_deliver_to_black_table__to__t3_acquire_from_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_deliver_to_black_table__to__t3_acquire_from_black_table/flexible_policy_shadow.json",
+      "source_operator": "T5.deliver_to_black_table",
+      "successor_operator": "T3.acquire_from_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_deliver_to_black_table__to__t4_acquire_from_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_deliver_to_black_table__to__t4_acquire_from_black_table/flexible_policy_shadow.json",
+      "source_operator": "T5.deliver_to_black_table",
+      "successor_operator": "T4.acquire_from_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_open_drawer__to__t1_acquire_from_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_open_drawer__to__t1_acquire_from_black_table/flexible_policy_shadow.json",
+      "source_operator": "T5.open_drawer",
+      "successor_operator": "T1.acquire_from_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_open_drawer__to__t1_open_white_container/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_open_drawer__to__t1_open_white_container/flexible_policy_shadow.json",
+      "source_operator": "T5.open_drawer",
+      "successor_operator": "T1.open_white_container",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_open_drawer__to__t2_acquire_from_floor/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_open_drawer__to__t2_acquire_from_floor/flexible_policy_shadow.json",
+      "source_operator": "T5.open_drawer",
+      "successor_operator": "T2.acquire_from_floor",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_open_drawer__to__t3_acquire_from_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_open_drawer__to__t3_acquire_from_black_table/flexible_policy_shadow.json",
+      "source_operator": "T5.open_drawer",
+      "successor_operator": "T3.acquire_from_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_open_drawer__to__t4_acquire_from_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_open_drawer__to__t4_acquire_from_black_table/flexible_policy_shadow.json",
+      "source_operator": "T5.open_drawer",
+      "successor_operator": "T4.acquire_from_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_open_drawer__to__t4_close_drawer/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_open_drawer__to__t4_close_drawer/flexible_policy_shadow.json",
+      "source_operator": "T5.open_drawer",
+      "successor_operator": "T4.close_drawer",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_open_drawer__to__t6_acquire_moving_block/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_open_drawer__to__t6_acquire_moving_block/flexible_policy_shadow.json",
+      "source_operator": "T5.open_drawer",
+      "successor_operator": "T6.acquire_moving_block",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_open_drawer__to__t7_acquire_from_drawer_top/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_open_drawer__to__t7_acquire_from_drawer_top/flexible_policy_shadow.json",
+      "source_operator": "T5.open_drawer",
+      "successor_operator": "T7.acquire_from_drawer_top",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_open_drawer__to__t8_acquire_top_block_from_stack/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t5_open_drawer__to__t8_acquire_top_block_from_stack/flexible_policy_shadow.json",
+      "source_operator": "T5.open_drawer",
+      "successor_operator": "T8.acquire_top_block_from_stack",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t6_acquire_moving_block__to__t1_deliver_to_white_container/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t6_acquire_moving_block__to__t1_deliver_to_white_container/flexible_policy_shadow.json",
+      "source_operator": "T6.acquire_moving_block",
+      "successor_operator": "T1.deliver_to_white_container",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_semantic_candidate",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": false,
+        "fresh_successor_shadow_pass": false,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t6_acquire_moving_block__to__t2_deliver_to_black_table/flexible_reference_manifest.json",
+      "policy_shadow": null,
+      "source_operator": "T6.acquire_moving_block",
+      "successor_operator": "T2.deliver_to_black_table",
+      "uncertainty_penalty": 0.75,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t6_acquire_moving_block__to__t3_deliver_to_floor/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t6_acquire_moving_block__to__t3_deliver_to_floor/flexible_policy_shadow.json",
+      "source_operator": "T6.acquire_moving_block",
+      "successor_operator": "T3.deliver_to_floor",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t6_acquire_moving_block__to__t4_deliver_to_drawer/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t6_acquire_moving_block__to__t4_deliver_to_drawer/flexible_policy_shadow.json",
+      "source_operator": "T6.acquire_moving_block",
+      "successor_operator": "T4.deliver_to_drawer",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t6_acquire_moving_block__to__t5_deliver_to_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t6_acquire_moving_block__to__t5_deliver_to_black_table/flexible_policy_shadow.json",
+      "source_operator": "T6.acquire_moving_block",
+      "successor_operator": "T5.deliver_to_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "tangent_regularized_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t6_acquire_moving_block__to__t7_deliver_to_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t6_acquire_moving_block__to__t7_deliver_to_black_table/flexible_policy_shadow.json",
+      "source_operator": "T6.acquire_moving_block",
+      "successor_operator": "T7.deliver_to_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "tangent_regularized_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t6_acquire_moving_block__to__t8_deliver_unstacked_to_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t6_acquire_moving_block__to__t8_deliver_unstacked_to_black_table/flexible_policy_shadow.json",
+      "source_operator": "T6.acquire_moving_block",
+      "successor_operator": "T8.deliver_unstacked_to_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_semantic_candidate",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": false,
+        "fresh_successor_shadow_pass": false,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t6_stack_on_support_block__to__t1_open_white_container/flexible_reference_manifest.json",
+      "policy_shadow": null,
+      "source_operator": "T6.stack_on_support_block",
+      "successor_operator": "T1.open_white_container",
+      "uncertainty_penalty": 0.75,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t6_stack_on_support_block__to__t4_open_drawer/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t6_stack_on_support_block__to__t4_open_drawer/flexible_policy_shadow.json",
+      "source_operator": "T6.stack_on_support_block",
+      "successor_operator": "T4.open_drawer",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t6_stack_on_support_block__to__t5_open_drawer/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t6_stack_on_support_block__to__t5_open_drawer/flexible_policy_shadow.json",
+      "source_operator": "T6.stack_on_support_block",
+      "successor_operator": "T5.open_drawer",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "tangent_regularized_deformation"
+    },
+    {
+      "admission_status": "flexible_semantic_candidate",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": false,
+        "fresh_successor_shadow_pass": false,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t6_stack_on_support_block__to__t8_acquire_top_block_from_stack/flexible_reference_manifest.json",
+      "policy_shadow": null,
+      "source_operator": "T6.stack_on_support_block",
+      "successor_operator": "T8.acquire_top_block_from_stack",
+      "uncertainty_penalty": 0.75,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t7_acquire_from_drawer_top__to__t1_deliver_to_white_container/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t7_acquire_from_drawer_top__to__t1_deliver_to_white_container/flexible_policy_shadow.json",
+      "source_operator": "T7.acquire_from_drawer_top",
+      "successor_operator": "T1.deliver_to_white_container",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_semantic_candidate",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": false,
+        "fresh_successor_shadow_pass": false,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t7_acquire_from_drawer_top__to__t2_deliver_to_black_table/flexible_reference_manifest.json",
+      "policy_shadow": null,
+      "source_operator": "T7.acquire_from_drawer_top",
+      "successor_operator": "T2.deliver_to_black_table",
+      "uncertainty_penalty": 0.75,
+      "validation_method": "settle_reference_connector"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "dijkstra_operator_cost_changed": false,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0,
+        "runtime_source_medoid_episode": 15,
+        "runtime_source_phase_window": [
+          0.16,
+          0.21
+        ],
+        "runtime_source_reference_phase": 0.16,
+        "runtime_source_segment": "S2",
+        "semantic_local_total_length_mm": 594.7100635609127,
+        "successor_reference_interior_path_margin_mm": 15.0,
+        "successor_reference_medoid_episode": 23,
+        "successor_reference_phase": 0.65,
+        "successor_reference_phase_window": [
+          0.13,
+          0.68
+        ],
+        "successor_reference_segment": "S2",
+        "successor_runtime_phase_gate": false
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t7_to_t3_s2_runtime_reference_2026-08-31/flexible_reference_manifest.json",
+      "policy_shadow": "../t7_to_t3_s2_runtime_reference_2026-08-31/flexible_policy_shadow.json",
+      "source_operator": "T7.acquire_from_drawer_top",
+      "successor_operator": "T3.deliver_to_floor",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t7_acquire_from_drawer_top__to__t4_deliver_to_drawer/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t7_acquire_from_drawer_top__to__t4_deliver_to_drawer/flexible_policy_shadow.json",
+      "source_operator": "T7.acquire_from_drawer_top",
+      "successor_operator": "T4.deliver_to_drawer",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t7_acquire_from_drawer_top__to__t5_deliver_to_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t7_acquire_from_drawer_top__to__t5_deliver_to_black_table/flexible_policy_shadow.json",
+      "source_operator": "T7.acquire_from_drawer_top",
+      "successor_operator": "T5.deliver_to_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t7_acquire_from_drawer_top__to__t6_stack_on_support_block/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t7_acquire_from_drawer_top__to__t6_stack_on_support_block/flexible_policy_shadow.json",
+      "source_operator": "T7.acquire_from_drawer_top",
+      "successor_operator": "T6.stack_on_support_block",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "tangent_regularized_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t7_acquire_from_drawer_top__to__t8_deliver_unstacked_to_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t7_acquire_from_drawer_top__to__t8_deliver_unstacked_to_black_table/flexible_policy_shadow.json",
+      "source_operator": "T7.acquire_from_drawer_top",
+      "successor_operator": "T8.deliver_unstacked_to_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "tangent_regularized_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t7_deliver_to_black_table__to__t1_acquire_from_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t7_deliver_to_black_table__to__t1_acquire_from_black_table/flexible_policy_shadow.json",
+      "source_operator": "T7.deliver_to_black_table",
+      "successor_operator": "T1.acquire_from_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t7_deliver_to_black_table__to__t1_open_white_container/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t7_deliver_to_black_table__to__t1_open_white_container/flexible_policy_shadow.json",
+      "source_operator": "T7.deliver_to_black_table",
+      "successor_operator": "T1.open_white_container",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t7_deliver_to_black_table__to__t3_acquire_from_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t7_deliver_to_black_table__to__t3_acquire_from_black_table/flexible_policy_shadow.json",
+      "source_operator": "T7.deliver_to_black_table",
+      "successor_operator": "T3.acquire_from_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t7_deliver_to_black_table__to__t4_acquire_from_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t7_deliver_to_black_table__to__t4_acquire_from_black_table/flexible_policy_shadow.json",
+      "source_operator": "T7.deliver_to_black_table",
+      "successor_operator": "T4.acquire_from_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "tangent_regularized_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t7_deliver_to_black_table__to__t4_open_drawer/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t7_deliver_to_black_table__to__t4_open_drawer/flexible_policy_shadow.json",
+      "source_operator": "T7.deliver_to_black_table",
+      "successor_operator": "T4.open_drawer",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_semantic_candidate",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": false,
+        "fresh_successor_shadow_pass": false,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t7_deliver_to_black_table__to__t5_close_drawer/flexible_reference_manifest.json",
+      "policy_shadow": null,
+      "source_operator": "T7.deliver_to_black_table",
+      "successor_operator": "T5.close_drawer",
+      "uncertainty_penalty": 0.75,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t7_deliver_to_black_table__to__t5_open_drawer/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t7_deliver_to_black_table__to__t5_open_drawer/flexible_policy_shadow.json",
+      "source_operator": "T7.deliver_to_black_table",
+      "successor_operator": "T5.open_drawer",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t8_acquire_top_block_from_stack__to__t1_deliver_to_white_container/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t8_acquire_top_block_from_stack__to__t1_deliver_to_white_container/flexible_policy_shadow.json",
+      "source_operator": "T8.acquire_top_block_from_stack",
+      "successor_operator": "T1.deliver_to_white_container",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_semantic_candidate",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": false,
+        "fresh_successor_shadow_pass": false,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t8_acquire_top_block_from_stack__to__t2_deliver_to_black_table/flexible_reference_manifest.json",
+      "policy_shadow": null,
+      "source_operator": "T8.acquire_top_block_from_stack",
+      "successor_operator": "T2.deliver_to_black_table",
+      "uncertainty_penalty": 0.75,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t8_acquire_top_block_from_stack__to__t3_deliver_to_floor/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t8_acquire_top_block_from_stack__to__t3_deliver_to_floor/flexible_policy_shadow.json",
+      "source_operator": "T8.acquire_top_block_from_stack",
+      "successor_operator": "T3.deliver_to_floor",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "tangent_regularized_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t8_acquire_top_block_from_stack__to__t4_deliver_to_drawer/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t8_acquire_top_block_from_stack__to__t4_deliver_to_drawer/flexible_policy_shadow.json",
+      "source_operator": "T8.acquire_top_block_from_stack",
+      "successor_operator": "T4.deliver_to_drawer",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t8_acquire_top_block_from_stack__to__t5_deliver_to_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t8_acquire_top_block_from_stack__to__t5_deliver_to_black_table/flexible_policy_shadow.json",
+      "source_operator": "T8.acquire_top_block_from_stack",
+      "successor_operator": "T5.deliver_to_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "tangent_regularized_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t8_acquire_top_block_from_stack__to__t6_stack_on_support_block/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t8_acquire_top_block_from_stack__to__t6_stack_on_support_block/flexible_policy_shadow.json",
+      "source_operator": "T8.acquire_top_block_from_stack",
+      "successor_operator": "T6.stack_on_support_block",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "tangent_regularized_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": false,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "open_then_closed",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t8_acquire_top_block_from_stack__to__t7_deliver_to_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t8_acquire_top_block_from_stack__to__t7_deliver_to_black_table/flexible_policy_shadow.json",
+      "source_operator": "T8.acquire_top_block_from_stack",
+      "successor_operator": "T7.deliver_to_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "tangent_regularized_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t8_deliver_unstacked_to_black_table__to__t1_acquire_from_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t8_deliver_unstacked_to_black_table__to__t1_acquire_from_black_table/flexible_policy_shadow.json",
+      "source_operator": "T8.deliver_unstacked_to_black_table",
+      "successor_operator": "T1.acquire_from_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t8_deliver_unstacked_to_black_table__to__t1_open_white_container/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t8_deliver_unstacked_to_black_table__to__t1_open_white_container/flexible_policy_shadow.json",
+      "source_operator": "T8.deliver_unstacked_to_black_table",
+      "successor_operator": "T1.open_white_container",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t8_deliver_unstacked_to_black_table__to__t3_acquire_from_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t8_deliver_unstacked_to_black_table__to__t3_acquire_from_black_table/flexible_policy_shadow.json",
+      "source_operator": "T8.deliver_unstacked_to_black_table",
+      "successor_operator": "T3.acquire_from_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t8_deliver_unstacked_to_black_table__to__t4_acquire_from_black_table/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t8_deliver_unstacked_to_black_table__to__t4_acquire_from_black_table/flexible_policy_shadow.json",
+      "source_operator": "T8.deliver_unstacked_to_black_table",
+      "successor_operator": "T4.acquire_from_black_table",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t8_deliver_unstacked_to_black_table__to__t4_open_drawer/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t8_deliver_unstacked_to_black_table__to__t4_open_drawer/flexible_policy_shadow.json",
+      "source_operator": "T8.deliver_unstacked_to_black_table",
+      "successor_operator": "T4.open_drawer",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_semantic_candidate",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": false,
+        "fresh_successor_shadow_pass": false,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t8_deliver_unstacked_to_black_table__to__t5_close_drawer/flexible_reference_manifest.json",
+      "policy_shadow": null,
+      "source_operator": "T8.deliver_unstacked_to_black_table",
+      "successor_operator": "T5.close_drawer",
+      "uncertainty_penalty": 0.75,
+      "validation_method": "reference_deformation"
+    },
+    {
+      "admission_status": "flexible_verified",
+      "evidence": {
+        "baseline_strict_verified": true,
+        "collision_checked": false,
+        "command_safe": true,
+        "crossfade_pass": true,
+        "fresh_successor_shadow_pass": true,
+        "ik_checked": false,
+        "physical_trials": 0
+      },
+      "gripper_event": "closed_then_open",
+      "handoff_manifest": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t8_deliver_unstacked_to_black_table__to__t5_open_drawer/flexible_reference_manifest.json",
+      "policy_shadow": "../t1_t8_flexible_level2_registry_2026-08-30/edges/t8_deliver_unstacked_to_black_table__to__t5_open_drawer/flexible_policy_shadow.json",
+      "source_operator": "T8.deliver_unstacked_to_black_table",
+      "successor_operator": "T5.open_drawer",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "reference_deformation"
+    }
+  ],
+  "schema_version": "a0509.interior_policy_v2_edge_registry.v3",
+  "selection_contract": {
+    "adaptive_b_prefix_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "allow_intermediate_release": false,
+    "candidate_search": "bounded_offline_reference_shortlist",
+    "legacy_level2_evidence_registry": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/docs/artifacts/t1_t8_flexible_level2_registry_2026-08-30/edge_registry_level2_v3.json",
+    "physical_validation_performed": false,
+    "removed_symbolically_incompatible_edges": [
+      {
+        "source_operator": "T3.deliver_to_floor",
+        "successor_operator": "T2.acquire_from_floor"
+      }
+    ],
+    "robot_executable": false,
+    "runtime_bridge_search": "bounded_reference_guided_worker",
+    "runtime_default": "flexible_level2",
+    "semantic_authority": "external_planner",
+    "source_catalog": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/config/interior_policy/a0509_t1_t8_operator_catalog_spatial_v2.json",
+    "source_inventory": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/docs/artifacts/t1_t8_spatial_floor_level2_2026-09-02/level1_edge_inventory.json",
+    "spatial_semantics": {
+      "T2_source": "left_floor",
+      "T3_destination": "right_floor",
+      "legacy_floor": "accepted_by_parser_but_not_used_by_current_operators",
+      "operator_ids_preserved": true,
+      "raw_semantic_artifacts_modified": false
+    },
+    "strict_baseline_read_only": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/docs/artifacts/t1_t8_borderline_curvature_recovery_2026-08-29/edge_registry_all_level2_extended.json",
+    "unverified_candidates_executable": false,
+    "verified_requires_fresh_successor_shadow": true,
+    "verified_semantic_local_overlays": [
+      "/home/rvlab/Dosan-MetaQuest-teleoperation-project/docs/artifacts/t7_to_t3_s2_runtime_reference_2026-08-31/level2_registry_overlay.json"
+    ]
+  }
+}

@@ -100,6 +100,7 @@ def test_unprepared_mode_defers_action_freshness_to_episode_reset(monkeypatch, c
     summary = json.loads(capsys.readouterr().out)
 
     assert teleop_configs[0].require_fresh_action_on_connect is False
+    assert teleop_configs[0].defer_calibration_on_connect is True
     assert teleops[0].get_action_calls == 0
     assert robots[0].sent_actions == []
     assert summary["status"] == "awaiting_episode_reset"
@@ -113,6 +114,7 @@ def test_legacy_preflight_still_validates_a_fresh_teacher_action(monkeypatch, ca
     summary = json.loads(capsys.readouterr().out)
 
     assert teleop_configs[0].require_fresh_action_on_connect is True
+    assert teleop_configs[0].defer_calibration_on_connect is False
     assert teleops[0].get_action_calls == 1
     assert robots[0].sent_actions == [
         {"target_x_mm": 400.0, "gripper_target": 0.0}

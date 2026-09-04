@@ -1,0 +1,255 @@
+{
+  "schema_version": "a0509.semantic_only_graph.v3",
+  "task_id": "t6",
+  "dataset_repo_id": "local/a0509_blue_block_v6",
+  "dataset_root": "/home/rvlab/lerobot_datasets/a0509_blue_block_t6",
+  "associated_model_path": "/home/rvlab/lerobot_models/models/act_a0509_blue_block_t6_bs32_50k_20260824/050000/pretrained_model",
+  "model_used_for_semantic_extraction": false,
+  "task_description": "Stack the blue block on top of the other blue block on the black table.",
+  "task_semantic_label": "stack_one_blue_block_on_another_blue_block_on_black_table",
+  "episode_count": 30,
+  "event_grammar": [
+    "C1",
+    "O1"
+  ],
+  "events": {
+    "C1": {
+      "semantic_label": "grasp_blue_block_for_stacking",
+      "label_ko": "적층할 파란 블록 파지",
+      "gripper_change": "open_to_closed",
+      "manipulated_object": "moving_blue_block",
+      "semantic_effect": "moving_blue_block_held",
+      "confidence": "high",
+      "representative_position_mm": [
+        364.6049041748047,
+        5.00053071975708,
+        341.5792236328125
+      ]
+    },
+    "O1": {
+      "semantic_label": "release_blue_block_on_top_of_support_blue_block",
+      "label_ko": "지지 파란 블록 위에 이동 블록 방출",
+      "gripper_change": "closed_to_open",
+      "manipulated_object": "moving_blue_block",
+      "semantic_effect": "blue_block_stack_assembled",
+      "confidence": "high",
+      "representative_position_mm": [
+        597.7664489746094,
+        241.4930877685547,
+        336.9624938964844
+      ]
+    }
+  },
+  "hierarchy": {
+    "task": "stack_one_blue_block_on_another_blue_block_on_black_table",
+    "subgoals": [
+      "acquire_blue_block_for_stacking",
+      "stack_blue_blocks_on_black_table",
+      "finish_task"
+    ]
+  },
+  "state_nodes": [
+    {
+      "node_id": "START",
+      "summary": "G: open\nMoving block: source\nSupport block: black table",
+      "semantic_state": {
+        "gripper": "open",
+        "moving_blue_block": "source_region",
+        "support_blue_block": "on_black_table",
+        "held_object": "none",
+        "stack": "unassembled"
+      }
+    },
+    {
+      "node_id": "C1",
+      "summary": "G: closed\nMoving block: held\nStack: unassembled",
+      "semantic_state": {
+        "gripper": "closed",
+        "moving_blue_block": "held",
+        "support_blue_block": "on_black_table",
+        "held_object": "moving_blue_block",
+        "stack": "unassembled"
+      }
+    },
+    {
+      "node_id": "O1",
+      "summary": "G: open\nMoving block: on support block\nStack: assembled",
+      "semantic_state": {
+        "gripper": "open",
+        "moving_blue_block": "on_top_of_support_blue_block",
+        "support_blue_block": "on_black_table",
+        "held_object": "none",
+        "stack": "assembled"
+      }
+    },
+    {
+      "node_id": "TAIL",
+      "summary": "G: open\nStack: assembled\nState unchanged",
+      "semantic_state": {
+        "gripper": "open",
+        "moving_blue_block": "on_top_of_support_blue_block",
+        "support_blue_block": "on_black_table",
+        "held_object": "none",
+        "stack": "assembled"
+      }
+    }
+  ],
+  "semantic_notes": [
+    "All 30 episodes share the audited C1-O1 gripper-event grammar.",
+    "TASK_DESCRIPTION identifies the stationary support block as the other blue block on the black table and disambiguates O1 as the stacking release.",
+    "The moving block's source surface is not stated, so source_region is intentionally geometry-neutral.",
+    "S2 remains one transport-align-stack semantic span; no unobserved contact boundary before O1 is invented.",
+    "Semantic object roles come from TASK_DESCRIPTION, event order, and Cartesian motion; no image/frame averaging is used."
+  ],
+  "segments": [
+    {
+      "spec": {
+        "segment_id": "S1",
+        "parent_subgoal": "acquire_blue_block_for_stacking",
+        "semantic_label": "approach_moving_blue_block_in_source_region",
+        "label_ko": "적층할 파란 블록으로 접근",
+        "start_anchor": "START",
+        "end_anchor": "C1",
+        "gripper_semantics": "open; closes at C1",
+        "manipulated_object": "moving_blue_block",
+        "entry_state": {
+          "gripper": "open",
+          "moving_blue_block": "source_region",
+          "support_blue_block": "on_black_table",
+          "held_object": "none",
+          "stack": "unassembled"
+        },
+        "exit_state": {
+          "gripper": "closed",
+          "moving_blue_block": "held",
+          "support_blue_block": "on_black_table",
+          "held_object": "moving_blue_block",
+          "stack": "unassembled"
+        },
+        "evidence": [
+          "TASK_DESCRIPTION",
+          "C1",
+          "TCP approach motion"
+        ],
+        "confidence": "high"
+      },
+      "path_length_mm": {
+        "median": 227.50670100230462,
+        "mean": 224.7683528669976,
+        "std": 33.71349222791856,
+        "min": 163.84301234807813,
+        "max": 297.6566427967717
+      },
+      "phase_residual_mm": {
+        "p90_mean": 30.937246733107084,
+        "p95_max": 45.57149945355215
+      }
+    },
+    {
+      "spec": {
+        "segment_id": "S2",
+        "parent_subgoal": "stack_blue_blocks_on_black_table",
+        "semantic_label": "lift_transport_align_and_stack_blue_block_on_support_block",
+        "label_ko": "파란 블록을 들어 지지 블록 위로 운반·정렬·적층",
+        "start_anchor": "C1",
+        "end_anchor": "O1",
+        "gripper_semantics": "closed; opens at O1",
+        "manipulated_object": "moving_blue_block",
+        "entry_state": {
+          "gripper": "closed",
+          "moving_blue_block": "held",
+          "support_blue_block": "on_black_table",
+          "held_object": "moving_blue_block",
+          "stack": "unassembled"
+        },
+        "exit_state": {
+          "gripper": "open",
+          "moving_blue_block": "on_top_of_support_blue_block",
+          "support_blue_block": "on_black_table",
+          "held_object": "none",
+          "stack": "assembled"
+        },
+        "evidence": [
+          "TASK_DESCRIPTION",
+          "C1-O1",
+          "TCP lift/transport/alignment motion"
+        ],
+        "confidence": "high"
+      },
+      "path_length_mm": {
+        "median": 576.3198043175281,
+        "mean": 575.1421262481666,
+        "std": 30.581523534667824,
+        "min": 494.3420753955913,
+        "max": 670.6968300797138
+      },
+      "phase_residual_mm": {
+        "p90_mean": 41.89109913917996,
+        "p95_max": 61.05628597519
+      }
+    },
+    {
+      "spec": {
+        "segment_id": "S3",
+        "parent_subgoal": "finish_task",
+        "semantic_label": "retract_after_stacking_blue_blocks",
+        "label_ko": "블록 적층 후 안전하게 후퇴",
+        "start_anchor": "O1",
+        "end_anchor": "END",
+        "gripper_semantics": "open",
+        "manipulated_object": null,
+        "entry_state": {
+          "gripper": "open",
+          "moving_blue_block": "on_top_of_support_blue_block",
+          "support_blue_block": "on_black_table",
+          "held_object": "none",
+          "stack": "assembled"
+        },
+        "exit_state": {
+          "gripper": "open",
+          "moving_blue_block": "on_top_of_support_blue_block",
+          "support_blue_block": "on_black_table",
+          "held_object": "none",
+          "stack": "assembled"
+        },
+        "evidence": [
+          "O1",
+          "TCP post-release motion"
+        ],
+        "confidence": "medium"
+      },
+      "path_length_mm": {
+        "median": 518.4073766008739,
+        "mean": 515.7285537132803,
+        "std": 41.39174185264009,
+        "min": 430.5008621213714,
+        "max": 595.3532542714356
+      },
+      "phase_residual_mm": {
+        "p90_mean": 50.650997857505835,
+        "p95_max": 70.88414863526663
+      }
+    }
+  ],
+  "representative": {
+    "synthetic": "component median XYZ at each semantic phase",
+    "individual_episode_selected": false
+  },
+  "standardization": {
+    "axis": "per-segment Cartesian arc-length phase 0..1",
+    "coordinate_frame": "Doosan base",
+    "units": "mm",
+    "phase_points": 101,
+    "frame_number_average_used": false,
+    "image_pixel_average_used": false
+  },
+  "scope": {
+    "semantic_information_only": true,
+    "transition_fitness_included": false,
+    "spherical_boundaries_included": false,
+    "bridge_planning_included": false,
+    "robot_executable": false,
+    "original_dataset_modified": false,
+    "model_modified": false
+  }
+}

@@ -18,6 +18,7 @@ def generate_launch_description():
     dry_run = LaunchConfiguration("dry_run")
     start_endpoint = LaunchConfiguration("start_endpoint")
     start_gripper = LaunchConfiguration("start_gripper")
+    start_metaquest_inputs = LaunchConfiguration("start_metaquest_inputs")
     use_command_mux = LaunchConfiguration("use_command_mux")
     metaquest_gripper_topic = LaunchConfiguration("metaquest_gripper_topic")
     gripper_command_topic = LaunchConfiguration("gripper_command_topic")
@@ -51,6 +52,7 @@ def generate_launch_description():
             "doosan_servol_topic": LaunchConfiguration("doosan_servol_topic"),
             "start_robot_bringup": LaunchConfiguration("start_robot_bringup"),
             "start_teleop": LaunchConfiguration("start_teleop"),
+            "start_metaquest_inputs": start_metaquest_inputs,
             "start_gui": LaunchConfiguration("start_gui"),
             "start_calibration_gui": LaunchConfiguration("start_calibration_gui"),
             "host": LaunchConfiguration("host"),
@@ -89,6 +91,12 @@ def generate_launch_description():
             ),
             "lerobot_timeout_sec": LaunchConfiguration("lerobot_timeout_sec"),
             "mux_heartbeat_timeout_sec": LaunchConfiguration("mux_heartbeat_timeout_sec"),
+            "stream_ramp_linear_mm_per_tick": LaunchConfiguration(
+                "stream_ramp_linear_mm_per_tick"
+            ),
+            "stream_ramp_rot_deg_per_tick": LaunchConfiguration(
+                "stream_ramp_rot_deg_per_tick"
+            ),
         }.items(),
     )
 
@@ -105,7 +113,7 @@ def generate_launch_description():
         launch_arguments={
             "start_robot_bringup": "false",
             "start_gripper_io": start_gripper,
-            "start_quest_inputs_mapper": "true",
+            "start_quest_inputs_mapper": start_metaquest_inputs,
             "start_joy_mapper": "false",
             "start_probe": "false",
             "dry_run": dry_run,
@@ -165,6 +173,7 @@ def generate_launch_description():
             DeclareLaunchArgument("start_endpoint", default_value="true"),
             DeclareLaunchArgument("start_robot_bringup", default_value="true"),
             DeclareLaunchArgument("start_teleop", default_value="true"),
+            DeclareLaunchArgument("start_metaquest_inputs", default_value="true"),
             DeclareLaunchArgument("start_gui", default_value="false"),
             DeclareLaunchArgument("start_calibration_gui", default_value="false"),
             DeclareLaunchArgument("start_gripper", default_value="true"),
@@ -192,6 +201,12 @@ def generate_launch_description():
             ),
             DeclareLaunchArgument("lerobot_timeout_sec", default_value="0.3"),
             DeclareLaunchArgument("mux_heartbeat_timeout_sec", default_value="1.0"),
+            DeclareLaunchArgument(
+                "stream_ramp_linear_mm_per_tick", default_value="6.67"
+            ),
+            DeclareLaunchArgument(
+                "stream_ramp_rot_deg_per_tick", default_value="1.0"
+            ),
             DeclareLaunchArgument("start_rviz", default_value="false"),
             DeclareLaunchArgument(
                 "start_robot_state_publisher",

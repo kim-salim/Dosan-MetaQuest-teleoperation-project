@@ -87,7 +87,11 @@ class MetaQuestA0509(Teleoperator):
             self._create_ros_entities()
             if self.config.require_fresh_action_on_connect:
                 self._wait_for_required_input(self.config.connect_timeout_sec)
-            elif calibrate and self.config.require_calibration:
+            elif (
+                calibrate
+                and self.config.require_calibration
+                and not self.config.defer_calibration_on_connect
+            ):
                 self._wait_for_calibration(self.config.connect_timeout_sec)
             self._connected = True
         except Exception:

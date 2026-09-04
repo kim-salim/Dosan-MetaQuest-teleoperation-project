@@ -16,6 +16,56 @@ def test_full_bringup_starts_exactly_one_mux_and_defaults_disabled():
     assert 'DeclareLaunchArgument("dry_run", default_value="true")' in full
 
 
+def test_task_c_can_disable_metaquest_inputs_without_disabling_control_path():
+    full = (PACKAGE_ROOT / "launch" / "a0509_full_bringup.launch.py").read_text()
+    wrapped = (
+        PACKAGE_ROOT / "launch" / "a0509_full_bringup_with_gripper.launch.py"
+    ).read_text()
+    task_c_script = (
+        PACKAGE_ROOT.parents[1] / "scripts" / "run_task_c_control_bringup.sh"
+    ).read_text()
+    assert (
+        'DeclareLaunchArgument("start_metaquest_inputs", default_value="true")'
+        in full
+    )
+    assert '"start_metaquest_inputs": start_metaquest_inputs' in wrapped
+    assert '"start_quest_inputs_mapper": start_metaquest_inputs' in wrapped
+    assert "start_metaquest_inputs:=false" in task_c_script
+    assert "start_endpoint:=false" in task_c_script
+    assert "start_gui:=false" in task_c_script
+    assert 'control_dry_run="${CONTROL_DRY_RUN:-true}"' in task_c_script
+    assert "initial_control_source:=DISABLED" in task_c_script
+    assert "I_ACKNOWLEDGE_TASK_C_REAL_ROBOT_MOTION" in task_c_script
+    assert "TASK_C_STREAM_RAMP_LINEAR_MM_PER_TICK:-7.5" in task_c_script
+    assert "TASK_C_STREAM_RAMP_ROT_DEG_PER_TICK:-1.25" in task_c_script
+    assert (
+        'stream_ramp_linear_mm_per_tick:="${stream_ramp_linear_mm_per_tick}"'
+        in task_c_script
+    )
+    assert (
+        'stream_ramp_rot_deg_per_tick:="${stream_ramp_rot_deg_per_tick}"'
+        in task_c_script
+    )
+
+
+def test_task_c_versioned_ramp_wrappers_are_explicit_and_reversible():
+    scripts = PACKAGE_ROOT.parents[1] / "scripts"
+    ramp8p5 = (
+        scripts / "run_task_c_control_bringup_ramp8p5_v13.sh"
+    ).read_text()
+    rollback = (
+        scripts / "run_task_c_control_bringup_ramp7p5_rollback.sh"
+    ).read_text()
+    assert "a0509_ramp8p5_ack_span2_v1" in ramp8p5
+    assert "TASK_C_STREAM_RAMP_LINEAR_MM_PER_TICK=8.5" in ramp8p5
+    assert "TASK_C_STREAM_RAMP_ROT_DEG_PER_TICK=1.25" in ramp8p5
+    assert "run_task_c_control_bringup.sh" in ramp8p5
+    assert "a0509_ramp7p5_ack_span2_v1" in rollback
+    assert "TASK_C_STREAM_RAMP_LINEAR_MM_PER_TICK=7.5" in rollback
+    assert "TASK_C_STREAM_RAMP_ROT_DEG_PER_TICK=1.25" in rollback
+    assert "run_task_c_control_bringup.sh" in rollback
+
+
 def test_mux_mapper_and_gripper_topics_are_source_specific():
     full = (PACKAGE_ROOT / "launch" / "a0509_full_bringup.launch.py").read_text()
     wrapped = (

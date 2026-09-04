@@ -1,0 +1,59 @@
+{
+  "schema_version": "a0509.execution_tail_handoff_profile.v2",
+  "profile_id": "a0509_shared_execution_tail_latched_v2_20260904",
+  "scope": "all_execution_tail_source_references",
+  "selection_basis": "semantic_continuation_class_and_recorded_support",
+  "edge_specific_numeric_tuning": false,
+  "fixed_bridge_geometry": false,
+  "fixed_phase_window": false,
+  "symbolic_cost_changed": false,
+  "invariants": {
+    "candidate_order": "minimum_safe_A_plus_bridge_plus_B_length",
+    "semantic_completion_required": true,
+    "actual_support_required": true,
+    "geometry_and_dynamics_gates_required": true,
+    "maximum_relative_scan_phase": 0.35,
+    "minimum_candidate_points": 3
+  },
+  "data_derived_outputs": [
+    "collar_phase_window",
+    "commit_phase_window",
+    "nominal_phase",
+    "bridge_endpoints",
+    "bridge_tangents",
+    "bridge_geometry"
+  ],
+  "continuation_classes": {
+    "different_segment": {
+      "progress_fraction_low": 0.25,
+      "progress_fraction_high": 0.65,
+      "support_residual_quantile": 0.75,
+      "commit_fraction": 0.60,
+      "deadline_extra_relative_phase": 0.04
+    },
+    "same_segment": {
+      "progress_fraction_low": 0.10,
+      "progress_fraction_high": 0.90,
+      "support_residual_quantile": 0.95,
+      "commit_fraction": 0.25,
+      "deadline_extra_relative_phase": 0.10
+    }
+  },
+  "runtime_latch": {
+    "enabled": true,
+    "arm_condition": "semantic_ready_and_actual_support_and_data_derived_commit_window",
+    "hold_condition": "semantic_ready_and_actual_support_until_data_derived_scan_deadline",
+    "does_not_bypass": [
+      "source_semantic_event",
+      "source_actual_support",
+      "bridge_geometry",
+      "bridge_dynamics",
+      "worker_readiness",
+      "live_preflight"
+    ]
+  },
+  "bridge_generation_profile": "semantic_local_execution_tail_tangent_v1",
+  "regression_registry": "edge_registry_level2_spatial_v11.json",
+  "robot_commands_published": 0,
+  "physical_validation_performed": false
+}

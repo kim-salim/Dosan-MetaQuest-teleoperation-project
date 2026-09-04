@@ -1,0 +1,381 @@
+{
+  "schema_version": "a0509.semantic_only_graph.v3",
+  "task_id": "t5",
+  "dataset_repo_id": "local/a0509_blue_block_v5",
+  "dataset_root": "/home/rvlab/lerobot_datasets/a0509_blue_block_t5",
+  "associated_model_path": "/home/rvlab/lerobot_models/models/act_a0509_blue_block_t5_bs32_80k_20260824/080000/pretrained_model",
+  "model_used_for_semantic_extraction": false,
+  "task_description": "Open the drawer, take out the blue block, place it on the black table, and close the drawer.",
+  "task_semantic_label": "retrieve_blue_block_from_drawer_place_on_black_table_and_close_drawer",
+  "episode_count": 30,
+  "event_grammar": [
+    "C1",
+    "O1",
+    "C2",
+    "O2"
+  ],
+  "events": {
+    "C1": {
+      "semantic_label": "grasp_drawer_handle",
+      "label_ko": "서랍 손잡이 파지",
+      "gripper_change": "open_to_closed",
+      "manipulated_object": "drawer_handle",
+      "semantic_effect": "drawer_handle_held",
+      "confidence": "high",
+      "representative_position_mm": [
+        551.4410400390625,
+        -189.83478546142578,
+        294.60398864746094
+      ]
+    },
+    "O1": {
+      "semantic_label": "release_handle_after_opening_drawer",
+      "label_ko": "서랍을 연 뒤 손잡이 해제",
+      "gripper_change": "closed_to_open",
+      "manipulated_object": "drawer_handle",
+      "semantic_effect": "drawer_open",
+      "confidence": "high",
+      "representative_position_mm": [
+        399.5177459716797,
+        -189.37460327148438,
+        297.36424255371094
+      ]
+    },
+    "C2": {
+      "semantic_label": "grasp_blue_block_in_drawer",
+      "label_ko": "서랍 안의 파란 블록 파지",
+      "gripper_change": "open_to_closed",
+      "manipulated_object": "blue_block",
+      "semantic_effect": "blue_block_held",
+      "confidence": "high",
+      "representative_position_mm": [
+        529.3597717285156,
+        -171.7410659790039,
+        308.0957489013672
+      ]
+    },
+    "O2": {
+      "semantic_label": "release_blue_block_on_black_table",
+      "label_ko": "검은 테이블 위에 파란 블록 방출",
+      "gripper_change": "closed_to_open",
+      "manipulated_object": "blue_block",
+      "semantic_effect": "blue_block_on_black_table",
+      "confidence": "high",
+      "representative_position_mm": [
+        389.2379913330078,
+        1.5932170748710632,
+        361.01759338378906
+      ]
+    }
+  },
+  "hierarchy": {
+    "task": "retrieve_blue_block_from_drawer_place_on_black_table_and_close_drawer",
+    "subgoals": [
+      "open_drawer",
+      "acquire_blue_block_from_drawer",
+      "place_blue_block_on_black_table",
+      "close_drawer"
+    ]
+  },
+  "state_nodes": [
+    {
+      "node_id": "START",
+      "summary": "G: open\nDrawer: closed\nBlock: in drawer",
+      "semantic_state": {
+        "gripper": "open",
+        "drawer": "closed",
+        "blue_block": "in_drawer",
+        "held_object": "none"
+      }
+    },
+    {
+      "node_id": "C1",
+      "summary": "G: closed\nDrawer: closed\nHeld: handle",
+      "semantic_state": {
+        "gripper": "closed",
+        "drawer": "closed",
+        "blue_block": "in_drawer",
+        "held_object": "drawer_handle"
+      }
+    },
+    {
+      "node_id": "O1",
+      "summary": "G: open\nDrawer: open\nBlock: in drawer",
+      "semantic_state": {
+        "gripper": "open",
+        "drawer": "open",
+        "blue_block": "in_drawer",
+        "held_object": "none"
+      }
+    },
+    {
+      "node_id": "C2",
+      "summary": "G: closed\nDrawer: open\nHeld: blue block",
+      "semantic_state": {
+        "gripper": "closed",
+        "drawer": "open",
+        "blue_block": "held",
+        "held_object": "blue_block"
+      }
+    },
+    {
+      "node_id": "O2",
+      "summary": "G: open\nDrawer: open\nBlock: black table",
+      "semantic_state": {
+        "gripper": "open",
+        "drawer": "open",
+        "blue_block": "on_black_table",
+        "held_object": "none"
+      }
+    },
+    {
+      "node_id": "TAIL",
+      "summary": "G: open\nDrawer: closed\nBlock: black table",
+      "semantic_state": {
+        "gripper": "open",
+        "drawer": "closed",
+        "blue_block": "on_black_table",
+        "held_object": "none"
+      }
+    }
+  ],
+  "semantic_notes": [
+    "All 30 episodes share the audited C1-O1-C2-O2 gripper-event grammar.",
+    "The C2 and O2 median anchors correspond to T4's in-drawer release and black-table grasp anchors, respectively, supporting the inverse-task semantic labels.",
+    "Drawer closing occurs after O2 while the gripper remains open, so S5 is not anchored by another C/O event.",
+    "S5 is kept as one semantic tail; no internal close-drawer boundary is invented.",
+    "Semantic object roles come from TASK_DESCRIPTION, event order, and cross-task Cartesian correspondence; no image/frame averaging is used."
+  ],
+  "segments": [
+    {
+      "spec": {
+        "segment_id": "S1",
+        "parent_subgoal": "open_drawer",
+        "semantic_label": "approach_drawer_handle",
+        "label_ko": "서랍 손잡이로 접근",
+        "start_anchor": "START",
+        "end_anchor": "C1",
+        "gripper_semantics": "open; closes at C1",
+        "manipulated_object": "drawer_handle",
+        "entry_state": {
+          "gripper": "open",
+          "drawer": "closed",
+          "blue_block": "in_drawer",
+          "held_object": "none"
+        },
+        "exit_state": {
+          "gripper": "closed",
+          "drawer": "closed",
+          "blue_block": "in_drawer",
+          "held_object": "drawer_handle"
+        },
+        "evidence": [
+          "TASK_DESCRIPTION",
+          "C1",
+          "TCP approach motion",
+          "T4 inverse-task anchor correspondence"
+        ],
+        "confidence": "high"
+      },
+      "path_length_mm": {
+        "median": 376.8139007798232,
+        "mean": 384.59148920900583,
+        "std": 31.673302532864145,
+        "min": 330.1332761825624,
+        "max": 448.61665198367973
+      },
+      "phase_residual_mm": {
+        "p90_mean": 34.848020850420276,
+        "p95_max": 56.74558449434532
+      }
+    },
+    {
+      "spec": {
+        "segment_id": "S2",
+        "parent_subgoal": "open_drawer",
+        "semantic_label": "manipulate_drawer_open",
+        "label_ko": "손잡이를 조작하여 서랍 열기",
+        "start_anchor": "C1",
+        "end_anchor": "O1",
+        "gripper_semantics": "closed; opens at O1",
+        "manipulated_object": "drawer_handle",
+        "entry_state": {
+          "gripper": "closed",
+          "drawer": "closed",
+          "blue_block": "in_drawer",
+          "held_object": "drawer_handle"
+        },
+        "exit_state": {
+          "gripper": "open",
+          "drawer": "open",
+          "blue_block": "in_drawer",
+          "held_object": "none"
+        },
+        "evidence": [
+          "TASK_DESCRIPTION",
+          "C1-O1",
+          "TCP drawer motion",
+          "T4 inverse-task anchor correspondence"
+        ],
+        "confidence": "high"
+      },
+      "path_length_mm": {
+        "median": 175.6930614750337,
+        "mean": 178.84254695075484,
+        "std": 12.208729737534902,
+        "min": 161.19127664003275,
+        "max": 204.85728417289306
+      },
+      "phase_residual_mm": {
+        "p90_mean": 49.87628241342825,
+        "p95_max": 64.42589300253252
+      }
+    },
+    {
+      "spec": {
+        "segment_id": "S3",
+        "parent_subgoal": "acquire_blue_block_from_drawer",
+        "semantic_label": "approach_blue_block_in_drawer",
+        "label_ko": "서랍 안의 파란 블록으로 접근",
+        "start_anchor": "O1",
+        "end_anchor": "C2",
+        "gripper_semantics": "open; closes at C2",
+        "manipulated_object": "blue_block",
+        "entry_state": {
+          "gripper": "open",
+          "drawer": "open",
+          "blue_block": "in_drawer",
+          "held_object": "none"
+        },
+        "exit_state": {
+          "gripper": "closed",
+          "drawer": "open",
+          "blue_block": "held",
+          "held_object": "blue_block"
+        },
+        "evidence": [
+          "TASK_DESCRIPTION",
+          "O1-C2",
+          "TCP approach motion",
+          "T4 in-drawer release anchor correspondence"
+        ],
+        "confidence": "high"
+      },
+      "path_length_mm": {
+        "median": 370.499565301613,
+        "mean": 378.4955604919642,
+        "std": 40.90326857209223,
+        "min": 295.6944607280068,
+        "max": 472.41076753083615
+      },
+      "phase_residual_mm": {
+        "p90_mean": 57.10036711232041,
+        "p95_max": 76.86057876087231
+      }
+    },
+    {
+      "spec": {
+        "segment_id": "S4",
+        "parent_subgoal": "place_blue_block_on_black_table",
+        "semantic_label": "lift_transport_and_align_blue_block_on_black_table",
+        "label_ko": "파란 블록을 들어 검은 테이블로 운반·정렬",
+        "start_anchor": "C2",
+        "end_anchor": "O2",
+        "gripper_semantics": "closed; opens at O2",
+        "manipulated_object": "blue_block",
+        "entry_state": {
+          "gripper": "closed",
+          "drawer": "open",
+          "blue_block": "held",
+          "held_object": "blue_block"
+        },
+        "exit_state": {
+          "gripper": "open",
+          "drawer": "open",
+          "blue_block": "on_black_table",
+          "held_object": "none"
+        },
+        "evidence": [
+          "TASK_DESCRIPTION",
+          "C2-O2",
+          "TCP lift/transport",
+          "T4 black-table grasp anchor correspondence"
+        ],
+        "confidence": "high"
+      },
+      "path_length_mm": {
+        "median": 465.49702977886125,
+        "mean": 467.5193795823003,
+        "std": 41.74809726202217,
+        "min": 395.0794699116768,
+        "max": 573.3545778191457
+      },
+      "phase_residual_mm": {
+        "p90_mean": 54.74134994374633,
+        "p95_max": 71.23663235475212
+      }
+    },
+    {
+      "spec": {
+        "segment_id": "S5",
+        "parent_subgoal": "close_drawer",
+        "semantic_label": "close_drawer_and_retract_with_open_gripper",
+        "label_ko": "열린 그리퍼로 서랍을 닫고 후퇴",
+        "start_anchor": "O2",
+        "end_anchor": "END",
+        "gripper_semantics": "open throughout",
+        "manipulated_object": "drawer_front",
+        "entry_state": {
+          "gripper": "open",
+          "drawer": "open",
+          "blue_block": "on_black_table",
+          "held_object": "none"
+        },
+        "exit_state": {
+          "gripper": "open",
+          "drawer": "closed",
+          "blue_block": "on_black_table",
+          "held_object": "none"
+        },
+        "evidence": [
+          "TASK_DESCRIPTION",
+          "TCP post-O2 motion",
+          "T4 close-drawer tail correspondence"
+        ],
+        "confidence": "medium"
+      },
+      "path_length_mm": {
+        "median": 1009.2338235689896,
+        "mean": 1020.017371385594,
+        "std": 60.768975528740484,
+        "min": 878.3770676215905,
+        "max": 1165.0894419911879
+      },
+      "phase_residual_mm": {
+        "p90_mean": 63.5184362459126,
+        "p95_max": 95.60402559873013
+      }
+    }
+  ],
+  "representative": {
+    "synthetic": "component median XYZ at each semantic phase",
+    "individual_episode_selected": false
+  },
+  "standardization": {
+    "axis": "per-segment Cartesian arc-length phase 0..1",
+    "coordinate_frame": "Doosan base",
+    "units": "mm",
+    "phase_points": 101,
+    "frame_number_average_used": false,
+    "image_pixel_average_used": false
+  },
+  "scope": {
+    "semantic_information_only": true,
+    "transition_fitness_included": false,
+    "spherical_boundaries_included": false,
+    "bridge_planning_included": false,
+    "robot_executable": false,
+    "original_dataset_modified": false,
+    "model_modified": false
+  }
+}

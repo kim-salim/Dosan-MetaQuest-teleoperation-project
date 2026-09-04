@@ -1,0 +1,1134 @@
+{
+  "base_registry": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/docs/artifacts/t1_t8_spatial_floor_level2_semantic_local_2026-09-03/edge_registry_level2_spatial_v5.json",
+  "counts": {
+    "not_applicable_source_contract": 71,
+    "preserved_reviewed_semantic_local": 2,
+    "promoted_semantic_local": 54
+  },
+  "dijkstra_operator_cost_changed": false,
+  "edges": [
+    {
+      "active_validation_method": "execution_tail_s4_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 127.8105456788783,
+      "handoff_id": "h_semantic_f29a43b40830",
+      "result": "promoted_semantic_local",
+      "source_operator": "T1.acquire_from_black_table",
+      "source_prefix_mm": 71.9266151042117,
+      "successor_operator": "T2.deliver_to_black_table",
+      "successor_suffix_mm": 126.86983621232827,
+      "total_length_mm": 326.6069969954183
+    },
+    {
+      "active_validation_method": "execution_tail_s4_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 237.05580919576605,
+      "handoff_id": "h_semantic_e8ab811d278f",
+      "result": "promoted_semantic_local",
+      "source_operator": "T1.acquire_from_black_table",
+      "source_prefix_mm": 71.9266151042117,
+      "successor_operator": "T3.deliver_to_floor",
+      "successor_suffix_mm": 183.77577497101527,
+      "total_length_mm": 492.75819927099303
+    },
+    {
+      "active_validation_method": "execution_tail_s4_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 265.49625621043305,
+      "handoff_id": "h_semantic_d8fb5b969466",
+      "result": "promoted_semantic_local",
+      "source_operator": "T1.acquire_from_black_table",
+      "source_prefix_mm": 71.9266151042117,
+      "successor_operator": "T4.deliver_to_drawer",
+      "successor_suffix_mm": 92.07457871567198,
+      "total_length_mm": 429.4974500303167
+    },
+    {
+      "active_validation_method": "execution_tail_s4_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 107.8620161287864,
+      "handoff_id": "h_semantic_4dc277ce68d4",
+      "result": "promoted_semantic_local",
+      "source_operator": "T1.acquire_from_black_table",
+      "source_prefix_mm": 74.27636768396829,
+      "successor_operator": "T5.deliver_to_black_table",
+      "successor_suffix_mm": 37.958975249689786,
+      "total_length_mm": 220.09735906244447
+    },
+    {
+      "active_validation_method": "execution_tail_s4_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 305.3989217791773,
+      "handoff_id": "h_semantic_c2beda295e7e",
+      "result": "promoted_semantic_local",
+      "source_operator": "T1.acquire_from_black_table",
+      "source_prefix_mm": 71.9266151042117,
+      "successor_operator": "T6.stack_on_support_block",
+      "successor_suffix_mm": 145.7649927199181,
+      "total_length_mm": 523.090529603307
+    },
+    {
+      "active_validation_method": "execution_tail_s4_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 157.5144048389105,
+      "handoff_id": "h_semantic_88ac32a93b5d",
+      "result": "promoted_semantic_local",
+      "source_operator": "T1.acquire_from_black_table",
+      "source_prefix_mm": 71.9266151042117,
+      "successor_operator": "T7.deliver_to_black_table",
+      "successor_suffix_mm": 132.06013693813782,
+      "total_length_mm": 361.50115688126004
+    },
+    {
+      "active_validation_method": "execution_tail_s4_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 143.63502164153033,
+      "handoff_id": "h_semantic_bb6afa1727f6",
+      "result": "promoted_semantic_local",
+      "source_operator": "T1.acquire_from_black_table",
+      "source_prefix_mm": 81.31684305420795,
+      "successor_operator": "T8.deliver_unstacked_to_black_table",
+      "successor_suffix_mm": 109.1272770956366,
+      "total_length_mm": 334.07914179137487
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T1.deliver_to_white_container",
+      "successor_operator": "T4.open_drawer"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T1.deliver_to_white_container",
+      "successor_operator": "T5.open_drawer"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T1.open_white_container",
+      "successor_operator": "T2.acquire_from_floor"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T1.open_white_container",
+      "successor_operator": "T3.acquire_from_black_table"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T1.open_white_container",
+      "successor_operator": "T4.acquire_from_black_table"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T1.open_white_container",
+      "successor_operator": "T4.close_drawer"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T1.open_white_container",
+      "successor_operator": "T4.open_drawer"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T1.open_white_container",
+      "successor_operator": "T5.acquire_from_drawer"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T1.open_white_container",
+      "successor_operator": "T5.close_drawer"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T1.open_white_container",
+      "successor_operator": "T5.open_drawer"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T1.open_white_container",
+      "successor_operator": "T6.acquire_moving_block"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T1.open_white_container",
+      "successor_operator": "T7.acquire_from_drawer_top"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T1.open_white_container",
+      "successor_operator": "T8.acquire_top_block_from_stack"
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 262.717954391264,
+      "handoff_id": "h_semantic_740594f58e50",
+      "result": "promoted_semantic_local",
+      "source_operator": "T2.acquire_from_floor",
+      "source_prefix_mm": 324.63028276111436,
+      "successor_operator": "T1.deliver_to_white_container",
+      "successor_suffix_mm": 59.447924673287446,
+      "total_length_mm": 646.7961618256659
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "handoff_id": "h_semantic_daa4a03a384a",
+      "result": "preserved_reviewed_semantic_local",
+      "source_operator": "T2.acquire_from_floor",
+      "successor_operator": "T3.deliver_to_floor",
+      "total_length_mm": 818.8438996185341
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 352.1804350072895,
+      "handoff_id": "h_semantic_7f8e37cc4420",
+      "result": "promoted_semantic_local",
+      "source_operator": "T2.acquire_from_floor",
+      "source_prefix_mm": 336.66952043973123,
+      "successor_operator": "T4.deliver_to_drawer",
+      "successor_suffix_mm": 92.07457871567198,
+      "total_length_mm": 780.9245341626927
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 201.9015172521564,
+      "handoff_id": "h_semantic_be0859252dee",
+      "result": "promoted_semantic_local",
+      "source_operator": "T2.acquire_from_floor",
+      "source_prefix_mm": 339.6793862265223,
+      "successor_operator": "T5.deliver_to_black_table",
+      "successor_suffix_mm": 37.958975249689786,
+      "total_length_mm": 579.5398787283684
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 288.25445469546077,
+      "handoff_id": "h_semantic_f79fda7aa722",
+      "result": "promoted_semantic_local",
+      "source_operator": "T2.acquire_from_floor",
+      "source_prefix_mm": 324.63028276111436,
+      "successor_operator": "T6.stack_on_support_block",
+      "successor_suffix_mm": 145.7649927199181,
+      "total_length_mm": 758.6497301764932
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 192.67100153201278,
+      "handoff_id": "h_semantic_58d56c0975a1",
+      "result": "promoted_semantic_local",
+      "source_operator": "T2.acquire_from_floor",
+      "source_prefix_mm": 342.6892520133134,
+      "successor_operator": "T7.deliver_to_black_table",
+      "successor_suffix_mm": 119.18744250795885,
+      "total_length_mm": 654.5476960532851
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 180.51538310404794,
+      "handoff_id": "h_semantic_0d631511a451",
+      "result": "promoted_semantic_local",
+      "source_operator": "T2.acquire_from_floor",
+      "source_prefix_mm": 339.6793862265223,
+      "successor_operator": "T8.deliver_unstacked_to_black_table",
+      "successor_suffix_mm": 109.1272770956366,
+      "total_length_mm": 629.3220464262068
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T2.deliver_to_black_table",
+      "successor_operator": "T1.acquire_from_black_table"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T2.deliver_to_black_table",
+      "successor_operator": "T1.open_white_container"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T2.deliver_to_black_table",
+      "successor_operator": "T3.acquire_from_black_table"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T2.deliver_to_black_table",
+      "successor_operator": "T4.acquire_from_black_table"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T2.deliver_to_black_table",
+      "successor_operator": "T4.open_drawer"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T2.deliver_to_black_table",
+      "successor_operator": "T5.close_drawer"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T2.deliver_to_black_table",
+      "successor_operator": "T5.open_drawer"
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 262.5516979415012,
+      "handoff_id": "h_semantic_4dab38181d28",
+      "result": "promoted_semantic_local",
+      "source_operator": "T3.acquire_from_black_table",
+      "source_prefix_mm": 79.56107524023794,
+      "successor_operator": "T1.deliver_to_white_container",
+      "successor_suffix_mm": 59.447924673287446,
+      "total_length_mm": 401.56069785502655
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 187.95230632174832,
+      "handoff_id": "h_semantic_ddfcb1bef638",
+      "result": "promoted_semantic_local",
+      "source_operator": "T3.acquire_from_black_table",
+      "source_prefix_mm": 79.56107524023794,
+      "successor_operator": "T2.deliver_to_black_table",
+      "successor_suffix_mm": 175.01155767459966,
+      "total_length_mm": 442.5249392365859
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 308.30255599889915,
+      "handoff_id": "h_semantic_f1abe1b15928",
+      "result": "promoted_semantic_local",
+      "source_operator": "T3.acquire_from_black_table",
+      "source_prefix_mm": 79.56107524023794,
+      "successor_operator": "T4.deliver_to_drawer",
+      "successor_suffix_mm": 92.07457871567198,
+      "total_length_mm": 479.93820995480905
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 205.03288807850885,
+      "handoff_id": "h_semantic_104bb35ff269",
+      "result": "promoted_semantic_local",
+      "source_operator": "T3.acquire_from_black_table",
+      "source_prefix_mm": 79.56107524023794,
+      "successor_operator": "T5.deliver_to_black_table",
+      "successor_suffix_mm": 178.36187795510386,
+      "total_length_mm": 462.95584127385064
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 323.2664079904164,
+      "handoff_id": "h_semantic_3fc9b24faef5",
+      "result": "promoted_semantic_local",
+      "source_operator": "T3.acquire_from_black_table",
+      "source_prefix_mm": 79.56107524023794,
+      "successor_operator": "T6.stack_on_support_block",
+      "successor_suffix_mm": 145.7649927199181,
+      "total_length_mm": 548.5924759505724
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 201.45664381465718,
+      "handoff_id": "h_semantic_157fdcaafe65",
+      "result": "promoted_semantic_local",
+      "source_operator": "T3.acquire_from_black_table",
+      "source_prefix_mm": 79.56107524023794,
+      "successor_operator": "T7.deliver_to_black_table",
+      "successor_suffix_mm": 157.8007257569571,
+      "total_length_mm": 438.8184448118522
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 195.54958425346925,
+      "handoff_id": "h_semantic_97a2eefbcb7a",
+      "result": "promoted_semantic_local",
+      "source_operator": "T3.acquire_from_black_table",
+      "source_prefix_mm": 79.56107524023794,
+      "successor_operator": "T8.deliver_unstacked_to_black_table",
+      "successor_suffix_mm": 244.04284360684147,
+      "total_length_mm": 519.1535031005487
+    },
+    {
+      "active_validation_method": "tangent_regularized_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T3.deliver_to_floor",
+      "successor_operator": "T1.open_white_container"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T3.deliver_to_floor",
+      "successor_operator": "T4.open_drawer"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T3.deliver_to_floor",
+      "successor_operator": "T5.open_drawer"
+    },
+    {
+      "active_validation_method": "execution_tail_s4_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 232.40046604459147,
+      "handoff_id": "h_semantic_fd04857f677b",
+      "result": "promoted_semantic_local",
+      "source_operator": "T4.acquire_from_black_table",
+      "source_prefix_mm": 73.88548870329207,
+      "successor_operator": "T1.deliver_to_white_container",
+      "successor_suffix_mm": 59.447924673287446,
+      "total_length_mm": 365.73387942117097
+    },
+    {
+      "active_validation_method": "execution_tail_s4_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 161.15785243566103,
+      "handoff_id": "h_semantic_dc882933a2b6",
+      "result": "promoted_semantic_local",
+      "source_operator": "T4.acquire_from_black_table",
+      "source_prefix_mm": 69.52467851712488,
+      "successor_operator": "T2.deliver_to_black_table",
+      "successor_suffix_mm": 138.9022582013456,
+      "total_length_mm": 369.5847891541315
+    },
+    {
+      "active_validation_method": "execution_tail_s4_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 266.70365438390036,
+      "handoff_id": "h_semantic_bc1cb446ad3c",
+      "result": "promoted_semantic_local",
+      "source_operator": "T4.acquire_from_black_table",
+      "source_prefix_mm": 69.52467851712488,
+      "successor_operator": "T3.deliver_to_floor",
+      "successor_suffix_mm": 183.77577497101527,
+      "total_length_mm": 520.0041078720405
+    },
+    {
+      "active_validation_method": "execution_tail_s4_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 148.97765434958222,
+      "handoff_id": "h_semantic_7b9b07e05518",
+      "result": "promoted_semantic_local",
+      "source_operator": "T4.acquire_from_black_table",
+      "source_prefix_mm": 78.24662783466289,
+      "successor_operator": "T5.deliver_to_black_table",
+      "successor_suffix_mm": 37.958975249689786,
+      "total_length_mm": 265.1832574339349
+    },
+    {
+      "active_validation_method": "execution_tail_s4_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 309.4702302310768,
+      "handoff_id": "h_semantic_b5e193c63a72",
+      "result": "promoted_semantic_local",
+      "source_operator": "T4.acquire_from_black_table",
+      "source_prefix_mm": 69.52467851712488,
+      "successor_operator": "T6.stack_on_support_block",
+      "successor_suffix_mm": 145.7649927199181,
+      "total_length_mm": 524.7599014681198
+    },
+    {
+      "active_validation_method": "execution_tail_s4_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 195.41411526067913,
+      "handoff_id": "h_semantic_61c77eaafe79",
+      "result": "promoted_semantic_local",
+      "source_operator": "T4.acquire_from_black_table",
+      "source_prefix_mm": 69.52467851712488,
+      "successor_operator": "T7.deliver_to_black_table",
+      "successor_suffix_mm": 144.9337458697442,
+      "total_length_mm": 409.8725396475482
+    },
+    {
+      "active_validation_method": "execution_tail_s4_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 183.12088988573288,
+      "handoff_id": "h_semantic_21bedc1cfc03",
+      "result": "promoted_semantic_local",
+      "source_operator": "T4.acquire_from_black_table",
+      "source_prefix_mm": 78.24662783466289,
+      "successor_operator": "T8.deliver_unstacked_to_black_table",
+      "successor_suffix_mm": 109.1272770956366,
+      "total_length_mm": 370.49479481603237
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T4.close_drawer",
+      "successor_operator": "T1.open_white_container"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T4.close_drawer",
+      "successor_operator": "T5.open_drawer"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T4.deliver_to_drawer",
+      "successor_operator": "T1.open_white_container"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T4.deliver_to_drawer",
+      "successor_operator": "T5.acquire_from_drawer"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T4.open_drawer",
+      "successor_operator": "T1.acquire_from_black_table"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T4.open_drawer",
+      "successor_operator": "T1.open_white_container"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T4.open_drawer",
+      "successor_operator": "T2.acquire_from_floor"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T4.open_drawer",
+      "successor_operator": "T3.acquire_from_black_table"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T4.open_drawer",
+      "successor_operator": "T5.acquire_from_drawer"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T4.open_drawer",
+      "successor_operator": "T5.close_drawer"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T4.open_drawer",
+      "successor_operator": "T6.acquire_moving_block"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T4.open_drawer",
+      "successor_operator": "T7.acquire_from_drawer_top"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T4.open_drawer",
+      "successor_operator": "T8.acquire_top_block_from_stack"
+    },
+    {
+      "active_validation_method": "execution_tail_s4_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 266.7202759541224,
+      "handoff_id": "h_semantic_6904efb0ada1",
+      "result": "promoted_semantic_local",
+      "source_operator": "T5.acquire_from_drawer",
+      "source_prefix_mm": 71.90608215122317,
+      "successor_operator": "T1.deliver_to_white_container",
+      "successor_suffix_mm": 59.447924673287446,
+      "total_length_mm": 398.07428277863306
+    },
+    {
+      "active_validation_method": "execution_tail_s4_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 303.0418997295261,
+      "handoff_id": "h_semantic_b076612e5820",
+      "result": "promoted_semantic_local",
+      "source_operator": "T5.acquire_from_drawer",
+      "source_prefix_mm": 71.90608215122317,
+      "successor_operator": "T2.deliver_to_black_table",
+      "successor_suffix_mm": 102.81420655380452,
+      "total_length_mm": 477.7621884345538
+    },
+    {
+      "active_validation_method": "execution_tail_s4_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 224.73337925047343,
+      "handoff_id": "h_semantic_a96c56901765",
+      "result": "promoted_semantic_local",
+      "source_operator": "T5.acquire_from_drawer",
+      "source_prefix_mm": 71.90608215122317,
+      "successor_operator": "T3.deliver_to_floor",
+      "successor_suffix_mm": 183.77577497101527,
+      "total_length_mm": 480.4152363727119
+    },
+    {
+      "active_validation_method": "execution_tail_s4_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 181.77117271398788,
+      "handoff_id": "h_semantic_94187eb0eb32",
+      "result": "promoted_semantic_local",
+      "source_operator": "T5.acquire_from_drawer",
+      "source_prefix_mm": 71.90608215122317,
+      "successor_operator": "T4.deliver_to_drawer",
+      "successor_suffix_mm": 168.315320092133,
+      "total_length_mm": 421.99257495734406
+    },
+    {
+      "active_validation_method": "execution_tail_s4_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 443.74670520703165,
+      "handoff_id": "h_semantic_bb5bccde5729",
+      "result": "promoted_semantic_local",
+      "source_operator": "T5.acquire_from_drawer",
+      "source_prefix_mm": 71.90608215122317,
+      "successor_operator": "T6.stack_on_support_block",
+      "successor_suffix_mm": 145.7649927199181,
+      "total_length_mm": 661.4177800781729
+    },
+    {
+      "active_validation_method": "execution_tail_s4_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 295.27154473393585,
+      "handoff_id": "h_semantic_e4c4b0e7f2d3",
+      "result": "promoted_semantic_local",
+      "source_operator": "T5.acquire_from_drawer",
+      "source_prefix_mm": 71.90608215122317,
+      "successor_operator": "T7.deliver_to_black_table",
+      "successor_suffix_mm": 119.18744250795885,
+      "total_length_mm": 486.3650693931179
+    },
+    {
+      "active_validation_method": "execution_tail_s4_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 316.48920875072594,
+      "handoff_id": "h_semantic_55016e1264c1",
+      "result": "promoted_semantic_local",
+      "source_operator": "T5.acquire_from_drawer",
+      "source_prefix_mm": 71.90608215122317,
+      "successor_operator": "T8.deliver_unstacked_to_black_table",
+      "successor_suffix_mm": 109.1272770956366,
+      "total_length_mm": 497.5225679975857
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T5.close_drawer",
+      "successor_operator": "T1.acquire_from_black_table"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T5.close_drawer",
+      "successor_operator": "T1.open_white_container"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T5.close_drawer",
+      "successor_operator": "T3.acquire_from_black_table"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T5.close_drawer",
+      "successor_operator": "T4.open_drawer"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T5.deliver_to_black_table",
+      "successor_operator": "T1.acquire_from_black_table"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T5.deliver_to_black_table",
+      "successor_operator": "T1.open_white_container"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T5.deliver_to_black_table",
+      "successor_operator": "T3.acquire_from_black_table"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T5.deliver_to_black_table",
+      "successor_operator": "T4.acquire_from_black_table"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T5.open_drawer",
+      "successor_operator": "T1.acquire_from_black_table"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T5.open_drawer",
+      "successor_operator": "T1.open_white_container"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T5.open_drawer",
+      "successor_operator": "T2.acquire_from_floor"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T5.open_drawer",
+      "successor_operator": "T3.acquire_from_black_table"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T5.open_drawer",
+      "successor_operator": "T4.acquire_from_black_table"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T5.open_drawer",
+      "successor_operator": "T4.close_drawer"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T5.open_drawer",
+      "successor_operator": "T6.acquire_moving_block"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T5.open_drawer",
+      "successor_operator": "T7.acquire_from_drawer_top"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T5.open_drawer",
+      "successor_operator": "T8.acquire_top_block_from_stack"
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 242.74230098723598,
+      "handoff_id": "h_semantic_d2d8078e7bea",
+      "result": "promoted_semantic_local",
+      "source_operator": "T6.acquire_moving_block",
+      "source_prefix_mm": 82.88113856041525,
+      "successor_operator": "T1.deliver_to_white_container",
+      "successor_suffix_mm": 59.447924673287446,
+      "total_length_mm": 385.0713642209387
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 130.89503509104566,
+      "handoff_id": "h_semantic_59cd98ef138b",
+      "result": "promoted_semantic_local",
+      "source_operator": "T6.acquire_moving_block",
+      "source_prefix_mm": 82.88113856041525,
+      "successor_operator": "T2.deliver_to_black_table",
+      "successor_suffix_mm": 138.9022582013456,
+      "total_length_mm": 352.6784318528065
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 268.6997502366236,
+      "handoff_id": "h_semantic_0c4941348e02",
+      "result": "promoted_semantic_local",
+      "source_operator": "T6.acquire_moving_block",
+      "source_prefix_mm": 82.88113856041525,
+      "successor_operator": "T3.deliver_to_floor",
+      "successor_suffix_mm": 183.77577497101527,
+      "total_length_mm": 535.3566637680541
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 290.30862224297636,
+      "handoff_id": "h_semantic_eece032ecfa0",
+      "result": "promoted_semantic_local",
+      "source_operator": "T6.acquire_moving_block",
+      "source_prefix_mm": 82.88113856041525,
+      "successor_operator": "T4.deliver_to_drawer",
+      "successor_suffix_mm": 92.07457871567198,
+      "total_length_mm": 465.2643395190636
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 119.79938560584814,
+      "handoff_id": "h_semantic_39db9bcb68e4",
+      "result": "promoted_semantic_local",
+      "source_operator": "T6.acquire_moving_block",
+      "source_prefix_mm": 91.18283454444916,
+      "successor_operator": "T5.deliver_to_black_table",
+      "successor_suffix_mm": 37.958975249689786,
+      "total_length_mm": 248.9411953999871
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 167.52722741643433,
+      "handoff_id": "h_semantic_a4d1e900cd06",
+      "result": "promoted_semantic_local",
+      "source_operator": "T6.acquire_moving_block",
+      "source_prefix_mm": 82.88113856041525,
+      "successor_operator": "T7.deliver_to_black_table",
+      "successor_suffix_mm": 119.18744250795885,
+      "total_length_mm": 369.59580848480846
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 148.80449455503182,
+      "handoff_id": "h_semantic_cbb96dc889ab",
+      "result": "promoted_semantic_local",
+      "source_operator": "T6.acquire_moving_block",
+      "source_prefix_mm": 82.88113856041525,
+      "successor_operator": "T8.deliver_unstacked_to_black_table",
+      "successor_suffix_mm": 189.98952968316706,
+      "total_length_mm": 421.6751627986141
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T6.stack_on_support_block",
+      "successor_operator": "T1.open_white_container"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T6.stack_on_support_block",
+      "successor_operator": "T4.open_drawer"
+    },
+    {
+      "active_validation_method": "tangent_regularized_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T6.stack_on_support_block",
+      "successor_operator": "T5.open_drawer"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T6.stack_on_support_block",
+      "successor_operator": "T8.acquire_top_block_from_stack"
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 244.4206567226756,
+      "handoff_id": "h_semantic_094aa590cf84",
+      "result": "promoted_semantic_local",
+      "source_operator": "T7.acquire_from_drawer_top",
+      "source_prefix_mm": 108.27650875423126,
+      "successor_operator": "T1.deliver_to_white_container",
+      "successor_suffix_mm": 59.447924673287446,
+      "total_length_mm": 412.14509015019433
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 376.8588053870051,
+      "handoff_id": "h_semantic_39a14be12b0d",
+      "result": "promoted_semantic_local",
+      "source_operator": "T7.acquire_from_drawer_top",
+      "source_prefix_mm": 108.27650875423126,
+      "successor_operator": "T2.deliver_to_black_table",
+      "successor_suffix_mm": 102.81420655380452,
+      "total_length_mm": 587.9495206950409
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "handoff_id": "h_semantic_578a65742e42",
+      "result": "preserved_reviewed_semantic_local",
+      "source_operator": "T7.acquire_from_drawer_top",
+      "successor_operator": "T3.deliver_to_floor",
+      "total_length_mm": 594.7100635609127
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 222.54718375671231,
+      "handoff_id": "h_semantic_dffe94451101",
+      "result": "promoted_semantic_local",
+      "source_operator": "T7.acquire_from_drawer_top",
+      "source_prefix_mm": 108.27650875423126,
+      "successor_operator": "T4.deliver_to_drawer",
+      "successor_suffix_mm": 92.07457871567198,
+      "total_length_mm": 422.8982712266156
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 347.6817044448989,
+      "handoff_id": "h_semantic_e8e0cdad896e",
+      "result": "promoted_semantic_local",
+      "source_operator": "T7.acquire_from_drawer_top",
+      "source_prefix_mm": 108.27650875423126,
+      "successor_operator": "T5.deliver_to_black_table",
+      "successor_suffix_mm": 37.958975249689786,
+      "total_length_mm": 493.91718844881996
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 468.6713453289233,
+      "handoff_id": "h_semantic_88b17a6aa53a",
+      "result": "promoted_semantic_local",
+      "source_operator": "T7.acquire_from_drawer_top",
+      "source_prefix_mm": 108.27650875423126,
+      "successor_operator": "T6.stack_on_support_block",
+      "successor_suffix_mm": 145.7649927199181,
+      "total_length_mm": 722.7128468030726
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 394.67570455619796,
+      "handoff_id": "h_semantic_073ff5c9b997",
+      "result": "promoted_semantic_local",
+      "source_operator": "T7.acquire_from_drawer_top",
+      "source_prefix_mm": 108.27650875423126,
+      "successor_operator": "T8.deliver_unstacked_to_black_table",
+      "successor_suffix_mm": 109.1272770956366,
+      "total_length_mm": 612.0794904060658
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T7.deliver_to_black_table",
+      "successor_operator": "T1.acquire_from_black_table"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T7.deliver_to_black_table",
+      "successor_operator": "T1.open_white_container"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T7.deliver_to_black_table",
+      "successor_operator": "T3.acquire_from_black_table"
+    },
+    {
+      "active_validation_method": "tangent_regularized_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T7.deliver_to_black_table",
+      "successor_operator": "T4.acquire_from_black_table"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T7.deliver_to_black_table",
+      "successor_operator": "T4.open_drawer"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T7.deliver_to_black_table",
+      "successor_operator": "T5.close_drawer"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T7.deliver_to_black_table",
+      "successor_operator": "T5.open_drawer"
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 312.99506162804227,
+      "handoff_id": "h_semantic_a307d11b34ac",
+      "result": "promoted_semantic_local",
+      "source_operator": "T8.acquire_top_block_from_stack",
+      "source_prefix_mm": 103.25526032414415,
+      "successor_operator": "T1.deliver_to_white_container",
+      "successor_suffix_mm": 59.447924673287446,
+      "total_length_mm": 475.69824662547387
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 360.7292967795695,
+      "handoff_id": "h_semantic_dc5c7cf8a06f",
+      "result": "promoted_semantic_local",
+      "source_operator": "T8.acquire_top_block_from_stack",
+      "source_prefix_mm": 103.25526032414415,
+      "successor_operator": "T2.deliver_to_black_table",
+      "successor_suffix_mm": 102.81420655380452,
+      "total_length_mm": 566.7987636575182
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 341.54687017221954,
+      "handoff_id": "h_semantic_ca272d614254",
+      "result": "promoted_semantic_local",
+      "source_operator": "T8.acquire_top_block_from_stack",
+      "source_prefix_mm": 106.48524631411577,
+      "successor_operator": "T3.deliver_to_floor",
+      "successor_suffix_mm": 376.75937406273226,
+      "total_length_mm": 824.7914905490676
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 488.98487922033064,
+      "handoff_id": "h_semantic_23b025dde8ab",
+      "result": "promoted_semantic_local",
+      "source_operator": "T8.acquire_top_block_from_stack",
+      "source_prefix_mm": 103.25526032414415,
+      "successor_operator": "T4.deliver_to_drawer",
+      "successor_suffix_mm": 92.07457871567198,
+      "total_length_mm": 684.3147182601467
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 337.0902063142436,
+      "handoff_id": "h_semantic_7d4e1d138567",
+      "result": "promoted_semantic_local",
+      "source_operator": "T8.acquire_top_block_from_stack",
+      "source_prefix_mm": 103.25526032414415,
+      "successor_operator": "T5.deliver_to_black_table",
+      "successor_suffix_mm": 37.958975249689786,
+      "total_length_mm": 478.3044418880775
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 212.91676342387308,
+      "handoff_id": "h_semantic_f6557d96b634",
+      "result": "promoted_semantic_local",
+      "source_operator": "T8.acquire_top_block_from_stack",
+      "source_prefix_mm": 103.25526032414415,
+      "successor_operator": "T6.stack_on_support_block",
+      "successor_suffix_mm": 190.2119646327542,
+      "total_length_mm": 506.3839883807714
+    },
+    {
+      "active_validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join",
+      "bridge_length_mm": 406.80865734809294,
+      "handoff_id": "h_semantic_8b66abeeaf7c",
+      "result": "promoted_semantic_local",
+      "source_operator": "T8.acquire_top_block_from_stack",
+      "source_prefix_mm": 103.25526032414415,
+      "successor_operator": "T7.deliver_to_black_table",
+      "successor_suffix_mm": 119.18744250795885,
+      "total_length_mm": 629.2513601801959
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T8.deliver_unstacked_to_black_table",
+      "successor_operator": "T1.acquire_from_black_table"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T8.deliver_unstacked_to_black_table",
+      "successor_operator": "T1.open_white_container"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T8.deliver_unstacked_to_black_table",
+      "successor_operator": "T3.acquire_from_black_table"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T8.deliver_unstacked_to_black_table",
+      "successor_operator": "T4.acquire_from_black_table"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T8.deliver_unstacked_to_black_table",
+      "successor_operator": "T4.open_drawer"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T8.deliver_unstacked_to_black_table",
+      "successor_operator": "T5.close_drawer"
+    },
+    {
+      "active_validation_method": "reference_deformation",
+      "reason": "source_bridge_mode_is_not_held_object_free_transport",
+      "result": "not_applicable_source_contract",
+      "source_operator": "T8.deliver_unstacked_to_black_table",
+      "successor_operator": "T5.open_drawer"
+    }
+  ],
+  "failed_refresh_retains_last_reviewed_edge": true,
+  "level2_edge_count": 127,
+  "live_enabled": false,
+  "mux_selected": false,
+  "objective": "source_semantic_prefix+Bridge+successor_semantic_suffix",
+  "output_registry": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/docs/artifacts/t1_t8_spatial_floor_level2_semantic_local_all_2026-09-03/edge_registry_level2_spatial_v6.json",
+  "physical_validation_performed": false,
+  "robot_commands_published": 0,
+  "runtime_successor_phase_gate": false,
+  "schema_version": "a0509.semantic_local_level2_refresh.v1",
+  "semantic_local_total_length_mm": {
+    "maximum": 824.7914905490676,
+    "mean": 498.02714838412413,
+    "minimum": 220.09735906244447,
+    "samples": 56
+  }
+}

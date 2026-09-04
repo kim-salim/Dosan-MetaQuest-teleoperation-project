@@ -1,0 +1,143 @@
+{
+  "bridge": {
+    "duration_s": 4.0,
+    "nominal_length_mm": 262.717954391264,
+    "transport_floor_mm": null
+  },
+  "composition_id": "t2_acquire_from_floor__to__t1_deliver_to_white_container",
+  "generation": {
+    "bridge_admission_mode": "flexible_level2",
+    "bridge_algorithm": "cubic_bezier_tangent_regularized_v1",
+    "method": "flexible_reference",
+    "reference_only": true,
+    "runtime_source_reference": {
+      "phase_window": [
+        0.54,
+        0.6
+      ],
+      "selection_method": "minimum_window_rms_to_component_median_real_episode_v1",
+      "support_bank": "t2_s2_runtime_source_bank.json"
+    },
+    "runtime_successor_reference": {
+      "authority": "bridge_reference_and_metadata_only",
+      "interior_path_margin_mm": 15.0,
+      "phase_window": [
+        0.7000000000000001,
+        0.9
+      ],
+      "runtime_phase_gate": false,
+      "selected_reference_phase": 0.86,
+      "selection_method": "minimum_semantic_prefix_bridge_suffix_with_empirical_interior_margin_v1",
+      "semantic_local_objective": {
+        "bridge_length_mm": 262.717954391264,
+        "source_prefix_mm": 324.63028276111436,
+        "successor_suffix_mm": 59.447924673287446,
+        "total_length_mm": 646.7961618256659
+      },
+      "support_bank": "t1_s4_entry_reference_bank.json"
+    },
+    "tangent_regularization": {
+      "maximum_endpoint_speed_adjustment_mm_s": 12.0,
+      "minimum_handle_chord_ratio": 0.04
+    }
+  },
+  "handoff_id": "h_semantic_740594f58e50",
+  "schema_version": "a0509.task_c_handoff_episode.v2",
+  "source": {
+    "approach_frames": 3,
+    "commit_radius_mm": 20.0,
+    "commit_stable_frames": 3,
+    "direction_cosine_minimum": 0.7,
+    "nominal_pose": {
+      "orientation_quat_xyzw": [
+        0.0028033195350422105,
+        0.9788025967515117,
+        0.00798201977570148,
+        0.20463114462950804
+      ],
+      "position_mm": [
+        377.4434814453125,
+        101.25784301757812,
+        542.145751953125
+      ]
+    },
+    "nominal_velocity_mm_s": [
+      1.8974481067188702,
+      -107.02521410763914,
+      -6.965969548775049
+    ],
+    "phase": 0.54,
+    "prearm_radius_mm": 40.0,
+    "segment": "S2",
+    "semantic": {
+      "contact_mode": "free_transport_assumed",
+      "entry_preconditions": [
+        "blue_block=held",
+        "gripper=closed",
+        "held_object=blue_block"
+      ],
+      "gripper_state": "closed",
+      "held_object": "blue_block",
+      "semantic_state": "lift_transport_and_align_blue_block_to_black_table"
+    },
+    "support_episode": 26,
+    "support_frame": 426,
+    "support_orientation_radius_deg": 30.0,
+    "support_radius_mm": 39.464203453684824,
+    "task": "T2"
+  },
+  "successor": {
+    "approach_frames": 3,
+    "commit_radius_mm": 20.0,
+    "commit_stable_frames": 3,
+    "direction_cosine_minimum": 0.7,
+    "nominal_pose": {
+      "orientation_quat_xyzw": [
+        0.0011202936884067874,
+        0.9766959571173846,
+        7.190477406659238e-05,
+        0.2146246656894579
+      ],
+      "position_mm": [
+        572.2542114257812,
+        -4.578518867492676,
+        532.4326171875
+      ]
+    },
+    "nominal_velocity_mm_s": [
+      31.185410329342123,
+      2.7130128567528033,
+      -14.41712643569982
+    ],
+    "phase": 0.86,
+    "prearm_radius_mm": 40.0,
+    "segment": "S4",
+    "semantic": {
+      "contact_mode": "free_transport_assumed",
+      "entry_preconditions": [
+        "blue_block=held",
+        "gripper=closed",
+        "held_object=blue_block",
+        "white_container=open"
+      ],
+      "gripper_state": "closed",
+      "held_object": "blue_block",
+      "semantic_state": "lift_transport_and_align_blue_block"
+    },
+    "support_episode": 19,
+    "support_frame": 945,
+    "support_orientation_radius_deg": 30.0,
+    "support_radius_mm": 90.0,
+    "task": "T1"
+  },
+  "validation": {
+    "collision_checked": false,
+    "dry_run_only": true,
+    "hard_filter_passed": false,
+    "ik_checked": false,
+    "robot_executable": false,
+    "semantic_authority": "external_planner",
+    "semantic_checks_enforced_by_runtime": false,
+    "semantic_diagnostics": []
+  }
+}

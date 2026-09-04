@@ -1,0 +1,3 @@
+event_id,semantic_label,label_ko,gripper_change,manipulated_object,semantic_effect,representative_x_mm,representative_y_mm,representative_z_mm,confidence
+C1,grasp_blue_block_on_top_of_drawer,서랍 위의 파란 블록 파지,open_to_closed,blue_block,blue_block_held,610.9853820800781,-176.71371459960938,347.2015686035156,high
+O1,release_blue_block_on_black_table,검은 테이블 위에 파란 블록 방출,closed_to_open,blue_block,blue_block_on_black_table,338.11219787597656,2.211663246154785,326.28907775878906,high

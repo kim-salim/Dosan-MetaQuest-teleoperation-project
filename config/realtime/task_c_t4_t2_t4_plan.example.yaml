@@ -1,0 +1,57 @@
+# TEMPLATE ONLY. Replace both handoff_manifest paths with planner-reviewed,
+# hard-filter-passed V2 episode manifests before any shadow or physical trial.
+schema_version: a0509.task_c_multi_stage_plan.v1
+composition_id: t4_open_t2_pick_t4_place_and_finish
+
+policies:
+  T4:
+    checkpoint: /home/rvlab/lerobot_models/models/act_a0509_blue_block_t4_bs32_80k_20260823/080000/pretrained_model
+    reuse_context_policy: true
+  T2:
+    checkpoint: /home/rvlab/lerobot_models/models/act_a0509_blue_block_t2_table_bs32_40k_20260821/040000/pretrained_model
+    reuse_context_policy: false
+
+stages:
+  - stage_id: t4_open_drawer
+    policy_id: T4
+    exit_authority: phase_supervisor
+    phase_supervisor:
+      support_artifact: ../../docs/artifacts/t4_semantic_only_graph_v3_2026-08-23/standardized_semantic_phase_trajectories.npz
+      phase_half_width: 0.05
+      prearm_extra_phase: 0.02
+      persistence_ticks: 3
+      local_search_radius_indices: 5
+      backward_tolerance: 0.02
+      support_distance_threshold_mm: null
+      support_loo_quantile: 0.95
+      gripper_event: closed_then_open
+  - stage_id: t2_pick_blue_block_from_floor
+    policy_id: T2
+    exit_authority: phase_supervisor
+    phase_supervisor:
+      support_artifact: ../../docs/artifacts/t2_semantic_only_graph_v3_2026-08-23/standardized_semantic_phase_trajectories.npz
+      phase_half_width: 0.05
+      prearm_extra_phase: 0.02
+      persistence_ticks: 3
+      local_search_radius_indices: 5
+      backward_tolerance: 0.02
+      support_distance_threshold_mm: null
+      support_loo_quantile: 0.95
+      gripper_event: open_then_closed
+  - stage_id: t4_place_blue_block_in_drawer_and_finish
+    policy_id: T4
+    exit_authority: policy_inference_end
+    # Frozen ACT has no learned done token. This is a finite 60 s inference
+    # horizon (1800 commands at 30 Hz), not a semantic-success assertion.
+    inference_end_steps: 1800
+    terminal: true
+
+transitions:
+  - transition_id: t4_to_t2
+    source_stage: t4_open_drawer
+    successor_stage: t2_pick_blue_block_from_floor
+    handoff_manifest: /absolute/path/to/planner_reviewed_t4_to_t2_episode_manifest.json
+  - transition_id: t2_to_t4
+    source_stage: t2_pick_blue_block_from_floor
+    successor_stage: t4_place_blue_block_in_drawer_and_finish
+    handoff_manifest: /absolute/path/to/planner_reviewed_t2_to_t4_episode_manifest.json

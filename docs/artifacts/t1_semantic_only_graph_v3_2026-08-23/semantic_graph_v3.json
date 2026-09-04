@@ -1,0 +1,305 @@
+{
+  "schema_version": "a0509.semantic_only_graph.v3",
+  "dataset_repo_id": "local/a0509_blue_block_t1_throw_away_inthe_container",
+  "task_description": "Open the White Container throw away the blue block",
+  "episode_count": 30,
+  "event_grammar": [
+    "C1",
+    "O1",
+    "C2",
+    "O2"
+  ],
+  "events": {
+    "C1": {
+      "semantic_label": "grasp_white_container_handle",
+      "label_ko": "흰색 컨테이너 손잡이 파지",
+      "gripper_change": "open_to_closed",
+      "manipulated_object": "white_container_handle",
+      "semantic_effect": "container_handle_held",
+      "confidence": "high",
+      "representative_position_mm": [
+        554.2467651367188,
+        0.6170869022607803,
+        525.8998107910156
+      ]
+    },
+    "O1": {
+      "semantic_label": "release_handle_after_opening_container",
+      "label_ko": "컨테이너를 연 뒤 손잡이 해제",
+      "gripper_change": "closed_to_open",
+      "manipulated_object": "white_container_handle",
+      "semantic_effect": "white_container_open",
+      "confidence": "high",
+      "representative_position_mm": [
+        329.7906494140625,
+        2.4328553676605225,
+        510.61993408203125
+      ]
+    },
+    "C2": {
+      "semantic_label": "grasp_blue_block_on_black_table",
+      "label_ko": "검은 테이블의 파란 블록 파지",
+      "gripper_change": "open_to_closed",
+      "manipulated_object": "blue_block",
+      "semantic_effect": "blue_block_held",
+      "confidence": "high",
+      "representative_position_mm": [
+        379.8262634277344,
+        2.9486663341522217,
+        348.80506896972656
+      ]
+    },
+    "O2": {
+      "semantic_label": "release_blue_block_in_white_container",
+      "label_ko": "흰색 컨테이너 안에 파란 블록 방출",
+      "gripper_change": "closed_to_open",
+      "manipulated_object": "blue_block",
+      "semantic_effect": "blue_block_in_white_container",
+      "confidence": "high",
+      "representative_position_mm": [
+        596.0665588378906,
+        2.758544087409973,
+        507.1325988769531
+      ]
+    }
+  },
+  "hierarchy": {
+    "task": "discard_blue_block_in_white_container",
+    "subgoals": [
+      "open_white_container",
+      "acquire_blue_block",
+      "place_blue_block_in_white_container",
+      "finish_task"
+    ]
+  },
+  "segments": [
+    {
+      "spec": {
+        "segment_id": "S1",
+        "parent_subgoal": "open_white_container",
+        "semantic_label": "approach_white_container_handle",
+        "label_ko": "흰색 컨테이너 손잡이로 접근",
+        "start_anchor": "START",
+        "end_anchor": "C1",
+        "gripper_semantics": "open; closes at C1",
+        "manipulated_object": "white_container_handle",
+        "entry_state": {
+          "gripper": "open",
+          "white_container": "closed",
+          "blue_block": "on_black_table",
+          "held_object": "none"
+        },
+        "exit_state": {
+          "gripper": "closed",
+          "white_container": "closed",
+          "blue_block": "on_black_table",
+          "held_object": "white_container_handle"
+        },
+        "evidence": [
+          "TASK_DESCRIPTION",
+          "C1",
+          "TCP approach motion",
+          "multi-camera review"
+        ],
+        "confidence": "high"
+      },
+      "path_length_mm": {
+        "median": 197.82250077120887,
+        "mean": 199.75715035960292,
+        "std": 23.540495956414727,
+        "min": 159.24169282315313,
+        "max": 259.8257063634984
+      },
+      "phase_residual_mm": {
+        "p90_mean": 28.858080645213402,
+        "p95_max": 41.19537438380223
+      }
+    },
+    {
+      "spec": {
+        "segment_id": "S2",
+        "parent_subgoal": "open_white_container",
+        "semantic_label": "manipulate_white_container_open",
+        "label_ko": "손잡이를 조작하여 흰색 컨테이너 열기",
+        "start_anchor": "C1",
+        "end_anchor": "O1",
+        "gripper_semantics": "closed; opens at O1",
+        "manipulated_object": "white_container_handle",
+        "entry_state": {
+          "gripper": "closed",
+          "white_container": "closed",
+          "blue_block": "on_black_table",
+          "held_object": "white_container_handle"
+        },
+        "exit_state": {
+          "gripper": "open",
+          "white_container": "open",
+          "blue_block": "on_black_table",
+          "held_object": "none"
+        },
+        "evidence": [
+          "TASK_DESCRIPTION",
+          "C1-O1",
+          "TCP handle motion",
+          "multi-camera review"
+        ],
+        "confidence": "high"
+      },
+      "path_length_mm": {
+        "median": 479.23347230157566,
+        "mean": 480.23605763169803,
+        "std": 37.75618207922499,
+        "min": 406.79155970154596,
+        "max": 572.0305981104085
+      },
+      "phase_residual_mm": {
+        "p90_mean": 36.51545427779662,
+        "p95_max": 60.37223225714246
+      }
+    },
+    {
+      "spec": {
+        "segment_id": "S3",
+        "parent_subgoal": "acquire_blue_block",
+        "semantic_label": "approach_blue_block_on_black_table",
+        "label_ko": "검은 테이블 위 파란 블록으로 접근",
+        "start_anchor": "O1",
+        "end_anchor": "C2",
+        "gripper_semantics": "open; closes at C2",
+        "manipulated_object": "blue_block",
+        "entry_state": {
+          "gripper": "open",
+          "white_container": "open",
+          "blue_block": "on_black_table",
+          "held_object": "none"
+        },
+        "exit_state": {
+          "gripper": "closed",
+          "white_container": "open",
+          "blue_block": "held",
+          "held_object": "blue_block"
+        },
+        "evidence": [
+          "TASK_DESCRIPTION",
+          "O1-C2",
+          "TCP descent/approach",
+          "multi-camera review"
+        ],
+        "confidence": "high"
+      },
+      "path_length_mm": {
+        "median": 209.02548899209842,
+        "mean": 206.03883958328433,
+        "std": 33.19054154511914,
+        "min": 137.54959262367495,
+        "max": 275.2915955038198
+      },
+      "phase_residual_mm": {
+        "p90_mean": 34.49527225127517,
+        "p95_max": 53.19320454047388
+      }
+    },
+    {
+      "spec": {
+        "segment_id": "S4",
+        "parent_subgoal": "place_blue_block_in_white_container",
+        "semantic_label": "lift_transport_and_align_blue_block",
+        "label_ko": "파란 블록을 들어 컨테이너로 운반·정렬",
+        "start_anchor": "C2",
+        "end_anchor": "O2",
+        "gripper_semantics": "closed; opens at O2",
+        "manipulated_object": "blue_block",
+        "entry_state": {
+          "gripper": "closed",
+          "white_container": "open",
+          "blue_block": "held",
+          "held_object": "blue_block"
+        },
+        "exit_state": {
+          "gripper": "open",
+          "white_container": "open",
+          "blue_block": "in_white_container",
+          "held_object": "none"
+        },
+        "evidence": [
+          "TASK_DESCRIPTION",
+          "C2-O2",
+          "TCP lift/transport",
+          "multi-camera review"
+        ],
+        "confidence": "high"
+      },
+      "path_length_mm": {
+        "median": 437.2018848931093,
+        "mean": 433.6643824144316,
+        "std": 40.856417641502006,
+        "min": 320.8941560056187,
+        "max": 505.8206808474186
+      },
+      "phase_residual_mm": {
+        "p90_mean": 41.338986044138885,
+        "p95_max": 66.3039501807055
+      }
+    },
+    {
+      "spec": {
+        "segment_id": "S5",
+        "parent_subgoal": "finish_task",
+        "semantic_label": "retract_after_blue_block_release",
+        "label_ko": "블록 방출 후 컨테이너에서 후퇴",
+        "start_anchor": "O2",
+        "end_anchor": "END",
+        "gripper_semantics": "open",
+        "manipulated_object": null,
+        "entry_state": {
+          "gripper": "open",
+          "white_container": "open",
+          "blue_block": "in_white_container",
+          "held_object": "none"
+        },
+        "exit_state": {
+          "gripper": "open",
+          "white_container": "open",
+          "blue_block": "in_white_container",
+          "held_object": "none"
+        },
+        "evidence": [
+          "O2",
+          "TCP post-release motion"
+        ],
+        "confidence": "medium"
+      },
+      "path_length_mm": {
+        "median": 252.23479903063009,
+        "mean": 249.74988006366306,
+        "std": 34.74286658185026,
+        "min": 148.30499390387604,
+        "max": 320.0319404266679
+      },
+      "phase_residual_mm": {
+        "p90_mean": 38.10857252164576,
+        "p95_max": 51.98786528042147
+      }
+    }
+  ],
+  "representative": {
+    "synthetic": "component median XYZ at each semantic phase",
+    "individual_episode_selected": false
+  },
+  "standardization": {
+    "axis": "per-segment Cartesian arc-length phase 0..1",
+    "coordinate_frame": "Doosan base",
+    "units": "mm",
+    "phase_points": 101,
+    "frame_number_average_used": false,
+    "image_pixel_average_used": false
+  },
+  "scope": {
+    "semantic_information_only": true,
+    "transition_fitness_included": false,
+    "spherical_boundaries_included": false,
+    "bridge_planning_included": false,
+    "robot_executable": false,
+    "original_dataset_modified": false
+  }
+}

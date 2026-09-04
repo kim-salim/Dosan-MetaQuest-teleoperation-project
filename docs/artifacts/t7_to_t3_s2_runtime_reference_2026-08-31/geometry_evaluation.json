@@ -1,0 +1,517 @@
+{
+  "empirical_successor_window": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/docs/artifacts/t7_to_t3_s2_runtime_reference_2026-08-31/t3_s2_empirical_transport_phase_window.json",
+  "geometry": {
+    "candidate_diagnostics": [
+      {
+        "actual_reference_start_error_mm": 0.0,
+        "collision_checked": false,
+        "curvature_p95_moving_per_mm": 0.013303421505423409,
+        "duration_s": 4.0,
+        "entry_fraction": 0.18,
+        "exit_fraction": 0.82,
+        "future_join_lookahead_fraction": null,
+        "generator_type": "reference_deformation",
+        "hard_rejection_reasons": [],
+        "ik_checked": false,
+        "max_acceleration_mm_s2": 91.15533363931762,
+        "max_ack_span_axis_step_mm": 6.584563557848128,
+        "max_ack_span_orientation_step_deg": 0.08650003798032299,
+        "max_command_acceleration_mm_s2": 90.1727424582169,
+        "max_command_jerk_mm_s3": 1342.7845068556294,
+        "max_curvature_per_mm": 0.014476587100372649,
+        "max_curvature_u": 1.0,
+        "max_jerk_mm_s3": 32.486194381741385,
+        "max_normal_acceleration_mm_s2": 68.0658897805045,
+        "max_orientation_step_deg": 0.043250018970028614,
+        "max_position_axis_step_mm": 3.3327003396582313,
+        "max_velocity_mm_s": 111.88009219994227,
+        "ood_score": 0.0,
+        "reference_projection_fraction": null,
+        "reference_rms_error_mm": 0.0,
+        "score": 0.21342480385377355,
+        "self_intersection_checked": true,
+        "source_tangent_angle_deg": 0.0,
+        "speed_at_max_curvature_mm_s": 64.65388622912681,
+        "tangent_handle_chord_ratio": 0.0
+      },
+      {
+        "actual_reference_start_error_mm": 0.0,
+        "collision_checked": false,
+        "curvature_p95_moving_per_mm": 0.012104468416770596,
+        "duration_s": 5.0,
+        "entry_fraction": 0.18,
+        "exit_fraction": 0.82,
+        "future_join_lookahead_fraction": null,
+        "generator_type": "reference_deformation",
+        "hard_rejection_reasons": [],
+        "ik_checked": false,
+        "max_acceleration_mm_s2": 67.33903552525257,
+        "max_ack_span_axis_step_mm": 6.618186385604417,
+        "max_ack_span_orientation_step_deg": 0.06920464509957143,
+        "max_command_acceleration_mm_s2": 66.82301193379313,
+        "max_command_jerk_mm_s3": 997.1920068679602,
+        "max_curvature_per_mm": 0.012199399238971993,
+        "max_curvature_u": 0.36000000000000004,
+        "max_jerk_mm_s3": 17.04020322441186,
+        "max_normal_acceleration_mm_s2": 44.652736692084794,
+        "max_orientation_step_deg": 0.03460232258725179,
+        "max_position_axis_step_mm": 3.341143253816597,
+        "max_velocity_mm_s": 111.88009219994225,
+        "ood_score": 0.0,
+        "reference_projection_fraction": null,
+        "reference_rms_error_mm": 0.0,
+        "score": 0.24437295480247917,
+        "self_intersection_checked": true,
+        "source_tangent_angle_deg": 8.537736462515939e-07,
+        "speed_at_max_curvature_mm_s": 57.94223691498897,
+        "tangent_handle_chord_ratio": 0.0
+      },
+      {
+        "actual_reference_start_error_mm": 0.0,
+        "collision_checked": false,
+        "curvature_p95_moving_per_mm": 0.014658511245368459,
+        "duration_s": 6.0,
+        "entry_fraction": 0.18,
+        "exit_fraction": 0.82,
+        "future_join_lookahead_fraction": null,
+        "generator_type": "reference_deformation",
+        "hard_rejection_reasons": [],
+        "ik_checked": false,
+        "max_acceleration_mm_s2": 54.07051217455905,
+        "max_ack_span_axis_step_mm": 6.640268648056235,
+        "max_ack_span_orientation_step_deg": 0.057672626668194206,
+        "max_command_acceleration_mm_s2": 53.74971562142773,
+        "max_command_jerk_mm_s3": 803.0407170909887,
+        "max_curvature_per_mm": 0.014846415827682875,
+        "max_curvature_u": 0.4027777777777778,
+        "max_jerk_mm_s3": 10.472158966858,
+        "max_normal_acceleration_mm_s2": 33.680646579158946,
+        "max_orientation_step_deg": 0.02883631335862195,
+        "max_position_axis_step_mm": 3.3466834530963183,
+        "max_velocity_mm_s": 111.88009219994228,
+        "ood_score": 0.0,
+        "reference_projection_fraction": null,
+        "reference_rms_error_mm": 0.0,
+        "score": 0.27785121791598316,
+        "self_intersection_checked": true,
+        "source_tangent_angle_deg": 0.0,
+        "speed_at_max_curvature_mm_s": 46.488575965009076,
+        "tangent_handle_chord_ratio": 0.0
+      }
+    ],
+    "candidates_evaluated": 3,
+    "candidates_hard_passed": 3,
+    "rejected_reason_counts": {},
+    "search_latency_ms": 31.656902050599456,
+    "selected": {
+      "actual_reference_start_error_mm": 0.0,
+      "collision_checked": false,
+      "curvature_p95_moving_per_mm": 0.013303421505423409,
+      "duration_s": 4.0,
+      "entry_fraction": 0.18,
+      "exit_fraction": 0.82,
+      "future_join_lookahead_fraction": null,
+      "generator_type": "reference_deformation",
+      "hard_rejection_reasons": [],
+      "ik_checked": false,
+      "max_acceleration_mm_s2": 91.15533363931762,
+      "max_ack_span_axis_step_mm": 6.584563557848128,
+      "max_ack_span_orientation_step_deg": 0.08650003798032299,
+      "max_command_acceleration_mm_s2": 90.1727424582169,
+      "max_command_jerk_mm_s3": 1342.7845068556294,
+      "max_curvature_per_mm": 0.014476587100372649,
+      "max_curvature_u": 1.0,
+      "max_jerk_mm_s3": 32.486194381741385,
+      "max_normal_acceleration_mm_s2": 68.0658897805045,
+      "max_orientation_step_deg": 0.043250018970028614,
+      "max_position_axis_step_mm": 3.3327003396582313,
+      "max_velocity_mm_s": 111.88009219994227,
+      "ood_score": 0.0,
+      "reference_projection_fraction": null,
+      "reference_rms_error_mm": 0.0,
+      "score": 0.21342480385377355,
+      "self_intersection_checked": true,
+      "source_tangent_angle_deg": 0.0,
+      "speed_at_max_curvature_mm_s": 64.65388622912681,
+      "tangent_handle_chord_ratio": 0.0
+    },
+    "timed_out": false,
+    "valid": true
+  },
+  "live_enabled": false,
+  "manifest": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/docs/artifacts/t7_to_t3_s2_runtime_reference_2026-08-31/flexible_reference_manifest.json",
+  "mux_selected": false,
+  "physical_validation_performed": false,
+  "robot_commands_published": 0,
+  "runtime_successor_phase_gate": false,
+  "schema_version": "a0509.t7_t3_semantic_local_reference_geometry.v2",
+  "selected_source_boundary": {
+    "completed_subgoals": [
+      "blue_block=held",
+      "gripper=closed",
+      "held_object=blue_block"
+    ],
+    "contact_mode": "free_transport_assumed",
+    "entry_preconditions": [
+      "blue_block=held",
+      "gripper=closed",
+      "held_object=blue_block"
+    ],
+    "gripper_state": "closed",
+    "held_object": "blue_block",
+    "orientation_quat_xyzw": [
+      -0.008709790565671968,
+      0.9673257657202072,
+      -0.0019715367899959804,
+      0.253379390568378
+    ],
+    "phase": 0.16,
+    "position_mm": [
+      590.4822998046875,
+      -179.3843536376953,
+      447.4809265136719
+    ],
+    "segment": "S2",
+    "semantic_state": "lift_transport_and_align_blue_block_to_black_table",
+    "support_episode": 15,
+    "support_frame": 313,
+    "support_score": 0.023349792143360904,
+    "task": "T7",
+    "velocity_mm_s": [
+      -36.28750210523734,
+      30.968203752080406,
+      101.1995186648613
+    ]
+  },
+  "selected_successor_boundary": {
+    "completed_subgoals": [
+      "blue_block=held",
+      "gripper=closed",
+      "held_object=blue_block"
+    ],
+    "contact_mode": "free_transport_assumed",
+    "entry_preconditions": [
+      "blue_block=held",
+      "gripper=closed",
+      "held_object=blue_block"
+    ],
+    "gripper_state": "closed",
+    "held_object": "blue_block",
+    "orientation_quat_xyzw": [
+      0.004509529753400923,
+      0.9695488032744151,
+      0.01597610344911934,
+      0.24433490608002778
+    ],
+    "phase": 0.65,
+    "position_mm": [
+      368.39080810546875,
+      -176.68885803222656,
+      437.3741455078125
+    ],
+    "segment": "S2",
+    "semantic_state": "lift_transport_and_align_blue_block_off_black_table",
+    "support_episode": 23,
+    "support_frame": 402,
+    "support_score": 0.023527429623529765,
+    "task": "T3",
+    "velocity_mm_s": [
+      -9.656247174291174,
+      8.197208126989972,
+      -63.40100688443899
+    ]
+  },
+  "semantic_local_objective": {
+    "bridge_length_mm": 302.6577798356662,
+    "source_prefix_mm": 108.27650875423126,
+    "successor_suffix_mm": 183.77577497101527,
+    "total_length_mm": 594.7100635609127
+  },
+  "semantic_local_selection": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/docs/artifacts/t7_to_t3_s2_runtime_reference_2026-08-31/semantic_local_reference_selection.json",
+  "source_bank": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/docs/artifacts/t7_to_t3_s2_runtime_reference_2026-08-31/t7_s2_runtime_source_bank.json",
+  "source_execution_tail": {
+    "collar_phase_high": 0.21,
+    "collar_phase_low": 0.09,
+    "collar_progress_mm_high": 131.74080347257672,
+    "collar_progress_mm_low": 55.03225898403768,
+    "commit_phase_high": 0.21,
+    "commit_phase_low": 0.16,
+    "deadline_phase": 0.25,
+    "derivation_method": "empirical_progress_support_collar_v1",
+    "episode_count": 30,
+    "fixed_z_minimum_used": false,
+    "nominal_phase": 0.185,
+    "phase_half_width": 0.024999999999999994,
+    "phase_points": 101,
+    "prearm_extra_phase": 0.16,
+    "same_segment_as_semantic_exit": false,
+    "semantic_exit_phase": 1.0,
+    "semantic_exit_segment": "S1",
+    "source_operator": "T7.acquire_from_drawer_top",
+    "support_residual_p90_limit_mm": 38.28944203441709,
+    "tracking_segment": "S2",
+    "tracking_start_phase": 0.0,
+    "zero_symbolic_cost": true
+  },
+  "source_selection": {
+    "episode_ranking": [
+      {
+        "episode": 15,
+        "window_rms_mm": 6.6014149880701645
+      },
+      {
+        "episode": 23,
+        "window_rms_mm": 6.671222018683389
+      },
+      {
+        "episode": 11,
+        "window_rms_mm": 7.727731607007978
+      },
+      {
+        "episode": 10,
+        "window_rms_mm": 9.051569603762857
+      },
+      {
+        "episode": 16,
+        "window_rms_mm": 9.62544408489368
+      },
+      {
+        "episode": 1,
+        "window_rms_mm": 14.141947706420515
+      },
+      {
+        "episode": 29,
+        "window_rms_mm": 14.263504047089759
+      },
+      {
+        "episode": 14,
+        "window_rms_mm": 14.724018783413289
+      },
+      {
+        "episode": 21,
+        "window_rms_mm": 14.98772503815969
+      },
+      {
+        "episode": 0,
+        "window_rms_mm": 15.632557921283341
+      },
+      {
+        "episode": 13,
+        "window_rms_mm": 16.677062064266224
+      },
+      {
+        "episode": 18,
+        "window_rms_mm": 18.169723132198627
+      },
+      {
+        "episode": 12,
+        "window_rms_mm": 18.31312775328728
+      },
+      {
+        "episode": 25,
+        "window_rms_mm": 18.666413607504005
+      },
+      {
+        "episode": 5,
+        "window_rms_mm": 19.212962082220685
+      },
+      {
+        "episode": 17,
+        "window_rms_mm": 19.604017870515253
+      },
+      {
+        "episode": 19,
+        "window_rms_mm": 19.690955531390497
+      },
+      {
+        "episode": 9,
+        "window_rms_mm": 19.835899462349527
+      },
+      {
+        "episode": 4,
+        "window_rms_mm": 20.33505087126283
+      },
+      {
+        "episode": 6,
+        "window_rms_mm": 21.146184932520462
+      },
+      {
+        "episode": 22,
+        "window_rms_mm": 24.758494061793208
+      },
+      {
+        "episode": 2,
+        "window_rms_mm": 25.38001181241389
+      },
+      {
+        "episode": 7,
+        "window_rms_mm": 26.247375005977332
+      },
+      {
+        "episode": 24,
+        "window_rms_mm": 28.29465907177791
+      },
+      {
+        "episode": 20,
+        "window_rms_mm": 28.887112538806335
+      },
+      {
+        "episode": 26,
+        "window_rms_mm": 31.70362921319231
+      },
+      {
+        "episode": 28,
+        "window_rms_mm": 32.009672558193664
+      },
+      {
+        "episode": 27,
+        "window_rms_mm": 37.37094750734897
+      },
+      {
+        "episode": 3,
+        "window_rms_mm": 44.2244181881087
+      },
+      {
+        "episode": 8,
+        "window_rms_mm": 45.39653933680343
+      }
+    ],
+    "medoid_episode": 15,
+    "medoid_window_rms_mm": 6.6014149880701645,
+    "method": "minimum_window_rms_to_component_median_real_episode_v1",
+    "real_episode_selected": true,
+    "synthetic_median_used_as_command": false
+  },
+  "successor_bank": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/docs/artifacts/t7_to_t3_s2_runtime_reference_2026-08-31/t3_s2_entry_reference_bank.json",
+  "successor_interior_path_margin_mm": 15.0,
+  "successor_phase_role": "bridge_reference_and_metadata_only",
+  "successor_selection": {
+    "episode_ranking": [
+      {
+        "episode": 23,
+        "window_rms_mm": 12.613098902077752
+      },
+      {
+        "episode": 22,
+        "window_rms_mm": 13.991007632165353
+      },
+      {
+        "episode": 14,
+        "window_rms_mm": 14.244231518997832
+      },
+      {
+        "episode": 24,
+        "window_rms_mm": 14.491686136349582
+      },
+      {
+        "episode": 19,
+        "window_rms_mm": 15.672272152573589
+      },
+      {
+        "episode": 8,
+        "window_rms_mm": 15.926455199045972
+      },
+      {
+        "episode": 17,
+        "window_rms_mm": 16.31704442867228
+      },
+      {
+        "episode": 4,
+        "window_rms_mm": 16.876705939893093
+      },
+      {
+        "episode": 12,
+        "window_rms_mm": 17.405550032814176
+      },
+      {
+        "episode": 18,
+        "window_rms_mm": 18.145946944284027
+      },
+      {
+        "episode": 16,
+        "window_rms_mm": 18.95337344897177
+      },
+      {
+        "episode": 6,
+        "window_rms_mm": 21.134015934839905
+      },
+      {
+        "episode": 11,
+        "window_rms_mm": 23.399196919882453
+      },
+      {
+        "episode": 21,
+        "window_rms_mm": 24.3124681106749
+      },
+      {
+        "episode": 13,
+        "window_rms_mm": 24.412292677874255
+      },
+      {
+        "episode": 7,
+        "window_rms_mm": 25.314715039304165
+      },
+      {
+        "episode": 3,
+        "window_rms_mm": 26.670723211495776
+      },
+      {
+        "episode": 29,
+        "window_rms_mm": 27.332336962549853
+      },
+      {
+        "episode": 9,
+        "window_rms_mm": 27.411879105316903
+      },
+      {
+        "episode": 15,
+        "window_rms_mm": 31.95677666522793
+      },
+      {
+        "episode": 20,
+        "window_rms_mm": 33.308535967859044
+      },
+      {
+        "episode": 28,
+        "window_rms_mm": 34.07851502481053
+      },
+      {
+        "episode": 5,
+        "window_rms_mm": 34.306157608773994
+      },
+      {
+        "episode": 27,
+        "window_rms_mm": 35.05636213742444
+      },
+      {
+        "episode": 26,
+        "window_rms_mm": 36.52663002959834
+      },
+      {
+        "episode": 2,
+        "window_rms_mm": 41.239304399519945
+      },
+      {
+        "episode": 0,
+        "window_rms_mm": 42.01292193559562
+      },
+      {
+        "episode": 25,
+        "window_rms_mm": 47.16667139791102
+      },
+      {
+        "episode": 1,
+        "window_rms_mm": 52.668997116218165
+      },
+      {
+        "episode": 10,
+        "window_rms_mm": 99.86032999463336
+      }
+    ],
+    "medoid_episode": 23,
+    "medoid_window_rms_mm": 12.613098902077752,
+    "method": "minimum_window_rms_to_component_median_real_episode_v1",
+    "real_episode_selected": true,
+    "synthetic_median_used_as_command": false
+  }
+}

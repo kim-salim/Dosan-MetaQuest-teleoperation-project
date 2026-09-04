@@ -17,6 +17,7 @@ def generate_launch_description():
     doosan_servol_topic = LaunchConfiguration("doosan_servol_topic")
     start_robot_bringup = LaunchConfiguration("start_robot_bringup")
     start_teleop = LaunchConfiguration("start_teleop")
+    start_metaquest_inputs = LaunchConfiguration("start_metaquest_inputs")
     start_gui = LaunchConfiguration("start_gui")
     start_calibration_gui = LaunchConfiguration("start_calibration_gui")
     use_command_mux = LaunchConfiguration("use_command_mux")
@@ -41,6 +42,12 @@ def generate_launch_description():
     )
     lerobot_timeout_sec = LaunchConfiguration("lerobot_timeout_sec")
     mux_heartbeat_timeout_sec = LaunchConfiguration("mux_heartbeat_timeout_sec")
+    stream_ramp_linear_mm_per_tick = LaunchConfiguration(
+        "stream_ramp_linear_mm_per_tick"
+    )
+    stream_ramp_rot_deg_per_tick = LaunchConfiguration(
+        "stream_ramp_rot_deg_per_tick"
+    )
     mapper_target_topic = PythonExpression(
         [
             "'",
@@ -95,6 +102,7 @@ def generate_launch_description():
             ),
             DeclareLaunchArgument("start_robot_bringup", default_value="true"),
             DeclareLaunchArgument("start_teleop", default_value="true"),
+            DeclareLaunchArgument("start_metaquest_inputs", default_value="true"),
             DeclareLaunchArgument("start_gui", default_value="false"),
             DeclareLaunchArgument("start_calibration_gui", default_value="false"),
             DeclareLaunchArgument("use_command_mux", default_value="true"),
@@ -122,6 +130,12 @@ def generate_launch_description():
             ),
             DeclareLaunchArgument("lerobot_timeout_sec", default_value="0.3"),
             DeclareLaunchArgument("mux_heartbeat_timeout_sec", default_value="1.0"),
+            DeclareLaunchArgument(
+                "stream_ramp_linear_mm_per_tick", default_value="6.67"
+            ),
+            DeclareLaunchArgument(
+                "stream_ramp_rot_deg_per_tick", default_value="1.0"
+            ),
             DeclareLaunchArgument("start_rviz", default_value="false"),
             DeclareLaunchArgument(
                 "start_robot_state_publisher",
@@ -195,7 +209,17 @@ def generate_launch_description():
                         ),
                     },
                 ],
-                condition=IfCondition(start_teleop),
+                condition=IfCondition(
+                    PythonExpression(
+                        [
+                            "'",
+                            start_teleop,
+                            "' == 'true' and '",
+                            start_metaquest_inputs,
+                            "' == 'true'",
+                        ]
+                    )
+                ),
             ),
             Node(
                 package="quest_a0509_teleop",
@@ -203,7 +227,17 @@ def generate_launch_description():
                 name="quest_input_button_node",
                 output="screen",
                 parameters=[config_file],
-                condition=IfCondition(start_teleop),
+                condition=IfCondition(
+                    PythonExpression(
+                        [
+                            "'",
+                            start_teleop,
+                            "' == 'true' and '",
+                            start_metaquest_inputs,
+                            "' == 'true'",
+                        ]
+                    )
+                ),
             ),
             Node(
                 package="quest_a0509_teleop",
@@ -230,6 +264,12 @@ def generate_launch_description():
                         ),
                         "mux_heartbeat_timeout_sec": ParameterValue(
                             mux_heartbeat_timeout_sec, value_type=float
+                        ),
+                        "stream_ramp_linear_mm_per_tick": ParameterValue(
+                            stream_ramp_linear_mm_per_tick, value_type=float
+                        ),
+                        "stream_ramp_rot_deg_per_tick": ParameterValue(
+                            stream_ramp_rot_deg_per_tick, value_type=float
                         ),
                     },
                 ],

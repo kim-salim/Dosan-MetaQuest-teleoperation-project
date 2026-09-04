@@ -1,0 +1,42 @@
+{
+  "description": "Command-free semantic-local reference overlay. Registry refresh must independently verify the matching policy shadow.",
+  "edges": [
+    {
+      "evidence": {
+        "collision_checked": false,
+        "command_safe": true,
+        "dijkstra_operator_cost_changed": false,
+        "ik_checked": false,
+        "physical_trials": 0,
+        "runtime_source_medoid_episode": 26,
+        "runtime_source_phase_window": [
+          0.54,
+          0.6
+        ],
+        "runtime_source_reference_phase": 0.54,
+        "runtime_source_reference_phase_max": 0.5700000000000001,
+        "runtime_source_segment": "S2",
+        "semantic_local_candidate_rank": 0,
+        "semantic_local_total_length_mm": 758.6497301764932,
+        "successor_reference_interior_path_margin_mm": 15.0,
+        "successor_reference_medoid_episode": 11,
+        "successor_reference_phase": 0.73,
+        "successor_reference_phase_window": [
+          0.11,
+          0.76
+        ],
+        "successor_reference_segment": "S2",
+        "successor_runtime_phase_gate": false
+      },
+      "handoff_manifest": "flexible_reference_manifest.json",
+      "policy_shadow": "flexible_policy_shadow.json",
+      "source_operator": "T2.acquire_from_floor",
+      "successor_operator": "T6.stack_on_support_block",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "execution_tail_s2_semantic_local_interior_dynamic_future_join"
+    }
+  ],
+  "physical_validation_performed": false,
+  "robot_commands_published": 0,
+  "schema_version": "a0509.flexible_level2_verified_overlay.v1"
+}

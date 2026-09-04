@@ -1,0 +1,135 @@
+{
+  "bridge": {
+    "duration_s": 4.0,
+    "nominal_length_mm": 307.978205187047,
+    "transport_floor_mm": null
+  },
+  "composition_id": "t1_open_white_container__to__t2_acquire_from_floor",
+  "generation": {
+    "bridge_admission_mode": "flexible_level2",
+    "bridge_algorithm": "cubic_bezier_fixed",
+    "method": "flexible_reference",
+    "reference_only": true,
+    "runtime_successor_reference": {
+      "authority": "bridge_reference_and_metadata_only",
+      "interior_path_margin_mm": 15.0,
+      "phase_window": [
+        0.0,
+        1.0
+      ],
+      "runtime_phase_gate": false,
+      "selected_reference_phase": 0.96,
+      "selection_method": "minimum_semantic_prefix_bridge_suffix_with_empirical_interior_margin_v1",
+      "semantic_local_objective": {
+        "bridge_length_mm": 307.978205187047,
+        "source_prefix_mm": 514.627314665321,
+        "successor_suffix_mm": 16.360122591397158,
+        "total_length_mm": 838.9656424437652
+      },
+      "support_bank": "t2_s1_entry_reference_bank.json"
+    },
+    "tangent_regularization": {
+      "maximum_endpoint_speed_adjustment_mm_s": null,
+      "minimum_handle_chord_ratio": 0.0
+    }
+  },
+  "handoff_id": "h_semantic_3c8a2912cb45",
+  "schema_version": "a0509.task_c_handoff_episode.v2",
+  "source": {
+    "approach_frames": 3,
+    "commit_radius_mm": 20.0,
+    "commit_stable_frames": 3,
+    "direction_cosine_minimum": 0.7,
+    "nominal_pose": {
+      "orientation_quat_xyzw": [
+        0.00011382130372881645,
+        0.9729595715411903,
+        0.00043013286571497194,
+        0.2309750509834605
+      ],
+      "position_mm": [
+        329.9912414550781,
+        -3.39165997505188,
+        516.1929321289062
+      ]
+    },
+    "nominal_velocity_mm_s": [
+      2.453586870522194,
+      4.089800563421593,
+      -0.8094747486337714
+    ],
+    "phase": 1.0,
+    "prearm_radius_mm": 40.0,
+    "segment": "S2",
+    "semantic": {
+      "contact_mode": "free_motion_assumed",
+      "entry_preconditions": [
+        "blue_block=on_black_table",
+        "gripper=open",
+        "held_object=none",
+        "white_container=closed"
+      ],
+      "gripper_state": "open",
+      "held_object": "none",
+      "semantic_state": "manipulate_white_container_open"
+    },
+    "support_episode": 20,
+    "support_frame": 454,
+    "support_orientation_radius_deg": 30.0,
+    "support_radius_mm": 25.32882761217385,
+    "task": "T1"
+  },
+  "successor": {
+    "approach_frames": 3,
+    "commit_radius_mm": 20.0,
+    "commit_stable_frames": 3,
+    "direction_cosine_minimum": 0.7,
+    "nominal_pose": {
+      "orientation_quat_xyzw": [
+        0.00014609270352448336,
+        0.9736900164705741,
+        0.0004607503696533714,
+        0.22787610272152803
+      ],
+      "position_mm": [
+        369.8036804199219,
+        212.55010986328125,
+        302.2814636230469
+      ]
+    },
+    "nominal_velocity_mm_s": [
+      6.045156050854092,
+      1.2386706134411392,
+      -20.283373778377968
+    ],
+    "phase": 0.96,
+    "prearm_radius_mm": 40.0,
+    "segment": "S1",
+    "semantic": {
+      "contact_mode": "free_motion_assumed",
+      "entry_preconditions": [
+        "blue_block=source_region",
+        "gripper=open",
+        "held_object=none"
+      ],
+      "gripper_state": "open",
+      "held_object": "none",
+      "semantic_state": "approach_blue_block_in_source_region"
+    },
+    "support_episode": 16,
+    "support_frame": 258,
+    "support_orientation_radius_deg": 30.0,
+    "support_radius_mm": 90.0,
+    "task": "T2"
+  },
+  "validation": {
+    "collision_checked": false,
+    "dry_run_only": true,
+    "hard_filter_passed": false,
+    "ik_checked": false,
+    "robot_executable": false,
+    "semantic_authority": "external_planner",
+    "semantic_checks_enforced_by_runtime": false,
+    "semantic_diagnostics": []
+  }
+}

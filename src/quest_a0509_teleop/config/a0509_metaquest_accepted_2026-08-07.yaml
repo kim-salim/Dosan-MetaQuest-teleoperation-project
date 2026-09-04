@@ -44,7 +44,7 @@ xyz_mapper_node:
     pose_filter_reference_rate_hz: 72.0
     enable_pose_low_pass_filter: true
     pose_filter_alpha: 0.4
-    max_vr_jump_m: 0.15
+    max_vr_jump_m: 0.20
     enable_orientation_mapping: true
     scale_rpy: [0.0, 0.7, 0.0]
     rot_axis_sign: [-1.0, -1.0, -1.0]

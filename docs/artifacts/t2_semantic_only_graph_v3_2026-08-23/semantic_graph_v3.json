@@ -1,0 +1,232 @@
+{
+  "schema_version": "a0509.semantic_only_graph.v3",
+  "task_id": "t2",
+  "dataset_repo_id": "local/a0509_blue_block_t2_table",
+  "dataset_root": "/home/rvlab/lerobot_datasets/a0509_blue_block_t2_table",
+  "associated_model_path": "/home/rvlab/lerobot_models/models/act_a0509_blue_block_t2_table_bs32_40k_20260821/040000/pretrained_model",
+  "model_used_for_semantic_extraction": false,
+  "task_description": "bring the blue block to black table",
+  "task_semantic_label": "move_blue_block_from_source_region_to_black_table",
+  "episode_count": 31,
+  "event_grammar": [
+    "C1",
+    "O1"
+  ],
+  "events": {
+    "C1": {
+      "semantic_label": "grasp_blue_block_in_source_region",
+      "label_ko": "출발 영역의 파란 블록 파지",
+      "gripper_change": "open_to_closed",
+      "manipulated_object": "blue_block",
+      "semantic_effect": "blue_block_held",
+      "confidence": "medium",
+      "representative_position_mm": [
+        367.83221435546875,
+        220.8238067626953,
+        295.7237548828125
+      ]
+    },
+    "O1": {
+      "semantic_label": "release_blue_block_on_black_table",
+      "label_ko": "검은 테이블 위에 파란 블록 방출",
+      "gripper_change": "closed_to_open",
+      "manipulated_object": "blue_block",
+      "semantic_effect": "blue_block_on_black_table",
+      "confidence": "high",
+      "representative_position_mm": [
+        354.2719421386719,
+        5.780200004577637,
+        347.488525390625
+      ]
+    }
+  },
+  "hierarchy": {
+    "task": "move_blue_block_from_source_region_to_black_table",
+    "subgoals": [
+      "acquire_blue_block_from_source_region",
+      "place_blue_block_on_black_table",
+      "finish_task"
+    ]
+  },
+  "state_nodes": [
+    {
+      "node_id": "START",
+      "summary": "G: open\nBlock: source region\nHeld: none",
+      "semantic_state": {
+        "gripper": "open",
+        "blue_block": "source_region",
+        "held_object": "none"
+      }
+    },
+    {
+      "node_id": "C1",
+      "summary": "G: closed\nBlock: held\nHeld: blue block",
+      "semantic_state": {
+        "gripper": "closed",
+        "blue_block": "held",
+        "held_object": "blue_block"
+      }
+    },
+    {
+      "node_id": "O1",
+      "summary": "G: open\nBlock: black table\nHeld: none",
+      "semantic_state": {
+        "gripper": "open",
+        "blue_block": "on_black_table",
+        "held_object": "none"
+      }
+    },
+    {
+      "node_id": "TAIL",
+      "summary": "G: open\nState unchanged",
+      "semantic_state": {
+        "gripper": "open",
+        "blue_block": "on_black_table",
+        "held_object": "none"
+      }
+    }
+  ],
+  "semantic_notes": [
+    "TASK_DESCRIPTION does not name the source surface; source_region is intentionally geometry-neutral."
+  ],
+  "segments": [
+    {
+      "spec": {
+        "segment_id": "S1",
+        "parent_subgoal": "acquire_blue_block_from_source_region",
+        "semantic_label": "approach_blue_block_in_source_region",
+        "label_ko": "출발 영역의 파란 블록으로 접근",
+        "start_anchor": "START",
+        "end_anchor": "C1",
+        "gripper_semantics": "open; closes at C1",
+        "manipulated_object": "blue_block",
+        "entry_state": {
+          "gripper": "open",
+          "blue_block": "source_region",
+          "held_object": "none"
+        },
+        "exit_state": {
+          "gripper": "closed",
+          "blue_block": "held",
+          "held_object": "blue_block"
+        },
+        "evidence": [
+          "C1",
+          "TCP approach motion",
+          "prior multi-camera review"
+        ],
+        "confidence": "medium"
+      },
+      "path_length_mm": {
+        "median": 490.4306222427535,
+        "mean": 490.7748088649685,
+        "std": 43.03479180909862,
+        "min": 414.9264209741636,
+        "max": 632.7176179004023
+      },
+      "phase_residual_mm": {
+        "p90_mean": 50.40944582040158,
+        "p95_max": 79.18850289753377
+      }
+    },
+    {
+      "spec": {
+        "segment_id": "S2",
+        "parent_subgoal": "place_blue_block_on_black_table",
+        "semantic_label": "lift_transport_and_align_blue_block_to_black_table",
+        "label_ko": "파란 블록을 들어 검은 테이블로 운반·정렬",
+        "start_anchor": "C1",
+        "end_anchor": "O1",
+        "gripper_semantics": "closed; opens at O1",
+        "manipulated_object": "blue_block",
+        "entry_state": {
+          "gripper": "closed",
+          "blue_block": "held",
+          "held_object": "blue_block"
+        },
+        "exit_state": {
+          "gripper": "open",
+          "blue_block": "on_black_table",
+          "held_object": "none"
+        },
+        "evidence": [
+          "TASK_DESCRIPTION",
+          "C1-O1",
+          "TCP lift/transport",
+          "prior multi-camera review"
+        ],
+        "confidence": "high"
+      },
+      "path_length_mm": {
+        "median": 583.2383157662435,
+        "mean": 588.1147882160105,
+        "std": 30.18354993504127,
+        "min": 530.9209064878366,
+        "max": 656.8591969897162
+      },
+      "phase_residual_mm": {
+        "p90_mean": 65.55057012888568,
+        "p95_max": 81.50428746641845
+      }
+    },
+    {
+      "spec": {
+        "segment_id": "S3",
+        "parent_subgoal": "finish_task",
+        "semantic_label": "retract_after_placing_blue_block_on_black_table",
+        "label_ko": "블록을 놓은 뒤 검은 테이블에서 후퇴",
+        "start_anchor": "O1",
+        "end_anchor": "END",
+        "gripper_semantics": "open",
+        "manipulated_object": null,
+        "entry_state": {
+          "gripper": "open",
+          "blue_block": "on_black_table",
+          "held_object": "none"
+        },
+        "exit_state": {
+          "gripper": "open",
+          "blue_block": "on_black_table",
+          "held_object": "none"
+        },
+        "evidence": [
+          "O1",
+          "TCP post-release motion"
+        ],
+        "confidence": "medium"
+      },
+      "path_length_mm": {
+        "median": 197.89633594290646,
+        "mean": 203.69122592420172,
+        "std": 38.74879399893319,
+        "min": 137.8644863392667,
+        "max": 304.3368204972354
+      },
+      "phase_residual_mm": {
+        "p90_mean": 56.60637012126871,
+        "p95_max": 79.5496412140011
+      }
+    }
+  ],
+  "representative": {
+    "synthetic": "component median XYZ at each semantic phase",
+    "individual_episode_selected": false
+  },
+  "standardization": {
+    "axis": "per-segment Cartesian arc-length phase 0..1",
+    "coordinate_frame": "Doosan base",
+    "units": "mm",
+    "phase_points": 101,
+    "frame_number_average_used": false,
+    "image_pixel_average_used": false
+  },
+  "scope": {
+    "semantic_information_only": true,
+    "transition_fitness_included": false,
+    "spherical_boundaries_included": false,
+    "bridge_planning_included": false,
+    "robot_executable": false,
+    "original_dataset_modified": false,
+    "model_modified": false
+  }
+}

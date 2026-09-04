@@ -1,0 +1,234 @@
+{
+  "schema_version": "a0509.semantic_only_graph.v3",
+  "task_id": "t7",
+  "dataset_repo_id": "rvlab/a0509_blue_block_v7",
+  "dataset_root": "/home/rvlab/lerobot_datasets/a0509_blue_block_t7",
+  "associated_model_path": "/home/rvlab/lerobot_models/models/act_a0509_blue_block_t7_bs32_40k_20260828/040000/pretrained_model",
+  "model_used_for_semantic_extraction": false,
+  "task_description": "Place the blue block on top of the drawer onto the black table.",
+  "task_semantic_label": "move_blue_block_from_top_of_drawer_to_black_table",
+  "episode_count": 30,
+  "event_grammar": [
+    "C1",
+    "O1"
+  ],
+  "events": {
+    "C1": {
+      "semantic_label": "grasp_blue_block_on_top_of_drawer",
+      "label_ko": "서랍 위의 파란 블록 파지",
+      "gripper_change": "open_to_closed",
+      "manipulated_object": "blue_block",
+      "semantic_effect": "blue_block_held",
+      "confidence": "high",
+      "representative_position_mm": [
+        610.9853820800781,
+        -176.71371459960938,
+        347.2015686035156
+      ]
+    },
+    "O1": {
+      "semantic_label": "release_blue_block_on_black_table",
+      "label_ko": "검은 테이블 위에 파란 블록 방출",
+      "gripper_change": "closed_to_open",
+      "manipulated_object": "blue_block",
+      "semantic_effect": "blue_block_on_black_table",
+      "confidence": "high",
+      "representative_position_mm": [
+        338.11219787597656,
+        2.211663246154785,
+        326.28907775878906
+      ]
+    }
+  },
+  "hierarchy": {
+    "task": "move_blue_block_from_top_of_drawer_to_black_table",
+    "subgoals": [
+      "acquire_blue_block_from_top_of_drawer",
+      "place_blue_block_on_black_table",
+      "finish_task"
+    ]
+  },
+  "state_nodes": [
+    {
+      "node_id": "START",
+      "summary": "G: open\nBlock: top of drawer\nHeld: none",
+      "semantic_state": {
+        "gripper": "open",
+        "blue_block": "on_top_of_drawer",
+        "held_object": "none"
+      }
+    },
+    {
+      "node_id": "C1",
+      "summary": "G: closed\nBlock: held\nHeld: blue block",
+      "semantic_state": {
+        "gripper": "closed",
+        "blue_block": "held",
+        "held_object": "blue_block"
+      }
+    },
+    {
+      "node_id": "O1",
+      "summary": "G: open\nBlock: black table\nHeld: none",
+      "semantic_state": {
+        "gripper": "open",
+        "blue_block": "on_black_table",
+        "held_object": "none"
+      }
+    },
+    {
+      "node_id": "TAIL",
+      "summary": "G: open\nState unchanged",
+      "semantic_state": {
+        "gripper": "open",
+        "blue_block": "on_black_table",
+        "held_object": "none"
+      }
+    }
+  ],
+  "semantic_notes": [
+    "All 30 episodes share the audited C1-O1 gripper-event grammar.",
+    "TASK_DESCRIPTION identifies the source as the top of the drawer and the destination as the black table.",
+    "S2 remains one lift-transport-align-place semantic span; no unobserved contact boundary before O1 is invented.",
+    "Semantic object roles come from TASK_DESCRIPTION, event order, and Cartesian motion; no image/frame averaging is used."
+  ],
+  "segments": [
+    {
+      "spec": {
+        "segment_id": "S1",
+        "parent_subgoal": "acquire_blue_block_from_top_of_drawer",
+        "semantic_label": "approach_blue_block_on_top_of_drawer",
+        "label_ko": "서랍 위의 파란 블록으로 접근",
+        "start_anchor": "START",
+        "end_anchor": "C1",
+        "gripper_semantics": "open; closes at C1",
+        "manipulated_object": "blue_block",
+        "entry_state": {
+          "gripper": "open",
+          "blue_block": "on_top_of_drawer",
+          "held_object": "none"
+        },
+        "exit_state": {
+          "gripper": "closed",
+          "blue_block": "held",
+          "held_object": "blue_block"
+        },
+        "evidence": [
+          "TASK_DESCRIPTION",
+          "C1",
+          "TCP approach motion"
+        ],
+        "confidence": "high"
+      },
+      "path_length_mm": {
+        "median": 409.55938864133657,
+        "mean": 404.71662993151625,
+        "std": 40.80256872199598,
+        "min": 336.2955986576851,
+        "max": 499.06774663952285
+      },
+      "phase_residual_mm": {
+        "p90_mean": 40.25456071692056,
+        "p95_max": 55.49049859658901
+      }
+    },
+    {
+      "spec": {
+        "segment_id": "S2",
+        "parent_subgoal": "place_blue_block_on_black_table",
+        "semantic_label": "lift_transport_and_align_blue_block_to_black_table",
+        "label_ko": "파란 블록을 들어 검은 테이블로 운반·정렬",
+        "start_anchor": "C1",
+        "end_anchor": "O1",
+        "gripper_semantics": "closed; opens at O1",
+        "manipulated_object": "blue_block",
+        "entry_state": {
+          "gripper": "closed",
+          "blue_block": "held",
+          "held_object": "blue_block"
+        },
+        "exit_state": {
+          "gripper": "open",
+          "blue_block": "on_black_table",
+          "held_object": "none"
+        },
+        "evidence": [
+          "TASK_DESCRIPTION",
+          "C1-O1",
+          "TCP lift/transport motion"
+        ],
+        "confidence": "high"
+      },
+      "path_length_mm": {
+        "median": 663.0574444925414,
+        "mean": 663.6512662700432,
+        "std": 51.807042866664176,
+        "min": 570.9922069990741,
+        "max": 783.5710017538926
+      },
+      "phase_residual_mm": {
+        "p90_mean": 41.826933698608194,
+        "p95_max": 64.43419528541048
+      }
+    },
+    {
+      "spec": {
+        "segment_id": "S3",
+        "parent_subgoal": "finish_task",
+        "semantic_label": "retract_after_placing_blue_block_on_black_table",
+        "label_ko": "검은 테이블에 블록을 놓은 뒤 후퇴",
+        "start_anchor": "O1",
+        "end_anchor": "END",
+        "gripper_semantics": "open",
+        "manipulated_object": null,
+        "entry_state": {
+          "gripper": "open",
+          "blue_block": "on_black_table",
+          "held_object": "none"
+        },
+        "exit_state": {
+          "gripper": "open",
+          "blue_block": "on_black_table",
+          "held_object": "none"
+        },
+        "evidence": [
+          "O1",
+          "TCP post-release motion"
+        ],
+        "confidence": "medium"
+      },
+      "path_length_mm": {
+        "median": 269.16422069033337,
+        "mean": 269.74856148082694,
+        "std": 49.790569276330274,
+        "min": 168.92108838249715,
+        "max": 382.2640345810019
+      },
+      "phase_residual_mm": {
+        "p90_mean": 43.603314745544125,
+        "p95_max": 61.331707833849215
+      }
+    }
+  ],
+  "representative": {
+    "synthetic": "component median XYZ at each semantic phase",
+    "individual_episode_selected": false
+  },
+  "standardization": {
+    "axis": "per-segment Cartesian arc-length phase 0..1",
+    "coordinate_frame": "Doosan base",
+    "units": "mm",
+    "phase_points": 101,
+    "frame_number_average_used": false,
+    "image_pixel_average_used": false
+  },
+  "scope": {
+    "semantic_information_only": true,
+    "transition_fitness_included": false,
+    "spherical_boundaries_included": false,
+    "bridge_planning_included": false,
+    "robot_executable": false,
+    "original_dataset_modified": false,
+    "model_modified": false
+  }
+}

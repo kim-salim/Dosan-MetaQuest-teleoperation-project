@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Read-only preflight for the A0509 LeRobot shadow-record path."""
+"""Guarded preflight for the A0509 LeRobot shadow-record path."""
 
 from __future__ import annotations
 
@@ -14,6 +14,9 @@ from lerobot_robot_doosan_a0509.config_metaquest_a0509 import (
 )
 from lerobot_robot_doosan_a0509.doosan_a0509_ros import DoosanA0509Ros
 from lerobot_robot_doosan_a0509.metaquest_a0509 import MetaQuestA0509
+from lerobot_robot_doosan_a0509.recording_gripper_initializer import (
+    ensure_recording_gripper_state,
+)
 
 
 def main(
@@ -21,7 +24,19 @@ def main(
     skip_cameras: bool = False,
     connect_timeout_sec: float = 10.0,
     allow_unprepared_teleop: bool = False,
+    initial_gripper_state: str = "none",
+    gripper_initialize_timeout_sec: float = 10.0,
 ) -> None:
+    initial_gripper_state = str(initial_gripper_state).strip().lower()
+    if initial_gripper_state not in {"open", "close", "none"}:
+        raise ValueError("initial_gripper_state must be open, close, or none")
+    gripper_initialization = "unchanged"
+    if initial_gripper_state != "none":
+        gripper_initialization = ensure_recording_gripper_state(
+            initial_gripper_state,
+            timeout_sec=gripper_initialize_timeout_sec,
+        )
+
     robot_config = DoosanA0509RosConfig(
         id="shadow_record_preflight",
         mode="shadow_record",
@@ -30,14 +45,13 @@ def main(
     if skip_cameras:
         robot_config.cameras = {}
         robot_config.require_camera = False
-    robot = DoosanA0509Ros(
-        robot_config
-    )
+    robot = DoosanA0509Ros(robot_config)
     teleop = MetaQuestA0509(
         MetaQuestA0509Config(
             id="shadow_record_preflight",
             allow_latched_state_in_shadow_record=True,
             require_fresh_action_on_connect=not allow_unprepared_teleop,
+            defer_calibration_on_connect=allow_unprepared_teleop,
             connect_timeout_sec=connect_timeout_sec,
         )
     )
@@ -72,6 +86,7 @@ def main(
                 key: list(observation[key].shape) for key in robot.cameras
             },
             "debug_publish_count": robot.debug_publish_count,
+            "gripper_initialization": gripper_initialization,
             "live_publish_count": robot.live_publish_count,
             "mode": robot.config.mode,
             "observation_scalar_count": len(scalar_observation_keys),
@@ -102,13 +117,30 @@ if __name__ == "__main__":
         "--allow-unprepared-teleop",
         action="store_true",
         help=(
-            "Require calibration but defer teleop_ready/action freshness to the "
-            "episode reset orchestrator."
+            "Defer calibration and teleop/action freshness to the episode reset "
+            "orchestrator."
         ),
+    )
+    parser.add_argument(
+        "--initial-gripper-state",
+        choices=("open", "close", "none"),
+        default="none",
+        help=(
+            "Physically initialize and verify the JRT gripper state before "
+            "connecting the recording adapter."
+        ),
+    )
+    parser.add_argument(
+        "--gripper-initialize-timeout-sec",
+        type=float,
+        default=10.0,
+        help="Maximum wait for fresh accepted/completed gripper confirmation.",
     )
     args = parser.parse_args()
     main(
         skip_cameras=args.skip_cameras,
         connect_timeout_sec=args.connect_timeout_sec,
         allow_unprepared_teleop=args.allow_unprepared_teleop,
+        initial_gripper_state=args.initial_gripper_state,
+        gripper_initialize_timeout_sec=args.gripper_initialize_timeout_sec,
     )

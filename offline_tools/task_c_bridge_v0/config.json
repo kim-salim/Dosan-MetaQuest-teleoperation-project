@@ -1,0 +1,75 @@
+{
+  "version": "task_c_cartesian_bezier_bridge_v0",
+  "dataset_a_label": "ACT-A blue block on table",
+  "dataset_b_label": "ACT-B blue block under table",
+  "semantic_windows": {
+    "a_cut": [
+      {
+        "anchor": "gripper_open",
+        "start_offset_frames": 0,
+        "end_offset_frames": 30,
+        "stride_frames": 15,
+        "semantic_label": "post_release_open",
+        "expected_gripper": "open"
+      }
+    ],
+    "b_entry": [
+      {
+        "anchor": "gripper_close",
+        "start_offset_frames": -31,
+        "end_offset_frames": -1,
+        "stride_frames": 15,
+        "semantic_label": "pre_grasp_open",
+        "expected_gripper": "open"
+      }
+    ]
+  },
+  "semantic_compatibility": {
+    "a_allowed_labels": ["post_release_open"],
+    "b_allowed_labels": ["pre_grasp_open"],
+    "require_same_gripper": true,
+    "required_a_completed_subgoals": ["gripper_close_then_open_complete"]
+  },
+  "velocity": {
+    "velocity_window_frames": 15,
+    "velocity_smoothing_method": "linear_regression",
+    "velocity_epsilon": 1e-09,
+    "runtime_history_interface": "same estimator accepts recent timestamped TCP XYZ"
+  },
+  "duration_search": {
+    "bridge_duration_min_s": 2.0,
+    "bridge_duration_max_s": 8.0,
+    "bridge_duration_step_s": 0.5
+  },
+  "sampling": {
+    "bridge_sample_hz": 60.0,
+    "curvature_epsilon": 1e-09
+  },
+  "workspace": {
+    "mode": "observed_dataset_envelope_plus_margin",
+    "margin_mm": 75.0,
+    "robot_certified": false
+  },
+  "feasibility": {
+    "velocity_limit_mm_s": 300.0,
+    "acceleration_limit_mm_s2": 300.0,
+    "curvature_limit_per_mm": 0.25,
+    "jerk_limit_mm_s3": 800.0,
+    "integrated_squared_jerk_limit": 1000000.0,
+    "backtracking_ratio_limit": 2.5
+  },
+  "selection": {
+    "primary_objective": "total_C_length_mm",
+    "near_shortest_delta": 0.005,
+    "top_k": 10
+  },
+  "safety": {
+    "orientation_status": "pending",
+    "orientation_bridge_generated": false,
+    "collision_status": "NOT_CHECKED",
+    "ik_status": "NOT_CHECKED",
+    "robot_executable": false,
+    "dry_run_only": true,
+    "publish_robot_commands": false
+  }
+}

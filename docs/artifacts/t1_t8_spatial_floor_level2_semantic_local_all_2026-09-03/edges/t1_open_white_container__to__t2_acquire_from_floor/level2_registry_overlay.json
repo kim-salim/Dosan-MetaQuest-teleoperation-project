@@ -1,0 +1,44 @@
+{
+  "description": "Command-free semantic-local reference overlay. Registry refresh must independently verify the matching policy shadow.",
+  "edges": [
+    {
+      "evidence": {
+        "collision_checked": false,
+        "command_safe": true,
+        "dijkstra_operator_cost_changed": false,
+        "ik_checked": false,
+        "mandatory_source_semantic_exit_preserved": true,
+        "physical_trials": 0,
+        "runtime_source_medoid_episode": 20,
+        "runtime_source_phase_window": [
+          1.0,
+          1.0
+        ],
+        "runtime_source_reference_phase": 1.0,
+        "runtime_source_reference_phase_max": 1.0,
+        "runtime_source_segment": "S2",
+        "semantic_local_candidate_rank": 0,
+        "semantic_local_total_length_mm": 838.9656424437652,
+        "source_reference_mode": "exact_semantic_exit",
+        "successor_reference_interior_path_margin_mm": 15.0,
+        "successor_reference_medoid_episode": 16,
+        "successor_reference_phase": 0.96,
+        "successor_reference_phase_window": [
+          0.0,
+          1.0
+        ],
+        "successor_reference_segment": "S1",
+        "successor_runtime_phase_gate": false
+      },
+      "handoff_manifest": "flexible_reference_manifest.json",
+      "policy_shadow": "flexible_policy_shadow.json",
+      "source_operator": "T1.open_white_container",
+      "successor_operator": "T2.acquire_from_floor",
+      "uncertainty_penalty": 0.0,
+      "validation_method": "exact_semantic_exit_s2_semantic_local_interior_dynamic_future_join"
+    }
+  ],
+  "physical_validation_performed": false,
+  "robot_commands_published": 0,
+  "schema_version": "a0509.flexible_level2_verified_overlay.v1"
+}

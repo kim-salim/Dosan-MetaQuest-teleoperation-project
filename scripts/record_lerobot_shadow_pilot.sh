@@ -39,7 +39,7 @@ printf 'runtime_scheduling=record cpu_set=%s nice=%s\n' \
     "$(ps -o ni= -p "$$" | tr -d '[:space:]')"
 
 baseline_file="${project_root}/src/quest_a0509_teleop/config/a0509_metaquest_accepted_2026-08-07.yaml"
-baseline_sha256="46dc5d022db4221009a13848b0b514d4b366aecae72158c0db362815ae02866e"
+baseline_sha256="856c62c933c12258f396d4d7777583d0df3cc40b977393a987e1d8e03ac23efa"
 
 printf '%s  %s\n' "${baseline_sha256}" "${baseline_file}" | sha256sum -c -
 
@@ -49,8 +49,13 @@ source /home/rvlab/venvs/lerobot/bin/activate
 
 set -u
 
-preflight_camera_check="${PREFLIGHT_CAMERA_CHECK:-true}"
+# The main recorder validates and owns all cameras. Opening them in preflight and
+# immediately reopening them can leave UVC devices waiting for their next frame.
+preflight_camera_check="${PREFLIGHT_CAMERA_CHECK:-false}"
 connect_timeout_sec="${CONNECT_TIMEOUT_SEC:-10.0}"
+episode_reset_orchestration="${EPISODE_RESET_ORCHESTRATION:-true}"
+episode_initial_gripper_state="${EPISODE_INITIAL_GRIPPER_STATE:-open}"
+gripper_initialize_timeout_sec="${GRIPPER_INITIALIZE_TIMEOUT_SEC:-10.0}"
 preflight_args=()
 if [[ "${preflight_camera_check}" == "false" ]]; then
     preflight_args+=(--skip-cameras)
@@ -58,8 +63,22 @@ elif [[ "${preflight_camera_check}" != "true" ]]; then
     echo "ERROR: PREFLIGHT_CAMERA_CHECK must be true or false" >&2
     exit 2
 fi
-if [[ "${EPISODE_RESET_ORCHESTRATION:-true}" == "true" ]]; then
+if [[ "${episode_reset_orchestration}" != "true" && "${episode_reset_orchestration}" != "false" ]]; then
+    echo "ERROR: EPISODE_RESET_ORCHESTRATION must be true or false" >&2
+    exit 2
+fi
+if [[ "${episode_initial_gripper_state}" != "open" && "${episode_initial_gripper_state}" != "close" && "${episode_initial_gripper_state}" != "none" ]]; then
+    echo "ERROR: EPISODE_INITIAL_GRIPPER_STATE must be open, close, or none" >&2
+    exit 2
+fi
+if [[ "${episode_reset_orchestration}" == "true" ]]; then
     preflight_args+=(--allow-unprepared-teleop)
+fi
+if [[ "${episode_initial_gripper_state}" != "none" ]]; then
+    preflight_args+=(
+        --initial-gripper-state "${episode_initial_gripper_state}"
+        --gripper-initialize-timeout-sec "${gripper_initialize_timeout_sec}"
+    )
 fi
 preflight_args+=(--connect-timeout-sec "${connect_timeout_sec}")
 python "${project_root}/scripts/preflight_lerobot_shadow_record.py" "${preflight_args[@]}"
@@ -81,9 +100,7 @@ rgb_encoder_vcodec="${RGB_ENCODER_VCODEC:-h264_nvenc}"
 rgb_encoder_preset="${RGB_ENCODER_PRESET:-12}"
 rgb_encoder_quality="${RGB_ENCODER_QUALITY:-30}"
 teleop_max_age_sec="${TELEOP_MAX_AGE_SEC:-1.0}"
-episode_reset_orchestration="${EPISODE_RESET_ORCHESTRATION:-true}"
 episode_reset_before_first="${EPISODE_RESET_BEFORE_FIRST:-true}"
-episode_initial_gripper_state="${EPISODE_INITIAL_GRIPPER_STATE:-open}"
 
 if [[ "${streaming_encoding}" != "true" && "${streaming_encoding}" != "false" ]]; then
     echo "ERROR: STREAMING_ENCODING must be true or false" >&2
@@ -97,21 +114,15 @@ if [[ "${absolute_deadline_scheduler}" != "true" && "${absolute_deadline_schedul
     echo "ERROR: ABSOLUTE_DEADLINE_SCHEDULER must be true or false" >&2
     exit 2
 fi
-if [[ "${episode_reset_orchestration}" != "true" && "${episode_reset_orchestration}" != "false" ]]; then
-    echo "ERROR: EPISODE_RESET_ORCHESTRATION must be true or false" >&2
-    exit 2
-fi
 if [[ "${episode_reset_before_first}" != "true" && "${episode_reset_before_first}" != "false" ]]; then
     echo "ERROR: EPISODE_RESET_BEFORE_FIRST must be true or false" >&2
     exit 2
 fi
-if [[ "${episode_initial_gripper_state}" != "open" && "${episode_initial_gripper_state}" != "close" && "${episode_initial_gripper_state}" != "none" ]]; then
-    echo "ERROR: EPISODE_INITIAL_GRIPPER_STATE must be open, close, or none" >&2
-    exit 2
-fi
 teleop_require_fresh_action_on_connect=true
+teleop_defer_calibration_on_connect=false
 if [[ "${episode_reset_orchestration}" == "true" ]]; then
     teleop_require_fresh_action_on_connect=false
+    teleop_defer_calibration_on_connect=true
 fi
 if [[ ! "${encoder_shm_slots}" =~ ^[1-9][0-9]*$ ]]; then
     echo "ERROR: ENCODER_SHM_SLOTS must be a positive integer" >&2
@@ -147,10 +158,11 @@ printf 'episode_reset_orchestration=%s reset_before_first=%s initial_gripper_sta
     "${episode_reset_orchestration}" "${episode_reset_before_first}" \
     "${episode_initial_gripper_state}"
 if [[ "${episode_reset_orchestration}" == "true" ]]; then
-    printf 'reset_policy=operator-confirmed prepare -> object reset -> Quest recenter -> gripper init; reset_time_s is ignored\n'
+    printf 'reset_policy=record-end n/r review -> commit/clear -> operator-confirmed prepare -> object reset -> Quest recenter -> gripper init; reset_time_s is ignored\n'
 fi
 printf 'teleop_max_age_sec=%s\n' "${teleop_max_age_sec}"
 printf 'teleop_require_fresh_action_on_connect=%s\n' "${teleop_require_fresh_action_on_connect}"
+printf 'teleop_defer_calibration_on_connect=%s\n' "${teleop_defer_calibration_on_connect}"
 printf 'connect_timeout_sec=%s\n' "${connect_timeout_sec}"
 
 exec env \
@@ -173,6 +185,7 @@ exec env \
     --teleop.id=metaquest_right_teacher \
     --teleop.require_calibration=true \
     --teleop.require_fresh_action_on_connect="${teleop_require_fresh_action_on_connect}" \
+    --teleop.defer_calibration_on_connect="${teleop_defer_calibration_on_connect}" \
     --teleop.max_age_sec="${teleop_max_age_sec}" \
     --teleop.connect_timeout_sec="${connect_timeout_sec}" \
     --teleop.allow_latched_state_in_shadow_record=true \

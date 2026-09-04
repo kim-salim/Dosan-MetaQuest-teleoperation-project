@@ -1,0 +1,225 @@
+{
+  "schema_version": "a0509.v13_environment_checkpoint.v1",
+  "checkpoint_id": "a0509_v13_validated_baseline_20260904_231519_kst",
+  "created_at_local": "2026-09-04T23:15:19+09:00",
+  "created_at_utc": "2026-09-04T14:15:19Z",
+  "purpose": "Freeze the code/configuration identity and evidence boundary for the operator-confirmed v13 physical baseline without creating v14 or mutating the command-free registry.",
+  "baseline": {
+    "version": "v13",
+    "status": "validated_baseline",
+    "requires_v14": false,
+    "registry": {
+      "path": "docs/artifacts/t1_t8_spatial_floor_level2_semantic_local_all_2026-09-03/edge_registry_level2_spatial_v13.json",
+      "composition_id": "a0509_t1_t8_spatial_floor_shared_profile_ramp8p5_level2_v13_20260904",
+      "sha256": "b50abbf55d449eb26d820dc4a083dde105665b38d3fe25aee2482a7efd75c640",
+      "edge_count": 127,
+      "flexible_verified_edge_count": 122,
+      "flexible_semantic_candidate_edge_count": 5,
+      "immutable_command_free_evidence": true,
+      "embedded_physical_validation_performed": false
+    },
+    "runtime_command_profile": {
+      "profile_id": "a0509_ramp8p5_ack_span2_v1",
+      "config_path": "config/realtime/a0509_runtime_command_profiles_v1.json",
+      "config_sha256": "048e1adb753c401caf3f53a5fe98a084dbcbb2b4f224c3264879c8d5965f6746",
+      "linear_ramp_mm_per_tick": 8.5,
+      "orientation_ramp_deg_per_tick": 1.25,
+      "control_hz": 30.0,
+      "axis_velocity_limit_mm_s": 255.0,
+      "cartesian_velocity_limit_mm_s": 300.0,
+      "acceleration_limit_mm_s2": 4000.0,
+      "jerk_limit_mm_s3": 4000.0,
+      "integrated_squared_jerk_limit": 10000000.0,
+      "acknowledged_command_span_steps": 2,
+      "max_ack_lag_steps": 1,
+      "ack_safe_axis_speed_envelope_mm_s": 127.5
+    },
+    "shared_bridge": {
+      "execution_tail_profile_id": "a0509_shared_execution_tail_latched_v2_20260904",
+      "execution_tail_config_path": "config/realtime/a0509_execution_tail_handoff_profile_v2.json",
+      "execution_tail_config_sha256": "ba77e3a04d7ba21a373556b020a9cf9dddfadda699a11117f1381f7f32ecbd12",
+      "generation_profile_id": "semantic_local_execution_tail_tangent_v1",
+      "generation_profile_config_path": "config/realtime/a0509_flexible_bridge_profiles_v1.json",
+      "generation_profile_config_file_sha256": "af43a9c1b2cc577551d7af63342b21064c87f84b26876c882f4ff3ecbe1c0b00",
+      "generation_profile_canonical_object_sha256": "aa15342d720234914ec8b53da9a8056cbeb1e529da5389bfff63f2a915d8dc0b",
+      "profile_hash_note": "The file hash covers the complete multi-profile JSON; the canonical object hash covers only the selected semantic_local_execution_tail_tangent_v1 object. They are intentionally different.",
+      "algorithm": "cubic_bezier_tangent_regularized_v1",
+      "edge_specific_numeric_tuning": false,
+      "fixed_phase_window": false,
+      "fixed_bridge_geometry": false
+    }
+  },
+  "physical_validation": {
+    "ledger_path": "docs/artifacts/a0509_v13_validated_baseline_2026-09-04/physical_validation_ledger.json",
+    "ledger_sha256": "fa1878752472f3271f2b181b9c2b428611f40fbecdb942180916f27bd5008475",
+    "operator_confirmed_task_type_count": 8,
+    "v13_profile_full_transition_trace_backed_task_type_count": 5,
+    "operator_confirmed_without_matching_v13_full_transition_trace_count": 3,
+    "automatic_terminal_success_recorded_count": 0,
+    "registry_was_not_rewritten": true
+  },
+  "host_environment": {
+    "hostname": "jetson-thor-02",
+    "architecture": "aarch64",
+    "operating_system": "Ubuntu 24.04.4 LTS",
+    "kernel": "Linux 6.8.12-tegra",
+    "ros_distro": "jazzy",
+    "python_executable": "/home/rvlab/venvs/lerobot/bin/python",
+    "python_version": "3.12.3",
+    "torch_version": "2.11.0+cu130",
+    "cuda_runtime_version": "13.0",
+    "cuda_available": true,
+    "numpy_version": "2.2.6",
+    "pyarrow_version": "25.0.0",
+    "gpu": {
+      "index": 0,
+      "uuid": "GPU-a7c66ad2-6dbb-0ab8-c1a2-37ba6dba3600",
+      "name": "NVIDIA Thor",
+      "driver_version": "580.00"
+    },
+    "ros_install_prefixes": {
+      "quest_a0509_teleop": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/install/quest_a0509_teleop",
+      "lerobot_robot_doosan_a0509": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/install/lerobot_robot_doosan_a0509"
+    }
+  },
+  "process_state_at_checkpoint": {
+    "control_bringup_running": false,
+    "control_gui_running": false,
+    "multi_stage_runtime_running": false,
+    "robot_commands_issued_by_checkpoint_capture": 0
+  },
+  "version_control_state": {
+    "project_git_head": "fe9d75d0308df78f4656eedfda2e6b723ae732e6",
+    "project_branch": "main",
+    "worktree_clean": false,
+    "observed_before_checkpoint_write": {
+      "tracked_changed_entries": 21,
+      "untracked_collapsed_entries": 178,
+      "untracked_file_count": 2787
+    },
+    "gui_is_git_repository": false,
+    "reproducibility_note": "This hash checkpoint identifies the v13 files but is not a substitute for committing/tagging the dirty project and placing the GUI under version control."
+  },
+  "test_checkpoint": {
+    "captured_at": "2026-09-04T23:15:19+09:00",
+    "robot_motion_performed": false,
+    "results": [
+      {
+        "suite": "shared Bridge/profile/semantic registry targeted regression",
+        "result": "19 passed",
+        "environment": "ROS Jazzy overlay plus /home/rvlab/venvs/lerobot/bin/python"
+      },
+      {
+        "suite": "GUI Python full pytest",
+        "result": "19 passed",
+        "environment": "launcher-equivalent ROS Jazzy overlay plus /home/rvlab/venvs/lerobot/bin/python"
+      },
+      {
+        "suite": "GUI semantic snapshot unittest",
+        "result": "12 passed",
+        "environment": "Python 3.12"
+      },
+      {
+        "suite": "v13/v12/v11 launcher shell syntax",
+        "result": "passed"
+      },
+      {
+        "suite": "stored v13 registry compile audit",
+        "result": "122 of 122 verified edges compiled; 0 failures",
+        "audit_path": "docs/artifacts/t1_t8_spatial_floor_level2_semantic_local_all_2026-09-03/shared_profile_registry_compile_audit_v13_ramp8p5.json",
+        "audit_sha256": "d026654f471e8a74761a0b2ac2706ab814c87dec35abbfe22a558c252adfd3de"
+      },
+      {
+        "suite": "stored headless browser planner result",
+        "result": "16 passed; 0 failed",
+        "rerun_during_checkpoint_capture": false
+      }
+    ]
+  },
+  "critical_file_hashes": [
+    {
+      "path": "config/realtime/a0509_runtime_command_profiles_v1.json",
+      "sha256": "048e1adb753c401caf3f53a5fe98a084dbcbb2b4f224c3264879c8d5965f6746"
+    },
+    {
+      "path": "config/realtime/a0509_execution_tail_handoff_profile_v2.json",
+      "sha256": "ba77e3a04d7ba21a373556b020a9cf9dddfadda699a11117f1381f7f32ecbd12"
+    },
+    {
+      "path": "config/realtime/a0509_flexible_bridge_profiles_v1.json",
+      "sha256": "af43a9c1b2cc577551d7af63342b21064c87f84b26876c882f4ff3ecbe1c0b00"
+    },
+    {
+      "path": "config/realtime/task_c_multi_stage_flexible_level2_ramp8p5_v13.yaml",
+      "sha256": "99154f345b67e4752df03f276ac34c8271782fc6ea590082eea7b010cb9e48fc"
+    },
+    {
+      "path": "scripts/run_task_c_control_bringup_ramp8p5_v13.sh",
+      "sha256": "4f951242969a6e4c317ccec404a8e75d5f92b741fc05bded952068910e56f029"
+    },
+    {
+      "path": "scripts/run_task_c_control_bringup_ramp7p5_rollback.sh",
+      "sha256": "3fcb7489830a01fedfc4a9943ab34966eac2ee13c6d62c772705199c2d6a4c74"
+    },
+    {
+      "path": "src/lerobot_robot_doosan_a0509/lerobot_robot_doosan_a0509/task_c_handoff/runtime_command_profile.py",
+      "sha256": "b5389007a22056f70c21c6fb0371899ac6b3aff31082b9f9eb6c99c2de875b45"
+    },
+    {
+      "path": "src/lerobot_robot_doosan_a0509/lerobot_robot_doosan_a0509/task_c_handoff/flexible_bridge.py",
+      "sha256": "8bc2f021621b7bf52f5682c33bf51fc0f7af038028ec299c639ab7a8a48fc90e"
+    },
+    {
+      "path": "src/lerobot_robot_doosan_a0509/lerobot_robot_doosan_a0509/task_c_handoff/stage_supervisor.py",
+      "sha256": "1abad38b0251298020ff5d91ca3b4e2ddf2f08829efca2cdea22fa0ee4cf5bd8"
+    },
+    {
+      "path": "src/lerobot_robot_doosan_a0509/lerobot_robot_doosan_a0509/interior_policy/multi_v2_compiler.py",
+      "sha256": "3c03ccf5d185457a87704ab4bc242d86e20febdb9ce8aa40b87e05ae8963754e"
+    },
+    {
+      "path": "src/lerobot_robot_doosan_a0509/lerobot_robot_doosan_a0509/task_c_multi_live_v2_rollout.py",
+      "sha256": "a75d17dc59cfef41f17bd26fd3fd15ac2351e97b3bc7b6dbe4442debc57a0f39"
+    },
+    {
+      "path": "/home/rvlab/a0509-semantic-dijkstra-gui/server.py",
+      "sha256": "8ce0d87035811475eaefe91d7c80b319c0e7448aff273916d94d58c428c5d2c8"
+    },
+    {
+      "path": "/home/rvlab/a0509-semantic-dijkstra-gui/assets/control-app.js",
+      "sha256": "45be8fbc745881d1b33fda86c01fe7714cc6464a741f9304bd73cb8184e67e18"
+    },
+    {
+      "path": "/home/rvlab/a0509-semantic-dijkstra-gui/assets/planner-core.js",
+      "sha256": "40064503de238b8d2467588fc08c0623d11e91c59fed6cbc78af2b2e0830d543"
+    },
+    {
+      "path": "/home/rvlab/a0509-semantic-dijkstra-gui/data/semantic_snapshot.json",
+      "sha256": "213b01e5b845d96a68051c27c0f570121c64412237db18d78c41827b330c80df"
+    },
+    {
+      "path": "/home/rvlab/a0509-semantic-dijkstra-gui/start_control_gui_v13_ramp8p5.sh",
+      "sha256": "a0bf9d3fc610b6f71f5f75cbb4d1b353d08aa3b62fd90199a6a7946113980284"
+    },
+    {
+      "path": "/home/rvlab/a0509-semantic-dijkstra-gui/start_control_gui_v12_shared.sh",
+      "sha256": "0010ec7213b55b77dc4a08b86f8d3fd770d83c3b35d623338115864c844c40cf"
+    },
+    {
+      "path": "/home/rvlab/a0509-semantic-dijkstra-gui/start_control_gui_v11_rollback.sh",
+      "sha256": "84f4a5071a6fe8af95317119ebf4c38dae600f3bc585c61af9cdaf8e40020090"
+    }
+  ],
+  "rollback": {
+    "command_profile_rollback": "v12 with 7.5 mm/tick",
+    "bringup_launcher": "scripts/run_task_c_control_bringup_ramp7p5_rollback.sh",
+    "gui_launcher": "/home/rvlab/a0509-semantic-dijkstra-gui/start_control_gui_v12_shared.sh",
+    "semantic_rollback_launcher": "/home/rvlab/a0509-semantic-dijkstra-gui/start_control_gui_v11_rollback.sh"
+  },
+  "scope_exclusions": [
+    "No new algorithm or registry topology was introduced; this checkpoint does not create v14.",
+    "T9 policy training is a separate workstream and is not part of this v13 control baseline.",
+    "No IK/collision certification or camera-based autonomous success detector is claimed.",
+    "No clean Git commit or tag is claimed by this manifest."
+  ]
+}

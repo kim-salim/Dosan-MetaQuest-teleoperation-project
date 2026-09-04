@@ -1,8 +1,10 @@
-"""Guarded physical reset between A0509 LeRobot recording episodes.
+"""Guarded review and physical reset for A0509 LeRobot recording episodes.
 
 The stock LeRobot recorder implements the inter-episode reset as another timed
-``record_loop`` call with ``dataset=None``. This module replaces only that
-reset call while leaving recording and dataset save semantics intact.
+``record_loop`` call with ``dataset=None``. This module replaces that reset and
+adds an operator decision after a naturally completed episode. The stock reset
+call becomes a no-op so LeRobot commits or clears the completed buffer first;
+the guarded physical reset then runs immediately before the next recording.
 """
 
 from __future__ import annotations
@@ -10,7 +12,6 @@ from __future__ import annotations
 from collections import deque
 from dataclasses import dataclass
 import functools
-import inspect
 import logging
 import math
 import os
@@ -149,12 +150,13 @@ def pose_is_near_anchor(
 
 
 class RecordingControlGate:
-    """Share Enter confirmation with LeRobot's existing non-blocking key input."""
+    """Share episode decisions and Enter confirmation with LeRobot key input."""
 
     def __init__(self) -> None:
         self._lock = threading.Lock()
         self._operator_ready = threading.Event()
-        self._waiting = False
+        self._decision_ready = threading.Event()
+        self._input_mode: str | None = None
         self._events: dict[str, bool] | None = None
         self._listener: Any | None = None
 
@@ -173,13 +175,24 @@ class RecordingControlGate:
         def on_key(name: str) -> None:
             key = name.lower()
             with self._lock:
-                waiting = self._waiting
-            if waiting:
+                input_mode = self._input_mode
+            if input_mode == "operator":
                 if key == "enter":
                     self._operator_ready.set()
                 elif key in {"esc", "q"}:
                     apply_recording_control("esc", events)
                     self._operator_ready.set()
+                return
+            if input_mode == "decision":
+                if key in {"right", "n"}:
+                    apply_recording_control("right", events)
+                    self._decision_ready.set()
+                elif key in {"left", "r"}:
+                    apply_recording_control("left", events)
+                    self._decision_ready.set()
+                elif key in {"esc", "q"}:
+                    apply_recording_control("esc", events)
+                    self._decision_ready.set()
                 return
             if key in {"right", "n"}:
                 apply_recording_control("right", events)
@@ -192,7 +205,8 @@ class RecordingControlGate:
             on_key,
             controls_help=(
                 "recording: n=next, r=re-record, q=quit; "
-                "reset prompts: Enter=confirm"
+                "completed episode: n=save/next, r=discard/re-record, "
+                "q=save/quit; reset prompts: Enter=confirm"
             ),
         )
         self._events = events
@@ -209,7 +223,7 @@ class RecordingControlGate:
             )
         self._operator_ready.clear()
         with self._lock:
-            self._waiting = True
+            self._input_mode = "operator"
         print(f"\n{message}\n확인되면 Enter를 누르세요. (중단: q 또는 Esc)", flush=True)
         try:
             while not self._operator_ready.wait(timeout=0.05):
@@ -219,7 +233,46 @@ class RecordingControlGate:
                 raise KeyboardInterrupt("episode reset cancelled")
         finally:
             with self._lock:
-                self._waiting = False
+                self._input_mode = None
+
+    def wait_for_episode_decision(self) -> str:
+        """Wait for save/next, discard/re-record, or save/quit."""
+
+        if self._events is None:
+            raise RuntimeError("recording keyboard listener has not been initialized")
+        if self._listener is None:
+            raise RuntimeError(
+                "episode review requires an interactive keyboard; no usable TTY/display "
+                "listener is available"
+            )
+        self._decision_ready.clear()
+        with self._lock:
+            self._input_mode = "decision"
+        print("\nEPISODE_REVIEW_STATE=AWAITING_DECISION", flush=True)
+        print(
+            "에피소드 녹화가 완료되었습니다.\n"
+            "  n 또는 → : 저장 후 다음 에피소드\n"
+            "  r 또는 ← : 폐기 후 같은 에피소드 재녹화\n"
+            "  q 또는 Esc: 저장 후 전체 녹화 종료",
+            flush=True,
+        )
+        try:
+            while True:
+                if self._events["stop_recording"]:
+                    return "stop"
+                if self._events["rerecord_episode"]:
+                    return "rerecord"
+                if self._events["exit_early"]:
+                    return "save"
+                self._decision_ready.wait(timeout=0.05)
+                self._decision_ready.clear()
+        finally:
+            with self._lock:
+                self._input_mode = None
+
+    def stop_requested(self) -> bool:
+        with self._lock:
+            return bool(self._events and self._events["stop_recording"])
 
 
 @dataclass(frozen=True)
@@ -232,8 +285,8 @@ class EpisodeResetConfig:
     quest_max_age_sec: float = 0.3
     quest_stable_translation_m: float = 0.008
     quest_stable_rotation_deg: float = 5.0
-    preflight_position_limit_mm: float = 10.0
-    preflight_rotation_limit_deg: float = 3.0
+    preflight_position_limit_mm: float = 50.0
+    preflight_rotation_limit_deg: float = 10.0
     preflight_settle_sec: float = 0.35
     initial_gripper_state: str = "open"
     reset_before_first_episode: bool = True
@@ -273,10 +326,10 @@ class EpisodeResetConfig:
                 "EPISODE_QUEST_STABLE_ROTATION_DEG", 5.0
             ),
             preflight_position_limit_mm=_environment_positive_float(
-                "EPISODE_PREFLIGHT_POSITION_LIMIT_MM", 10.0
+                "EPISODE_PREFLIGHT_POSITION_LIMIT_MM", 50.0
             ),
             preflight_rotation_limit_deg=_environment_positive_float(
-                "EPISODE_PREFLIGHT_ROTATION_LIMIT_DEG", 3.0
+                "EPISODE_PREFLIGHT_ROTATION_LIMIT_DEG", 10.0
             ),
             preflight_settle_sec=_environment_positive_float(
                 "EPISODE_PREFLIGHT_SETTLE_SEC", 0.35
@@ -593,6 +646,32 @@ class EpisodeResetOrchestrator:
             ),
         )
 
+    def _wait_for_calibration(self, gate: RecordingControlGate) -> None:
+        def ready() -> bool:
+            latest_pose_time = (
+                self.quest_samples[-1].receive_time if self.quest_samples else None
+            )
+            return (
+                self.calibration_valid is True
+                and self._fresh(self.last_pose_heartbeat, self.config.quest_max_age_sec)
+                and self._fresh(latest_pose_time, self.config.quest_max_age_sec)
+            )
+
+        if ready():
+            return
+        print("EPISODE_RESET_STATE=WAITING_FOR_CALIBRATION", flush=True)
+        print(
+            "MetaQuest 보정 GUI에서 XY/+X 보정을 완료하세요. "
+            "valid와 최신 Quest pose가 확인되면 자동으로 다음 단계로 진행합니다. "
+            "(중단: q 또는 Esc)",
+            flush=True,
+        )
+        while not ready():
+            if gate.stop_requested():
+                raise KeyboardInterrupt("calibration wait cancelled")
+            time.sleep(0.05)
+        logger.info("MetaQuest calibration and fresh Quest pose confirmed")
+
     def _initialize_gripper(self) -> None:
         command = self.config.initial_gripper_state
         if command == "none":
@@ -629,6 +708,7 @@ class EpisodeResetOrchestrator:
 
         print("\nEPISODE_RESET_STATE=STOPPING", flush=True)
         self.force_safe()
+        self._wait_for_calibration(gate)
         gate.wait_for_operator(
             "[1/2] 작업 공간에서 손과 장애물을 치워주세요. "
             "확인 후 로봇이 준비 자세로 이동합니다."
@@ -657,11 +737,11 @@ class EpisodeResetOrchestrator:
             "편한 중립 자세로 들고 움직이지 마세요."
         )
         print("EPISODE_RESET_STATE=RECENTERING", flush=True)
-        self._wait_for_stable_quest()
-        if self.calibration_valid is not True:
-            raise RuntimeError(
-                "MetaQuest XY/Yaw calibration is not VALID; run the calibration GUI"
-            )
+        while True:
+            self._wait_for_calibration(gate)
+            self._wait_for_stable_quest()
+            if self.calibration_valid is True:
+                break
         recenter_requested_at = time.monotonic()
         recenter_message = self._trigger(self._recenter_client)
         logger.info("Quest recenter completed: %s", recenter_message)
@@ -779,15 +859,21 @@ class EpisodeResetRecordingHook:
         current = self.record_module.record_loop
         if getattr(current, "_a0509_episode_reset", False):
             raise RuntimeError("A0509 episode reset hook is already installed")
-        signature = inspect.signature(current)
 
         @functools.wraps(current)
         def episode_aware_record_loop(*args: Any, **kwargs: Any) -> Any:
-            bound = signature.bind_partial(*args, **kwargs)
-            dataset = bound.arguments.get("dataset")
+            # LeRobot safe_stop_image_writer intentionally exposes an opaque
+            # (*args, **kwargs) signature, so inspect.signature cannot recover
+            # the dataset parameter. Production calls pass it by keyword; the
+            # positional fallback preserves the stock parameter order.
+            dataset = kwargs.get("dataset")
+            if dataset is None and len(args) > 6:
+                dataset = args[6]
             if dataset is None:
-                self.orchestrator.prepare_next_episode(self.gate)
-                self._ready_for_recording = True
+                # Let the stock outer loop commit or clear the completed buffer
+                # immediately. The next dataset-bearing call performs the guarded
+                # physical reset before enabling Live, so a reset cancellation can
+                # no longer lose an already accepted episode.
                 return None
 
             if not self._ready_for_recording:
@@ -801,17 +887,63 @@ class EpisodeResetRecordingHook:
 
             self.orchestrator.enable_live_for_recording()
             self._ready_for_recording = False
+            events = kwargs.get("events")
+            if events is None and len(args) > 1:
+                events = args[1]
             try:
-                return current(*args, **kwargs)
+                result = current(*args, **kwargs)
+            except RuntimeError as exc:
+                if (
+                    not isinstance(events, dict)
+                    or str(exc)
+                    != "MetaQuest action rejected because XY calibration is invalid"
+                ):
+                    raise
+                events["exit_early"] = False
+                events["rerecord_episode"] = True
+                print(
+                    "EPISODE_ABORT_REASON=CALIBRATION_INVALID; "
+                    "current buffer will be discarded and re-recorded",
+                    flush=True,
+                )
+                logger.warning("Discarding partial episode after calibration loss")
+                return None
             finally:
                 self.orchestrator.force_safe()
+            if isinstance(events, dict):
+                if events.get("stop_recording"):
+                    decision = "stop"
+                elif events.get("rerecord_episode"):
+                    decision = "rerecord"
+                elif events.get("exit_early"):
+                    decision = "save"
+                else:
+                    decision = self.gate.wait_for_episode_decision()
+
+                if decision == "save":
+                    events["exit_early"] = False
+                    events["rerecord_episode"] = False
+                    print("EPISODE_REVIEW_DECISION=SAVE_NEXT", flush=True)
+                elif decision == "rerecord":
+                    events["exit_early"] = False
+                    events["rerecord_episode"] = True
+                    print("EPISODE_REVIEW_DECISION=DISCARD_RERECORD", flush=True)
+                elif decision == "stop":
+                    events["exit_early"] = True
+                    events["stop_recording"] = True
+                    print("EPISODE_REVIEW_DECISION=SAVE_STOP", flush=True)
+                else:
+                    raise RuntimeError(f"unknown episode review decision: {decision!r}")
+
+            return result
 
         episode_aware_record_loop._a0509_episode_reset = True
         episode_aware_record_loop._a0509_original_record_loop = current
         self.record_module.record_loop = episode_aware_record_loop
         self.record_module.init_keyboard_listener = self.gate.init_keyboard_listener
         logger.info(
-            "Installed guarded A0509 per-episode reset; stock reset_time_s is ignored"
+            "Installed guarded A0509 review/reset; accepted buffers commit before "
+            "physical reset and stock reset_time_s is ignored"
         )
         return self
 

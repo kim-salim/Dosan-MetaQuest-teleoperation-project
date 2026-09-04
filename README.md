@@ -3,6 +3,31 @@
 ROS 2 Jazzy workspace for controlling a Doosan A0509 robot and a JRT gripper
 from Meta Quest inputs on an arm64 Jetson Thor.
 
+## Current research baseline
+
+The current frozen control baseline is **v13** with the
+`a0509_ramp8p5_ack_span2_v1` runtime command profile. Eight task types have at
+least one operator-confirmed physical success; five also have a matching v13
+full-transition runtime trace. This is a v13 validation update, not v14.
+
+- [v13 validated baseline and task ledger](docs/a0509_v13_validated_baseline_2026-09-04_ko.md)
+- [v13 ramp 8.5 runtime contract](docs/a0509_runtime_ramp8p5_v13_2026-09-04_ko.md)
+- [machine-readable checkpoint](docs/artifacts/a0509_v13_validated_baseline_2026-09-04/checkpoint_manifest.json)
+- [physical validation ledger](docs/artifacts/a0509_v13_validated_baseline_2026-09-04/physical_validation_ledger.json)
+
+The command-free v13 registry remains immutable. Physical outcomes are stored
+in the separate ledger that references its SHA-256. T9 training is a separate
+workstream and is not part of this v13 control baseline.
+
+
+This repository publishes the implementation and a curated evidence subset. The
+full local `docs/artifacts/` tree is generated and exceeds 1 GB, so candidate
+libraries, reference banks, datasets, model checkpoints, and raw run logs are not
+committed. See the [artifact policy](docs/artifacts/README.md) for the selected
+semantic graphs, registries, audits, and physical-validation checkpoint.
+
+The independent control GUI at `/home/rvlab/a0509-semantic-dijkstra-gui` remains a
+separate local working tree and is not vendored into this repository.
 
 The current Jazzy integration uses a disabled-by-default command MUX for both
 MetaQuest and LeRobot ACT. See

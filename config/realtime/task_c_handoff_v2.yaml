@@ -1,0 +1,67 @@
+# Reference configuration for the opt-in `task_c_live_v2` strategy.
+# The launcher passes the same values as CLI arguments; this file documents the
+# contract and is not loaded automatically by LeRobot.
+strategy:
+  type: task_c_live_v2
+  handoff_mode: async_window_v2
+
+  # Default preserves the reviewed Task-C V2 semantic gates. Set the episode
+  # manifest to external_planner when a high-level planner owns semantic,
+  # contact, held-object, gripper, and successor-support admission. If this
+  # CLI/config override is non-empty, it must match the manifest exactly.
+  semantic_authority: runtime_guarded
+
+  handoff_window_steps: 24
+  b_prefix_steps: 15
+  crossfade_steps: 15
+
+  max_b_result_age_sec: 0.30
+  max_inflight_b_requests: 1
+  b_request_retry_interval_steps: 3
+
+  # One proposal-command acceleration bound shared by Bridge generation,
+  # cached-entry revalidation, and endpoint fallback. This is not a Doosan
+  # hardware acceleration rating.
+  bridge_acceleration_limit_mm_s2: 4000.0
+
+  enable_soft_handoff: true
+  enable_endpoint_fallback: true
+
+  # Null hard thresholds are not silently disabled in live mode. Most are
+  # resolved from reviewed downstream/V1 constraints. Command acceleration
+  # uses the provisional command-space shadow bound selected on 2026-08-26.
+  compatibility:
+    max_first_xyz_axis_delta_mm: null
+    max_first_rotation_delta_deg: null
+    max_prefix_velocity_mm_s: null
+    # Raw ACT-B prefix acceleration is logged only; it is not a hard reject.
+    max_prefix_acceleration_mm_s2: null
+    max_bridge_prefix_velocity_mismatch_mm_s: null
+
+    # These are checked on the prospective commands that would actually be
+    # emitted: the quintic Bridge/B blend plus the first post-blend B action.
+    max_crossfade_xyz_axis_step_mm: null
+    max_crossfade_rotation_step_deg: null
+
+    # Computed from acknowledged cmd[k-1], cmd[k], then the prospective
+    # crossfade and first ACT-B continuation command.
+    # 30 Hz proposal-command finite difference; not a Doosan hardware rating.
+    max_crossfade_command_acceleration_mm_s2: 4000.0
+  recording:
+    record_task_c_dataset: false
+    queue_size: 96
+    primary_action: source_proposal_7d
+    audit_trace_jsonl: true
+    audit_trace_csv: true
+
+safety_contract:
+  control_hz: 30
+  command_path: >-
+    policy -> /control/lerobot/target_posx -> MUX -> /vr/target_posx ->
+    safety guard -> /vr/safe_posx -> ServoL streamer ->
+    /vr/commanded_posx -> Doosan
+  authority_owner: external_trial_gate
+  auto_live_on: false
+  auto_select_lerobot: false
+  ik_checked: false
+  collision_checked: false

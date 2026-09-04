@@ -1,0 +1,41 @@
+{
+  "catalog": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/config/interior_policy/a0509_t1_t8_operator_catalog_spatial_v2.json",
+  "catalog_id": "a0509_t1_t8_semantic_v3_spatial_floor_20260902",
+  "floor_transfer_verification": {
+    "classification": "LEVEL_2_RUNTIME_CONTRACT_COMPATIBLE",
+    "goal_blue_block_location": "right_floor",
+    "initial_blue_block_location": "left_floor",
+    "operators": [
+      "T2.acquire_from_floor",
+      "T3.deliver_to_floor"
+    ],
+    "physical_validation_performed": false,
+    "policy_sequence": [
+      "T2",
+      "T3"
+    ],
+    "robot_commands_published": 0,
+    "runtime_compiler_passed": true,
+    "total_cost": 2.25
+  },
+  "legacy_edge_count": 128,
+  "legacy_registry": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/docs/artifacts/t1_t8_flexible_level2_registry_2026-08-30/edge_registry_level2_v3.json",
+  "new_inventory": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/docs/artifacts/t1_t8_spatial_floor_level2_2026-09-02/level1_edge_inventory.json",
+  "new_registry": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/docs/artifacts/t1_t8_spatial_floor_level2_2026-09-02/edge_registry_level2_spatial_v4.json",
+  "physical_validation_performed": false,
+  "raw_datasets_modified": false,
+  "removed_edges": [
+    {
+      "source_operator": "T3.deliver_to_floor",
+      "successor_operator": "T2.acquire_from_floor"
+    }
+  ],
+  "robot_commands_published": 0,
+  "schema_version": "a0509.spatial_floor_level2_migration.v1",
+  "semantic_artifacts_modified": false,
+  "spatial_edge_count": 127,
+  "status_counts": {
+    "flexible_semantic_candidate": 9,
+    "flexible_verified": 118
+  }
+}

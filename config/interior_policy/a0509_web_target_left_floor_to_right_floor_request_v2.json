@@ -1,0 +1,22 @@
+{
+  "initial_state": {
+    "drawer": "closed",
+    "white_container": "closed",
+    "blue_block_location": "left_floor",
+    "holding": "none",
+    "gripper": "open",
+    "contact_mode": "free_space",
+    "support_blue_block_location": "unknown",
+    "stack": "unknown"
+  },
+  "goal": {
+    "drawer": "closed",
+    "blue_block_location": "right_floor",
+    "holding": "none",
+    "gripper": "open"
+  },
+  "policy_switch_penalty": 0.25,
+  "same_policy_continuation_penalty": 0.0,
+  "final_inference_steps": 1800,
+  "max_plans": 3
+}

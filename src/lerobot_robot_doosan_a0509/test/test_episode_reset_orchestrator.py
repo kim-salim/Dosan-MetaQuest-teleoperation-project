@@ -1,6 +1,9 @@
 import math
+from types import SimpleNamespace
 
 from lerobot_robot_doosan_a0509.episode_reset_orchestrator import (
+    EpisodeResetConfig,
+    EpisodeResetRecordingHook,
     pose_is_near_anchor,
     pose_window_is_stable,
     quaternion_angle_deg,
@@ -94,3 +97,64 @@ def test_preflight_pose_uses_shortest_rotation_around_180_degrees():
         position_limit_mm=10.0,
         rotation_limit_deg=3.0,
     )
+
+
+class FakeEpisodeOrchestrator:
+    def __init__(self):
+        self.events = []
+
+    def prepare_next_episode(self, _gate):
+        self.events.append("prepare")
+
+    def enable_live_for_recording(self):
+        self.events.append("live")
+
+    def force_safe(self):
+        self.events.append("safe")
+
+
+def make_recording_hook():
+    record_calls = []
+
+    def opaque_record_loop(*args, **kwargs):
+        record_calls.append((args, kwargs))
+        return "recorded"
+
+    record_module = SimpleNamespace(
+        record_loop=opaque_record_loop,
+        init_keyboard_listener=lambda: None,
+    )
+    hook = EpisodeResetRecordingHook(
+        record_module,
+        config=EpisodeResetConfig(),
+    )
+    orchestrator = FakeEpisodeOrchestrator()
+    hook._orchestrator = orchestrator
+    hook.install()
+    return record_module, orchestrator, record_calls
+
+
+def test_recording_hook_detects_keyword_dataset_with_opaque_signature():
+    record_module, orchestrator, record_calls = make_recording_hook()
+    dataset = object()
+
+    result = record_module.record_loop(fps=30, dataset=dataset)
+
+    assert result == "recorded"
+    assert record_calls == [((), {"fps": 30, "dataset": dataset})]
+    assert orchestrator.events == ["prepare", "live", "safe"]
+
+
+def test_recording_hook_replaces_only_dataset_free_reset_loop():
+    record_module, orchestrator, record_calls = make_recording_hook()
+    record_module.record_loop(fps=30, dataset=object())
+    orchestrator.events.clear()
+    record_calls.clear()
+
+    assert record_module.record_loop(fps=30) is None
+    assert record_calls == []
+    assert orchestrator.events == []
+
+    assert record_module.record_loop(fps=30, dataset=object()) == "recorded"
+    assert len(record_calls) == 1
+    assert orchestrator.events == ["prepare", "live", "safe"]

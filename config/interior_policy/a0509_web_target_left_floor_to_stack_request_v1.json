@@ -1,0 +1,29 @@
+{
+  "initial_state": {
+    "drawer": "unknown",
+    "white_container": "unknown",
+    "blue_block_location": "left_floor",
+    "holding": "none",
+    "gripper": "open",
+    "contact_mode": "free_space",
+    "support_blue_block_location": "black_table",
+    "stack": "unassembled"
+  },
+  "goal": {
+    "blue_block_location": "stacked",
+    "support_blue_block_location": "black_table",
+    "stack": "assembled",
+    "holding": "none",
+    "gripper": "open"
+  },
+  "enabled_operator_ids": [
+    "T2.acquire_from_floor",
+    "T6.stack_on_support_block"
+  ],
+  "policy_switch_penalty": 0.25,
+  "same_policy_continuation_penalty": 0.0,
+  "final_inference_steps": 1800,
+  "max_plans": 3,
+  "bridge_admission_mode": "flexible_level2",
+  "allow_intermediate_release": false
+}

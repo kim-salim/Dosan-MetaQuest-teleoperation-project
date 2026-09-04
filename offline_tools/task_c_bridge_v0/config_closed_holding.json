@@ -1,0 +1,124 @@
+{
+  "version": "task_c_cartesian_bezier_bridge_v0_closed_holding",
+  "dataset_a_label": "ACT-A blue block on table",
+  "dataset_b_label": "ACT-B blue block under table",
+  "semantic_windows": {
+    "a_cut": [
+      {
+        "anchor": "closed_transport",
+        "start_offset_frames": 30,
+        "end_offset_frames": -30,
+        "stride_frames": 30,
+        "semantic_label": "a_closed_holding_transport",
+        "expected_gripper": "closed",
+        "minimum_transport_clearance_mm": 50.0
+      }
+    ],
+    "b_entry": [
+      {
+        "anchor": "closed_transport",
+        "start_offset_frames": 30,
+        "end_offset_frames": -30,
+        "stride_frames": 30,
+        "semantic_label": "b_closed_holding_transport",
+        "expected_gripper": "closed",
+        "minimum_transport_clearance_mm": 50.0
+      }
+    ]
+  },
+  "semantic_compatibility": {
+    "a_allowed_labels": ["a_closed_holding_transport"],
+    "b_allowed_labels": ["b_closed_holding_transport"],
+    "require_same_gripper": true,
+    "required_a_completed_subgoals": ["grasp_complete"]
+  },
+  "velocity": {
+    "velocity_window_frames": 15,
+    "velocity_smoothing_method": "linear_regression",
+    "velocity_epsilon": 1e-09,
+    "runtime_history_interface": "same estimator accepts recent timestamped TCP XYZ"
+  },
+  "b_representative_velocity": {
+    "enabled": true,
+    "phase_bin_width": 0.1,
+    "minimum_demonstrations": 5,
+    "method": "component_median",
+    "trim_fraction": 0.1
+  },
+  "duration_search": {
+    "bridge_duration_min_s": 2.0,
+    "bridge_duration_max_s": 8.0,
+    "bridge_duration_step_s": 0.5
+  },
+  "sampling": {
+    "bridge_sample_hz": 30.0,
+    "curvature_epsilon": 1e-09
+  },
+  "workspace": {
+    "mode": "observed_dataset_envelope_plus_margin",
+    "margin_mm": 75.0,
+    "robot_certified": false
+  },
+  "feasibility": {
+    "velocity_limit_mm_s": 300.0,
+    "acceleration_limit_mm_s2": 300.0,
+    "curvature_limit_per_mm": 0.25,
+    "jerk_limit_mm_s3": 800.0,
+    "integrated_squared_jerk_limit": 1000000.0,
+    "backtracking_ratio_limit": 2.5,
+    "enforce_payload_transport_floor": true,
+    "transport_floor_tolerance_mm": 0.000001
+  },
+  "selection": {
+    "primary_objective": "total_C_length_mm",
+    "near_shortest_delta": 0.005,
+    "top_k": 10,
+    "runtime_entry_top_k": 20
+  },
+  "runtime": {
+    "policy_checkpoints": {
+      "ACT-A": "/home/rvlab/lerobot_models/act_a0509_blue_block_bs16_30k_20260810_181114/030000/pretrained_model",
+      "ACT-B": "/home/rvlab/lerobot_models/act_a0509_blue_block_v2_bs16_30k_20260810_200240/030000/pretrained_model"
+    },
+    "action_hz": 30.0,
+    "load_both_models_before_a": true,
+    "tail_duration_search": {
+      "bridge_duration_min_s": 0.5,
+      "bridge_duration_max_s": 2.5,
+      "bridge_duration_step_s": 0.25
+    },
+    "handoff": {
+      "control_hz": 30.0,
+      "a_chunk_velocity_window_steps": 15,
+      "warmup_inferences": 2,
+      "velocity_history_capacity": 120,
+      "velocity_window_frames": 15,
+      "velocity_smoothing_method": "linear_regression",
+      "velocity_epsilon": 1e-09,
+      "b_prime_lead_s": 1.25,
+      "b_final_refresh_enabled": true,
+      "b_final_refresh_lead_s": 0.25,
+      "b_inference_timeout_s": 1.0,
+      "b_chunk_max_observation_age_s": 1.5,
+      "b_chunk_velocity_window_steps": 15,
+      "b_chunk_velocity_method": "linear_regression",
+      "b_first_action_position_jump_limit_mm": 75.0,
+      "b_predicted_velocity_limit_mm_s": 300.0,
+      "handoff_position_tolerance_mm": 10.0,
+      "handoff_velocity_tolerance_mm_s": 75.0,
+      "handoff_first_target_tolerance_mm": 75.0
+    }
+  },
+  "safety": {
+    "gripper_bridge_state": "closed",
+    "holding_state": "assumed_true_from_closed_gripper",
+    "payload_state": "A_OBJECT_HELD_ASSUMED",
+    "orientation_status": "pending",
+    "orientation_bridge_generated": false,
+    "collision_status": "NOT_CHECKED_WITH_PAYLOAD",
+    "ik_status": "NOT_CHECKED",
+    "robot_executable": false,
+    "dry_run_only": true,
+    "publish_robot_commands": false
+  }
+}

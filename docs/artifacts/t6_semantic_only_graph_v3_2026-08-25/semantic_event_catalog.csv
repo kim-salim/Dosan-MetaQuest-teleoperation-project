@@ -1,0 +1,3 @@
+event_id,semantic_label,label_ko,gripper_change,manipulated_object,semantic_effect,representative_x_mm,representative_y_mm,representative_z_mm,confidence
+C1,grasp_blue_block_for_stacking,적층할 파란 블록 파지,open_to_closed,moving_blue_block,moving_blue_block_held,364.6049041748047,5.00053071975708,341.5792236328125,high
+O1,release_blue_block_on_top_of_support_blue_block,지지 파란 블록 위에 이동 블록 방출,closed_to_open,moving_blue_block,blue_block_stack_assembled,597.7664489746094,241.4930877685547,336.9624938964844,high

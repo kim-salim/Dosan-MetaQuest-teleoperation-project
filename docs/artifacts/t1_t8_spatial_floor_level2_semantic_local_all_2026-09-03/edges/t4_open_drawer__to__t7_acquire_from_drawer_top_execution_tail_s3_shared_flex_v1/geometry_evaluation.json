@@ -1,0 +1,560 @@
+{
+  "bridge_generation_profile": {
+    "bridge_admission_mode": "flexible_level2",
+    "bridge_algorithm": "cubic_bezier_tangent_regularized_v1",
+    "bridge_duration_s": 4.0,
+    "edge_specific_tuning": false,
+    "maximum_endpoint_speed_adjustment_mm_s": 12.0,
+    "minimum_tangent_handle_chord_ratio": 0.04,
+    "physical_validation_performed": false,
+    "profile_config": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/config/realtime/a0509_flexible_bridge_profiles_v1.json",
+    "profile_id": "semantic_local_execution_tail_tangent_v1",
+    "profile_sha256": "aa15342d720234914ec8b53da9a8056cbeb1e529da5389bfff63f2a915d8dc0b",
+    "robot_commands_published": 0,
+    "runtime_contract": {
+      "acceleration_limit_mm_s2": 4000.0,
+      "acknowledged_command_span_steps": 2,
+      "axis_velocity_limit_mm_s": 225.0,
+      "control_hz": 30.0,
+      "curvature_limit_per_mm": 0.25,
+      "derived_flex_axis_speed_envelope_mm_s": 112.5,
+      "derived_unadjusted_axis_speed_ceiling_mm_s": 112.5,
+      "integrated_squared_jerk_limit": 10000000.0,
+      "jerk_limit_mm_s3": 4000.0,
+      "linear_ramp_mm_per_tick": 7.5,
+      "orientation_ramp_deg_per_tick": 1.25,
+      "velocity_limit_mm_s": 300.0
+    },
+    "schema_version": "a0509.flexible_bridge_generation_profile_resolution.v1",
+    "source_reference_modes": [
+      "execution_tail"
+    ],
+    "transport_floor_policy": "edge_semantic_contract"
+  },
+  "bridge_minimum_z_mm": null,
+  "fixed_z_minimum_enabled": false,
+  "geometry": {
+    "candidate_diagnostics": [
+      {
+        "actual_reference_start_error_mm": 0.0,
+        "collision_checked": false,
+        "curvature_p95_moving_per_mm": 0.04453166491556635,
+        "duration_s": 4.0,
+        "entry_fraction": 0.18,
+        "exit_fraction": 0.82,
+        "future_join_lookahead_fraction": null,
+        "generator_type": "reference_deformation",
+        "hard_rejection_reasons": [],
+        "ik_checked": false,
+        "max_acceleration_mm_s2": 153.65230563225404,
+        "max_ack_span_axis_step_mm": 6.286423804952108,
+        "max_ack_span_orientation_step_deg": 0.5602480613817628,
+        "max_command_acceleration_mm_s2": 151.554330430808,
+        "max_command_jerk_mm_s3": 2252.338208966865,
+        "max_curvature_per_mm": 0.16099620552347432,
+        "max_curvature_u": 1.0,
+        "max_jerk_mm_s3": 63.32514257174567,
+        "max_normal_acceleration_mm_s2": 111.38243328262752,
+        "max_orientation_step_deg": 0.2801240306937548,
+        "max_position_axis_step_mm": 3.1958885126160226,
+        "max_velocity_mm_s": 106.41744851681126,
+        "minimum_position_z_mm": 352.3131103515625,
+        "ood_score": 0.0,
+        "reference_projection_fraction": null,
+        "reference_rms_error_mm": 0.0,
+        "score": 0.22316435961476588,
+        "self_intersection_checked": true,
+        "source_tangent_angle_deg": 0.0,
+        "speed_at_max_curvature_mm_s": 19.236537674606254,
+        "tangent_handle_chord_ratio": 0.0
+      },
+      {
+        "actual_reference_start_error_mm": 0.0,
+        "collision_checked": false,
+        "curvature_p95_moving_per_mm": 0.04123254806561326,
+        "duration_s": 5.0,
+        "entry_fraction": 0.18,
+        "exit_fraction": 0.82,
+        "future_join_lookahead_fraction": null,
+        "generator_type": "reference_deformation",
+        "hard_rejection_reasons": [],
+        "ik_checked": false,
+        "max_acceleration_mm_s2": 112.15401021389525,
+        "max_ack_span_axis_step_mm": 6.330590503369535,
+        "max_ack_span_orientation_step_deg": 0.44822833044943744,
+        "max_command_acceleration_mm_s2": 110.96426564731155,
+        "max_command_jerk_mm_s3": 1652.5677774627256,
+        "max_curvature_per_mm": 0.10269068922982746,
+        "max_curvature_u": 1.0,
+        "max_jerk_mm_s3": 35.89816475676377,
+        "max_normal_acceleration_mm_s2": 77.0335058680677,
+        "max_orientation_step_deg": 0.224114165229569,
+        "max_position_axis_step_mm": 3.207007907693935,
+        "max_velocity_mm_s": 106.4174485168112,
+        "minimum_position_z_mm": 352.3131103515625,
+        "ood_score": 0.0,
+        "reference_projection_fraction": null,
+        "reference_rms_error_mm": 0.0,
+        "score": 0.2498588583048529,
+        "self_intersection_checked": true,
+        "source_tangent_angle_deg": 0.0,
+        "speed_at_max_curvature_mm_s": 19.236537674606254,
+        "tangent_handle_chord_ratio": 0.0
+      },
+      {
+        "actual_reference_start_error_mm": 0.0,
+        "collision_checked": false,
+        "curvature_p95_moving_per_mm": 0.04027078620797618,
+        "duration_s": 6.0,
+        "entry_fraction": 0.18,
+        "exit_fraction": 0.82,
+        "future_join_lookahead_fraction": null,
+        "generator_type": "reference_deformation",
+        "hard_rejection_reasons": [],
+        "ik_checked": false,
+        "max_acceleration_mm_s2": 87.77588869463442,
+        "max_ack_span_axis_step_mm": 6.359523272893682,
+        "max_ack_span_orientation_step_deg": 0.3735371358715449,
+        "max_command_acceleration_mm_s2": 87.01721345407914,
+        "max_command_jerk_mm_s3": 1297.672026085901,
+        "max_curvature_per_mm": 0.07170489630481194,
+        "max_curvature_u": 1.0,
+        "max_jerk_mm_s3": 22.878316887183395,
+        "max_normal_acceleration_mm_s2": 57.75445773185818,
+        "max_orientation_step_deg": 0.1867685679401513,
+        "max_position_axis_step_mm": 3.2142823991397336,
+        "max_velocity_mm_s": 106.41744851681125,
+        "minimum_position_z_mm": 352.3131103515625,
+        "ood_score": 0.0,
+        "reference_projection_fraction": null,
+        "reference_rms_error_mm": 0.0,
+        "score": 0.2800561077618965,
+        "self_intersection_checked": true,
+        "source_tangent_angle_deg": 8.537736462515939e-07,
+        "speed_at_max_curvature_mm_s": 19.23653767460624,
+        "tangent_handle_chord_ratio": 0.0
+      }
+    ],
+    "candidates_evaluated": 3,
+    "candidates_hard_passed": 3,
+    "rejected_reason_counts": {},
+    "search_latency_ms": 31.52510803192854,
+    "selected": {
+      "actual_reference_start_error_mm": 0.0,
+      "collision_checked": false,
+      "curvature_p95_moving_per_mm": 0.04453166491556635,
+      "duration_s": 4.0,
+      "entry_fraction": 0.18,
+      "exit_fraction": 0.82,
+      "future_join_lookahead_fraction": null,
+      "generator_type": "reference_deformation",
+      "hard_rejection_reasons": [],
+      "ik_checked": false,
+      "max_acceleration_mm_s2": 153.65230563225404,
+      "max_ack_span_axis_step_mm": 6.286423804952108,
+      "max_ack_span_orientation_step_deg": 0.5602480613817628,
+      "max_command_acceleration_mm_s2": 151.554330430808,
+      "max_command_jerk_mm_s3": 2252.338208966865,
+      "max_curvature_per_mm": 0.16099620552347432,
+      "max_curvature_u": 1.0,
+      "max_jerk_mm_s3": 63.32514257174567,
+      "max_normal_acceleration_mm_s2": 111.38243328262752,
+      "max_orientation_step_deg": 0.2801240306937548,
+      "max_position_axis_step_mm": 3.1958885126160226,
+      "max_velocity_mm_s": 106.41744851681126,
+      "minimum_position_z_mm": 352.3131103515625,
+      "ood_score": 0.0,
+      "reference_projection_fraction": null,
+      "reference_rms_error_mm": 0.0,
+      "score": 0.22316435961476588,
+      "self_intersection_checked": true,
+      "source_tangent_angle_deg": 0.0,
+      "speed_at_max_curvature_mm_s": 19.236537674606254,
+      "tangent_handle_chord_ratio": 0.0
+    },
+    "timed_out": false,
+    "valid": true
+  },
+  "live_enabled": false,
+  "manifest": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/docs/artifacts/t1_t8_spatial_floor_level2_semantic_local_all_2026-09-03/edges/t4_open_drawer__to__t7_acquire_from_drawer_top_execution_tail_s3_shared_flex_v1/flexible_reference_manifest.json",
+  "mux_selected": false,
+  "physical_validation_performed": false,
+  "robot_commands_published": 0,
+  "runtime_successor_phase_gate": false,
+  "schema_version": "a0509.semantic_local_reference_geometry.v2",
+  "selected_source_boundary": {
+    "completed_subgoals": [
+      "blue_block=on_black_table",
+      "drawer=open",
+      "gripper=open",
+      "held_object=none"
+    ],
+    "contact_mode": "free_motion_assumed",
+    "entry_preconditions": [
+      "blue_block=on_black_table",
+      "drawer=open",
+      "gripper=open",
+      "held_object=none"
+    ],
+    "gripper_state": "open",
+    "held_object": "none",
+    "orientation_quat_xyzw": [
+      0.0022446684565037775,
+      0.986063727261345,
+      0.006537100477663203,
+      0.16622440723410414
+    ],
+    "phase": 0.17,
+    "position_mm": [
+      384.8419494628906,
+      -172.270751953125,
+      368.4000549316406
+    ],
+    "segment": "S3",
+    "semantic_state": "approach_blue_block_on_black_table",
+    "support_episode": 23,
+    "support_frame": 640,
+    "support_score": 0.015623897820293537,
+    "task": "T4",
+    "velocity_mm_s": [
+      -39.99220354967028,
+      14.999721549618876,
+      97.46950988644507
+    ]
+  },
+  "selected_successor_boundary": {
+    "completed_subgoals": [
+      "blue_block=on_top_of_drawer",
+      "gripper=open",
+      "held_object=none"
+    ],
+    "contact_mode": "free_motion_assumed",
+    "entry_preconditions": [
+      "blue_block=on_top_of_drawer",
+      "gripper=open",
+      "held_object=none"
+    ],
+    "gripper_state": "open",
+    "held_object": "none",
+    "orientation_quat_xyzw": [
+      0.0001537958575550918,
+      0.9481718931976846,
+      0.0007316040361805833,
+      0.3177569858434071
+    ],
+    "phase": 0.9400000000000001,
+    "position_mm": [
+      609.88720703125,
+      -172.07638549804688,
+      352.3131103515625
+    ],
+    "segment": "S1",
+    "semantic_state": "approach_blue_block_on_top_of_drawer",
+    "support_episode": 21,
+    "support_frame": 204,
+    "support_score": 0.024239744227596394,
+    "task": "T7",
+    "velocity_mm_s": [
+      11.163066887923458,
+      4.143565668246871,
+      -15.10831502568101
+    ]
+  },
+  "semantic_local_objective": {
+    "bridge_length_mm": 295.70892200475475,
+    "source_prefix_mm": 78.33986285209161,
+    "successor_suffix_mm": 20.474617747171635,
+    "total_length_mm": 394.52340260401803
+  },
+  "semantic_local_selection": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/docs/artifacts/t1_t8_spatial_floor_level2_semantic_local_all_2026-09-03/edges/t4_open_drawer__to__t7_acquire_from_drawer_top_execution_tail_s3_shared_flex_v1/semantic_local_reference_selection.json",
+  "source_bank": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/docs/artifacts/t1_t8_spatial_floor_level2_semantic_local_all_2026-09-03/edges/t4_open_drawer__to__t7_acquire_from_drawer_top_execution_tail_s3_shared_flex_v1/t4_s3_execution_tail_source_bank.json",
+  "source_execution_tail": {
+    "collar_phase_high": 0.23,
+    "collar_phase_low": 0.1,
+    "collar_progress_mm_high": 101.73704094251065,
+    "collar_progress_mm_low": 42.508563669008524,
+    "commit_phase_high": 0.23,
+    "commit_phase_low": 0.17,
+    "deadline_phase": 0.35,
+    "derivation_method": "empirical_progress_support_collar_latched_v2:profile:a0509_shared_execution_tail_latched_v2_20260904",
+    "episode_count": 30,
+    "fixed_z_minimum_used": false,
+    "latch_commit_window_until_deadline": true,
+    "nominal_phase": 0.2,
+    "phase_half_width": 0.03,
+    "phase_points": 101,
+    "prearm_extra_phase": 0.17,
+    "same_segment_as_semantic_exit": false,
+    "semantic_exit_phase": 1.0,
+    "semantic_exit_segment": "S2",
+    "source_operator": "T4.open_drawer",
+    "support_residual_p90_limit_mm": 62.25383459648008,
+    "tracking_segment": "S3",
+    "tracking_start_phase": 0.0,
+    "zero_symbolic_cost": true
+  },
+  "source_reference_mode": "execution_tail",
+  "source_selection": {
+    "episode_ranking": [
+      {
+        "episode": 23,
+        "window_rms_mm": 8.212476729507737
+      },
+      {
+        "episode": 7,
+        "window_rms_mm": 12.539409639395872
+      },
+      {
+        "episode": 4,
+        "window_rms_mm": 13.592693226733955
+      },
+      {
+        "episode": 24,
+        "window_rms_mm": 13.704114272945901
+      },
+      {
+        "episode": 28,
+        "window_rms_mm": 16.09545228898199
+      },
+      {
+        "episode": 26,
+        "window_rms_mm": 16.715451716326044
+      },
+      {
+        "episode": 25,
+        "window_rms_mm": 16.79621073717046
+      },
+      {
+        "episode": 22,
+        "window_rms_mm": 16.929584595302543
+      },
+      {
+        "episode": 8,
+        "window_rms_mm": 17.44923533195579
+      },
+      {
+        "episode": 29,
+        "window_rms_mm": 18.14736196265205
+      },
+      {
+        "episode": 17,
+        "window_rms_mm": 18.431682250655253
+      },
+      {
+        "episode": 15,
+        "window_rms_mm": 23.526640711914048
+      },
+      {
+        "episode": 21,
+        "window_rms_mm": 25.45259206852273
+      },
+      {
+        "episode": 20,
+        "window_rms_mm": 25.787233094901378
+      },
+      {
+        "episode": 3,
+        "window_rms_mm": 32.110802041752564
+      },
+      {
+        "episode": 12,
+        "window_rms_mm": 33.82746066218216
+      },
+      {
+        "episode": 6,
+        "window_rms_mm": 36.42965910467111
+      },
+      {
+        "episode": 16,
+        "window_rms_mm": 37.43444670528708
+      },
+      {
+        "episode": 14,
+        "window_rms_mm": 38.79820904916607
+      },
+      {
+        "episode": 11,
+        "window_rms_mm": 40.10847047944872
+      },
+      {
+        "episode": 19,
+        "window_rms_mm": 40.37087531359614
+      },
+      {
+        "episode": 13,
+        "window_rms_mm": 41.310741947106536
+      },
+      {
+        "episode": 27,
+        "window_rms_mm": 42.924597707127695
+      },
+      {
+        "episode": 0,
+        "window_rms_mm": 45.421285691373704
+      },
+      {
+        "episode": 5,
+        "window_rms_mm": 46.69005644630144
+      },
+      {
+        "episode": 1,
+        "window_rms_mm": 49.86126594138813
+      },
+      {
+        "episode": 2,
+        "window_rms_mm": 56.61982281751819
+      },
+      {
+        "episode": 10,
+        "window_rms_mm": 66.05033985211274
+      },
+      {
+        "episode": 9,
+        "window_rms_mm": 70.91064498959162
+      },
+      {
+        "episode": 18,
+        "window_rms_mm": 74.26303085767451
+      }
+    ],
+    "medoid_episode": 23,
+    "medoid_window_rms_mm": 8.212476729507737,
+    "method": "minimum_window_rms_to_component_median_real_episode_v1",
+    "real_episode_selected": true,
+    "synthetic_median_used_as_command": false
+  },
+  "source_speed_coverage": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/docs/artifacts/t1_t8_spatial_floor_level2_semantic_local_all_2026-09-03/edges/t4_open_drawer__to__t7_acquire_from_drawer_top_execution_tail_s3_shared_flex_v1/bridge_profile_source_speed_coverage.json",
+  "successor_bank": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/docs/artifacts/t1_t8_spatial_floor_level2_semantic_local_all_2026-09-03/edges/t4_open_drawer__to__t7_acquire_from_drawer_top_execution_tail_s3_shared_flex_v1/t7_s1_entry_reference_bank.json",
+  "successor_candidate_window": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/docs/artifacts/t1_t8_spatial_floor_level2_semantic_local_all_2026-09-03/edges/t4_open_drawer__to__t7_acquire_from_drawer_top_execution_tail_s3_shared_flex_v1/t7_s1_operator_entry_segment_phase_window.json",
+  "successor_interior_path_margin_mm": 15.0,
+  "successor_phase_role": "bridge_reference_and_metadata_only",
+  "successor_selection": {
+    "episode_ranking": [
+      {
+        "episode": 21,
+        "window_rms_mm": 12.61733741834807
+      },
+      {
+        "episode": 16,
+        "window_rms_mm": 13.768158474174086
+      },
+      {
+        "episode": 17,
+        "window_rms_mm": 18.407702655982675
+      },
+      {
+        "episode": 29,
+        "window_rms_mm": 18.63243499232262
+      },
+      {
+        "episode": 12,
+        "window_rms_mm": 20.695433857018234
+      },
+      {
+        "episode": 14,
+        "window_rms_mm": 21.202765115382523
+      },
+      {
+        "episode": 0,
+        "window_rms_mm": 21.511233854636743
+      },
+      {
+        "episode": 13,
+        "window_rms_mm": 21.80006559053304
+      },
+      {
+        "episode": 27,
+        "window_rms_mm": 22.209590889174017
+      },
+      {
+        "episode": 7,
+        "window_rms_mm": 22.494629807990357
+      },
+      {
+        "episode": 11,
+        "window_rms_mm": 23.275621275961306
+      },
+      {
+        "episode": 22,
+        "window_rms_mm": 24.327327475392647
+      },
+      {
+        "episode": 1,
+        "window_rms_mm": 24.498448460087722
+      },
+      {
+        "episode": 5,
+        "window_rms_mm": 24.60734741142408
+      },
+      {
+        "episode": 9,
+        "window_rms_mm": 25.19496133862192
+      },
+      {
+        "episode": 23,
+        "window_rms_mm": 26.011198817536695
+      },
+      {
+        "episode": 15,
+        "window_rms_mm": 26.472869945177077
+      },
+      {
+        "episode": 10,
+        "window_rms_mm": 26.747524556550456
+      },
+      {
+        "episode": 18,
+        "window_rms_mm": 27.210244065066178
+      },
+      {
+        "episode": 6,
+        "window_rms_mm": 29.089576492579397
+      },
+      {
+        "episode": 4,
+        "window_rms_mm": 30.412740082096303
+      },
+      {
+        "episode": 2,
+        "window_rms_mm": 30.659531395551088
+      },
+      {
+        "episode": 19,
+        "window_rms_mm": 31.70899832810176
+      },
+      {
+        "episode": 25,
+        "window_rms_mm": 32.79593539898059
+      },
+      {
+        "episode": 20,
+        "window_rms_mm": 35.766743619015
+      },
+      {
+        "episode": 26,
+        "window_rms_mm": 36.77015381439804
+      },
+      {
+        "episode": 8,
+        "window_rms_mm": 38.649819573496224
+      },
+      {
+        "episode": 28,
+        "window_rms_mm": 39.583435847385005
+      },
+      {
+        "episode": 24,
+        "window_rms_mm": 47.070234285476936
+      },
+      {
+        "episode": 3,
+        "window_rms_mm": 47.6951506931949
+      }
+    ],
+    "medoid_episode": 21,
+    "medoid_window_rms_mm": 12.61733741834807,
+    "method": "minimum_window_rms_to_component_median_real_episode_v1",
+    "real_episode_selected": true,
+    "synthetic_median_used_as_command": false
+  }
+}

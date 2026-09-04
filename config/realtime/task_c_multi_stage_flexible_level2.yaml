@@ -1,0 +1,59 @@
+# Opt-in reference for Task-C Multi-V2 FLEXIBLE_LEVEL2.
+# This file is documentation/configuration input only. It never enables Live,
+# selects the MUX, or publishes ServoL commands.
+strategy:
+  type: task_c_multi_live_v2
+  handoff_mode: async_window_v2
+  bridge_admission_mode: flexible_level2
+
+  multi_stage_plan: /absolute/path/to/flexible_multi_stage_plan.json
+  runtime_manifest: /absolute/path/to/shared_runtime_safety_manifest.json
+  semantic_authority: external_planner
+  successor_runtime_phase_gate: false
+  source_trigger_mode: median_sphere  # authority comes from each stage supervisor
+
+  handoff_window_steps: 24
+  b_prefix_steps: 15
+  crossfade_steps: 15
+  max_b_result_age_sec: 0.30
+  max_inflight_b_requests: 1
+
+  # A single fresh ACT-B chunk is searched only in this bounded initial window.
+  adaptive_b_max_splice_index: 8
+  adaptive_b_max_candidates: 6
+
+  flexible_bridge_max_result_age_sec: 0.30
+  flexible_bridge_max_candidates: 64
+  flexible_bridge_max_search_time_s: 0.50
+  flexible_tangent_handle_chord_ratios: [0.0, 0.05, 0.10, 0.20, 0.25]
+  flexible_duration_multipliers: [1.0, 1.25, 1.50]
+  flexible_enable_settle_connector: true
+  flexible_enable_alignment_connector: true
+  flexible_enable_lift_transport_connector: true
+  flexible_enable_generic_safe_connector: false
+  allow_intermediate_release: false
+
+  # Shared proposal-command bound for candidate generation, adaptive entry,
+  # endpoint fallback, and the final Bridge/B command crossfade.
+  bridge_acceleration_limit_mm_s2: 4000.0
+  bridge_jerk_limit_mm_s3: 4000.0
+  bridge_integrated_squared_jerk_limit: 10000000.0
+  downstream_linear_ramp_mm_per_tick: 7.5
+  downstream_orientation_ramp_deg_per_tick: 1.25
+  max_prefix_acceleration_mm_s2: null
+  max_crossfade_command_acceleration_mm_s2: 4000.0
+  enable_soft_handoff: true
+  enable_endpoint_fallback: true
+
+runtime_contract:
+  source_collar: stage_phase_support_plus_semantic_and_fresh_actual_ack
+  bridge_planning: bounded_single_worker_non_blocking_poll
+  entry: actual_ack_c2_connector
+  middle: representative_reference_guided
+  successor_entry: bounded_fresh_act_b_prefix_index
+  command_execution: precomputed_queue_30hz
+  curvature: soft_except_cusp
+  final_command_dynamics: hard
+  intermediate_release: forbidden
+  generic_connector_live_default: disabled_without_collision_or_ik
+  live_and_mux_authority: external_trial_gate

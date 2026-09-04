@@ -1,0 +1,292 @@
+{
+  "composition_id": "web_dijkstra_3913fb5587a56af2",
+  "planner_provenance": {
+    "bridge_admission_mode": "flexible_level2",
+    "browser_plan_trusted": false,
+    "catalog_id": "a0509_t1_t8_semantic_v3_spatial_floor_20260902",
+    "catalog_path": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/config/interior_policy/a0509_t1_t8_operator_catalog_spatial_v2.json",
+    "catalog_sha256": "318504a80c28eb7a59bf1118e9894c3f2e94f53f09b11773e334eeb541f12f01",
+    "command_free_policy_shadow_required": "all_verified_edges",
+    "compiler_contract": "offline_episode_level_only_no_30hz_planning",
+    "dijkstra_operator_costs_unchanged": true,
+    "edge_registry": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/docs/artifacts/t1_t8_spatial_floor_level2_2026-09-02/edge_registry_level2_spatial_v4.json",
+    "edge_registry_sha256": "a25d36db3c5bf80e2d6ad97e7995b870f41fde1676d1a9730d690685d4ee7a12",
+    "final_policy_done_token_available": false,
+    "final_termination": "configured_policy_inference_horizon",
+    "forward_only": true,
+    "goal": {
+      "blue_block_location": "right_floor",
+      "drawer": "closed",
+      "gripper": "open",
+      "holding": "none"
+    },
+    "initial_state": {
+      "blue_block_location": "left_floor",
+      "contact_mode": "free_space",
+      "cursor_t1": 0,
+      "cursor_t2": 0,
+      "cursor_t3": 0,
+      "cursor_t4": 0,
+      "cursor_t5": 0,
+      "cursor_t6": 0,
+      "cursor_t7": 0,
+      "cursor_t8": 0,
+      "drawer": "closed",
+      "gripper": "open",
+      "holding": "none",
+      "last_policy": null,
+      "stack": "unknown",
+      "support_blue_block_location": "unknown",
+      "white_container": "closed"
+    },
+    "level2_only": true,
+    "operators": [
+      "T2.acquire_from_floor",
+      "T3.deliver_to_floor"
+    ],
+    "physical_validation_performed": false,
+    "policy_sequence": [
+      "T2",
+      "T3"
+    ],
+    "selected_plan_replayed_goal_satisfied": true,
+    "server_replanned": true,
+    "total_cost": 2.25,
+    "web_request": {
+      "allow_intermediate_release": false,
+      "bridge_admission_mode": "flexible_level2",
+      "enabled_operator_ids": [
+        "T1.acquire_from_black_table",
+        "T1.deliver_to_white_container",
+        "T1.open_white_container",
+        "T2.acquire_from_floor",
+        "T2.deliver_to_black_table",
+        "T3.acquire_from_black_table",
+        "T3.deliver_to_floor",
+        "T4.acquire_from_black_table",
+        "T4.close_drawer",
+        "T4.deliver_to_drawer",
+        "T4.open_drawer",
+        "T5.acquire_from_drawer",
+        "T5.close_drawer",
+        "T5.deliver_to_black_table",
+        "T5.open_drawer",
+        "T6.acquire_moving_block",
+        "T6.stack_on_support_block",
+        "T7.acquire_from_drawer_top",
+        "T7.deliver_to_black_table",
+        "T8.acquire_top_block_from_stack",
+        "T8.deliver_unstacked_to_black_table"
+      ],
+      "final_inference_steps": 1800,
+      "forward_only": true,
+      "goal": {
+        "blue_block_location": "right_floor",
+        "drawer": "closed",
+        "gripper": "open",
+        "holding": "none"
+      },
+      "initial_state": {
+        "blue_block_location": "left_floor",
+        "contact_mode": "free_space",
+        "cursor_t1": 0,
+        "cursor_t2": 0,
+        "cursor_t3": 0,
+        "cursor_t4": 0,
+        "cursor_t5": 0,
+        "cursor_t6": 0,
+        "cursor_t7": 0,
+        "cursor_t8": 0,
+        "drawer": "closed",
+        "gripper": "open",
+        "holding": "none",
+        "last_policy": null,
+        "stack": "unknown",
+        "support_blue_block_location": "unknown",
+        "white_container": "closed"
+      },
+      "level2_only": true,
+      "max_plans": 3,
+      "policy_switch_penalty": 0.25,
+      "same_policy_continuation_penalty": 0.0,
+      "schema_version": "a0509.web_episode_plan_request.v1"
+    },
+    "z_minimum_enabled": false,
+    "zero_cost_execution_tail": {
+      "eligible_source_contract": "held_object_free_transport_only",
+      "enabled_for_flexible_level2": true,
+      "fixed_z_minimum_used": false,
+      "records": [
+        {
+          "bridge_admission_mode": "flexible_level2",
+          "eligible": true,
+          "enabled": true,
+          "profile": {
+            "collar_phase_high": 0.5700000000000001,
+            "collar_phase_low": 0.55,
+            "collar_progress_mm_high": 40.76630032880936,
+            "collar_progress_mm_low": 28.948253216101175,
+            "commit_phase_high": 0.5700000000000001,
+            "commit_phase_low": 0.56,
+            "deadline_phase": 0.5900000000000001,
+            "derivation_method": "empirical_progress_support_collar_v1",
+            "episode_count": 31,
+            "fixed_z_minimum_used": false,
+            "nominal_phase": 0.5650000000000001,
+            "phase_half_width": 0.0050000000000000044,
+            "phase_points": 101,
+            "prearm_extra_phase": 0.06000000000000005,
+            "same_segment_as_semantic_exit": true,
+            "semantic_exit_phase": 0.5,
+            "semantic_exit_segment": "S2",
+            "source_operator": "T2.acquire_from_floor",
+            "support_residual_p90_limit_mm": 64.68415305617803,
+            "tracking_segment": "S2",
+            "tracking_start_phase": 0.5,
+            "zero_symbolic_cost": true
+          },
+          "reason": "derived",
+          "runtime_source_reference": {
+            "bank_path": null,
+            "episode_count": 31,
+            "medoid_episode": null,
+            "medoid_frame": null,
+            "nominal_phase": 0.5650000000000001,
+            "phase_window": [
+              0.56,
+              0.5700000000000001
+            ],
+            "reference_phase": 0.5,
+            "segment": "S2",
+            "selection_method": "legacy_same_segment_reference_future_join",
+            "validated_runtime_source_bank": false
+          },
+          "source_operator": "T2.acquire_from_floor",
+          "stage_id": "visit_00_t2_acquire_from_floor"
+        }
+      ]
+    }
+  },
+  "policies": {
+    "T2": {
+      "checkpoint": "/home/rvlab/lerobot_models/models/act_a0509_blue_block_t2_table_bs32_40k_20260821/040000/pretrained_model",
+      "reuse_context_policy": true
+    },
+    "T3": {
+      "checkpoint": "/home/rvlab/lerobot_models/models/act_a0509_blue_block_t3_bs32_40k_20260822/040000/pretrained_model",
+      "reuse_context_policy": false
+    }
+  },
+  "schema_version": "a0509.task_c_multi_stage_plan.v1",
+  "stages": [
+    {
+      "exit_authority": "phase_supervisor",
+      "operators": [
+        "T2.acquire_from_floor"
+      ],
+      "phase_supervisor": {
+        "backward_tolerance": 0.02,
+        "deadline_extra_phase": 0.020000000000000018,
+        "execution_tail": {
+          "collar_phase_high": 0.5700000000000001,
+          "collar_phase_low": 0.55,
+          "collar_progress_mm_high": 40.76630032880936,
+          "collar_progress_mm_low": 28.948253216101175,
+          "commit_phase_high": 0.5700000000000001,
+          "commit_phase_low": 0.56,
+          "deadline_phase": 0.5900000000000001,
+          "derivation_method": "empirical_progress_support_collar_v1",
+          "episode_count": 31,
+          "fixed_z_minimum_used": false,
+          "nominal_phase": 0.5650000000000001,
+          "phase_half_width": 0.0050000000000000044,
+          "phase_points": 101,
+          "prearm_extra_phase": 0.06000000000000005,
+          "same_segment_as_semantic_exit": true,
+          "semantic_exit_phase": 0.5,
+          "semantic_exit_segment": "S2",
+          "source_operator": "T2.acquire_from_floor",
+          "support_residual_p90_limit_mm": 64.68415305617803,
+          "tracking_segment": "S2",
+          "tracking_start_phase": 0.5,
+          "zero_symbolic_cost": true
+        },
+        "gripper_event": "open_then_closed",
+        "local_search_radius_indices": 5,
+        "persistence_ticks": 3,
+        "phase_half_width": 0.0050000000000000044,
+        "prearm_extra_phase": 0.06000000000000005,
+        "support_artifact": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/docs/artifacts/t2_semantic_only_graph_v3_2026-08-23/standardized_semantic_phase_trajectories.npz",
+        "support_distance_threshold_mm": null,
+        "support_loo_quantile": 0.95
+      },
+      "policy_id": "T2",
+      "stage_id": "visit_00_t2_acquire_from_floor"
+    },
+    {
+      "exit_authority": "policy_inference_end",
+      "inference_end_steps": 1800,
+      "operators": [
+        "T3.deliver_to_floor"
+      ],
+      "policy_id": "T3",
+      "stage_id": "visit_01_t3_deliver_to_floor",
+      "terminal": true
+    }
+  ],
+  "transitions": [
+    {
+      "bridge_admission_mode": "flexible_level2",
+      "bridge_admission_status": "flexible_verified",
+      "bridge_validation_method": "reference_deformation",
+      "handoff_manifest": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/docs/artifacts/t1_t8_flexible_level2_registry_2026-08-30/edges/t2_acquire_from_floor__to__t3_deliver_to_floor/flexible_reference_manifest.json",
+      "policy_shadow": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/docs/artifacts/t1_t8_flexible_level2_registry_2026-08-30/edges/t2_acquire_from_floor__to__t3_deliver_to_floor/flexible_policy_shadow.json",
+      "runtime_source_reference": {
+        "bank_path": null,
+        "episode_count": 31,
+        "medoid_episode": null,
+        "medoid_frame": null,
+        "nominal_phase": 0.5650000000000001,
+        "phase_window": [
+          0.56,
+          0.5700000000000001
+        ],
+        "reference_phase": 0.5,
+        "segment": "S2",
+        "selection_method": "legacy_same_segment_reference_future_join",
+        "validated_runtime_source_bank": false
+      },
+      "runtime_successor_reference": null,
+      "source_execution_tail": {
+        "collar_phase_high": 0.5700000000000001,
+        "collar_phase_low": 0.55,
+        "collar_progress_mm_high": 40.76630032880936,
+        "collar_progress_mm_low": 28.948253216101175,
+        "commit_phase_high": 0.5700000000000001,
+        "commit_phase_low": 0.56,
+        "deadline_phase": 0.5900000000000001,
+        "derivation_method": "empirical_progress_support_collar_v1",
+        "episode_count": 31,
+        "fixed_z_minimum_used": false,
+        "nominal_phase": 0.5650000000000001,
+        "phase_half_width": 0.0050000000000000044,
+        "phase_points": 101,
+        "prearm_extra_phase": 0.06000000000000005,
+        "same_segment_as_semantic_exit": true,
+        "semantic_exit_phase": 0.5,
+        "semantic_exit_segment": "S2",
+        "source_operator": "T2.acquire_from_floor",
+        "support_residual_p90_limit_mm": 64.68415305617803,
+        "tracking_segment": "S2",
+        "tracking_start_phase": 0.5,
+        "zero_symbolic_cost": true
+      },
+      "source_operator": "T2.acquire_from_floor",
+      "source_stage": "visit_00_t2_acquire_from_floor",
+      "successor_operator": "T3.deliver_to_floor",
+      "successor_stage": "visit_01_t3_deliver_to_floor",
+      "transition_id": "edge_00_t2_to_t3",
+      "uncertainty_penalty": 0.0
+    }
+  ]
+}

@@ -19,6 +19,7 @@ class MetaQuestA0509Config(TeleoperatorConfig):
     max_age_sec: float = 1.0
     connect_timeout_sec: float = 3.0
     require_fresh_action_on_connect: bool = True
+    defer_calibration_on_connect: bool = False
     allow_latched_state_in_shadow_record: bool = False
 
     def __post_init__(self) -> None:

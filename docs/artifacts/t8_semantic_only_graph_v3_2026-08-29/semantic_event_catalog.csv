@@ -1,0 +1,3 @@
+event_id,semantic_label,label_ko,gripper_change,manipulated_object,semantic_effect,representative_x_mm,representative_y_mm,representative_z_mm,confidence
+C1,grasp_top_blue_block_from_stack,적층 상단의 파란 블록 파지,open_to_closed,moving_blue_block,top_blue_block_held,574.2968139648438,240.6488494873047,321.4565887451172,high
+O1,release_unstacked_blue_block_on_black_table,분리한 파란 블록을 검은 테이블에 방출,closed_to_open,moving_blue_block,blue_block_stack_disassembled,336.67445373535156,4.766216516494751,331.82432556152344,high

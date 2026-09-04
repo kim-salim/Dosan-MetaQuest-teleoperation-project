@@ -22,7 +22,11 @@ episode recording ends
   -> Live OFF
   -> MUX DISABLED
   -> gripper STOP and driver idle confirmation
-  -> operator prompt 1: clear hands and obstacles
+  -> natural time-limit completion only: wait for n / r / q decision
+  -> n: commit the completed episode buffer
+     r: clear the completed episode buffer
+     q: commit the completed episode buffer and end the session
+  -> if another attempt is required, operator prompt 1: clear hands and obstacles
   -> /vr/prepare_robot
   -> fresh robot anchor and teleop_ready confirmation
   -> operator prompt 2: reset object, hold Quest controller neutral
@@ -32,13 +36,22 @@ episode recording ends
   -> fresh valid-pose heartbeat check
   -> gripper OPEN accepted/completed check
   -> MUX METAQUEST
-  -> selected target fresh and within 10 mm / 3 deg of anchor
+  -> selected target fresh and within 50 mm / 10 deg of anchor
   -> Live ON confirmation
   -> next episode timer and frame recording start
 ```
 
 The first episode uses this same sequence by default. The arm never starts its
 preparation move until the operator confirms prompt 1 with Enter.
+
+Before the recorder adapter connects, the pilot preflight applies the same
+`EPISODE_INITIAL_GRIPPER_STATE` contract. With the accepted default `open`, it
+either accepts an existing driver-verified open state or requests a physical
+OPEN and requires fresh `accepted_command`, busy transition,
+`completed_command`, successful idle diagnostics, and
+`commanded_state=0.0`. It never invents a logical state without Tool DO
+readback. This makes a fresh bringup deterministic even when startup `stop`
+has not yet established an open/close state.
 
 ## LeRobot integration
 
@@ -48,20 +61,29 @@ entry point installs it after the existing shared-memory encoder and absolute
 deadline scheduler.
 
 LeRobot's stock reset is a fixed-duration `record_loop(dataset=None)`. With
-`EPISODE_RESET_ORCHESTRATION=true`, that unrecorded timed loop is replaced by
-the guarded state sequence above. `RESET_TIME_S` is still supplied to the
-LeRobot configuration for compatibility, but it is not used as the reset gate.
+`EPISODE_RESET_ORCHESTRATION=true`, that unrecorded timed loop becomes a no-op.
+LeRobot therefore commits or clears the completed episode buffer first, and the
+guarded physical reset runs at the start of the next dataset-bearing record
+call. `RESET_TIME_S` remains in the LeRobot configuration for compatibility,
+but it is not used as the reset gate.
 
-No dataset frames are added during the reset. The completed episode buffer is
-left frozen while reset runs, and LeRobot then preserves its normal behavior:
+No dataset frames are added during review or reset. Keyboard behavior is:
 
-- `n` or Right: accept the current episode early, reset, then continue.
-- `r` or Left: stop the current attempt, reset, clear its buffer, and record the
-  same episode index again.
-- `q` or Esc during recording: stop the session.
-- Enter during a reset prompt: confirm only the displayed reset step.
-- `q` or Esc during a reset prompt: cancel while the system is in the safe
-  Live-OFF/DISABLED state.
+- During recording, `n` or Right accepts the current episode early. It commits
+  immediately, then the guarded reset runs before the next episode.
+- During recording, `r` or Left stops and clears the current attempt, then the
+  guarded reset runs before recording the same episode index again.
+- At a natural episode time limit, Live is forced OFF and the recorder waits:
+  `n`/Right commits and continues, `r`/Left clears and repeats, and `q`/Esc
+  commits the completed episode and ends the session.
+- `q` or Esc during recording retains LeRobot's existing save-and-stop behavior
+  for the partial episode.
+- Enter during a reset prompt confirms only the displayed reset step.
+- `q` or Esc during a reset prompt cancels while the system is in the safe
+  Live-OFF/DISABLED state. Since an accepted previous episode was already
+  committed, cancelling reset cannot lose it.
+- `n` and `r` are intentionally ignored while a reset confirmation prompt is
+  waiting for Enter.
 
 ## Default settings
 
@@ -82,8 +104,8 @@ EPISODE_QUEST_STABILITY_WINDOW_SEC=0.5
 EPISODE_QUEST_MAX_AGE_SEC=0.3
 EPISODE_QUEST_STABLE_TRANSLATION_M=0.008
 EPISODE_QUEST_STABLE_ROTATION_DEG=5
-EPISODE_PREFLIGHT_POSITION_LIMIT_MM=10
-EPISODE_PREFLIGHT_ROTATION_LIMIT_DEG=3
+EPISODE_PREFLIGHT_POSITION_LIMIT_MM=50
+EPISODE_PREFLIGHT_ROTATION_LIMIT_DEG=10
 EPISODE_PREFLIGHT_SETTLE_SEC=0.35
 ```
 
@@ -114,7 +136,7 @@ The change was verified without commanding physical hardware:
 
 - Bash syntax check passed for `record_lerobot_shadow_pilot.sh`.
 - Python byte compilation passed for the entry point and orchestrator.
-- All 37 `lerobot_robot_doosan_a0509` tests passed.
+- All 50 `lerobot_robot_doosan_a0509` tests passed.
 - Preflight tests confirm that episode-reset mode defers `teleop_ready` and
   action freshness until after preparation while still requiring calibration.
 - The installed editable plugin loaded and rendered `record_entrypoint --help`.

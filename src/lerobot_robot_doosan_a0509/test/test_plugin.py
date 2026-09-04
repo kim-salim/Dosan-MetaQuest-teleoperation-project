@@ -21,6 +21,15 @@ from lerobot_robot_doosan_a0509 import (
     ZedLeftCamera,
     ZedLeftCameraConfig,
 )
+from lerobot_robot_doosan_a0509.doosan_a0509_ros import (
+    ACTION_KEYS,
+    OBSERVATION_SCALAR_KEYS,
+    ROLLOUT_ACTION_KEYS,
+    ROLLOUT_ACTION_KEY_MAP,
+    ROLLOUT_OBSERVATION_KEYS,
+    ROLLOUT_OBSERVATION_KEY_MAP,
+    TCP_KEYS,
+)
 from lerobot_robot_doosan_a0509.gripper_latch import GripperLatch
 from lerobot_robot_doosan_a0509.ros_runtime import RosRuntime
 from lerobot_robot_doosan_a0509.topic_cache import TopicCache, TopicUnavailableError
@@ -88,6 +97,21 @@ def test_default_cameras_register_two_c920_and_zed_left_rgb(tmp_path):
     assert config.state_max_age_sec == 0.5
     assert config.state_startup_max_age_sec == 1.0
     assert config.state_startup_grace_reads == 30
+    assert config.commanded_posx_topic == "/vr/commanded_posx"
+
+
+def test_commanded_posx_callback_caches_streamer_output(tmp_path):
+    robot = DoosanA0509Ros(robot_config(tmp_path))
+    message = type("Message", (), {"data": [400.0, 0.0, 450.0, 0.0, 150.0, 0.0]})()
+    robot._on_commanded_posx(message)
+    assert robot.cache.require_present("commanded_posx").value == (
+        400.0,
+        0.0,
+        450.0,
+        0.0,
+        150.0,
+        0.0,
+    )
 
 
 def test_camera_frame_age_limit_returns_to_normal_after_startup_grace(tmp_path):
@@ -187,7 +211,7 @@ def test_config_rejects_unsupported_mode(tmp_path):
         )
 
 
-def populate_robot_state(robot, *, ready=True, state=1, age=0.0):
+def populate_robot_state(robot, *, ready=True, live=True, state=1, age=0.0):
     now = time.monotonic() - age
     robot.cache.update("joint_positions", (0.0,) * 6, receive_time=now)
     robot.cache.update(
@@ -197,7 +221,7 @@ def populate_robot_state(robot, *, ready=True, state=1, age=0.0):
     robot.cache.update("gripper_commanded_state", 0.0, receive_time=now)
     robot.cache.update("solution_space", 0.0, receive_time=now)
     robot.cache.update("teleop_ready", ready, receive_time=now)
-    robot.cache.update("live_state", False, receive_time=now)
+    robot.cache.update("live_state", live, receive_time=now)
 
 
 def test_config_registration_and_factory(tmp_path):
@@ -256,6 +280,51 @@ def test_observation_features_match_returned_state(tmp_path):
         robot.disconnect()
 
 
+def test_recording_preserves_raw_doosan_zyz_branch(tmp_path):
+    robot = DoosanA0509Ros(robot_config(tmp_path, "shadow_record"))
+    raw_orientation = (177.3676605, -149.9667816, 177.7001038)
+    try:
+        robot.connect()
+        populate_robot_state(robot)
+        robot.cache.update(
+            "actual_tcp_position",
+            (428.72, -2.53, 456.93, *raw_orientation),
+        )
+
+        observation = robot.get_observation()
+
+        assert tuple(observation[key] for key in TCP_KEYS[3:]) == pytest.approx(
+            raw_orientation
+        )
+    finally:
+        robot.disconnect()
+
+
+@pytest.mark.parametrize("mode", ("policy_dry_run", "policy_live"))
+def test_policy_observation_canonicalizes_equivalent_doosan_zyz_branch(
+    tmp_path, mode
+):
+    robot = DoosanA0509Ros(robot_config(tmp_path, mode))
+    raw_orientation = (177.3676605, -149.9667816, 177.7001038)
+    expected_canonical = (-2.6323395, 149.9667816, -2.2998962)
+    try:
+        robot.connect()
+        populate_robot_state(robot)
+        robot.cache.update(
+            "actual_tcp_position",
+            (428.72, -2.53, 456.93, *raw_orientation),
+        )
+
+        observation = robot.get_observation()
+        canonical = tuple(
+            observation[ROLLOUT_OBSERVATION_KEY_MAP[key]] for key in TCP_KEYS[3:]
+        )
+
+        assert canonical == pytest.approx(expected_canonical, abs=1.0e-6)
+    finally:
+        robot.disconnect()
+
+
 def test_recording_observation_allows_old_latched_gripper_state(tmp_path):
     robot = DoosanA0509Ros(robot_config(tmp_path, "shadow_record"))
     try:
@@ -272,7 +341,7 @@ def test_recording_observation_allows_old_latched_gripper_state(tmp_path):
         robot.disconnect()
 
 
-def test_policy_live_connect_keeps_full_freshness_gate(tmp_path):
+def test_policy_live_connect_separates_dynamic_and_latched_state(tmp_path):
     config = DoosanA0509RosConfig(
         id="test_policy_live_connect_gate",
         calibration_dir=tmp_path,
@@ -283,12 +352,14 @@ def test_policy_live_connect_keeps_full_freshness_gate(tmp_path):
     )
     robot = DoosanA0509Ros(config)
     populate_robot_state(robot)
-    robot.cache.update(
-        "teleop_ready",
-        True,
-        receive_time=time.monotonic() - 60.0,
-    )
-    with pytest.raises(RuntimeError, match="stale topic teleop_ready"):
+    old = time.monotonic() - 60.0
+    robot.cache.update("gripper_commanded_state", 0.0, receive_time=old)
+    robot.cache.update("teleop_ready", True, receive_time=old)
+    robot.cache.update("live_state", False, receive_time=old)
+    robot._wait_for_required_state(0.0)
+
+    robot.cache.update("robot_state", 1.0, receive_time=old)
+    with pytest.raises(RuntimeError, match="stale topic robot_state"):
         robot._wait_for_required_state(0.0)
 
 
@@ -315,11 +386,89 @@ def test_policy_dry_run_only_uses_debug_publisher(tmp_path):
         robot.disconnect()
 
 
+@pytest.mark.parametrize("mode", ("policy_dry_run", "policy_live"))
+def test_policy_modes_expose_lerobot_rollout_position_aliases(tmp_path, mode):
+    robot = DoosanA0509Ros(robot_config(tmp_path, mode))
+    try:
+        robot.connect()
+        populate_robot_state(robot)
+        observation = robot.get_observation()
+        assert tuple(robot.observation_features) == ROLLOUT_OBSERVATION_KEYS
+        assert tuple(observation) == ROLLOUT_OBSERVATION_KEYS
+        assert tuple(robot.action_features) == ROLLOUT_ACTION_KEYS
+        assert all(key.endswith(".pos") for key in ROLLOUT_OBSERVATION_KEYS)
+        assert all(key.endswith(".pos") for key in ROLLOUT_ACTION_KEYS)
+        assert len(ROLLOUT_OBSERVATION_KEYS) == len(OBSERVATION_SCALAR_KEYS) == 13
+        assert len(ROLLOUT_ACTION_KEYS) == len(ACTION_KEYS) == 7
+    finally:
+        robot.disconnect()
+
+
+def test_policy_rollout_action_aliases_map_back_to_canonical_contract(tmp_path):
+    robot = DoosanA0509Ros(robot_config(tmp_path, "policy_dry_run"))
+    alias_action = {
+        ROLLOUT_ACTION_KEY_MAP[key]: value for key, value in VALID_ACTION.items()
+    }
+    try:
+        robot.connect()
+        returned = robot.send_action(alias_action)
+        assert returned == VALID_ACTION
+        assert robot.debug_publish_count == 1
+        assert robot.live_publish_count == 0
+    finally:
+        robot.disconnect()
+
+
+def test_policy_gripper_clips_only_small_numeric_overshoot(tmp_path):
+    robot = DoosanA0509Ros(robot_config(tmp_path, "policy_dry_run"))
+    try:
+        robot.connect()
+        below = robot.send_action({**VALID_ACTION, "gripper_target": -0.0009})
+        above = robot.send_action({**VALID_ACTION, "gripper_target": 1.0009})
+        assert below["gripper_target"] == 0.0
+        assert above["gripper_target"] == 1.0
+
+        with pytest.raises(ValueError, match="gripper_target"):
+            robot.send_action({**VALID_ACTION, "gripper_target": -0.06})
+        with pytest.raises(ValueError, match="gripper_target"):
+            robot.send_action({**VALID_ACTION, "gripper_target": 1.06})
+        assert robot.debug_publish_count == 2
+        assert robot.live_publish_count == 0
+    finally:
+        robot.disconnect()
+
+
+def test_policy_live_clips_bounded_gripper_regression_overshoot(tmp_path):
+    robot = DoosanA0509Ros(robot_config(tmp_path, "policy_live"))
+    try:
+        robot.connect()
+        populate_robot_state(robot)
+
+        below = robot.send_action({**VALID_ACTION, "gripper_target": -0.010388})
+        above = robot.send_action(
+            {**VALID_ACTION, "gripper_target": 1.0727028846740723}
+        )
+        assert below["gripper_target"] == 0.0
+        assert above["gripper_target"] == 1.0
+
+        with pytest.raises(ValueError, match="gripper_target"):
+            robot.send_action({**VALID_ACTION, "gripper_target": -0.251})
+        with pytest.raises(ValueError, match="gripper_target"):
+            robot.send_action({**VALID_ACTION, "gripper_target": 1.251})
+        assert robot.live_publish_count == 2
+    finally:
+        robot.disconnect()
+
+
 def test_policy_live_publishes_only_mux_inputs_after_gate(tmp_path):
     robot = DoosanA0509Ros(robot_config(tmp_path, "policy_live"))
     try:
         robot.connect()
         populate_robot_state(robot)
+        old = time.monotonic() - 60.0
+        robot.cache.update("gripper_commanded_state", 0.0, receive_time=old)
+        robot.cache.update("teleop_ready", True, receive_time=old)
+        robot.cache.update("live_state", True, receive_time=old)
         robot.send_action(VALID_ACTION)
         assert robot.live_publish_count == 1
         assert robot.config.lerobot_target_topic == "/control/lerobot/target_posx"
@@ -341,6 +490,9 @@ def test_policy_live_rejects_stale_not_ready_and_disallowed_state(tmp_path):
             robot.send_action(VALID_ACTION)
         populate_robot_state(robot, ready=False)
         with pytest.raises(RuntimeError, match="teleop_ready=false"):
+            robot.send_action(VALID_ACTION)
+        populate_robot_state(robot, live=False)
+        with pytest.raises(RuntimeError, match="Live robot output is disabled"):
             robot.send_action(VALID_ACTION)
         populate_robot_state(robot, state=99)
         with pytest.raises(RuntimeError, match="robot_state=99"):
@@ -460,6 +612,25 @@ def test_metaquest_rejects_invalid_calibration_on_connect_and_action(tmp_path):
         assert teleop.config.heartbeat_topic == (
             "/control/metaquest/valid_pose_heartbeat"
         )
+    finally:
+        teleop.disconnect()
+
+
+def test_metaquest_can_defer_connect_calibration_but_still_rejects_action(tmp_path):
+    teleop = MetaQuestA0509(
+        MetaQuestA0509Config(
+            id="deferred_calibration_teacher",
+            calibration_dir=tmp_path,
+            connect_timeout_sec=0.0,
+            require_fresh_action_on_connect=False,
+            defer_calibration_on_connect=True,
+        )
+    )
+    teleop.connect()
+    try:
+        assert teleop.is_connected
+        with pytest.raises(RuntimeError, match="calibration is invalid"):
+            teleop.get_action()
     finally:
         teleop.disconnect()
 

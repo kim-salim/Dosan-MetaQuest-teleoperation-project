@@ -1,0 +1,276 @@
+{
+  "schema_version": "a0509.physical_validation_ledger.v1",
+  "ledger_id": "a0509_v13_operator_confirmed_8_task_types_20260904",
+  "recorded_at": "2026-09-04T23:15:19+09:00",
+  "baseline_version": "v13",
+  "baseline_status": "validated_baseline",
+  "registry": {
+    "path": "docs/artifacts/t1_t8_spatial_floor_level2_semantic_local_all_2026-09-03/edge_registry_level2_spatial_v13.json",
+    "composition_id": "a0509_t1_t8_spatial_floor_shared_profile_ramp8p5_level2_v13_20260904",
+    "sha256": "b50abbf55d449eb26d820dc4a083dde105665b38d3fe25aee2482a7efd75c640",
+    "modified_by_this_ledger": false
+  },
+  "runtime_command_profile": {
+    "profile_id": "a0509_ramp8p5_ack_span2_v1",
+    "linear_ramp_mm_per_tick": 8.5,
+    "orientation_ramp_deg_per_tick": 1.25,
+    "control_hz": 30.0,
+    "axis_velocity_limit_mm_s": 255.0,
+    "cartesian_velocity_limit_mm_s": 300.0,
+    "acknowledged_command_span_steps": 2,
+    "max_ack_lag_steps": 1
+  },
+  "level_name_contract": {
+    "meaning": "User experiment grouping recorded in this ledger",
+    "not_equivalent_to": "The flexible_level2 edge-admission status used by the runtime registry",
+    "trash_bin_runtime_alias": "white_container"
+  },
+  "outcome_contract": {
+    "success_authority": "operator_observation",
+    "success_claim": "At least one physically successful execution was confirmed for each listed task type.",
+    "not_a_success_rate_claim": true,
+    "attempt_count_known": false,
+    "perception_verified": false,
+    "automatic_terminal_success_required": false,
+    "machine_log_caveat": "The successor policy owns completion. Several representative runs were stopped by the operator after the visible task outcome, so the original immutable trace ends in live_disabled_during_transition/FAILED_HOLD instead of an automatic success token.",
+    "original_run_reports_modified": false
+  },
+  "summary": {
+    "task_type_count": 8,
+    "operator_confirmed_success_count": 8,
+    "minimum_confirmed_successes": 8,
+    "v13_profile_full_transition_trace_backed_count": 5,
+    "operator_confirmed_without_matching_v13_full_transition_trace_count": 3,
+    "automatic_terminal_success_recorded_count": 0,
+    "failed_task_type_count": 0
+  },
+  "tasks": [
+    {
+      "task_id": "L1-01",
+      "group": "level_1",
+      "description_ko": "왼쪽 바닥에서 오른쪽 바닥으로 이동",
+      "operators": [
+        "T2.acquire_from_floor",
+        "T3.deliver_to_floor"
+      ],
+      "outcome": "success",
+      "outcome_authority": "operator_confirmed",
+      "minimum_successful_trials": 1,
+      "attempt_count": null,
+      "v13_profile_full_transition_trace_backed": true,
+      "representative_evidence": {
+        "kind": "v13_runtime_trace_plus_operator_observation",
+        "run_id": "20260904_175424_833605_6b6fa269cbf1",
+        "run_dir": "/home/rvlab/a0509_web_runs/20260904_175424_833605_6b6fa269cbf1",
+        "profile_id": "a0509_ramp8p5_ack_span2_v1",
+        "transition_takeovers": [
+          "T2->T3"
+        ],
+        "authoritative_plan_sha256": "9076eebaaeb0f3b847f989ede450bfef4d5b1d0c67efe4633fcd97495200b7f3",
+        "execute_gate_report_sha256": "3e07723f4188c8b3c3484dd2132cbc1b30f2ac2b439cd76db820760d13f7dd75",
+        "runtime_trace_sha256": "025f1c770c56adc44c320bf45d73e64dc559255419dc09f2ac13771bc8a9fe79",
+        "automatic_terminal_success_recorded": false,
+        "trace_terminal_state": "FAILED_HOLD_AFTER_OPERATOR_LIVE_OFF"
+      }
+    },
+    {
+      "task_id": "L1-02",
+      "group": "level_1",
+      "description_ko": "서랍 위에서 오른쪽 바닥으로 이동",
+      "operators": [
+        "T7.acquire_from_drawer_top",
+        "T3.deliver_to_floor"
+      ],
+      "outcome": "success",
+      "outcome_authority": "operator_confirmed",
+      "minimum_successful_trials": 1,
+      "attempt_count": null,
+      "v13_profile_full_transition_trace_backed": true,
+      "representative_evidence": {
+        "kind": "v13_runtime_trace_plus_operator_observation",
+        "run_id": "20260904_175722_116846_cbe7fba1e09d",
+        "run_dir": "/home/rvlab/a0509_web_runs/20260904_175722_116846_cbe7fba1e09d",
+        "profile_id": "a0509_ramp8p5_ack_span2_v1",
+        "transition_takeovers": [
+          "T7->T3"
+        ],
+        "authoritative_plan_sha256": "6addc487b7178eec29025f15ad89768890cde841691e36ca7255681a362a214d",
+        "execute_gate_report_sha256": "684ac346e46e767d37130d0731591982b29698e8d07529ba506a9c84d91eb8b9",
+        "runtime_trace_sha256": "5e02cf5baedd166f154dc7cd254e8902993c56ffa712bf414344cba61b2e90df",
+        "automatic_terminal_success_recorded": false,
+        "trace_terminal_state": "FAILED_HOLD_AFTER_OPERATOR_LIVE_OFF"
+      }
+    },
+    {
+      "task_id": "L1-03",
+      "group": "level_1",
+      "description_ko": "왼쪽 바닥에서 블록 쌓기",
+      "operators": [
+        "T2.acquire_from_floor",
+        "T6.stack_on_support_block"
+      ],
+      "outcome": "success",
+      "outcome_authority": "operator_confirmed",
+      "minimum_successful_trials": 1,
+      "attempt_count": null,
+      "v13_profile_full_transition_trace_backed": true,
+      "representative_evidence": {
+        "kind": "v13_runtime_trace_plus_operator_observation",
+        "run_id": "20260904_194814_836120_035e71463cef",
+        "run_dir": "/home/rvlab/a0509_web_runs/20260904_194814_836120_035e71463cef",
+        "profile_id": "a0509_ramp8p5_ack_span2_v1",
+        "transition_takeovers": [
+          "T2->T6"
+        ],
+        "authoritative_plan_sha256": "b5be5f19ced2beaba7a3a71ca2e79b3a488d63f9b1f98cb5a5e297844cac0b99",
+        "execute_gate_report_sha256": "2e0ca6d8511ceea8bb3a7ec47bdff5b694389f2e4fe935163f6c20cba84b5e58",
+        "runtime_trace_sha256": "171d1aa9d14e1b1d164d91a24af4de9fc8aa5f0c08f281342a1f8002b681543f",
+        "automatic_terminal_success_recorded": false,
+        "trace_terminal_state": "FAILED_HOLD_AFTER_OPERATOR_LIVE_OFF"
+      }
+    },
+    {
+      "task_id": "L1-04",
+      "group": "level_1",
+      "description_ko": "서랍 위에서 블록 쌓기",
+      "operators": [
+        "T7.acquire_from_drawer_top",
+        "T6.stack_on_support_block"
+      ],
+      "outcome": "success",
+      "outcome_authority": "operator_confirmed",
+      "minimum_successful_trials": 1,
+      "attempt_count": null,
+      "v13_profile_full_transition_trace_backed": true,
+      "representative_evidence": {
+        "kind": "v13_runtime_trace_plus_operator_observation",
+        "run_id": "20260904_195046_835748_a498e165e44b",
+        "run_dir": "/home/rvlab/a0509_web_runs/20260904_195046_835748_a498e165e44b",
+        "profile_id": "a0509_ramp8p5_ack_span2_v1",
+        "transition_takeovers": [
+          "T7->T6"
+        ],
+        "authoritative_plan_sha256": "269ab5ac8ace2384f87d732366fca0c8bf0885a65837d67150b509e25a711c39",
+        "execute_gate_report_sha256": "38b7604dbe2c1eec627dbad28889853cc87ab9ccf601d41179a6039356b23e65",
+        "runtime_trace_sha256": "8680eb7dc0ad06e95aa1ea455b333eea77511053f96ab351f6825618bd89fc79",
+        "automatic_terminal_success_recorded": false,
+        "trace_terminal_state": "FAILED_HOLD_AFTER_OPERATOR_LIVE_OFF"
+      }
+    },
+    {
+      "task_id": "L1-05",
+      "group": "level_1",
+      "description_ko": "쌓은 블록에서 오른쪽 바닥으로 이동",
+      "operators": [
+        "T8.acquire_top_block_from_stack",
+        "T3.deliver_to_floor"
+      ],
+      "outcome": "success",
+      "outcome_authority": "operator_confirmed",
+      "minimum_successful_trials": 1,
+      "attempt_count": null,
+      "v13_profile_full_transition_trace_backed": false,
+      "representative_evidence": {
+        "kind": "operator_observation_plus_v13_offline_edge_evidence",
+        "run_id": null,
+        "profile_id": "a0509_ramp8p5_ack_span2_v1",
+        "evidence_gap": "No selected T8->T3 v13 web run was found under /home/rvlab/a0509_web_runs at checkpoint time.",
+        "edge_manifest": "docs/artifacts/t1_t8_spatial_floor_level2_semantic_local_all_2026-09-03/edges/t8_acquire_top_block_from_stack__to__t3_deliver_to_floor/flexible_reference_manifest.json",
+        "edge_manifest_sha256": "4f5c6a656212a6fe11ae457b48f5f79ac0d43fcaeae5875ddc47592d66bdd086",
+        "policy_shadow_sha256": "1102c061f81931ee2e223c027b6250d8a989efeed11cedd9cadb8b4f700ce67b",
+        "automatic_terminal_success_recorded": false,
+        "trace_terminal_state": null
+      }
+    },
+    {
+      "task_id": "L2-01",
+      "group": "level_2",
+      "description_ko": "서랍 위 블록을 서랍 안에 넣기",
+      "operators": [
+        "T4.open_drawer",
+        "T7.acquire_from_drawer_top",
+        "T4.deliver_to_drawer",
+        "T4.close_drawer"
+      ],
+      "outcome": "success",
+      "outcome_authority": "operator_confirmed",
+      "minimum_successful_trials": 1,
+      "attempt_count": null,
+      "v13_profile_full_transition_trace_backed": true,
+      "representative_evidence": {
+        "kind": "v13_runtime_trace_plus_operator_observation",
+        "run_id": "20260904_180140_340850_3fb3ace31d5d",
+        "run_dir": "/home/rvlab/a0509_web_runs/20260904_180140_340850_3fb3ace31d5d",
+        "profile_id": "a0509_ramp8p5_ack_span2_v1",
+        "transition_takeovers": [
+          "T4->T7",
+          "T7->T4"
+        ],
+        "authoritative_plan_sha256": "acdd65494928f45824ba1668c8fe03b898ac6b3b77d9b1b658b13851f059fcf7",
+        "execute_gate_report_sha256": "07dd7d0a9a14b6f453a4e4cc215f0e1c39cceb0894d2cb585d5f3a45c4d600ec",
+        "runtime_trace_sha256": "f98067705333825153c188cdf4194def2f63a18bbe95aa482b2070f32f29eca2",
+        "automatic_terminal_success_recorded": false,
+        "trace_terminal_state": "FAILED_HOLD_AFTER_OPERATOR_LIVE_OFF"
+      }
+    },
+    {
+      "task_id": "L2-02",
+      "group": "level_2",
+      "description_ko": "왼쪽 바닥 블록을 서랍 안에 넣기",
+      "operators": [
+        "T4.open_drawer",
+        "T2.acquire_from_floor",
+        "T4.deliver_to_drawer",
+        "T4.close_drawer"
+      ],
+      "outcome": "success",
+      "outcome_authority": "operator_confirmed",
+      "minimum_successful_trials": 1,
+      "attempt_count": null,
+      "v13_profile_full_transition_trace_backed": false,
+      "representative_evidence": {
+        "kind": "operator_observation_plus_v13_plan_and_offline_edge_evidence",
+        "run_id": "20260904_175935_749605_6efa59f345fc",
+        "run_dir": "/home/rvlab/a0509_web_runs/20260904_175935_749605_6efa59f345fc",
+        "profile_id": "a0509_ramp8p5_ack_span2_v1",
+        "evidence_gap": "The matching v13 plan exists, but its stored trace stopped during the initial T4 stage and does not contain both cross-policy takeovers.",
+        "authoritative_plan_sha256": "54dfe6ef23ccb2efbcd5d213548d9587395a95a1f1eefe529f6afd5517ba2f67",
+        "execute_gate_report_sha256": "631603659d58ad6e190d57cbddfb3780e666d7cf6492c377ce3886cbbb74418f",
+        "runtime_trace_sha256": "758afcda46c6877be3a0ade77f4202484d4dbe1567227c5c2bdf4030fa99e0b7",
+        "automatic_terminal_success_recorded": false,
+        "trace_terminal_state": "FAILED_HOLD_DURING_INITIAL_T4"
+      }
+    },
+    {
+      "task_id": "L2-03",
+      "group": "level_2",
+      "description_ko": "왼쪽 바닥 블록을 쓰레기통(white_container) 안에 넣기",
+      "operators": [
+        "T1.open_white_container",
+        "T2.acquire_from_floor",
+        "T1.deliver_to_white_container"
+      ],
+      "outcome": "success",
+      "outcome_authority": "operator_confirmed",
+      "minimum_successful_trials": 1,
+      "attempt_count": null,
+      "v13_profile_full_transition_trace_backed": false,
+      "representative_evidence": {
+        "kind": "operator_observation_plus_precursor_full_transition_trace_and_v13_offline_edges",
+        "run_id": "20260903_172629_416725_28009162f7b9",
+        "run_dir": "/home/rvlab/a0509_web_runs/20260903_172629_416725_28009162f7b9",
+        "profile_id": null,
+        "transition_takeovers": [
+          "T1->T2",
+          "T2->T1"
+        ],
+        "evidence_gap": "The stored full-transition trace predates explicit v13 runtime-profile stamping; the v13 success classification is therefore operator-confirmed rather than v13-trace-backed.",
+        "authoritative_plan_sha256": "0366ce94c5fd03b5523a708449abb3b1aaf9c42fa4eb6156041353f2bb989597",
+        "execute_gate_report_sha256": "025cf56a6ad25e58cd70222b579fc82f730cde332e714b09b10693025d6b7369",
+        "runtime_trace_sha256": "95711c1f5f24cd75f7cbaf837827bbd44d95ac7659e529484487969345411060",
+        "automatic_terminal_success_recorded": false,
+        "trace_terminal_state": "FAILED_HOLD_AFTER_OPERATOR_LIVE_OFF"
+      }
+    }
+  ]
+}

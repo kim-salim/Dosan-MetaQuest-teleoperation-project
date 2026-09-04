@@ -1,0 +1,3935 @@
+{
+  "bridge": {
+    "ack_span_steps": 2,
+    "bridge_algorithm": "reference_guided_c2_v1",
+    "bridge_mode": "flexible_level2",
+    "candidate_diagnostics": {
+      "actual_reference_start_error_mm": 0.0,
+      "collision_checked": false,
+      "curvature_p95_moving_per_mm": 0.0044481015299680975,
+      "duration_s": 4.0,
+      "entry_fraction": 0.18,
+      "exit_fraction": 0.82,
+      "future_join_lookahead_fraction": null,
+      "generator_type": "reference_deformation",
+      "hard_rejection_reasons": [],
+      "ik_checked": false,
+      "max_acceleration_mm_s2": 44.97036128918262,
+      "max_ack_span_axis_step_mm": 6.077843594766648,
+      "max_ack_span_orientation_step_deg": 0.18483548301037508,
+      "max_command_acceleration_mm_s2": 44.285223527722195,
+      "max_command_jerk_mm_s3": 657.4298903537318,
+      "max_curvature_per_mm": 0.004499352372633864,
+      "max_curvature_u": 0.6125,
+      "max_jerk_mm_s3": 20.887094957319917,
+      "max_normal_acceleration_mm_s2": 9.288886737176215,
+      "max_orientation_step_deg": 0.09241774149599163,
+      "max_position_axis_step_mm": 3.062711405791134,
+      "max_velocity_mm_s": 93.54966730182825,
+      "ood_score": 0.0,
+      "reference_projection_fraction": null,
+      "reference_rms_error_mm": 0.0,
+      "score": 0.20692673859598032,
+      "self_intersection_checked": true,
+      "source_tangent_angle_deg": 0.0,
+      "speed_at_max_curvature_mm_s": 44.61711662067517,
+      "tangent_handle_chord_ratio": 0.0
+    },
+    "candidate_generator_type": "reference_deformation",
+    "collision_checked": false,
+    "duration_s": 4.0,
+    "generation_latency_ms": 38.15418318845332,
+    "gripper_target": 1.0,
+    "handoff_window_start_index": 96,
+    "ik_checked": false,
+    "integrated_squared_jerk": 1745.0829430243962,
+    "length_mm": 234.08240218685745,
+    "max_acceleration_mm_s2": 44.97036128918262,
+    "max_ack_span_axis_step_mm": 6.077843594766648,
+    "max_ack_span_orientation_step_deg": 0.18483548301037508,
+    "max_axis_step_mm": 3.062711405791134,
+    "max_axis_velocity_mm_s": 92.60204866401378,
+    "max_jerk_mm_s3": 20.887094957319917,
+    "max_orientation_step_deg": 0.09241774149599163,
+    "max_velocity_mm_s": 93.54966730182825,
+    "maximum_endpoint_speed_adjustment_mm_s": null,
+    "minimum_tangent_handle_chord_ratio": 0.0,
+    "selected_candidate_score": 0.20692673859598032,
+    "source_endpoint_speed_adjustment_mm_s": 0.0,
+    "steps": 120,
+    "successor_endpoint_speed_adjustment_mm_s": 0.0,
+    "transport_floor_mm": null,
+    "workspace_min_limit_enabled": [
+      true,
+      true,
+      false
+    ]
+  },
+  "bridge_admission_mode": "flexible_level2",
+  "checkpoint_b": "/home/rvlab/lerobot_models/models/act_a0509_blue_block_t3_bs32_40k_20260822/040000/pretrained_model",
+  "commands": [
+    {
+      "action": [
+        377.4494143814049,
+        84.75427467819324,
+        539.7878554012458,
+        2.0769060481162285,
+        155.79333198858637,
+        2.3965507341836485,
+        1.0
+      ],
+      "bridge_index": 0,
+      "bridge_progress": 0.008333333333333333,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.08294498547911644,
+      "timestamp_s": 1868463.541481472
+    },
+    {
+      "action": [
+        377.4415889359265,
+        81.73914248921773,
+        539.3640167256651,
+        2.0769757064582848,
+        155.79310091638808,
+        2.3966285935765086,
+        1.0
+      ],
+      "bridge_index": 1,
+      "bridge_progress": 0.016666666666666666,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.18901913426816463,
+      "timestamp_s": 1868463.575083778
+    },
+    {
+      "action": [
+        377.4325426179986,
+        78.7708876932534,
+        538.9523407299364,
+        2.077161722868766,
+        155.79248383582285,
+        2.3968365110013963,
+        1.0
+      ],
+      "bridge_index": 2,
+      "bridge_progress": 0.025,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.18484285101294518,
+      "timestamp_s": 1868463.608682278
+    },
+    {
+      "action": [
+        377.4222702121325,
+        75.8488084664957,
+        538.5525020418315,
+        2.077517907857242,
+        155.7913021548267,
+        2.397234635542276,
+        1.0
+      ],
+      "bridge_index": 3,
+      "bridge_progress": 0.03333333333333333,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.19093696027994156,
+      "timestamp_s": 1868463.642103546
+    },
+    {
+      "action": [
+        377.4107665028397,
+        72.97220298514019,
+        538.1641752891222,
+        2.078095116846896,
+        155.7893869452188,
+        2.397879818383757,
+        1.0
+      ],
+      "bridge_index": 4,
+      "bridge_progress": 0.041666666666666664,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.05711102858185768,
+      "timestamp_s": 1868463.675501203
+    },
+    {
+      "action": [
+        377.3980262746318,
+        70.1403694253823,
+        537.7870350995805,
+        2.0789412744446736,
+        155.78657877238987,
+        2.398825643236165,
+        1.0
+      ],
+      "bridge_index": 5,
+      "bridge_progress": 0.05,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.035167206078767776,
+      "timestamp_s": 1868463.708894191
+    },
+    {
+      "action": [
+        377.3840443120203,
+        67.35260596341759,
+        537.4207561009783,
+        2.0801013944046076,
+        155.78272752487118,
+        2.4001224524767792,
+        1.0
+      ],
+      "bridge_index": 6,
+      "bridge_progress": 0.058333333333333334,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.02666609361767769,
+      "timestamp_s": 1868463.742288144
+    },
+    {
+      "action": [
+        377.3688153995169,
+        64.60821077544158,
+        537.0650129210876,
+        2.0816175966187984,
+        155.77769224381979,
+        2.401817370333845,
+        1.0
+      ],
+      "bridge_index": 7,
+      "bridge_progress": 0.06666666666666667,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.21691713482141495,
+      "timestamp_s": 1868463.77586955
+    },
+    {
+      "action": [
+        377.3523343216329,
+        61.90648203764971,
+        536.7194801876805,
+        2.0835291223631884,
+        155.7713409524553,
+        2.4039543243359276,
+        1.0
+      ],
+      "bridge_index": 8,
+      "bridge_progress": 0.075,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.21018600091338158,
+      "timestamp_s": 1868463.809438891
+    },
+    {
+      "action": [
+        377.33459586287995,
+        59.24671792623752,
+        536.3838325285283,
+        2.0858723489224076,
+        155.76355048547998,
+        2.4065740661447705,
+        1.0
+      ],
+      "bridge_index": 9,
+      "bridge_progress": 0.08333333333333333,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.20943605341017246,
+      "timestamp_s": 1868463.843003334
+    },
+    {
+      "action": [
+        377.31559480776957,
+        56.62821661740053,
+        536.0577445714034,
+        2.088680804616672,
+        155.75420631850935,
+        2.409714192789977,
+        1.0
+      ],
+      "bridge_index": 10,
+      "bridge_progress": 0.09166666666666666,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.20888005383312702,
+      "timestamp_s": 1868463.876572833
+    },
+    {
+      "action": [
+        377.29532594081337,
+        54.05027628733425,
+        535.7408909440778,
+        2.091985185154499,
+        155.74320239754044,
+        2.413409169225389,
+        1.0
+      ],
+      "bridge_index": 11,
+      "bridge_progress": 0.1,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.2162789460271597,
+      "timestamp_s": 1868463.91015298
+    },
+    {
+      "action": [
+        377.2737840465227,
+        51.51219511223412,
+        535.4329462743232,
+        2.0958133721373144,
+        155.7304409684806,
+        2.4176903530294283,
+        1.0
+      ],
+      "bridge_index": 12,
+      "bridge_progress": 0.10833333333333334,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.05688890814781189,
+      "timestamp_s": 1868463.94355046
+    },
+    {
+      "action": [
+        377.2509639094092,
+        49.01327126829571,
+        535.1335851899115,
+        2.1001904544458796,
+        155.71583240675542,
+        2.422586021975661,
+        1.0
+      ],
+      "bridge_index": 13,
+      "bridge_progress": 0.11666666666666667,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.2102409489452839,
+      "timestamp_s": 1868463.977120783
+    },
+    {
+      "action": [
+        377.2268603139846,
+        46.55280293171452,
+        534.8424823186148,
+        2.1051387531427395,
+        155.69929504701716,
+        2.4281214051055144,
+        1.0
+      ],
+      "bridge_index": 14,
+      "bridge_progress": 0.125,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.2056499943137169,
+      "timestamp_s": 1868464.010697605
+    },
+    {
+      "action": [
+        377.20146804476025,
+        44.130088278686024,
+        534.559312288205,
+        2.1106778504311876,
+        155.68075501296454,
+        2.4343187178413075,
+        1.0
+      ],
+      "bridge_index": 15,
+      "bridge_progress": 0.13333333333333333,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.2031030599027872,
+      "timestamp_s": 1868464.044267391
+    },
+    {
+      "action": [
+        377.17478188624773,
+        41.74442548540574,
+        534.2837497264538,
+        2.11682462311947,
+        155.66014604729023,
+        2.4411972015854815,
+        1.0
+      ],
+      "bridge_index": 16,
+      "bridge_progress": 0.14166666666666666,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.2071661874651909,
+      "timestamp_s": 1868464.077836632
+    },
+    {
+      "action": [
+        377.1467966229582,
+        39.395112728069165,
+        534.0154692611331,
+        2.1235932809474036,
+        155.63740934176286,
+        2.4487731681625178,
+        1.0
+      ],
+      "bridge_index": 17,
+      "bridge_progress": 0.15,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.21048099733889103,
+      "timestamp_s": 1868464.111417744
+    },
+    {
+      "action": [
+        377.11750703940385,
+        37.081448182871824,
+        533.7541455200154,
+        2.130995410045415,
+        155.6124933674536,
+        2.457060049371819,
+        1.0
+      ],
+      "bridge_index": 18,
+      "bridge_progress": 0.15833333333333333,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.2087131142616272,
+      "timestamp_s": 1868464.144998244
+    },
+    {
+      "action": [
+        377.0869079200959,
+        34.80273002600921,
+        533.4994531308721,
+        2.1390400217099454,
+        155.5853537051107,
+        2.4660684518341327,
+        1.0
+      ],
+      "bridge_index": 19,
+      "bridge_progress": 0.16666666666666666,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.21091708913445473,
+      "timestamp_s": 1868464.178566068
+    },
+    {
+      "action": [
+        377.0549940495457,
+        32.55825643367682,
+        533.2510667214751,
+        2.1477336065970576,
+        155.55595287568553,
+        2.4758062172332984,
+        1.0
+      ],
+      "bridge_index": 20,
+      "bridge_progress": 0.175,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.06501888856291771,
+      "timestamp_s": 1868464.211963817
+    },
+    {
+      "action": [
+        377.0217602122652,
+        30.347325582070162,
+        533.0086609195965,
+        2.157080194357235,
+        155.52426017101124,
+        2.486278487975227,
+        1.0
+      ],
+      "bridge_index": 21,
+      "bridge_progress": 0.18333333333333332,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.20770402625203133,
+      "timestamp_s": 1868464.245543151
+    },
+    {
+      "action": [
+        376.9872011927656,
+        28.16923564738474,
+        532.7719103530083,
+        2.167081418660473,
+        155.49025148463107,
+        2.4974877782132126,
+        1.0
+      ],
+      "bridge_index": 22,
+      "bridge_progress": 0.19166666666666668,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.21914811804890633,
+      "timestamp_s": 1868464.279116503
+    },
+    {
+      "action": [
+        376.9513117755587,
+        26.02328480581608,
+        532.5404896494823,
+        2.17773658748996,
+        155.4539091427745,
+        2.509434050117875,
+        1.0
+      ],
+      "bridge_index": 23,
+      "bridge_progress": 0.2,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.21248986013233662,
+      "timestamp_s": 1868464.312687993
+    },
+    {
+      "action": [
+        376.91408674515554,
+        23.908771233559644,
+        532.3140734367903,
+        2.189042758518923,
+        155.41522173547557,
+        2.5221147952064484,
+        1.0
+      ],
+      "bridge_index": 24,
+      "bridge_progress": 0.20833333333333334,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.20610308274626732,
+      "timestamp_s": 1868464.346260657
+    },
+    {
+      "action": [
+        376.87552088606833,
+        21.82499310681098,
+        532.0923363427045,
+        2.2009948193253024,
+        155.37418394782517,
+        2.5355251204861986,
+        1.0
+      ],
+      "bridge_index": 25,
+      "bridge_progress": 0.21666666666666667,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.23101014085114002,
+      "timestamp_s": 1868464.379828434
+    },
+    {
+      "action": [
+        376.83560898280825,
+        19.771248601765574,
+        531.8749529949966,
+        2.213585572145746,
+        155.33079639135133,
+        2.5496578391143885,
+        1.0
+      ],
+      "bridge_index": 26,
+      "bridge_progress": 0.225,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.21224096417427063,
+      "timestamp_s": 1868464.413393951
+    },
+    {
+      "action": [
+        376.7943458198867,
+        17.746835894618908,
+        531.6615980214385,
+        2.2268058228228256,
+        155.28506543551524,
+        2.564503565229046,
+        1.0
+      ],
+      "bridge_index": 27,
+      "bridge_progress": 0.23333333333333334,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.05453708581626415,
+      "timestamp_s": 1868464.446790274
+    },
+    {
+      "action": [
+        376.7517261818154,
+        15.751053161566537,
+        531.4519460498024,
+        2.240644473558831,
+        155.2370030393142,
+        2.580050812564849,
+        1.0
+      ],
+      "bridge_index": 28,
+      "bridge_progress": 0.24166666666666667,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.21106493659317493,
+      "timestamp_s": 1868464.480363077
+    },
+    {
+      "action": [
+        376.707744853106,
+        13.783198578803926,
+        531.24567170786,
+        2.2550886190541917,
+        155.1866265829782,
+        2.5962860964331753,
+        1.0
+      ],
+      "bridge_index": 29,
+      "bridge_progress": 0.25,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.21043606102466583,
+      "timestamp_s": 1868464.513941678
+    },
+    {
+      "action": [
+        376.6623966182699,
+        11.842570322526596,
+        531.0424496233833,
+        2.270123645581293,
+        155.1339586997489,
+        2.61319403861782,
+        1.0
+      ],
+      "bridge_index": 30,
+      "bridge_progress": 0.25833333333333336,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.20493497140705585,
+      "timestamp_s": 1868464.547524752
+    },
+    {
+      "action": [
+        376.6156762618187,
+        9.928466568930046,
+        530.8419544241442,
+        2.285733332521886,
+        155.07902710772612,
+        2.630757474716404,
+        1.0
+      ],
+      "bridge_index": 31,
+      "bridge_progress": 0.26666666666666666,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.21127797663211823,
+      "timestamp_s": 1868464.581093928
+    },
+    {
+      "action": [
+        376.5675785682636,
+        8.040185494209764,
+        530.6438607379145,
+        2.301899955881936,
+        155.0218644417698,
+        2.6489575634418543,
+        1.0
+      ],
+      "bridge_index": 32,
+      "bridge_progress": 0.275,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.2098900731652975,
+      "timestamp_s": 1868464.614672585
+    },
+    {
+      "action": [
+        376.5180983221166,
+        6.177025274561295,
+        530.4478431924662,
+        2.3186043932880693,
+        154.96250808544238,
+        2.667773897389935,
+        1.0
+      ],
+      "bridge_index": 33,
+      "bridge_progress": 0.2833333333333333,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.05339900963008404,
+      "timestamp_s": 1868464.648069501
+    },
+    {
+      "action": [
+        376.467230307889,
+        4.338284086180092,
+        530.2535764155713,
+        2.335826229966699,
+        154.90100000297846,
+        2.6871846147753615,
+        1.0
+      ],
+      "bridge_index": 34,
+      "bridge_progress": 0.2916666666666667,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.20674988627433777,
+      "timestamp_s": 1868464.681634975
+    },
+    {
+      "action": [
+        376.4149693100925,
+        2.523260105261714,
+        530.0607350350016,
+        2.3535438652099856,
+        154.83738657126716,
+        2.7071665116418444,
+        1.0
+      ],
+      "bridge_index": 35,
+      "bridge_progress": 0.3,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.21101906895637512,
+      "timestamp_s": 1868464.715212493
+    },
+    {
+      "action": [
+        376.3613101132385,
+        0.7312515080016269,
+        529.8689936785294,
+        2.371734618839639,
+        154.77171841183423,
+        2.7276951540589778,
+        1.0
+      ],
+      "bridge_index": 36,
+      "bridge_progress": 0.30833333333333335,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.20659295842051506,
+      "timestamp_s": 1868464.748793159
+    },
+    {
+      "action": [
+        376.30624750183847,
+        -1.0384435294046428,
+        529.678026973926,
+        2.390374837193235,
+        154.70405022280974,
+        2.748744989832261,
+        1.0
+      ],
+      "bridge_index": 37,
+      "bridge_progress": 0.31666666666666665,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.2105280291289091,
+      "timestamp_s": 1868464.782363567
+    },
+    {
+      "action": [
+        376.24977626040425,
+        -2.786526830761612,
+        529.487509548964,
+        2.4094399981743777,
+        154.63444061086915,
+        2.7702894592690654,
+        1.0
+      ],
+      "bridge_index": 38,
+      "bridge_progress": 0.325,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.23493589833378792,
+      "timestamp_s": 1868464.815933547
+    },
+    {
+      "action": [
+        376.1918911734469,
+        -4.513700219873747,
+        529.2971160314147,
+        2.428904814928984,
+        154.56295192313564,
+        2.7923011045647,
+        1.0
+      ],
+      "bridge_index": 39,
+      "bridge_progress": 0.3333333333333333,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.2077678218483925,
+      "timestamp_s": 1868464.849506611
+    },
+    {
+      "action": [
+        376.13258702547836,
+        -6.220665520545583,
+        529.1065210490502,
+        2.4487433377352374,
+        154.48965007903178,
+        2.814751677397851,
+        1.0
+      ],
+      "bridge_index": 40,
+      "bridge_progress": 0.3416666666666667,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.05205604247748852,
+      "timestamp_s": 1868464.882903322
+    },
+    {
+      "action": [
+        376.07185860101004,
+        -7.908124556581582,
+        528.9153992296427,
+        2.4689290537211264,
+        154.4146044020695,
+        2.837612244351533,
+        1.0
+      ],
+      "bridge_index": 41,
+      "bridge_progress": 0.35,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.20951987244188786,
+      "timestamp_s": 1868464.916487774
+    },
+    {
+      "action": [
+        376.0097006845533,
+        -9.576779151786258,
+        528.7234252009639,
+        2.489434984055066,
+        154.3378874515696,
+        2.8608532898059025,
+        1.0
+      ],
+      "bridge_index": 42,
+      "bridge_progress": 0.35833333333333334,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.21299999207258224,
+      "timestamp_s": 1868464.95007431
+    },
+    {
+      "action": [
+        375.9461080606199,
+        -11.227331129964085,
+        528.5302735907857,
+        2.5102337782853112,
+        154.25957485430035,
+        2.884444815981766,
+        1.0
+      ],
+      "bridge_index": 43,
+      "bridge_progress": 0.36666666666666664,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.20975898951292038,
+      "timestamp_s": 1868464.983648105
+    },
+    {
+      "action": [
+        375.8810755137215,
+        -12.860482314919587,
+        528.3356190268803,
+        2.5312978055389124,
+        154.1797451360287,
+        2.9083564398461306,
+        1.0
+      ],
+      "bridge_index": 44,
+      "bridge_progress": 0.375,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.2121210563927889,
+      "timestamp_s": 1868465.017074936
+    },
+    {
+      "action": [
+        375.8145978283695,
+        -14.476934530457243,
+        528.1391361370194,
+        2.5525992423237653,
+        154.0984795529754,
+        2.932557486626308,
+        1.0
+      ],
+      "bridge_index": 45,
+      "bridge_progress": 0.38333333333333336,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.20696292631328106,
+      "timestamp_s": 1868465.050655853
+    },
+    {
+      "action": [
+        375.7466697890751,
+        -16.07738960038154,
+        527.9404995489747,
+        2.574110156713516,
+        154.01586192316879,
+        2.9570170797135518,
+        1.0
+      ],
+      "bridge_index": 46,
+      "bridge_progress": 0.39166666666666666,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.0809540506452322,
+      "timestamp_s": 1868465.084058971
+    },
+    {
+      "action": [
+        375.6772861803502,
+        -17.662549348497002,
+        527.7393838905183,
+        2.5958025887294696,
+        153.93197845769257,
+        2.9817042267722513,
+        1.0
+      ],
+      "bridge_index": 47,
+      "bridge_progress": 0.4,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.21532387472689152,
+      "timestamp_s": 1868465.117630775
+    },
+    {
+      "action": [
+        375.6064417867064,
+        -19.233115598608087,
+        527.5354637894224,
+        2.6176486267681014,
+        153.84691759182223,
+        3.006587901905533,
+        1.0
+      ],
+      "bridge_index": 48,
+      "bridge_progress": 0.4083333333333333,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.20918482914566994,
+      "timestamp_s": 1868465.151209617
+    },
+    {
+      "action": [
+        375.5341313926549,
+        -20.789790174519325,
+        527.3284138734584,
+        2.639620479957472,
+        153.760769816048,
+        3.0316371237618682,
+        1.0
+      ],
+      "bridge_index": 49,
+      "bridge_progress": 0.4166666666666667,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.2108612097799778,
+      "timestamp_s": 1868465.184777608
+    },
+    {
+      "action": [
+        375.46034978270757,
+        -22.33327490003518,
+        527.1179087703987,
+        2.6616905463585567,
+        153.67362750698118,
+        3.056821029500952,
+        1.0
+      ],
+      "bridge_index": 50,
+      "bridge_progress": 0.425,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.21071406081318855,
+      "timestamp_s": 1868465.218351274
+    },
+    {
+      "action": [
+        375.38509174137585,
+        -23.86427159896018,
+        526.903623108015,
+        2.683831476959597,
+        153.58558475814326,
+        3.082108944568091,
+        1.0
+      ],
+      "bridge_index": 51,
+      "bridge_progress": 0.43333333333333335,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.2290378324687481,
+      "timestamp_s": 1868465.251933218
+    },
+    {
+      "action": [
+        375.3083520531712,
+        -25.383482095098792,
+        526.6852315140794,
+        2.7060162354414956,
+        153.4967372106369,
+        3.107470448257601,
+        1.0
+      ],
+      "bridge_index": 52,
+      "bridge_progress": 0.44166666666666665,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.20622415468096733,
+      "timestamp_s": 1868465.285502126
+    },
+    {
+      "action": [
+        375.23012550260523,
+        -26.891608212255534,
+        526.4624086163637,
+        2.7282181537220254,
+        153.407181883699,
+        3.132875435073828,
+        1.0
+      ],
+      "bridge_index": 53,
+      "bridge_progress": 0.45,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.056091928854584694,
+      "timestamp_s": 1868465.318898098
+    },
+    {
+      "action": [
+        375.15040687418934,
+        -28.38935177423488,
+        526.2348290426397,
+        2.7504109833125767,
+        153.31701700513722,
+        3.158294171925519,
+        1.0
+      ],
+      "bridge_index": 54,
+      "bridge_progress": 0.4583333333333333,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.2087680622935295,
+      "timestamp_s": 1868465.352477432
+    },
+    {
+      "action": [
+        375.06919095243524,
+        -29.877414604841352,
+        526.0021674206794,
+        2.772568942546627,
+        153.22634184165122,
+        3.1836973512140787,
+        1.0
+      ],
+      "bridge_index": 55,
+      "bridge_progress": 0.4666666666666667,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.21103792823851109,
+      "timestamp_s": 1868465.38604845
+    },
+    {
+      "action": [
+        374.98647252185435,
+        -31.356498527879417,
+        525.7640983782547,
+        2.7946667597621797,
+        153.1352565290413,
+        3.209056139899417,
+        1.0
+      ],
+      "bridge_index": 56,
+      "bridge_progress": 0.475,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.20762206986546516,
+      "timestamp_s": 1868465.41961544
+    },
+    {
+      "action": [
+        374.9022463669582,
+        -32.82730536715359,
+        525.5202965431376,
+        2.816679712541344,
+        153.04386190230773,
+        3.234342224647719,
+        1.0
+      ],
+      "bridge_index": 57,
+      "bridge_progress": 0.48333333333333334,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.20989798940718174,
+      "timestamp_s": 1868465.453190004
+    },
+    {
+      "action": [
+        374.81650727225843,
+        -34.29053694646835,
+        525.2704365431001,
+        2.8385836631286168,
+        152.95225932564318,
+        3.2595278531838687,
+        1.0
+      ],
+      "bridge_index": 58,
+      "bridge_progress": 0.49166666666666664,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.21077808924019337,
+      "timestamp_s": 1868465.486768104
+    },
+    {
+      "action": [
+        374.7292500222666,
+        -35.74689508962822,
+        525.014193005914,
+        2.860355090166962,
+        152.86055052232356,
+        3.2845858719890657,
+        1.0
+      ],
+      "bridge_index": 59,
+      "bridge_progress": 0.5,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.05232403054833412,
+      "timestamp_s": 1868465.520164862
+    },
+    {
+      "action": [
+        374.64046940149416,
+        -37.197081620437665,
+        524.7512405593513,
+        2.8819711169047935,
+        152.7688374045005,
+        3.3094897604970868,
+        1.0
+      ],
+      "bridge_index": 60,
+      "bridge_progress": 0.5083333333333333,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.20771403796970844,
+      "timestamp_s": 1868465.553731434
+    },
+    {
+      "action": [
+        374.5501601944526,
+        -38.64179836270121,
+        524.4812538311837,
+        2.9034095360401295,
+        152.6772219029008,
+        3.3342136619568805,
+        1.0
+      ],
+      "bridge_index": 61,
+      "bridge_progress": 0.5166666666666667,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.2125459723174572,
+      "timestamp_s": 1868465.58730436
+    },
+    {
+      "action": [
+        374.4583171856535,
+        -40.081747140223314,
+        524.2039074491835,
+        2.9246488313786188,
+        152.58580579643785,
+        3.3587324111385897,
+        1.0
+      ],
+      "bridge_index": 62,
+      "bridge_progress": 0.525,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.2084360457956791,
+      "timestamp_s": 1868465.620890191
+    },
+    {
+      "action": [
+        374.3649351596085,
+        -41.5176297768085,
+        523.9188760411221,
+        2.945668196491681,
+        152.49469054173963,
+        3.3830215590697605,
+        1.0
+      ],
+      "bridge_index": 63,
+      "bridge_progress": 0.5333333333333333,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.20569609478116035,
+      "timestamp_s": 1868465.654466153
+    },
+    {
+      "action": [
+        374.2700089008289,
+        -42.950148096261245,
+        523.625834234772,
+        2.966447550567551,
+        152.40397710259947,
+        3.407057394995064,
+        1.0
+      ],
+      "bridge_index": 64,
+      "bridge_progress": 0.5416666666666666,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.2109631896018982,
+      "timestamp_s": 1868465.688038625
+    },
+    {
+      "action": [
+        374.1735331938265,
+        -44.380003922386095,
+        523.3244566579048,
+        2.9869675516540326,
+        152.31376577935478,
+        3.4308169657586234,
+        1.0
+      ],
+      "bridge_index": 65,
+      "bridge_progress": 0.55,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.2115829847753048,
+      "timestamp_s": 1868465.721620265
+    },
+    {
+      "action": [
+        374.0755028231127,
+        -45.80789907898747,
+        523.0144179382924,
+        3.007209607495895,
+        152.2241560382,
+        3.4542780928116485,
+        1.0
+      ],
+      "bridge_index": 66,
+      "bridge_progress": 0.5583333333333333,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.05357409827411175,
+      "timestamp_s": 1868465.755017543
+    },
+    {
+      "action": [
+        373.975912573199,
+        -47.23453538986989,
+        522.6953927037068,
+        3.0271558841722594,
+        152.13524634043793,
+        3.4774193870511283,
+        1.0
+      ],
+      "bridge_index": 67,
+      "bridge_progress": 0.5666666666666667,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.21454691886901855,
+      "timestamp_s": 1868465.788586533
+    },
+    {
+      "action": [
+        373.8747572285971,
+        -48.66061467883789,
+        522.36705558192,
+        3.04678931274114,
+        152.0471339716775,
+        3.500220261696086,
+        1.0
+      ],
+      "bridge_index": 68,
+      "bridge_progress": 0.575,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.20913989283144474,
+      "timestamp_s": 1868465.822167477
+    },
+    {
+      "action": [
+        373.77203157381837,
+        -50.08683876969594,
+        522.0290812007039,
+        3.06609359409822,
+        151.95991487098246,
+        3.522660943408198,
+        1.0
+      ],
+      "bridge_index": 69,
+      "bridge_progress": 0.5833333333333334,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.20583299919962883,
+      "timestamp_s": 1868465.855735681
+    },
+    {
+      "action": [
+        373.6677303933743,
+        -51.51390948624851,
+        521.6811441878302,
+        3.085053202256688,
+        151.87368345997606,
+        3.5447224818631184,
+        1.0
+      ],
+      "bridge_index": 70,
+      "bridge_progress": 0.5916666666666667,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.20889798179268837,
+      "timestamp_s": 1868465.889308144
+    },
+    {
+      "action": [
+        373.56184847177667,
+        -52.942528652300126,
+        521.3229191710711,
+        3.103653386252887,
+        151.78853247190958,
+        3.566386757976204,
+        1.0
+      ],
+      "bridge_index": 71,
+      "bridge_progress": 0.6,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.21095317788422108,
+      "timestamp_s": 1868465.922881829
+    },
+    {
+      "action": [
+        373.4543805935369,
+        -54.373398091655275,
+        520.9540807781983,
+        3.1218801708805586,
+        151.70455278069804,
+        3.5876364909846643,
+        1.0
+      ],
+      "bridge_index": 72,
+      "bridge_progress": 0.6083333333333333,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.05322298966348171,
+      "timestamp_s": 1868465.956278679
+    },
+    {
+      "action": [
+        373.3453215431664,
+        -55.80721962811847,
+        520.574303636984,
+        3.139720356452983,
+        151.62183322993047,
+        3.6084552445844054,
+        1.0
+      ],
+      "bridge_index": 73,
+      "bridge_progress": 0.6166666666666667,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.03341608680784702,
+      "timestamp_s": 1868465.989673011
+    },
+    {
+      "action": [
+        373.2346661051768,
+        -57.244695085494165,
+        520.1832623751998,
+        3.1571615177891204,
+        151.54046046185903,
+        3.6288274323160863,
+        1.0
+      ],
+      "bridge_index": 74,
+      "bridge_progress": 0.625,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.20509306341409683,
+      "timestamp_s": 1868466.02323775
+    },
+    {
+      "action": [
+        373.12240906407976,
+        -58.68652628758689,
+        519.7806316206179,
+        3.1741920026154844,
+        151.46051874637243,
+        3.648738322390699,
+        1.0
+      ],
+      "bridge_index": 75,
+      "bridge_progress": 0.6333333333333333,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.20410213619470596,
+      "timestamp_s": 1868466.05680999
+    },
+    {
+      "action": [
+        373.00854520438656,
+        -60.13341505820113,
+        519.36608600101,
+        3.190800929570713,
+        151.38208980995978,
+        3.668174042140265,
+        1.0
+      ],
+      "bridge_index": 76,
+      "bridge_progress": 0.6416666666666667,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.21294411271810532,
+      "timestamp_s": 1868466.090385637
+    },
+    {
+      "action": [
+        372.893069310609,
+        -61.58606322114139,
+        518.9393001441481,
+        3.2069781859958653,
+        151.3052526646685,
+        3.687121582274557,
+        1.0
+      ],
+      "bridge_index": 77,
+      "bridge_progress": 0.65,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.23586093448102474,
+      "timestamp_s": 1868466.123959173
+    },
+    {
+      "action": [
+        372.7759761672584,
+        -63.04517260021214,
+        518.4999486778042,
+        3.2227144256873146,
+        151.2300834370624,
+        3.7055688011187726,
+        1.0
+      ],
+      "bridge_index": 78,
+      "bridge_progress": 0.6583333333333333,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.2218238078057766,
+      "timestamp_s": 1868466.157575662
+    },
+    {
+      "action": [
+        372.6572605588465,
+        -64.51144501921789,
+        518.0477062297502,
+        3.238001066784534,
+        151.15665519718394,
+        3.7235044290026167,
+        1.0
+      ],
+      "bridge_index": 79,
+      "bridge_progress": 0.6666666666666666,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.22650090977549553,
+      "timestamp_s": 1868466.191147882
+    },
+    {
+      "action": [
+        372.5369172698846,
+        -65.98558230196316,
+        517.582247427758,
+        3.252830289959661,
+        151.0850377875254,
+        3.7409180729653144,
+        1.0
+      ],
+      "bridge_index": 80,
+      "bridge_progress": 0.675,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.2153259702026844,
+      "timestamp_s": 1868466.224723113
+    },
+    {
+      "action": [
+        372.4149410848845,
+        -67.46828627225241,
+        517.1032468995995,
+        3.2671950370701666,
+        151.0152976520138,
+        3.7578002219349003,
+        1.0
+      ],
+      "bridge_index": 81,
+      "bridge_progress": 0.6833333333333333,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.21935300901532173,
+      "timestamp_s": 1868466.258303074
+    },
+    {
+      "action": [
+        372.2913267883576,
+        -68.96025875389014,
+        516.6103792730466,
+        3.2810890104298096,
+        150.9474976650135,
+        3.7741422525360235,
+        1.0
+      ],
+      "bridge_index": 82,
+      "bridge_progress": 0.6916666666666667,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.053972937166690826,
+      "timestamp_s": 1868466.291699991
+    },
+    {
+      "action": [
+        372.1660691648154,
+        -70.46220157068086,
+        516.1033191758713,
+        3.2945066728490247,
+        150.8816969603498,
+        3.789936435672871,
+        1.0
+      ],
+      "bridge_index": 83,
+      "bridge_progress": 0.7,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.21677697077393532,
+      "timestamp_s": 1868466.325274713
+    },
+    {
+      "action": [
+        372.0391629987695,
+        -71.97481654642908,
+        515.5817412358456,
+        3.3074432485881857,
+        150.81795076035993,
+        3.805175944029685,
+        1.0
+      ],
+      "bridge_index": 84,
+      "bridge_progress": 0.7083333333333334,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.2200920134782791,
+      "timestamp_s": 1868466.358848009
+    },
+    {
+      "action": [
+        371.9106030747313,
+        -73.49880550493926,
+        515.0453200807411,
+        3.3198947253635254,
+        150.7563102049719,
+        3.8198548606249005,
+        1.0
+      ],
+      "bridge_index": 85,
+      "bridge_progress": 0.7166666666666667,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.22118515335023403,
+      "timestamp_s": 1868466.392422667
+    },
+    {
+      "action": [
+        371.78038417721257,
+        -75.0348702700159,
+        514.4937303383301,
+        3.331857857538381,
+        150.69682218081775,
+        3.833968188549278,
+        1.0
+      ],
+      "bridge_index": 86,
+      "bridge_progress": 0.725,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.21243514493107796,
+      "timestamp_s": 1868466.426002778
+    },
+    {
+      "action": [
+        371.6485010907246,
+        -76.5837126654635,
+        513.9266466363842,
+        3.3433301706270413,
+        150.63952915038283,
+        3.847511862012368,
+        1.0
+      ],
+      "bridge_index": 87,
+      "bridge_progress": 0.7333333333333333,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.21675997413694859,
+      "timestamp_s": 1868466.459576344
+    },
+    {
+      "action": [
+        371.51494859977925,
+        -78.1460345150866,
+        513.3437436026757,
+        3.35430996723332,
+        150.5844689811953,
+        3.860482758816687,
+        1.0
+      ],
+      "bridge_index": 88,
+      "bridge_progress": 0.7416666666666667,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.23780600167810917,
+      "timestamp_s": 1868466.493152733
+    },
+    {
+      "action": [
+        371.37972148888764,
+        -79.72253764268962,
+        512.7446958649759,
+        3.3647963345387666,
+        150.53167477505872,
+        3.872878714371467,
+        1.0
+      ],
+      "bridge_index": 89,
+      "bridge_progress": 0.75,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.21673296578228474,
+      "timestamp_s": 1868466.526739519
+    },
+    {
+      "action": [
+        371.24281454256163,
+        -81.31392387207708,
+        512.1291780510574,
+        3.374789153449967,
+        150.48117469733026,
+        3.8846985373533585,
+        1.0
+      ],
+      "bridge_index": 90,
+      "bridge_progress": 0.7583333333333333,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.05038897506892681,
+      "timestamp_s": 1868466.560136268
+    },
+    {
+      "action": [
+        371.1042225453126,
+        -82.92089502705353,
+        511.49686478869177,
+        3.384289109507961,
+        150.43299180624894,
+        3.8959420271135343,
+        1.0
+      ],
+      "bridge_index": 91,
+      "bridge_progress": 0.7666666666666667,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.22068503312766552,
+      "timestamp_s": 1868466.593713063
+    },
+    {
+      "action": [
+        370.9639402816522,
+        -84.54415293142341,
+        510.84743070565105,
+        3.393297705655584,
+        150.3871438823138,
+        3.906609992925098,
+        1.0
+      ],
+      "bridge_index": 92,
+      "bridge_progress": 0.775,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.2146849874407053,
+      "timestamp_s": 1868466.627286321
+    },
+    {
+      "action": [
+        370.82196253609186,
+        -86.18439940899121,
+        510.18055042970707,
+        3.401817276951732,
+        150.3436432577171,
+        3.9167042751569454,
+        1.0
+      ],
+      "bridge_index": 93,
+      "bridge_progress": 0.7833333333333333,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.2169259823858738,
+      "timestamp_s": 1868466.660897162
+    },
+    {
+      "action": [
+        370.67828409314325,
+        -87.84233628356145,
+        509.4958985886318,
+        3.409851007313449,
+        150.30249664583283,
+        3.9262277684528044,
+        1.0
+      ],
+      "bridge_index": 94,
+      "bridge_progress": 0.7916666666666666,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.22016605362296104,
+      "timestamp_s": 1868466.694473254
+    },
+    {
+      "action": [
+        370.53289973731773,
+        -89.51866537893864,
+        508.7931498101972,
+        3.4174029483589266,
+        150.26370497076368,
+        3.935184446986028,
+        1.0
+      ],
+      "bridge_index": 95,
+      "bridge_progress": 0.8,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "RUN_BRIDGE",
+      "tick_duration_ms": 0.21334202028810978,
+      "timestamp_s": 1868466.728052697
+    },
+    {
+      "action": [
+        370.38580425312693,
+        -91.21408851892724,
+        508.07197872217506,
+        3.424478040414698,
+        150.22726319694763,
+        3.9435793918520687,
+        1.0
+      ],
+      "bridge_index": 96,
+      "bridge_progress": 0.8083333333333333,
+      "crossfade_weight": null,
+      "generation": 2,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "B_SHADOW_PENDING",
+      "tick_duration_ms": 3.7138110492378473,
+      "timestamp_s": 1868466.761661353
+    },
+    {
+      "action": [
+        370.23699242508235,
+        -92.92930752733176,
+        507.33205995233743,
+        3.431082135741235,
+        150.1931601588253,
+        3.9514188206501615,
+        1.0
+      ],
+      "bridge_index": 97,
+      "bridge_progress": 0.8166666666666667,
+      "crossfade_weight": null,
+      "generation": 2,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "B_SHADOW_PENDING",
+      "tick_duration_ms": 0.5047880113124847,
+      "timestamp_s": 1868466.79507138
+    },
+    {
+      "action": [
+        370.08645903769565,
+        -94.66502422795668,
+        506.57306812845627,
+        3.437222024019462,
+        150.1613783905702,
+        3.9587101192959437,
+        1.0
+      ],
+      "bridge_index": 98,
+      "bridge_progress": 0.825,
+      "crossfade_weight": null,
+      "generation": 2,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "B_SHADOW_PENDING",
+      "tick_duration_ms": 0.5306119564920664,
+      "timestamp_s": 1868466.828656954
+    },
+    {
+      "action": [
+        369.9341988754782,
+        -96.42194044460655,
+        505.79467787830333,
+        3.4429054601289977,
+        150.13189395588194,
+        3.9654618760939684,
+        1.0
+      ],
+      "bridge_index": 99,
+      "bridge_progress": 0.8333333333333334,
+      "crossfade_weight": null,
+      "generation": null,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "HANDOFF_WINDOW",
+      "tick_duration_ms": 24.678503861650825,
+      "timestamp_s": 1868466.862055463
+    },
+    {
+      "action": [
+        369.78020672294156,
+        -98.20075800108577,
+        504.99656382965065,
+        3.448141194235461,
+        150.10467627784223,
+        3.9716839180868817,
+        1.0
+      ],
+      "bridge_index": 100,
+      "bridge_progress": 0.8416666666666667,
+      "crossfade_weight": null,
+      "generation": 4,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "B_SHADOW_PENDING",
+      "tick_duration_ms": 2.303523011505604,
+      "timestamp_s": 1868466.895455963
+    },
+    {
+      "action": [
+        369.6244773645974,
+        -100.00217872119893,
+        504.17840061027016,
+        3.4529390041890338,
+        150.07968796883608,
+        3.9773873496826013,
+        1.0
+      ],
+      "bridge_index": 101,
+      "bridge_progress": 0.85,
+      "crossfade_weight": null,
+      "generation": 4,
+      "source": "BEZIER_BRIDGE_V2",
+      "state": "B_SHADOW_PENDING",
+      "tick_duration_ms": 0.45038992539048195,
+      "timestamp_s": 1868466.929047129
+    },
+    {
+      "action": [
+        369.4629558739463,
+        -101.94651812764063,
+        503.2818568811771,
+        3.4574235643696056,
+        150.0553044287358,
+        3.9821003639568744,
+        1.0
+      ],
+      "bridge_index": 102,
+      "bridge_progress": 0.8583333333333333,
+      "crossfade_weight": 0.002674567901234568,
+      "generation": 4,
+      "source": "SOFT_HANDOFF_V2",
+      "state": "SOFT_HANDOFF",
+      "tick_duration_ms": 24.411632912233472,
+      "timestamp_s": 1868466.962443676
+    },
+    {
+      "action": [
+        369.2816696498213,
+        -104.53914104759292,
+        502.0561551276326,
+        3.461924045235378,
+        150.02653631913506,
+        3.9842222314321134,
+        1.0
+      ],
+      "bridge_index": 103,
+      "bridge_progress": 0.8666666666666667,
+      "crossfade_weight": 0.019215802469135804,
+      "generation": 4,
+      "source": "SOFT_HANDOFF_V2",
+      "state": "SOFT_HANDOFF",
+      "tick_duration_ms": 0.055731041356921196,
+      "timestamp_s": 1868466.99584375
+    },
+    {
+      "action": [
+        369.0569841692249,
+        -108.15636685517632,
+        500.2967650859145,
+        3.4658744738816836,
+        149.99231365202988,
+        3.9816292479935385,
+        1.0
+      ],
+      "bridge_index": 104,
+      "bridge_progress": 0.875,
+      "crossfade_weight": 0.057920000000000006,
+      "generation": 4,
+      "source": "SOFT_HANDOFF_V2",
+      "state": "SOFT_HANDOFF",
+      "tick_duration_ms": 0.20980602130293846,
+      "timestamp_s": 1868467.029415388
+    },
+    {
+      "action": [
+        368.818844404435,
+        -112.86264645219917,
+        497.90553033965347,
+        3.4695413554592847,
+        149.95965331521194,
+        3.975809960966984,
+        1.0
+      ],
+      "bridge_index": 105,
+      "bridge_progress": 0.8833333333333333,
+      "crossfade_weight": 0.12186864197530864,
+      "generation": 4,
+      "source": "SOFT_HANDOFF_V2",
+      "state": "SOFT_HANDOFF",
+      "tick_duration_ms": 0.053481897339224815,
+      "timestamp_s": 1868467.062810795
+    },
+    {
+      "action": [
+        368.5066561059041,
+        -118.59147496307921,
+        494.9510254035723,
+        3.4793607575007,
+        149.91185051124563,
+        3.9708077080262854,
+        1.0
+      ],
+      "bridge_index": 106,
+      "bridge_progress": 0.8916666666666667,
+      "crossfade_weight": 0.2098765432098765,
+      "generation": 4,
+      "source": "SOFT_HANDOFF_V2",
+      "state": "SOFT_HANDOFF",
+      "tick_duration_ms": 0.0323799904435873,
+      "timestamp_s": 1868467.096204016
+    },
+    {
+      "action": [
+        368.0802710653812,
+        -125.20834769871904,
+        491.1769465647043,
+        3.489117157426449,
+        149.86692835844522,
+        3.9725383027626435,
+        1.0
+      ],
+      "bridge_index": 107,
+      "bridge_progress": 0.9,
+      "crossfade_weight": 0.31744000000000006,
+      "generation": 4,
+      "source": "SOFT_HANDOFF_V2",
+      "state": "SOFT_HANDOFF",
+      "tick_duration_ms": 0.21215691231191158,
+      "timestamp_s": 1868467.12980607
+    },
+    {
+      "action": [
+        367.96285571310665,
+        -132.07487188287894,
+        487.401895506119,
+        3.5032357638925475,
+        149.8253394176385,
+        3.973896773832081,
+        1.0
+      ],
+      "bridge_index": 108,
+      "bridge_progress": 0.9083333333333333,
+      "crossfade_weight": 0.43768493827160504,
+      "generation": 4,
+      "source": "SOFT_HANDOFF_V2",
+      "state": "SOFT_HANDOFF",
+      "tick_duration_ms": 0.21652900613844395,
+      "timestamp_s": 1868467.163379133
+    },
+    {
+      "action": [
+        367.83964148385814,
+        -138.87897037343248,
+        483.06342161396503,
+        3.523824182617602,
+        149.83921356862302,
+        3.9894491789112863,
+        1.0
+      ],
+      "bridge_index": 109,
+      "bridge_progress": 0.9166666666666666,
+      "crossfade_weight": 0.562315061728395,
+      "generation": 4,
+      "source": "SOFT_HANDOFF_V2",
+      "state": "SOFT_HANDOFF",
+      "tick_duration_ms": 0.21434412337839603,
+      "timestamp_s": 1868467.196946632
+    },
+    {
+      "action": [
+        367.051369785495,
+        -145.33134236709364,
+        478.1109773915722,
+        3.554691614262026,
+        149.79318324180193,
+        4.007321520703385,
+        1.0
+      ],
+      "bridge_index": 110,
+      "bridge_progress": 0.925,
+      "crossfade_weight": 0.6825599999999996,
+      "generation": 4,
+      "source": "SOFT_HANDOFF_V2",
+      "state": "SOFT_HANDOFF",
+      "tick_duration_ms": 0.2096579410135746,
+      "timestamp_s": 1868467.230521223
+    },
+    {
+      "action": [
+        366.63783143886025,
+        -151.36383868464355,
+        473.1739217909429,
+        3.577482352824916,
+        149.92792642004636,
+        4.017546714701325,
+        1.0
+      ],
+      "bridge_index": 111,
+      "bridge_progress": 0.9333333333333333,
+      "crossfade_weight": 0.7901234567901232,
+      "generation": 4,
+      "source": "SOFT_HANDOFF_V2",
+      "state": "SOFT_HANDOFF",
+      "tick_duration_ms": 0.1030841376632452,
+      "timestamp_s": 1868467.263923268
+    },
+    {
+      "action": [
+        366.79865634656284,
+        -155.61964300833574,
+        469.624325815581,
+        3.5758587744207944,
+        149.90990540954036,
+        4.013592301277555,
+        1.0
+      ],
+      "bridge_index": 112,
+      "bridge_progress": 0.9416666666666667,
+      "crossfade_weight": 0.878131358024691,
+      "generation": 4,
+      "source": "SOFT_HANDOFF_V2",
+      "state": "SOFT_HANDOFF",
+      "tick_duration_ms": 0.04585203714668751,
+      "timestamp_s": 1868467.297318508
+    },
+    {
+      "action": [
+        366.3230721093072,
+        -159.58165215942932,
+        465.6660421741613,
+        3.589790713918944,
+        150.05265963377852,
+        4.029602637730818,
+        1.0
+      ],
+      "bridge_index": 113,
+      "bridge_progress": 0.95,
+      "crossfade_weight": 0.9420800000000005,
+      "generation": 4,
+      "source": "SOFT_HANDOFF_V2",
+      "state": "SOFT_HANDOFF",
+      "tick_duration_ms": 0.03663008101284504,
+      "timestamp_s": 1868467.330712968
+    },
+    {
+      "action": [
+        366.2928818516347,
+        -162.03943697414795,
+        462.3734745481295,
+        3.594399979244656,
+        150.13107749930055,
+        4.01763192709285,
+        1.0
+      ],
+      "bridge_index": 114,
+      "bridge_progress": 0.9583333333333334,
+      "crossfade_weight": 0.9807841975308644,
+      "generation": 4,
+      "source": "SOFT_HANDOFF_V2",
+      "state": "SOFT_HANDOFF",
+      "tick_duration_ms": 0.032730866223573685,
+      "timestamp_s": 1868467.364107115
+    },
+    {
+      "action": [
+        365.8876800462521,
+        -163.78331038114555,
+        459.4331496952884,
+        3.6132928988334925,
+        150.2479903915421,
+        4.065711341390653,
+        1.0
+      ],
+      "bridge_index": 115,
+      "bridge_progress": 0.9666666666666667,
+      "crossfade_weight": 0.9973254320987657,
+      "generation": 4,
+      "source": "SOFT_HANDOFF_V2",
+      "state": "SOFT_HANDOFF",
+      "tick_duration_ms": 0.21563097834587097,
+      "timestamp_s": 1868467.397526798
+    },
+    {
+      "action": [
+        365.4367980957031,
+        -164.66552734375,
+        457.06634521484375,
+        3.620295524597168,
+        150.33358764648438,
+        4.109133720397949,
+        1.0
+      ],
+      "bridge_index": 116,
+      "bridge_progress": 0.975,
+      "crossfade_weight": 1.0,
+      "generation": 4,
+      "source": "SOFT_HANDOFF_V2",
+      "state": "SOFT_HANDOFF",
+      "tick_duration_ms": 0.19950885325670242,
+      "timestamp_s": 1868467.430925484
+    }
+  ],
+  "compatibility_thresholds": {
+    "gripper_close_threshold": 0.7,
+    "gripper_open_threshold": 0.3,
+    "max_bridge_prefix_velocity_mismatch_mm_s": 75.0,
+    "max_crossfade_command_acceleration_mm_s2": 4000.0,
+    "max_crossfade_rotation_step_deg": 1.25,
+    "max_crossfade_xyz_axis_step_mm": 7.5,
+    "max_first_rotation_delta_deg": 18.75,
+    "max_first_xyz_axis_delta_mm": 75.0,
+    "max_prefix_acceleration_mm_s2": null,
+    "max_prefix_velocity_mm_s": 300.0
+  },
+  "control_timing": {
+    "deadline_miss_count": 0,
+    "max_ms": 24.678503861650825,
+    "p50_ms": 0.20989798940718174,
+    "p95_ms": 0.4612695425748819,
+    "p99_ms": 21.099981414154243,
+    "samples": 117
+  },
+  "events": [
+    {
+      "details": {
+        "current": "LOAD_POLICIES",
+        "previous": "WAITING",
+        "reason": "frozen_ACT_A_and_ACT_B_loaded"
+      },
+      "event": "state_transition",
+      "state": "LOAD_POLICIES",
+      "timestamp_s": 1868463.541383445
+    },
+    {
+      "details": {
+        "current": "WAITING",
+        "previous": "LOAD_POLICIES",
+        "reason": "waiting_for_external_live_gate"
+      },
+      "event": "state_transition",
+      "state": "WAITING",
+      "timestamp_s": 1868463.541383445
+    },
+    {
+      "details": {
+        "current": "RUN_A",
+        "previous": "WAITING",
+        "reason": "ACT_A_active"
+      },
+      "event": "state_transition",
+      "state": "RUN_A",
+      "timestamp_s": 1868463.541412639
+    },
+    {
+      "details": {
+        "current": "A_EXIT_COMMIT",
+        "previous": "RUN_A",
+        "reason": "selected_source_exit_committed"
+      },
+      "event": "state_transition",
+      "state": "A_EXIT_COMMIT",
+      "timestamp_s": 1868463.541418084
+    },
+    {
+      "details": {
+        "current": "PREPARE_BRIDGE",
+        "previous": "A_EXIT_COMMIT",
+        "reason": "actual_state_snapshot_captured"
+      },
+      "event": "state_transition",
+      "state": "PREPARE_BRIDGE",
+      "timestamp_s": 1868463.541422824
+    },
+    {
+      "details": {
+        "current": "RUN_BRIDGE",
+        "previous": "PREPARE_BRIDGE",
+        "reason": "precomputed_bridge_ready"
+      },
+      "event": "state_transition",
+      "state": "RUN_BRIDGE",
+      "timestamp_s": 1868463.541428204
+    },
+    {
+      "details": {
+        "ack_span_steps": 2,
+        "bridge_algorithm": "reference_guided_c2_v1",
+        "bridge_mode": "flexible_level2",
+        "candidate_diagnostics": {
+          "actual_reference_start_error_mm": 0.0,
+          "collision_checked": false,
+          "curvature_p95_moving_per_mm": 0.0044481015299680975,
+          "duration_s": 4.0,
+          "entry_fraction": 0.18,
+          "exit_fraction": 0.82,
+          "future_join_lookahead_fraction": null,
+          "generator_type": "reference_deformation",
+          "hard_rejection_reasons": [],
+          "ik_checked": false,
+          "max_acceleration_mm_s2": 44.97036128918262,
+          "max_ack_span_axis_step_mm": 6.077843594766648,
+          "max_ack_span_orientation_step_deg": 0.18483548301037508,
+          "max_command_acceleration_mm_s2": 44.285223527722195,
+          "max_command_jerk_mm_s3": 657.4298903537318,
+          "max_curvature_per_mm": 0.004499352372633864,
+          "max_curvature_u": 0.6125,
+          "max_jerk_mm_s3": 20.887094957319917,
+          "max_normal_acceleration_mm_s2": 9.288886737176215,
+          "max_orientation_step_deg": 0.09241774149599163,
+          "max_position_axis_step_mm": 3.062711405791134,
+          "max_velocity_mm_s": 93.54966730182825,
+          "ood_score": 0.0,
+          "reference_projection_fraction": null,
+          "reference_rms_error_mm": 0.0,
+          "score": 0.20692673859598032,
+          "self_intersection_checked": true,
+          "source_tangent_angle_deg": 0.0,
+          "speed_at_max_curvature_mm_s": 44.61711662067517,
+          "tangent_handle_chord_ratio": 0.0
+        },
+        "candidate_generator_type": "reference_deformation",
+        "collision_checked": false,
+        "duration_s": 4.0,
+        "generation_latency_ms": 38.15418318845332,
+        "gripper_target": 1.0,
+        "handoff_window_start_index": 96,
+        "ik_checked": false,
+        "integrated_squared_jerk": 1745.0829430243962,
+        "length_mm": 234.08240218685745,
+        "max_acceleration_mm_s2": 44.97036128918262,
+        "max_ack_span_axis_step_mm": 6.077843594766648,
+        "max_ack_span_orientation_step_deg": 0.18483548301037508,
+        "max_axis_step_mm": 3.062711405791134,
+        "max_axis_velocity_mm_s": 92.60204866401378,
+        "max_jerk_mm_s3": 20.887094957319917,
+        "max_orientation_step_deg": 0.09241774149599163,
+        "max_velocity_mm_s": 93.54966730182825,
+        "maximum_endpoint_speed_adjustment_mm_s": null,
+        "minimum_tangent_handle_chord_ratio": 0.0,
+        "selected_candidate_score": 0.20692673859598032,
+        "source_endpoint_speed_adjustment_mm_s": 0.0,
+        "steps": 120,
+        "successor_endpoint_speed_adjustment_mm_s": 0.0,
+        "transport_floor_mm": null,
+        "workspace_min_limit_enabled": [
+          true,
+          true,
+          false
+        ]
+      },
+      "event": "bridge_queue_started",
+      "state": "RUN_BRIDGE",
+      "timestamp_s": 1868463.541428204
+    },
+    {
+      "details": {
+        "current": "HANDOFF_WINDOW",
+        "previous": "RUN_BRIDGE",
+        "reason": "bridge_window_index_reached"
+      },
+      "event": "state_transition",
+      "state": "HANDOFF_WINDOW",
+      "timestamp_s": 1868466.761661353
+    },
+    {
+      "details": {
+        "bridge_index": 96,
+        "remaining_steps": 24,
+        "window_start_index": 96
+      },
+      "event": "handoff_window_entered",
+      "state": "HANDOFF_WINDOW",
+      "timestamp_s": 1868466.761661353
+    },
+    {
+      "details": {
+        "current": "B_SHADOW_PENDING",
+        "previous": "HANDOFF_WINDOW",
+        "reason": "outer_compatibility_ready"
+      },
+      "event": "state_transition",
+      "state": "B_SHADOW_PENDING",
+      "timestamp_s": 1868466.761661353
+    },
+    {
+      "details": {
+        "bridge_index": 96,
+        "generation": 2,
+        "observation_timestamp_s": 1868466.761661353,
+        "semantic_authority": "external_planner",
+        "semantic_checks_enforced_by_runtime": false,
+        "semantic_diagnostics": [],
+        "successor_support_orientation_delta_deg": 0.34264492511983086,
+        "successor_support_orientation_radius_deg": 30.0,
+        "successor_support_position_delta_mm": 53.05599028319474,
+        "successor_support_radius_mm": 90.0,
+        "support_diagnostics": []
+      },
+      "event": "act_b_shadow_requested",
+      "state": "B_SHADOW_PENDING",
+      "timestamp_s": 1868466.761661353
+    },
+    {
+      "details": {
+        "backend_stage_timing": {
+          "gpu_inference_latency_ms": 69.24121594056487,
+          "postprocess_latency_ms": 0.2743981312960386,
+          "preprocess_latency_ms": 1.1816129554063082,
+          "total_latency_ms": 75.91201411560178,
+          "validation_latency_ms": 5.21478708833456
+        },
+        "backend_total_latency_ms": 76.10591291449964,
+        "completion_timestamp_s": 1868466.841126753,
+        "failure_reason": null,
+        "generation": 2,
+        "gpu_wait_latency_ms": 0.0020740553736686707,
+        "observation_timestamp_s": 1868466.761661353,
+        "request_timestamp_s": 1868466.76211977,
+        "snapshot_latency_ms": 2.5155688636004925,
+        "stale": false,
+        "status": "ready",
+        "total_preparation_latency_ms": 79.0069829672575
+      },
+      "event": "act_b_shadow_result",
+      "state": "B_SHADOW_PENDING",
+      "timestamp_s": 1868466.862055463
+    },
+    {
+      "details": {
+        "current": "B_PREFIX_ADMISSION",
+        "previous": "B_SHADOW_PENDING",
+        "reason": "fresh_successor_chunk_ready"
+      },
+      "event": "state_transition",
+      "state": "B_PREFIX_ADMISSION",
+      "timestamp_s": 1868466.862055463
+    },
+    {
+      "details": {
+        "admission": {
+          "dynamics": {
+            "bridge_prefix_velocity_mismatch_mm_s": 17.311136776384014,
+            "first_rotation_delta_deg": 0.6997554740961242,
+            "first_xyz_axis_delta_mm": [
+              1.9813485336813415,
+              50.12758958469033,
+              24.142791891975207
+            ],
+            "first_xyz_delta_mm": 55.67383029684862,
+            "initial_b_velocity_mm_s": [
+              -0.12542724609375,
+              -61.8988037109375,
+              -37.82684326171875
+            ],
+            "max_acceleration_mm_s2": 1573.73127303782,
+            "max_axis_velocity_mm_s": 73.74847412109375,
+            "max_velocity_mm_s": 86.1837195142985,
+            "prefix_steps": 15
+          },
+          "execution_dynamics": {
+            "command_history_steps": 2,
+            "continuation_steps": 1,
+            "crossfade_steps": 15,
+            "first_crossfade_velocity_mm_s": [
+              -4.726782402203185,
+              -56.72957576157998,
+              -25.28885359180208
+            ],
+            "first_rotation_step_deg": 0.0314249448959902,
+            "first_xyz_axis_step_mm": [
+              0.15755941340677282,
+              1.8909858587193327,
+              0.8429617863934027
+            ],
+            "max_acceleration_mm_s2": 2191.234357037239,
+            "max_acceleration_transition_index": 10,
+            "max_acceleration_vector_mm_s2": [
+              525.0470543581912,
+              1691.5188781392828,
+              1290.1928084858525
+            ],
+            "max_axis_velocity_mm_s": 225.47328424335092,
+            "max_rotation_step_deg": 0.1415313193582458,
+            "max_velocity_mm_s": 267.60509452764677,
+            "max_xyz_axis_step_mm": 7.515776141445031,
+            "previous_command_velocity_mm_s": [
+              -4.516001621601049,
+              -52.0715010187476,
+              -22.769754716434818
+            ]
+          },
+          "failure_reasons": [
+            "crossfade_xyz_axis_step"
+          ],
+          "gripper_compatibility_enforced": false,
+          "gripper_compatible": true,
+          "raw_prefix_acceleration_hard_reject": false,
+          "semantic_authority": "external_planner",
+          "splice_index": 0,
+          "valid": false
+        },
+        "bridge_index": 99,
+        "compatibility": "FAIL",
+        "generation": 2,
+        "selection_score": null,
+        "splice_index": 0
+      },
+      "event": "act_b_splice_candidate",
+      "state": "B_PREFIX_ADMISSION",
+      "timestamp_s": 1868466.862055463
+    },
+    {
+      "details": {
+        "admission": {
+          "dynamics": {
+            "bridge_prefix_velocity_mismatch_mm_s": 17.312820407044963,
+            "first_rotation_delta_deg": 0.6273399535426831,
+            "first_xyz_axis_delta_mm": [
+              1.9855294418844665,
+              52.19088304172158,
+              25.403686667365832
+            ],
+            "first_xyz_delta_mm": 58.079065902723954,
+            "initial_b_velocity_mm_s": [
+              -10.58349609375,
+              -58.5479736328125,
+              -38.924560546875
+            ],
+            "max_acceleration_mm_s2": 1573.73127303782,
+            "max_axis_velocity_mm_s": 73.74847412109375,
+            "max_velocity_mm_s": 86.1837195142985,
+            "prefix_steps": 15
+          },
+          "execution_dynamics": {
+            "command_history_steps": 2,
+            "continuation_steps": 1,
+            "crossfade_steps": 15,
+            "first_crossfade_velocity_mm_s": [
+              -4.727117865889454,
+              -56.8951283151101,
+              -25.390024052595663
+            ],
+            "first_rotation_step_deg": 0.03125079021937286,
+            "first_xyz_axis_step_mm": [
+              0.15757059552964847,
+              1.8965042771703366,
+              0.8463341350865221
+            ],
+            "max_acceleration_mm_s2": 1722.6859262127793,
+            "max_acceleration_transition_index": 9,
+            "max_acceleration_vector_mm_s2": [
+              459.8202465537554,
+              1352.7980719884822,
+              962.3666233068718
+            ],
+            "max_axis_velocity_mm_s": 230.31860232735283,
+            "max_rotation_step_deg": 0.13545634553004976,
+            "max_velocity_mm_s": 281.3190734729499,
+            "max_xyz_axis_step_mm": 7.6772867442450945,
+            "previous_command_velocity_mm_s": [
+              -4.516001621601049,
+              -52.0715010187476,
+              -22.769754716434818
+            ]
+          },
+          "failure_reasons": [
+            "crossfade_xyz_axis_step"
+          ],
+          "gripper_compatibility_enforced": false,
+          "gripper_compatible": true,
+          "raw_prefix_acceleration_hard_reject": false,
+          "semantic_authority": "external_planner",
+          "splice_index": 1,
+          "valid": false
+        },
+        "bridge_index": 99,
+        "compatibility": "FAIL",
+        "generation": 2,
+        "selection_score": null,
+        "splice_index": 1
+      },
+      "event": "act_b_splice_candidate",
+      "state": "B_PREFIX_ADMISSION",
+      "timestamp_s": 1868466.862055463
+    },
+    {
+      "details": {
+        "admission": {
+          "dynamics": {
+            "bridge_prefix_velocity_mismatch_mm_s": 12.891439664392959,
+            "first_rotation_delta_deg": 0.4981272791729034,
+            "first_xyz_axis_delta_mm": [
+              2.3059945297750915,
+              55.45675218234658,
+              28.015838766975207
+            ],
+            "first_xyz_delta_mm": 62.17440144627615,
+            "initial_b_velocity_mm_s": [
+              -8.98956298828125,
+              -42.5408935546875,
+              -29.71160888671875
+            ],
+            "max_acceleration_mm_s2": 2674.989544840935,
+            "max_axis_velocity_mm_s": 130.44525146484375,
+            "max_velocity_mm_s": 150.97650333424355,
+            "prefix_steps": 15
+          },
+          "execution_dynamics": {
+            "command_history_steps": 2,
+            "continuation_steps": 1,
+            "crossfade_steps": 15,
+            "first_crossfade_velocity_mm_s": [
+              -4.752831035015106,
+              -57.15717197830472,
+              -25.599615397357525
+            ],
+            "first_rotation_step_deg": 0.03090830245666309,
+            "first_xyz_axis_step_mm": [
+              0.1584277011671702,
+              1.9052390659434906,
+              0.8533205132452508
+            ],
+            "max_acceleration_mm_s2": 4167.117673883164,
+            "max_acceleration_transition_index": 15,
+            "max_acceleration_vector_mm_s2": [
+              655.3281893709595,
+              2533.4869853554806,
+              3242.9706084452278
+            ],
+            "max_axis_velocity_mm_s": 242.24781878834506,
+            "max_rotation_step_deg": 0.28313027506566313,
+            "max_velocity_mm_s": 291.89755867369587,
+            "max_xyz_axis_step_mm": 8.074927292944835,
+            "previous_command_velocity_mm_s": [
+              -4.516001621601049,
+              -52.0715010187476,
+              -22.769754716434818
+            ]
+          },
+          "failure_reasons": [
+            "crossfade_xyz_axis_step",
+            "crossfade_command_acceleration"
+          ],
+          "gripper_compatibility_enforced": false,
+          "gripper_compatible": true,
+          "raw_prefix_acceleration_hard_reject": false,
+          "semantic_authority": "external_planner",
+          "splice_index": 3,
+          "valid": false
+        },
+        "bridge_index": 99,
+        "compatibility": "FAIL",
+        "generation": 2,
+        "selection_score": null,
+        "splice_index": 3
+      },
+      "event": "act_b_splice_candidate",
+      "state": "B_PREFIX_ADMISSION",
+      "timestamp_s": 1868466.862055463
+    },
+    {
+      "details": {
+        "admission": {
+          "dynamics": {
+            "bridge_prefix_velocity_mismatch_mm_s": 39.61492529031621,
+            "first_rotation_delta_deg": 0.5263537988612019,
+            "first_xyz_axis_delta_mm": [
+              2.6056466293844665,
+              56.87478196750283,
+              29.006225729865832
+            ],
+            "first_xyz_delta_mm": 63.8975065968942,
+            "initial_b_velocity_mm_s": [
+              -14.4140625,
+              -52.929840087890625,
+              -62.02423095703125
+            ],
+            "max_acceleration_mm_s2": 4024.721926398146,
+            "max_axis_velocity_mm_s": 130.44525146484375,
+            "max_velocity_mm_s": 150.97650333424355,
+            "prefix_steps": 15
+          },
+          "execution_dynamics": {
+            "command_history_steps": 2,
+            "continuation_steps": 1,
+            "crossfade_steps": 15,
+            "first_crossfade_velocity_mm_s": [
+              -4.7768742316293356,
+              -57.270950486695824,
+              -25.679081112780295
+            ],
+            "first_rotation_step_deg": 0.030993034212209482,
+            "first_xyz_axis_step_mm": [
+              0.15922914105431119,
+              1.9090316828898608,
+              0.8559693704260098
+            ],
+            "max_acceleration_mm_s2": 4778.181218378008,
+            "max_acceleration_transition_index": 14,
+            "max_acceleration_vector_mm_s2": [
+              689.6152191347937,
+              3003.817464245498,
+              3651.373337073568
+            ],
+            "max_axis_velocity_mm_s": 247.34465655189013,
+            "max_rotation_step_deg": 0.2910859881376622,
+            "max_velocity_mm_s": 305.9083209648406,
+            "max_xyz_axis_step_mm": 8.244821885063004,
+            "previous_command_velocity_mm_s": [
+              -4.516001621601049,
+              -52.0715010187476,
+              -22.769754716434818
+            ]
+          },
+          "failure_reasons": [
+            "crossfade_xyz_axis_step",
+            "crossfade_velocity",
+            "crossfade_command_acceleration"
+          ],
+          "gripper_compatibility_enforced": false,
+          "gripper_compatible": true,
+          "raw_prefix_acceleration_hard_reject": false,
+          "semantic_authority": "external_planner",
+          "splice_index": 4,
+          "valid": false
+        },
+        "bridge_index": 99,
+        "compatibility": "FAIL",
+        "generation": 2,
+        "selection_score": null,
+        "splice_index": 4
+      },
+      "event": "act_b_splice_candidate",
+      "state": "B_PREFIX_ADMISSION",
+      "timestamp_s": 1868466.862055463
+    },
+    {
+      "details": {
+        "admission": {
+          "dynamics": {
+            "bridge_prefix_velocity_mismatch_mm_s": 35.35255293528423,
+            "first_rotation_delta_deg": 0.4983266460928802,
+            "first_xyz_axis_delta_mm": [
+              2.6425423813375915,
+              59.76882493625283,
+              31.832092429084582
+            ],
+            "first_xyz_delta_mm": 67.76855888176601,
+            "initial_b_velocity_mm_s": [
+              5.328369140625,
+              -30.96771240234375,
+              -49.423828125
+            ],
+            "max_acceleration_mm_s2": 4024.721926398146,
+            "max_axis_velocity_mm_s": 130.44525146484375,
+            "max_velocity_mm_s": 150.97650333424355,
+            "prefix_steps": 15
+          },
+          "execution_dynamics": {
+            "command_history_steps": 2,
+            "continuation_steps": 1,
+            "crossfade_steps": 15,
+            "first_crossfade_velocity_mm_s": [
+              -4.779834637446356,
+              -57.50315991956626,
+              -25.905820283787193
+            ],
+            "first_rotation_step_deg": 0.030954890215361384,
+            "first_xyz_axis_step_mm": [
+              0.15932782124821188,
+              1.9167719973188753,
+              0.8635273427929064
+            ],
+            "max_acceleration_mm_s2": 5246.652642855995,
+            "max_acceleration_transition_index": 12,
+            "max_acceleration_vector_mm_s2": [
+              709.8889367769743,
+              3493.7737460197923,
+              3849.2813178374317
+            ],
+            "max_axis_velocity_mm_s": 251.1020801485327,
+            "max_rotation_step_deg": 0.3040907539005491,
+            "max_velocity_mm_s": 320.89289106619356,
+            "max_xyz_axis_step_mm": 8.370069338284424,
+            "previous_command_velocity_mm_s": [
+              -4.516001621601049,
+              -52.0715010187476,
+              -22.769754716434818
+            ]
+          },
+          "failure_reasons": [
+            "crossfade_xyz_axis_step",
+            "crossfade_velocity",
+            "crossfade_command_acceleration"
+          ],
+          "gripper_compatibility_enforced": false,
+          "gripper_compatible": true,
+          "raw_prefix_acceleration_hard_reject": false,
+          "semantic_authority": "external_planner",
+          "splice_index": 6,
+          "valid": false
+        },
+        "bridge_index": 99,
+        "compatibility": "FAIL",
+        "generation": 2,
+        "selection_score": null,
+        "splice_index": 6
+      },
+      "event": "act_b_splice_candidate",
+      "state": "B_PREFIX_ADMISSION",
+      "timestamp_s": 1868466.862055463
+    },
+    {
+      "details": {
+        "admission": {
+          "dynamics": {
+            "bridge_prefix_velocity_mismatch_mm_s": 50.08148913086941,
+            "first_rotation_delta_deg": 0.4248178869811675,
+            "first_xyz_axis_delta_mm": [
+              3.3909249496969665,
+              61.92373216281533,
+              35.93783583728771
+            ],
+            "first_xyz_delta_mm": 71.67687926838339,
+            "initial_b_velocity_mm_s": [
+              -7.78289794921875,
+              -45.14556884765625,
+              -72.99957275390625
+            ],
+            "max_acceleration_mm_s2": 4024.721926398146,
+            "max_axis_velocity_mm_s": 130.44525146484375,
+            "max_velocity_mm_s": 150.97650333424355,
+            "prefix_steps": 15
+          },
+          "execution_dynamics": {
+            "command_history_steps": 2,
+            "continuation_steps": 1,
+            "crossfade_steps": 15,
+            "first_crossfade_velocity_mm_s": [
+              -4.839882637300548,
+              -57.67606329051546,
+              -26.235252969695466
+            ],
+            "first_rotation_step_deg": 0.030770218209724514,
+            "first_xyz_axis_step_mm": [
+              0.1613294212433516,
+              1.922535443017182,
+              0.8745084323231822
+            ],
+            "max_acceleration_mm_s2": 4310.335104900512,
+            "max_acceleration_transition_index": 10,
+            "max_acceleration_vector_mm_s2": [
+              615.245280486613,
+              3002.435263176173,
+              3030.815806315667
+            ],
+            "max_axis_velocity_mm_s": 257.1800854824187,
+            "max_rotation_step_deg": 0.28421288793830934,
+            "max_velocity_mm_s": 357.83181193481227,
+            "max_xyz_axis_step_mm": 8.572669516080623,
+            "previous_command_velocity_mm_s": [
+              -4.516001621601049,
+              -52.0715010187476,
+              -22.769754716434818
+            ]
+          },
+          "failure_reasons": [
+            "crossfade_xyz_axis_step",
+            "crossfade_velocity",
+            "crossfade_command_acceleration"
+          ],
+          "gripper_compatibility_enforced": false,
+          "gripper_compatible": true,
+          "raw_prefix_acceleration_hard_reject": false,
+          "semantic_authority": "external_planner",
+          "splice_index": 8,
+          "valid": false
+        },
+        "bridge_index": 99,
+        "compatibility": "FAIL",
+        "generation": 2,
+        "selection_score": null,
+        "splice_index": 8
+      },
+      "event": "act_b_splice_candidate",
+      "state": "B_PREFIX_ADMISSION",
+      "timestamp_s": 1868466.862055463
+    },
+    {
+      "details": {
+        "admission": {
+          "dynamics": {
+            "bridge_prefix_velocity_mismatch_mm_s": 17.311136776384014,
+            "first_rotation_delta_deg": 0.6997554740961242,
+            "first_xyz_axis_delta_mm": [
+              1.9813485336813415,
+              50.12758958469033,
+              24.142791891975207
+            ],
+            "first_xyz_delta_mm": 55.67383029684862,
+            "initial_b_velocity_mm_s": [
+              -0.12542724609375,
+              -61.8988037109375,
+              -37.82684326171875
+            ],
+            "max_acceleration_mm_s2": 1573.73127303782,
+            "max_axis_velocity_mm_s": 73.74847412109375,
+            "max_velocity_mm_s": 86.1837195142985,
+            "prefix_steps": 15
+          },
+          "execution_dynamics": {
+            "command_history_steps": 2,
+            "continuation_steps": 1,
+            "crossfade_steps": 15,
+            "first_crossfade_velocity_mm_s": [
+              -4.726782402203185,
+              -56.72957576157998,
+              -25.28885359180208
+            ],
+            "first_rotation_step_deg": 0.0314249448959902,
+            "first_xyz_axis_step_mm": [
+              0.15755941340677282,
+              1.8909858587193327,
+              0.8429617863934027
+            ],
+            "max_acceleration_mm_s2": 2191.234357037239,
+            "max_acceleration_transition_index": 10,
+            "max_acceleration_vector_mm_s2": [
+              525.0470543581912,
+              1691.5188781392828,
+              1290.1928084858525
+            ],
+            "max_axis_velocity_mm_s": 225.47328424335092,
+            "max_rotation_step_deg": 0.1415313193582458,
+            "max_velocity_mm_s": 267.60509452764677,
+            "max_xyz_axis_step_mm": 7.515776141445031,
+            "previous_command_velocity_mm_s": [
+              -4.516001621601049,
+              -52.0715010187476,
+              -22.769754716434818
+            ]
+          },
+          "failure_reasons": [
+            "crossfade_xyz_axis_step"
+          ],
+          "gripper_compatibility_enforced": false,
+          "gripper_compatible": true,
+          "raw_prefix_acceleration_hard_reject": false,
+          "semantic_authority": "external_planner",
+          "splice_index": 0,
+          "valid": false
+        },
+        "bridge_index": 99,
+        "compatibility": "FAIL",
+        "generation": 2,
+        "selected_splice_index": null,
+        "selected_splice_score": null,
+        "splice_candidates": [
+          0,
+          1,
+          3,
+          4,
+          6,
+          8
+        ]
+      },
+      "event": "act_b_prefix_admission",
+      "state": "B_PREFIX_ADMISSION",
+      "timestamp_s": 1868466.862055463
+    },
+    {
+      "details": {
+        "current": "HANDOFF_WINDOW",
+        "previous": "B_PREFIX_ADMISSION",
+        "reason": "prefix_incompatible"
+      },
+      "event": "state_transition",
+      "state": "HANDOFF_WINDOW",
+      "timestamp_s": 1868466.862055463
+    },
+    {
+      "details": {
+        "current": "B_SHADOW_PENDING",
+        "previous": "HANDOFF_WINDOW",
+        "reason": "outer_compatibility_ready"
+      },
+      "event": "state_transition",
+      "state": "B_SHADOW_PENDING",
+      "timestamp_s": 1868466.895455963
+    },
+    {
+      "details": {
+        "bridge_index": 100,
+        "generation": 4,
+        "observation_timestamp_s": 1868466.895455963,
+        "semantic_authority": "external_planner",
+        "semantic_checks_enforced_by_runtime": false,
+        "semantic_diagnostics": [],
+        "successor_support_orientation_delta_deg": 0.20997547910980224,
+        "successor_support_orientation_radius_deg": 30.0,
+        "successor_support_position_delta_mm": 45.513988027363034,
+        "successor_support_radius_mm": 90.0,
+        "support_diagnostics": []
+      },
+      "event": "act_b_shadow_requested",
+      "state": "B_SHADOW_PENDING",
+      "timestamp_s": 1868466.895455963
+    },
+    {
+      "details": {
+        "backend_stage_timing": {
+          "gpu_inference_latency_ms": 39.00836990214884,
+          "postprocess_latency_ms": 0.34226104617118835,
+          "preprocess_latency_ms": 1.0241211857646704,
+          "total_latency_ms": 42.889878153800964,
+          "validation_latency_ms": 2.515126019716263
+        },
+        "backend_total_latency_ms": 43.09138702228665,
+        "completion_timestamp_s": 1868466.940892576,
+        "failure_reason": null,
+        "generation": 4,
+        "gpu_wait_latency_ms": 0.0013238750398159027,
+        "observation_timestamp_s": 1868466.895455963,
+        "request_timestamp_s": 1868466.89560001,
+        "snapshot_latency_ms": 1.9757989794015884,
+        "stale": false,
+        "status": "ready",
+        "total_preparation_latency_ms": 45.29256606474519
+      },
+      "event": "act_b_shadow_result",
+      "state": "B_SHADOW_PENDING",
+      "timestamp_s": 1868466.962443676
+    },
+    {
+      "details": {
+        "current": "B_PREFIX_ADMISSION",
+        "previous": "B_SHADOW_PENDING",
+        "reason": "fresh_successor_chunk_ready"
+      },
+      "event": "state_transition",
+      "state": "B_PREFIX_ADMISSION",
+      "timestamp_s": 1868466.962443676
+    },
+    {
+      "details": {
+        "admission": {
+          "dynamics": {
+            "bridge_prefix_velocity_mismatch_mm_s": 14.84758779879523,
+            "first_rotation_delta_deg": 0.6301081786734607,
+            "first_xyz_axis_delta_mm": [
+              1.5141552431603031,
+              44.722625600546394,
+              21.687976861605705
+            ],
+            "first_xyz_delta_mm": 49.72699716508711,
+            "initial_b_velocity_mm_s": [
+              -0.12542724609375,
+              -61.8988037109375,
+              -37.82684326171875
+            ],
+            "max_acceleration_mm_s2": 1573.73127303782,
+            "max_axis_velocity_mm_s": 73.74847412109375,
+            "max_velocity_mm_s": 86.1837195142985,
+            "prefix_steps": 15
+          },
+          "execution_dynamics": {
+            "command_history_steps": 2,
+            "continuation_steps": 1,
+            "crossfade_steps": 15,
+            "first_crossfade_velocity_mm_s": [
+              -4.845644719532061,
+              -58.33018219325098,
+              -26.896311872792467
+            ],
+            "first_rotation_step_deg": 0.02449995226946142,
+            "first_xyz_axis_step_mm": [
+              0.1615214906510687,
+              1.9443394064416992,
+              0.8965437290930822
+            ],
+            "max_acceleration_mm_s2": 2093.650677305484,
+            "max_acceleration_transition_index": 10,
+            "max_acceleration_vector_mm_s2": [
+              516.9269289036208,
+              1599.0227944719522,
+              1248.7136627406187
+            ],
+            "max_axis_velocity_mm_s": 205.995725524797,
+            "max_rotation_step_deg": 0.14297876848209526,
+            "max_velocity_mm_s": 245.1592591599222,
+            "max_xyz_axis_step_mm": 6.8665241841599,
+            "previous_command_velocity_mm_s": [
+              -4.671880750324817,
+              -54.04262160339471,
+              -24.544896581414832
+            ]
+          },
+          "failure_reasons": [],
+          "gripper_compatibility_enforced": false,
+          "gripper_compatible": true,
+          "raw_prefix_acceleration_hard_reject": false,
+          "semantic_authority": "external_planner",
+          "splice_index": 0,
+          "valid": true
+        },
+        "bridge_index": 102,
+        "compatibility": "PASS",
+        "generation": 4,
+        "selection_score": 50.50558122174853,
+        "splice_index": 0
+      },
+      "event": "act_b_splice_candidate",
+      "state": "B_PREFIX_ADMISSION",
+      "timestamp_s": 1868466.962443676
+    },
+    {
+      "details": {
+        "admission": {
+          "dynamics": {
+            "bridge_prefix_velocity_mismatch_mm_s": 15.069344232376295,
+            "first_rotation_delta_deg": 0.5573711841259993,
+            "first_xyz_axis_delta_mm": [
+              1.5183361513634281,
+              46.785919057577644,
+              22.94887163699633
+            ],
+            "first_xyz_delta_mm": 52.133274174389605,
+            "initial_b_velocity_mm_s": [
+              -10.58349609375,
+              -58.5479736328125,
+              -38.924560546875
+            ],
+            "max_acceleration_mm_s2": 1573.73127303782,
+            "max_axis_velocity_mm_s": 73.74847412109375,
+            "max_velocity_mm_s": 86.1837195142985,
+            "prefix_steps": 15
+          },
+          "execution_dynamics": {
+            "command_history_steps": 2,
+            "continuation_steps": 1,
+            "crossfade_steps": 15,
+            "first_crossfade_velocity_mm_s": [
+              -4.84598018321833,
+              -58.495734746781096,
+              -26.99748233358605
+            ],
+            "first_rotation_step_deg": 0.024325291164922564,
+            "first_xyz_axis_step_mm": [
+              0.16153267277394434,
+              1.9498578248927032,
+              0.8999160777862016
+            ],
+            "max_acceleration_mm_s2": 1669.578842250471,
+            "max_acceleration_transition_index": 9,
+            "max_acceleration_vector_mm_s2": [
+              455.0969629530755,
+              1301.0114129706153,
+              942.2046317661113
+            ],
+            "max_axis_velocity_mm_s": 209.50734601796654,
+            "max_rotation_step_deg": 0.13547938374926083,
+            "max_velocity_mm_s": 258.869734953629,
+            "max_xyz_axis_step_mm": 6.983578200598885,
+            "previous_command_velocity_mm_s": [
+              -4.671880750324817,
+              -54.04262160339471,
+              -24.544896581414832
+            ]
+          },
+          "failure_reasons": [],
+          "gripper_compatibility_enforced": false,
+          "gripper_compatible": true,
+          "raw_prefix_acceleration_hard_reject": false,
+          "semantic_authority": "external_planner",
+          "splice_index": 1,
+          "valid": true
+        },
+        "bridge_index": 102,
+        "compatibility": "PASS",
+        "generation": 4,
+        "selection_score": 52.84133880083937,
+        "splice_index": 1
+      },
+      "event": "act_b_splice_candidate",
+      "state": "B_PREFIX_ADMISSION",
+      "timestamp_s": 1868466.962443676
+    },
+    {
+      "details": {
+        "admission": {
+          "dynamics": {
+            "bridge_prefix_velocity_mismatch_mm_s": 13.917424814677274,
+            "first_rotation_delta_deg": 0.4295323635455961,
+            "first_xyz_axis_delta_mm": [
+              1.8388012392540531,
+              50.051788198202644,
+              25.561023736605705
+            ],
+            "first_xyz_delta_mm": 56.231029034675686,
+            "initial_b_velocity_mm_s": [
+              -8.98956298828125,
+              -42.5408935546875,
+              -29.71160888671875
+            ],
+            "max_acceleration_mm_s2": 2674.989544840935,
+            "max_axis_velocity_mm_s": 130.44525146484375,
+            "max_velocity_mm_s": 150.97650333424355,
+            "prefix_steps": 15
+          },
+          "execution_dynamics": {
+            "command_history_steps": 2,
+            "continuation_steps": 1,
+            "crossfade_steps": 15,
+            "first_crossfade_velocity_mm_s": [
+              -4.871693352343982,
+              -58.757778409975714,
+              -27.20707367834791
+            ],
+            "first_rotation_step_deg": 0.023982442011864565,
+            "first_xyz_axis_step_mm": [
+              0.16238977841146607,
+              1.9585926136658571,
+              0.9069024559449304
+            ],
+            "max_acceleration_mm_s2": 4151.211246661044,
+            "max_acceleration_transition_index": 15,
+            "max_acceleration_vector_mm_s2": [
+              654.0370916486324,
+              2517.893514336606,
+              3234.9656176866233
+            ],
+            "max_axis_velocity_mm_s": 222.7702600697907,
+            "max_rotation_step_deg": 0.2831533743522588,
+            "max_velocity_mm_s": 270.487595576808,
+            "max_xyz_axis_step_mm": 7.42567533565969,
+            "previous_command_velocity_mm_s": [
+              -4.671880750324817,
+              -54.04262160339471,
+              -24.544896581414832
+            ]
+          },
+          "failure_reasons": [
+            "crossfade_command_acceleration"
+          ],
+          "gripper_compatibility_enforced": false,
+          "gripper_compatible": true,
+          "raw_prefix_acceleration_hard_reject": false,
+          "semantic_authority": "external_planner",
+          "splice_index": 3,
+          "valid": false
+        },
+        "bridge_index": 102,
+        "compatibility": "FAIL",
+        "generation": 4,
+        "selection_score": null,
+        "splice_index": 3
+      },
+      "event": "act_b_splice_candidate",
+      "state": "B_PREFIX_ADMISSION",
+      "timestamp_s": 1868466.962443676
+    },
+    {
+      "details": {
+        "admission": {
+          "dynamics": {
+            "bridge_prefix_velocity_mismatch_mm_s": 37.87699850203717,
+            "first_rotation_delta_deg": 0.4567530846869415,
+            "first_xyz_axis_delta_mm": [
+              2.138453338863428,
+              51.469817983358894,
+              26.55141069949633
+            ],
+            "first_xyz_delta_mm": 57.95422811198437,
+            "initial_b_velocity_mm_s": [
+              -14.4140625,
+              -52.929840087890625,
+              -62.02423095703125
+            ],
+            "max_acceleration_mm_s2": 4024.721926398146,
+            "max_axis_velocity_mm_s": 130.44525146484375,
+            "max_velocity_mm_s": 150.97650333424355,
+            "prefix_steps": 15
+          },
+          "execution_dynamics": {
+            "command_history_steps": 2,
+            "continuation_steps": 1,
+            "crossfade_steps": 15,
+            "first_crossfade_velocity_mm_s": [
+              -4.895736548958212,
+              -58.87155691836682,
+              -27.28653939377068
+            ],
+            "first_rotation_step_deg": 0.024067125110013937,
+            "first_xyz_axis_step_mm": [
+              0.16319121829860705,
+              1.9623852306122274,
+              0.9095513131256894
+            ],
+            "max_acceleration_mm_s2": 4696.823850160217,
+            "max_acceleration_transition_index": 14,
+            "max_acceleration_vector_mm_s2": [
+              683.0149932652034,
+              2924.6170349256404,
+              3611.130016688895
+            ],
+            "max_axis_velocity_mm_s": 226.53340024250383,
+            "max_rotation_step_deg": 0.29128918074391635,
+            "max_velocity_mm_s": 283.3158442097902,
+            "max_xyz_axis_step_mm": 7.551113341416794,
+            "previous_command_velocity_mm_s": [
+              -4.671880750324817,
+              -54.04262160339471,
+              -24.544896581414832
+            ]
+          },
+          "failure_reasons": [
+            "crossfade_xyz_axis_step",
+            "crossfade_command_acceleration"
+          ],
+          "gripper_compatibility_enforced": false,
+          "gripper_compatible": true,
+          "raw_prefix_acceleration_hard_reject": false,
+          "semantic_authority": "external_planner",
+          "splice_index": 4,
+          "valid": false
+        },
+        "bridge_index": 102,
+        "compatibility": "FAIL",
+        "generation": 4,
+        "selection_score": null,
+        "splice_index": 4
+      },
+      "event": "act_b_splice_candidate",
+      "state": "B_PREFIX_ADMISSION",
+      "timestamp_s": 1868466.962443676
+    },
+    {
+      "details": {
+        "admission": {
+          "dynamics": {
+            "bridge_prefix_velocity_mismatch_mm_s": 35.46680128672744,
+            "first_rotation_delta_deg": 0.4265638424279322,
+            "first_xyz_axis_delta_mm": [
+              2.175349090816553,
+              54.363860952108894,
+              29.37727739871508
+            ],
+            "first_xyz_delta_mm": 61.831916909054364,
+            "initial_b_velocity_mm_s": [
+              5.328369140625,
+              -30.96771240234375,
+              -49.423828125
+            ],
+            "max_acceleration_mm_s2": 4024.721926398146,
+            "max_axis_velocity_mm_s": 130.44525146484375,
+            "max_velocity_mm_s": 150.97650333424355,
+            "prefix_steps": 15
+          },
+          "execution_dynamics": {
+            "command_history_steps": 2,
+            "continuation_steps": 1,
+            "crossfade_steps": 15,
+            "first_crossfade_velocity_mm_s": [
+              -4.898696954775232,
+              -59.103766351237255,
+              -27.51327856477758
+            ],
+            "first_rotation_step_deg": 0.024028465877223987,
+            "first_xyz_axis_step_mm": [
+              0.16328989849250775,
+              1.9701255450412418,
+              0.917109285492586
+            ],
+            "max_acceleration_mm_s2": 5107.592848638318,
+            "max_acceleration_transition_index": 12,
+            "max_acceleration_vector_mm_s2": [
+              698.4454745285746,
+              3359.236873386337,
+              3783.5441394350655
+            ],
+            "max_axis_velocity_mm_s": 230.2908238391464,
+            "max_rotation_step_deg": 0.3055538586419907,
+            "max_velocity_mm_s": 298.52191206596723,
+            "max_xyz_axis_step_mm": 7.676360794638214,
+            "previous_command_velocity_mm_s": [
+              -4.671880750324817,
+              -54.04262160339471,
+              -24.544896581414832
+            ]
+          },
+          "failure_reasons": [
+            "crossfade_xyz_axis_step",
+            "crossfade_command_acceleration"
+          ],
+          "gripper_compatibility_enforced": false,
+          "gripper_compatible": true,
+          "raw_prefix_acceleration_hard_reject": false,
+          "semantic_authority": "external_planner",
+          "splice_index": 6,
+          "valid": false
+        },
+        "bridge_index": 102,
+        "compatibility": "FAIL",
+        "generation": 4,
+        "selection_score": null,
+        "splice_index": 6
+      },
+      "event": "act_b_splice_candidate",
+      "state": "B_PREFIX_ADMISSION",
+      "timestamp_s": 1868466.962443676
+    },
+    {
+      "details": {
+        "admission": {
+          "dynamics": {
+            "bridge_prefix_velocity_mismatch_mm_s": 48.65993927077931,
+            "first_rotation_delta_deg": 0.35281469637256185,
+            "first_xyz_axis_delta_mm": [
+              2.923731659175928,
+              56.518768178671394,
+              33.483020806918205
+            ],
+            "first_xyz_delta_mm": 65.75737255704324,
+            "initial_b_velocity_mm_s": [
+              -7.78289794921875,
+              -45.14556884765625,
+              -72.99957275390625
+            ],
+            "max_acceleration_mm_s2": 4024.721926398146,
+            "max_axis_velocity_mm_s": 130.44525146484375,
+            "max_velocity_mm_s": 150.97650333424355,
+            "prefix_steps": 15
+          },
+          "execution_dynamics": {
+            "command_history_steps": 2,
+            "continuation_steps": 1,
+            "crossfade_steps": 15,
+            "first_crossfade_velocity_mm_s": [
+              -4.958744954629424,
+              -59.276669722186455,
+              -27.842711250685852
+            ],
+            "first_rotation_step_deg": 0.023843568072639564,
+            "first_xyz_axis_step_mm": [
+              0.16529149848764746,
+              1.9758889907395485,
+              0.9280903750228617
+            ],
+            "max_acceleration_mm_s2": 4215.742004978918,
+            "max_acceleration_transition_index": 10,
+            "max_acceleration_vector_mm_s2": [
+              607.1251550320426,
+              2909.9391795088422,
+              2989.336660570433
+            ],
+            "max_axis_velocity_mm_s": 248.026537723739,
+            "max_rotation_step_deg": 0.28823403106370366,
+            "max_velocity_mm_s": 338.1491033577699,
+            "max_xyz_axis_step_mm": 8.267551257457967,
+            "previous_command_velocity_mm_s": [
+              -4.671880750324817,
+              -54.04262160339471,
+              -24.544896581414832
+            ]
+          },
+          "failure_reasons": [
+            "crossfade_xyz_axis_step",
+            "crossfade_velocity",
+            "crossfade_command_acceleration"
+          ],
+          "gripper_compatibility_enforced": false,
+          "gripper_compatible": true,
+          "raw_prefix_acceleration_hard_reject": false,
+          "semantic_authority": "external_planner",
+          "splice_index": 8,
+          "valid": false
+        },
+        "bridge_index": 102,
+        "compatibility": "FAIL",
+        "generation": 4,
+        "selection_score": null,
+        "splice_index": 8
+      },
+      "event": "act_b_splice_candidate",
+      "state": "B_PREFIX_ADMISSION",
+      "timestamp_s": 1868466.962443676
+    },
+    {
+      "details": {
+        "admission": {
+          "dynamics": {
+            "bridge_prefix_velocity_mismatch_mm_s": 14.84758779879523,
+            "first_rotation_delta_deg": 0.6301081786734607,
+            "first_xyz_axis_delta_mm": [
+              1.5141552431603031,
+              44.722625600546394,
+              21.687976861605705
+            ],
+            "first_xyz_delta_mm": 49.72699716508711,
+            "initial_b_velocity_mm_s": [
+              -0.12542724609375,
+              -61.8988037109375,
+              -37.82684326171875
+            ],
+            "max_acceleration_mm_s2": 1573.73127303782,
+            "max_axis_velocity_mm_s": 73.74847412109375,
+            "max_velocity_mm_s": 86.1837195142985,
+            "prefix_steps": 15
+          },
+          "execution_dynamics": {
+            "command_history_steps": 2,
+            "continuation_steps": 1,
+            "crossfade_steps": 15,
+            "first_crossfade_velocity_mm_s": [
+              -4.845644719532061,
+              -58.33018219325098,
+              -26.896311872792467
+            ],
+            "first_rotation_step_deg": 0.02449995226946142,
+            "first_xyz_axis_step_mm": [
+              0.1615214906510687,
+              1.9443394064416992,
+              0.8965437290930822
+            ],
+            "max_acceleration_mm_s2": 2093.650677305484,
+            "max_acceleration_transition_index": 10,
+            "max_acceleration_vector_mm_s2": [
+              516.9269289036208,
+              1599.0227944719522,
+              1248.7136627406187
+            ],
+            "max_axis_velocity_mm_s": 205.995725524797,
+            "max_rotation_step_deg": 0.14297876848209526,
+            "max_velocity_mm_s": 245.1592591599222,
+            "max_xyz_axis_step_mm": 6.8665241841599,
+            "previous_command_velocity_mm_s": [
+              -4.671880750324817,
+              -54.04262160339471,
+              -24.544896581414832
+            ]
+          },
+          "failure_reasons": [],
+          "gripper_compatibility_enforced": false,
+          "gripper_compatible": true,
+          "raw_prefix_acceleration_hard_reject": false,
+          "semantic_authority": "external_planner",
+          "splice_index": 0,
+          "valid": true
+        },
+        "bridge_index": 102,
+        "compatibility": "PASS",
+        "generation": 4,
+        "selected_splice_index": 0,
+        "selected_splice_score": 50.50558122174853,
+        "splice_candidates": [
+          0,
+          1,
+          3,
+          4,
+          6,
+          8
+        ]
+      },
+      "event": "act_b_prefix_admission",
+      "state": "B_PREFIX_ADMISSION",
+      "timestamp_s": 1868466.962443676
+    },
+    {
+      "details": {
+        "current": "SOFT_HANDOFF",
+        "previous": "B_PREFIX_ADMISSION",
+        "reason": "B_prefix_compatible"
+      },
+      "event": "state_transition",
+      "state": "SOFT_HANDOFF",
+      "timestamp_s": 1868466.962443676
+    },
+    {
+      "details": {
+        "bridge_index": 102,
+        "bridge_progress": 0.85,
+        "crossfade_steps": 15,
+        "generation": 4,
+        "splice_index": 0
+      },
+      "event": "soft_handoff_started",
+      "state": "SOFT_HANDOFF",
+      "timestamp_s": 1868466.962443676
+    },
+    {
+      "details": {
+        "current": "RUN_B",
+        "previous": "SOFT_HANDOFF",
+        "reason": "crossfade_complete"
+      },
+      "event": "state_transition",
+      "state": "RUN_B",
+      "timestamp_s": 1868467.430925484
+    },
+    {
+      "details": {
+        "bridge_progress": 0.975,
+        "crossfade_steps": 15,
+        "generation": 4,
+        "splice_index": 0
+      },
+      "event": "act_b_full_takeover",
+      "state": "RUN_B",
+      "timestamp_s": 1868467.430925484
+    }
+  ],
+  "fallback_required": false,
+  "flexible_bridge_search": {
+    "candidate_diagnostics": [
+      {
+        "actual_reference_start_error_mm": 0.0,
+        "collision_checked": false,
+        "curvature_p95_moving_per_mm": 0.0044481015299680975,
+        "duration_s": 4.0,
+        "entry_fraction": 0.18,
+        "exit_fraction": 0.82,
+        "future_join_lookahead_fraction": null,
+        "generator_type": "reference_deformation",
+        "hard_rejection_reasons": [],
+        "ik_checked": false,
+        "max_acceleration_mm_s2": 44.97036128918262,
+        "max_ack_span_axis_step_mm": 6.077843594766648,
+        "max_ack_span_orientation_step_deg": 0.18483548301037508,
+        "max_command_acceleration_mm_s2": 44.285223527722195,
+        "max_command_jerk_mm_s3": 657.4298903537318,
+        "max_curvature_per_mm": 0.004499352372633864,
+        "max_curvature_u": 0.6125,
+        "max_jerk_mm_s3": 20.887094957319917,
+        "max_normal_acceleration_mm_s2": 9.288886737176215,
+        "max_orientation_step_deg": 0.09241774149599163,
+        "max_position_axis_step_mm": 3.062711405791134,
+        "max_velocity_mm_s": 93.54966730182825,
+        "ood_score": 0.0,
+        "reference_projection_fraction": null,
+        "reference_rms_error_mm": 0.0,
+        "score": 0.20692673859598032,
+        "self_intersection_checked": true,
+        "source_tangent_angle_deg": 0.0,
+        "speed_at_max_curvature_mm_s": 44.61711662067517,
+        "tangent_handle_chord_ratio": 0.0
+      },
+      {
+        "actual_reference_start_error_mm": 0.0,
+        "collision_checked": false,
+        "curvature_p95_moving_per_mm": 0.009094555973082721,
+        "duration_s": 5.0,
+        "entry_fraction": 0.18,
+        "exit_fraction": 0.82,
+        "future_join_lookahead_fraction": null,
+        "generator_type": "reference_deformation",
+        "hard_rejection_reasons": [],
+        "ik_checked": false,
+        "max_acceleration_mm_s2": 49.85006477198834,
+        "max_ack_span_axis_step_mm": 6.067097701153855,
+        "max_ack_span_orientation_step_deg": 0.1478782447761597,
+        "max_command_acceleration_mm_s2": 49.22672729203967,
+        "max_command_jerk_mm_s3": 732.1686011631558,
+        "max_curvature_per_mm": 0.009332097448112682,
+        "max_curvature_u": 0.5733333333333334,
+        "max_jerk_mm_s3": 18.849860793328904,
+        "max_normal_acceleration_mm_s2": 6.987613282687823,
+        "max_orientation_step_deg": 0.07393912236031787,
+        "max_position_axis_step_mm": 3.060033721822464,
+        "max_velocity_mm_s": 93.54966730182826,
+        "ood_score": 0.0,
+        "reference_projection_fraction": null,
+        "reference_rms_error_mm": 0.0,
+        "score": 0.2328856746033143,
+        "self_intersection_checked": true,
+        "source_tangent_angle_deg": 0.0,
+        "speed_at_max_curvature_mm_s": 27.029662345141883,
+        "tangent_handle_chord_ratio": 0.0
+      },
+      {
+        "actual_reference_start_error_mm": 0.0,
+        "collision_checked": false,
+        "curvature_p95_moving_per_mm": 0.022469127611876208,
+        "duration_s": 6.0,
+        "entry_fraction": 0.18,
+        "exit_fraction": 0.82,
+        "future_join_lookahead_fraction": null,
+        "generator_type": "reference_deformation",
+        "hard_rejection_reasons": [],
+        "ik_checked": false,
+        "max_acceleration_mm_s2": 49.25543966729078,
+        "max_ack_span_axis_step_mm": 6.068169611954929,
+        "max_ack_span_orientation_step_deg": 0.12323633349248572,
+        "max_command_acceleration_mm_s2": 48.73689282591517,
+        "max_command_jerk_mm_s3": 725.8684412903626,
+        "max_curvature_per_mm": 0.0237181764057915,
+        "max_curvature_u": 0.5555555555555556,
+        "max_jerk_mm_s3": 15.643061352810985,
+        "max_normal_acceleration_mm_s2": 5.743593220388896,
+        "max_orientation_step_deg": 0.061618166737271274,
+        "max_position_axis_step_mm": 3.060319328966216,
+        "max_velocity_mm_s": 93.54966730182826,
+        "ood_score": 0.0,
+        "reference_projection_fraction": null,
+        "reference_rms_error_mm": 0.0,
+        "score": 0.2582153667661899,
+        "self_intersection_checked": true,
+        "source_tangent_angle_deg": 0.0,
+        "speed_at_max_curvature_mm_s": 15.36897971572658,
+        "tangent_handle_chord_ratio": 0.0
+      }
+    ],
+    "candidates_evaluated": 3,
+    "candidates_hard_passed": 3,
+    "rejected_reason_counts": {},
+    "search_latency_ms": 38.15418318845332,
+    "selected": {
+      "actual_reference_start_error_mm": 0.0,
+      "collision_checked": false,
+      "curvature_p95_moving_per_mm": 0.0044481015299680975,
+      "duration_s": 4.0,
+      "entry_fraction": 0.18,
+      "exit_fraction": 0.82,
+      "future_join_lookahead_fraction": null,
+      "generator_type": "reference_deformation",
+      "hard_rejection_reasons": [],
+      "ik_checked": false,
+      "max_acceleration_mm_s2": 44.97036128918262,
+      "max_ack_span_axis_step_mm": 6.077843594766648,
+      "max_ack_span_orientation_step_deg": 0.18483548301037508,
+      "max_command_acceleration_mm_s2": 44.285223527722195,
+      "max_command_jerk_mm_s3": 657.4298903537318,
+      "max_curvature_per_mm": 0.004499352372633864,
+      "max_curvature_u": 0.6125,
+      "max_jerk_mm_s3": 20.887094957319917,
+      "max_normal_acceleration_mm_s2": 9.288886737176215,
+      "max_orientation_step_deg": 0.09241774149599163,
+      "max_position_axis_step_mm": 3.062711405791134,
+      "max_velocity_mm_s": 93.54966730182825,
+      "ood_score": 0.0,
+      "reference_projection_fraction": null,
+      "reference_rms_error_mm": 0.0,
+      "score": 0.20692673859598032,
+      "self_intersection_checked": true,
+      "source_tangent_angle_deg": 0.0,
+      "speed_at_max_curvature_mm_s": 44.61711662067517,
+      "tangent_handle_chord_ratio": 0.0
+    },
+    "timed_out": false,
+    "valid": true
+  },
+  "handoff_id": "h_semantic_daa4a03a384a",
+  "limitations": {
+    "IK_checked": false,
+    "environment_collision_checked": false,
+    "perfect_tracking_bridge": true,
+    "physical_success_claimed": false,
+    "recorded_successor_RGB_state_snapshot": true
+  },
+  "live_enabled": false,
+  "mode": "command_free_recorded_successor_observation",
+  "mux_selected": false,
+  "prefix_admission": {
+    "dynamics": {
+      "bridge_prefix_velocity_mismatch_mm_s": 14.84758779879523,
+      "first_rotation_delta_deg": 0.6301081786734607,
+      "first_xyz_axis_delta_mm": [
+        1.5141552431603031,
+        44.722625600546394,
+        21.687976861605705
+      ],
+      "first_xyz_delta_mm": 49.72699716508711,
+      "initial_b_velocity_mm_s": [
+        -0.12542724609375,
+        -61.8988037109375,
+        -37.82684326171875
+      ],
+      "max_acceleration_mm_s2": 1573.73127303782,
+      "max_axis_velocity_mm_s": 73.74847412109375,
+      "max_velocity_mm_s": 86.1837195142985,
+      "prefix_steps": 15
+    },
+    "execution_dynamics": {
+      "command_history_steps": 2,
+      "continuation_steps": 1,
+      "crossfade_steps": 15,
+      "first_crossfade_velocity_mm_s": [
+        -4.845644719532061,
+        -58.33018219325098,
+        -26.896311872792467
+      ],
+      "first_rotation_step_deg": 0.02449995226946142,
+      "first_xyz_axis_step_mm": [
+        0.1615214906510687,
+        1.9443394064416992,
+        0.8965437290930822
+      ],
+      "max_acceleration_mm_s2": 2093.650677305484,
+      "max_acceleration_transition_index": 10,
+      "max_acceleration_vector_mm_s2": [
+        516.9269289036208,
+        1599.0227944719522,
+        1248.7136627406187
+      ],
+      "max_axis_velocity_mm_s": 205.995725524797,
+      "max_rotation_step_deg": 0.14297876848209526,
+      "max_velocity_mm_s": 245.1592591599222,
+      "max_xyz_axis_step_mm": 6.8665241841599,
+      "previous_command_velocity_mm_s": [
+        -4.671880750324817,
+        -54.04262160339471,
+        -24.544896581414832
+      ]
+    },
+    "failure_reasons": [],
+    "gripper_compatibility_enforced": false,
+    "gripper_compatible": true,
+    "raw_prefix_acceleration_hard_reject": false,
+    "semantic_authority": "external_planner",
+    "splice_index": 0,
+    "valid": true
+  },
+  "robot_commands_published": 0,
+  "schema_version": "a0509.task_c_handoff_v2_policy_shadow.v1",
+  "session_stats": {
+    "accepted_chunks": 2,
+    "queue_actions_consumed": 0,
+    "stale_chunks_dropped": 0,
+    "submitted_inferences": 2,
+    "warmup_inferences": 2
+  },
+  "successor_observation": {
+    "dataset_root": "/home/rvlab/lerobot_datasets/a0509_blue_block_t3",
+    "episode": 23,
+    "frame": 375,
+    "timestamp_s": 12.5
+  },
+  "takeover_success": true,
+  "terminal_state": "RUN_B",
+  "warmup_latency_ms": [
+    458.0353780183941,
+    59.96128381229937
+  ]
+}

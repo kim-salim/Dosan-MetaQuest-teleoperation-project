@@ -1,0 +1,53 @@
+# Reference-only configuration for the opt-in multi-stage Task-C V2 strategy.
+# LeRobot does not load this file automatically; the launcher passes these
+# values as CLI options.
+strategy:
+  type: task_c_multi_live_v2
+  handoff_mode: async_window_v2
+
+  # Ordered policy visits and one existing V2 episode manifest per edge.
+  multi_stage_plan: /absolute/path/to/multi_stage_plan.yaml
+
+  # One V0/V1 manifest is still used only as the reviewed workspace/dynamics
+  # contract inherited by every edge. Legacy endpoint fallback is deliberately
+  # disabled because one endpoint manifest cannot represent multiple edges.
+  runtime_manifest: /absolute/path/to/shared_runtime_safety_manifest.json
+  enable_endpoint_fallback: false
+
+  semantic_authority: external_planner
+  successor_runtime_phase_gate: false
+  # Per-stage phase_supervisor settings live in multi_stage_plan. The inherited
+  # single-edge trigger remains inactive as Multi-V2 stage authority.
+  source_trigger_mode: median_sphere
+
+  handoff_window_steps: 24
+  b_prefix_steps: 15
+  crossfade_steps: 15
+  max_b_result_age_sec: 0.30
+  max_inflight_b_requests: 1
+
+  # Raw prefix acceleration remains diagnostic-only. Bridge generation,
+  # cached-entry validation, endpoint fallback, and prospective crossfade use
+  # the same proposal-command bound; this is not a robot hardware rating.
+  bridge_acceleration_limit_mm_s2: 4000.0
+  max_prefix_acceleration_mm_s2: null
+  max_crossfade_command_acceleration_mm_s2: 4000.0
+
+  b_completion_mode: successor_owned
+  b_release_position_gate_enabled: false
+  b_completion_position_gate_enabled: false
+
+  request_next_service: /control/task_c/request_next_stage
+  complete_service: /control/task_c/complete_episode
+  status_service: /control/task_c/multi_stage_status
+
+runtime_contract:
+  policy_loading: setup_only_one_model_per_unique_policy
+  cuda_inference: serialized_by_existing_process_gpu_arbiter
+  stage_cut_authority: per_stage_external_or_phase_supervisor
+  phase_supervisor_io: setup_only_no_control_thread_file_access
+  terminal_completion: configured_policy_inference_horizon
+  bridge_generation: one_shot_from_latest_actual_and_acknowledged_state
+  successor_takeover: fresh_policy_prefix_dynamic_admission
+  control_rate_hz: 30
+  live_and_mux_authority: external_trial_gate

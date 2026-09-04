@@ -1,0 +1,101 @@
+{
+  "source_trace": "/home/rvlab/a0509_web_runs/20260902_170034_027437_960a0764011f/runtime_output/task_c_multi_v2_trace.jsonl",
+  "bridge": {
+    "algorithm": "cached_reference_dynamic_future_join_c2_v2",
+    "generator": "cached_reference_dynamic_future_join",
+    "steps": 120,
+    "duration_s": 4.0,
+    "length_mm": 294.4149235393493,
+    "handoff_window_start_index": 96,
+    "generation_latency_ms": 79.15647909976542,
+    "predictive_source_splice": {
+      "intended_timestamp_s": 1834582.6397020489,
+      "lookahead_steps": 6,
+      "predicted_pose_mm_deg": [
+        560.7484130859375,
+        -169.73194885253906,
+        496.70880126953125,
+        0.3613145649433136,
+        142.70672607421875,
+        0.4949576258659363
+      ],
+      "predicted_velocity_mm_s": [
+        -55.12976074219125,
+        0.01977539062615108,
+        51.689025878903436
+      ],
+      "queue": {
+        "action_hz": 30.0,
+        "available_steps": 12,
+        "command_sequence": 326,
+        "cursor": 5,
+        "generation": 1,
+        "policy_id": "T7",
+        "queue_kind": "lerobot_rtc",
+        "revision_token": "tensor:281468394632480",
+        "timestamp_s": 1834582.439702049
+      },
+      "target_command_sequence": 332
+    },
+    "commit_prediction_metrics": {
+      "actual_commit_command_sequence": 332,
+      "predicted_target_command_sequence": 332,
+      "predicted_to_commit_orientation_error_deg": 0.2277122895461688,
+      "predicted_to_commit_position_error_mm": 1.655162026586025,
+      "predicted_to_commit_velocity_error_mm_s": 49.84885537414845
+    },
+    "actual_exit_pose_mm_deg": [
+      567.5582885742188,
+      -169.63905334472656,
+      490.0893859863281,
+      0.6672018766403198,
+      142.20169067382812,
+      0.6179911494255066
+    ],
+    "acknowledged_exit_pose_mm_deg": [
+      561.9700927734375,
+      -169.43910217285156,
+      495.63116455078125,
+      0.43963754177093506,
+      142.48507690429688,
+      0.5357024669647217
+    ]
+  },
+  "handoff_window_attempts": [
+    {
+      "bridge_index": 99,
+      "compatibility": "FAIL",
+      "velocity_mismatch_mm_s": 138.72060544677333,
+      "failure_reasons": [
+        "bridge_prefix_velocity_mismatch"
+      ]
+    },
+    {
+      "bridge_index": 102,
+      "compatibility": "FAIL",
+      "velocity_mismatch_mm_s": 121.15073604834444,
+      "failure_reasons": [
+        "bridge_prefix_velocity_mismatch"
+      ]
+    },
+    {
+      "bridge_index": 105,
+      "compatibility": "FAIL",
+      "velocity_mismatch_mm_s": 97.01565280908011,
+      "failure_reasons": [
+        "bridge_prefix_velocity_mismatch"
+      ]
+    }
+  ],
+  "endpoint_admission": {
+    "compatibility": "PASS",
+    "velocity_mismatch_mm_s": 9.83492969385678,
+    "first_xyz_delta_mm": 2.997889612990156,
+    "first_rotation_delta_deg": 0.9246105411093837
+  },
+  "final_failure": "TopicUnavailableError: stale topic joint_positions: age=0.512s max_age=0.500s",
+  "outputs": {
+    "png": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/docs/artifacts/task_c_t7_t3_live_bridge_2026-09-02/t7_to_t3_bridge_actual_execution_20260902_170034.png",
+    "svg": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/docs/artifacts/task_c_t7_t3_live_bridge_2026-09-02/t7_to_t3_bridge_actual_execution_20260902_170034.svg"
+  }
+}

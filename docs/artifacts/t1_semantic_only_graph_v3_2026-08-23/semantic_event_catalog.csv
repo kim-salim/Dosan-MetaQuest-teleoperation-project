@@ -1,0 +1,5 @@
+event_id,semantic_label,label_ko,gripper_change,manipulated_object,semantic_effect,representative_x_mm,representative_y_mm,representative_z_mm,confidence
+C1,grasp_white_container_handle,흰색 컨테이너 손잡이 파지,open_to_closed,white_container_handle,container_handle_held,554.2467651367188,0.6170869022607803,525.8998107910156,high
+O1,release_handle_after_opening_container,컨테이너를 연 뒤 손잡이 해제,closed_to_open,white_container_handle,white_container_open,329.7906494140625,2.4328553676605225,510.61993408203125,high
+C2,grasp_blue_block_on_black_table,검은 테이블의 파란 블록 파지,open_to_closed,blue_block,blue_block_held,379.8262634277344,2.9486663341522217,348.80506896972656,high
+O2,release_blue_block_in_white_container,흰색 컨테이너 안에 파란 블록 방출,closed_to_open,blue_block,blue_block_in_white_container,596.0665588378906,2.758544087409973,507.1325988769531,high

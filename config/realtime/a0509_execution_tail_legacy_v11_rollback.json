@@ -1,0 +1,32 @@
+{
+  "schema_version": "a0509.execution_tail_handoff_profile.v1.rollback",
+  "profile_id": "a0509_execution_tail_legacy_v11",
+  "purpose": "exact_runtime_regression_for_edge_registry_level2_spatial_v11",
+  "production_default": false,
+  "maximum_relative_phase": 0.35,
+  "minimum_relative_phase": 0.03,
+  "different_segment": {
+    "progress_fraction_low": 0.25,
+    "progress_fraction_high": 0.65,
+    "support_residual_quantile": 0.75,
+    "commit_fraction": 0.60,
+    "deadline_extra_relative_phase": 0.04,
+    "latch_commit_window_until_deadline": false
+  },
+  "historical_operator_override": {
+    "operator": "T2.acquire_from_floor",
+    "progress_fraction_low": 0.10,
+    "progress_fraction_high": 0.90,
+    "support_residual_quantile": 0.95,
+    "commit_fraction": 0.25,
+    "deadline_extra_relative_phase": 0.10,
+    "latch_commit_window_until_deadline": true
+  },
+  "expected_deadlines": {
+    "T2.acquire_from_floor": 0.65,
+    "T7.acquire_from_drawer_top": 0.25,
+    "T4.open_drawer": 0.27
+  },
+  "note": "This preserves historical behavior only. New evidence must use the shared data-derived profile without operator-specific numeric tuning.",
+  "robot_commands_published": 0
+}

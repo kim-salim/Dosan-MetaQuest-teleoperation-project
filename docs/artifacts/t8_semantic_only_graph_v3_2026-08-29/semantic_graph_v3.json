@@ -1,0 +1,256 @@
+{
+  "schema_version": "a0509.semantic_only_graph.v3",
+  "task_id": "t8",
+  "dataset_repo_id": "rvlab/a0509_blue_block_v8",
+  "dataset_root": "/home/rvlab/lerobot_datasets/a0509_blue_block_t8",
+  "associated_model_path": "/home/rvlab/lerobot_models/models/act_a0509_blue_block_t8_bs32_50k_20260828/050000/pretrained_model",
+  "model_used_for_semantic_extraction": false,
+  "task_description": "Pick up the blue block on top of the other block and place it on the black table.",
+  "task_semantic_label": "unstack_top_blue_block_and_place_it_on_black_table",
+  "episode_count": 30,
+  "event_grammar": [
+    "C1",
+    "O1"
+  ],
+  "events": {
+    "C1": {
+      "semantic_label": "grasp_top_blue_block_from_stack",
+      "label_ko": "적층 상단의 파란 블록 파지",
+      "gripper_change": "open_to_closed",
+      "manipulated_object": "moving_blue_block",
+      "semantic_effect": "top_blue_block_held",
+      "confidence": "high",
+      "representative_position_mm": [
+        574.2968139648438,
+        240.6488494873047,
+        321.4565887451172
+      ]
+    },
+    "O1": {
+      "semantic_label": "release_unstacked_blue_block_on_black_table",
+      "label_ko": "분리한 파란 블록을 검은 테이블에 방출",
+      "gripper_change": "closed_to_open",
+      "manipulated_object": "moving_blue_block",
+      "semantic_effect": "blue_block_stack_disassembled",
+      "confidence": "high",
+      "representative_position_mm": [
+        336.67445373535156,
+        4.766216516494751,
+        331.82432556152344
+      ]
+    }
+  },
+  "hierarchy": {
+    "task": "unstack_top_blue_block_and_place_it_on_black_table",
+    "subgoals": [
+      "acquire_top_blue_block_from_stack",
+      "unstack_and_place_blue_block_on_black_table",
+      "finish_task"
+    ]
+  },
+  "state_nodes": [
+    {
+      "node_id": "START",
+      "summary": "G: open\nMoving block: on support\nStack: assembled",
+      "semantic_state": {
+        "gripper": "open",
+        "moving_blue_block": "on_top_of_support_blue_block",
+        "support_blue_block": "on_black_table",
+        "held_object": "none",
+        "stack": "assembled"
+      }
+    },
+    {
+      "node_id": "C1",
+      "summary": "G: closed\nMoving block: held\nStack: disassembling",
+      "semantic_state": {
+        "gripper": "closed",
+        "moving_blue_block": "held",
+        "support_blue_block": "on_black_table",
+        "held_object": "moving_blue_block",
+        "stack": "disassembling"
+      }
+    },
+    {
+      "node_id": "O1",
+      "summary": "G: open\nBoth blocks: black table\nStack: disassembled",
+      "semantic_state": {
+        "gripper": "open",
+        "moving_blue_block": "on_black_table",
+        "support_blue_block": "on_black_table",
+        "held_object": "none",
+        "stack": "disassembled"
+      }
+    },
+    {
+      "node_id": "TAIL",
+      "summary": "G: open\nStack: disassembled\nState unchanged",
+      "semantic_state": {
+        "gripper": "open",
+        "moving_blue_block": "on_black_table",
+        "support_blue_block": "on_black_table",
+        "held_object": "none",
+        "stack": "disassembled"
+      }
+    }
+  ],
+  "semantic_notes": [
+    "All 30 episodes share the audited C1-O1 gripper-event grammar.",
+    "TASK_DESCRIPTION identifies the manipulated object as the upper block and leaves the lower support block on the black table.",
+    "T8 is modeled as the semantic inverse of T6 stacking: the stack changes from assembled to disassembled at the manipulated-block release.",
+    "S2 remains one unstack-lift-transport-align-place semantic span; no unobserved contact boundary before O1 is invented.",
+    "Semantic object roles come from TASK_DESCRIPTION, event order, T6 inverse-task correspondence, and Cartesian motion; no image/frame averaging is used."
+  ],
+  "segments": [
+    {
+      "spec": {
+        "segment_id": "S1",
+        "parent_subgoal": "acquire_top_blue_block_from_stack",
+        "semantic_label": "approach_top_blue_block_on_support_block",
+        "label_ko": "지지 블록 위 상단 파란 블록으로 접근",
+        "start_anchor": "START",
+        "end_anchor": "C1",
+        "gripper_semantics": "open; closes at C1",
+        "manipulated_object": "moving_blue_block",
+        "entry_state": {
+          "gripper": "open",
+          "moving_blue_block": "on_top_of_support_blue_block",
+          "support_blue_block": "on_black_table",
+          "held_object": "none",
+          "stack": "assembled"
+        },
+        "exit_state": {
+          "gripper": "closed",
+          "moving_blue_block": "held",
+          "support_blue_block": "on_black_table",
+          "held_object": "moving_blue_block",
+          "stack": "disassembling"
+        },
+        "evidence": [
+          "TASK_DESCRIPTION",
+          "C1",
+          "TCP approach motion"
+        ],
+        "confidence": "high"
+      },
+      "path_length_mm": {
+        "median": 452.3675356800255,
+        "mean": 462.39313418736066,
+        "std": 38.49238976836729,
+        "min": 410.09227084156953,
+        "max": 538.1171223086258
+      },
+      "phase_residual_mm": {
+        "p90_mean": 42.0087021804876,
+        "p95_max": 65.24796306719617
+      }
+    },
+    {
+      "spec": {
+        "segment_id": "S2",
+        "parent_subgoal": "unstack_and_place_blue_block_on_black_table",
+        "semantic_label": "lift_separate_transport_and_align_top_block_to_black_table",
+        "label_ko": "상단 블록을 들어 분리하고 검은 테이블로 운반·정렬",
+        "start_anchor": "C1",
+        "end_anchor": "O1",
+        "gripper_semantics": "closed; opens at O1",
+        "manipulated_object": "moving_blue_block",
+        "entry_state": {
+          "gripper": "closed",
+          "moving_blue_block": "held",
+          "support_blue_block": "on_black_table",
+          "held_object": "moving_blue_block",
+          "stack": "disassembling"
+        },
+        "exit_state": {
+          "gripper": "open",
+          "moving_blue_block": "on_black_table",
+          "support_blue_block": "on_black_table",
+          "held_object": "none",
+          "stack": "disassembled"
+        },
+        "evidence": [
+          "TASK_DESCRIPTION",
+          "C1-O1",
+          "TCP lift/separation/transport motion",
+          "T6 inverse-task semantic correspondence"
+        ],
+        "confidence": "high"
+      },
+      "path_length_mm": {
+        "median": 653.3859914949016,
+        "mean": 655.6884436424199,
+        "std": 39.061400752561994,
+        "min": 569.8918994552648,
+        "max": 740.9451898562246
+      },
+      "phase_residual_mm": {
+        "p90_mean": 37.25843404109083,
+        "p95_max": 54.415183660104574
+      }
+    },
+    {
+      "spec": {
+        "segment_id": "S3",
+        "parent_subgoal": "finish_task",
+        "semantic_label": "retract_after_unstacking_and_placing_blue_block",
+        "label_ko": "분리한 블록을 놓은 뒤 후퇴",
+        "start_anchor": "O1",
+        "end_anchor": "END",
+        "gripper_semantics": "open",
+        "manipulated_object": null,
+        "entry_state": {
+          "gripper": "open",
+          "moving_blue_block": "on_black_table",
+          "support_blue_block": "on_black_table",
+          "held_object": "none",
+          "stack": "disassembled"
+        },
+        "exit_state": {
+          "gripper": "open",
+          "moving_blue_block": "on_black_table",
+          "support_blue_block": "on_black_table",
+          "held_object": "none",
+          "stack": "disassembled"
+        },
+        "evidence": [
+          "O1",
+          "TCP post-release motion"
+        ],
+        "confidence": "medium"
+      },
+      "path_length_mm": {
+        "median": 221.49021556367762,
+        "mean": 223.31544826187763,
+        "std": 34.26205734058416,
+        "min": 141.38674789710305,
+        "max": 290.0346609481835
+      },
+      "phase_residual_mm": {
+        "p90_mean": 31.7313590131294,
+        "p95_max": 44.62087960360923
+      }
+    }
+  ],
+  "representative": {
+    "synthetic": "component median XYZ at each semantic phase",
+    "individual_episode_selected": false
+  },
+  "standardization": {
+    "axis": "per-segment Cartesian arc-length phase 0..1",
+    "coordinate_frame": "Doosan base",
+    "units": "mm",
+    "phase_points": 101,
+    "frame_number_average_used": false,
+    "image_pixel_average_used": false
+  },
+  "scope": {
+    "semantic_information_only": true,
+    "transition_fitness_included": false,
+    "spherical_boundaries_included": false,
+    "bridge_planning_included": false,
+    "robot_executable": false,
+    "original_dataset_modified": false,
+    "model_modified": false
+  }
+}

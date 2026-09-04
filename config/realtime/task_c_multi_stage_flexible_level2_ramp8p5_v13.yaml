@@ -1,0 +1,61 @@
+# Opt-in Task-C Multi-V2 v13 command profile. This file never enables Live,
+# selects the MUX, or publishes ServoL commands. Use only with a compiled plan
+# carrying runtime_command_profile_id=a0509_ramp8p5_ack_span2_v1.
+strategy:
+  type: task_c_multi_live_v2
+  handoff_mode: async_window_v2
+  bridge_admission_mode: flexible_level2
+  runtime_command_profile_id: a0509_ramp8p5_ack_span2_v1
+
+  multi_stage_plan: /absolute/path/to/v13_multi_stage_plan.json
+  runtime_manifest: /absolute/path/to/v13_runtime_support_manifest.json
+  semantic_authority: external_planner
+  successor_runtime_phase_gate: false
+  source_trigger_mode: median_sphere
+
+  handoff_window_steps: 24
+  b_prefix_steps: 15
+  crossfade_steps: 15
+  max_b_result_age_sec: 0.30
+  max_inflight_b_requests: 1
+  adaptive_b_max_splice_index: 8
+  adaptive_b_max_candidates: 6
+
+  flexible_bridge_max_result_age_sec: 0.30
+  flexible_bridge_max_candidates: 64
+  flexible_bridge_max_search_time_s: 0.50
+  flexible_tangent_handle_chord_ratios: [0.0, 0.05, 0.10, 0.20, 0.25]
+  flexible_duration_multipliers: [1.0, 1.25, 1.50]
+  flexible_enable_settle_connector: true
+  flexible_enable_alignment_connector: true
+  flexible_enable_lift_transport_connector: true
+  flexible_enable_generic_safe_connector: false
+  allow_intermediate_release: false
+
+  downstream_control_hz: 30.0
+  downstream_linear_ramp_mm_per_tick: 8.5
+  downstream_orientation_ramp_deg_per_tick: 1.25
+  bridge_ack_mode: bounded_pipeline
+  bridge_max_ack_lag_steps: 1
+  max_prefix_velocity_mm_s: 300.0
+  bridge_acceleration_limit_mm_s2: 4000.0
+  bridge_jerk_limit_mm_s3: 4000.0
+  bridge_integrated_squared_jerk_limit: 10000000.0
+  max_prefix_acceleration_mm_s2: null
+  max_crossfade_command_acceleration_mm_s2: 4000.0
+  enable_soft_handoff: true
+  enable_endpoint_fallback: true
+
+runtime_contract:
+  axis_velocity_hard_limit_mm_s: 255.0
+  acknowledged_command_span_steps: 2
+  max_acknowledged_xyz_axis_span_mm: 8.5
+  ack_safe_axis_speed_envelope_mm_s: 127.5
+  cartesian_velocity_limit_mm_s: 300.0
+  acceleration_limit_mm_s2: 4000.0
+  jerk_limit_mm_s3: 4000.0
+  orientation_ramp_deg_per_tick: 1.25
+  crossfade_ack_span_admission: mandatory_before_emission
+  live_and_mux_authority: external_trial_gate
+  physical_validation_performed: false
+  rollback_profile_id: a0509_ramp7p5_ack_span2_v1

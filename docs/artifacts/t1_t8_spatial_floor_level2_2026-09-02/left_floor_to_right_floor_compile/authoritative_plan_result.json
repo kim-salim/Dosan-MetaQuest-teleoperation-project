@@ -1,0 +1,704 @@
+{
+  "execution": {
+    "blockers": [],
+    "initial_state_authority": "operator_asserted_not_perception_verified",
+    "kind": "multi_v2",
+    "physical_validation_performed": false,
+    "runtime_compilable": true
+  },
+  "fingerprint": "3913fb5587a56af2620d31129a3093170b50d738d17ea7f82f8d75bb1b6e07c1",
+  "request": {
+    "allow_intermediate_release": false,
+    "bridge_admission_mode": "flexible_level2",
+    "enabled_operator_ids": [
+      "T1.acquire_from_black_table",
+      "T1.deliver_to_white_container",
+      "T1.open_white_container",
+      "T2.acquire_from_floor",
+      "T2.deliver_to_black_table",
+      "T3.acquire_from_black_table",
+      "T3.deliver_to_floor",
+      "T4.acquire_from_black_table",
+      "T4.close_drawer",
+      "T4.deliver_to_drawer",
+      "T4.open_drawer",
+      "T5.acquire_from_drawer",
+      "T5.close_drawer",
+      "T5.deliver_to_black_table",
+      "T5.open_drawer",
+      "T6.acquire_moving_block",
+      "T6.stack_on_support_block",
+      "T7.acquire_from_drawer_top",
+      "T7.deliver_to_black_table",
+      "T8.acquire_top_block_from_stack",
+      "T8.deliver_unstacked_to_black_table"
+    ],
+    "final_inference_steps": 1800,
+    "forward_only": true,
+    "goal": {
+      "blue_block_location": "right_floor",
+      "drawer": "closed",
+      "gripper": "open",
+      "holding": "none"
+    },
+    "initial_state": {
+      "blue_block_location": "left_floor",
+      "contact_mode": "free_space",
+      "cursor_t1": 0,
+      "cursor_t2": 0,
+      "cursor_t3": 0,
+      "cursor_t4": 0,
+      "cursor_t5": 0,
+      "cursor_t6": 0,
+      "cursor_t7": 0,
+      "cursor_t8": 0,
+      "drawer": "closed",
+      "gripper": "open",
+      "holding": "none",
+      "last_policy": null,
+      "stack": "unknown",
+      "support_blue_block_location": "unknown",
+      "white_container": "closed"
+    },
+    "level2_only": true,
+    "max_plans": 3,
+    "policy_switch_penalty": 0.25,
+    "same_policy_continuation_penalty": 0.0,
+    "schema_version": "a0509.web_episode_plan_request.v1"
+  },
+  "schema_version": "a0509.web_episode_plan_result.v1",
+  "search": {
+    "diagnostics": {
+      "expanded_states": 20,
+      "generated_states": 22,
+      "rejected_by_operator": {
+        "T1.acquire_from_black_table": {
+          "precondition:blue_block_location:expected=black_table:actual=held": 6,
+          "precondition:blue_block_location:expected=black_table:actual=left_floor": 8,
+          "precondition:blue_block_location:expected=black_table:actual=right_floor": 6,
+          "precondition:contact_mode:expected=free_space:actual=free_transport": 6,
+          "precondition:gripper:expected=open:actual=closed": 6,
+          "precondition:holding:expected=none:actual=blue_block": 6,
+          "precondition:white_container:expected=open:actual=closed": 8
+        },
+        "T1.deliver_to_white_container": {
+          "precondition:blue_block_location:expected=held:actual=left_floor": 8,
+          "precondition:blue_block_location:expected=held:actual=right_floor": 6,
+          "precondition:contact_mode:expected=free_transport:actual=free_space": 14,
+          "precondition:gripper:expected=closed:actual=open": 14,
+          "precondition:holding:expected=blue_block:actual=none": 14,
+          "precondition:white_container:expected=open:actual=closed": 8,
+          "transition:intermediate_release_forbidden:white_container": 3
+        },
+        "T1.open_white_container": {
+          "forward_only:entry_order=10<cursor=20": 12,
+          "precondition:contact_mode:expected=free_space:actual=free_transport": 6,
+          "precondition:gripper:expected=open:actual=closed": 6,
+          "precondition:holding:expected=none:actual=blue_block": 6,
+          "precondition:white_container:expected=closed:actual=open": 12
+        },
+        "T2.acquire_from_floor": {
+          "dominated_state_cost": 2,
+          "forward_only:entry_order=10<cursor=20": 12,
+          "precondition:blue_block_location:expected=left_floor:actual=held": 6,
+          "precondition:blue_block_location:expected=left_floor:actual=right_floor": 6,
+          "precondition:contact_mode:expected=free_space:actual=free_transport": 6,
+          "precondition:gripper:expected=open:actual=closed": 6,
+          "precondition:holding:expected=none:actual=blue_block": 6
+        },
+        "T2.deliver_to_black_table": {
+          "precondition:blue_block_location:expected=held:actual=left_floor": 8,
+          "precondition:blue_block_location:expected=held:actual=right_floor": 6,
+          "precondition:contact_mode:expected=free_transport:actual=free_space": 14,
+          "precondition:gripper:expected=closed:actual=open": 14,
+          "precondition:holding:expected=blue_block:actual=none": 14,
+          "transition:intermediate_release_forbidden:black_table": 6
+        },
+        "T3.acquire_from_black_table": {
+          "forward_only:entry_order=10<cursor=30": 6,
+          "precondition:blue_block_location:expected=black_table:actual=held": 6,
+          "precondition:blue_block_location:expected=black_table:actual=left_floor": 8,
+          "precondition:blue_block_location:expected=black_table:actual=right_floor": 6,
+          "precondition:contact_mode:expected=free_space:actual=free_transport": 6,
+          "precondition:gripper:expected=open:actual=closed": 6,
+          "precondition:holding:expected=none:actual=blue_block": 6
+        },
+        "T3.deliver_to_floor": {
+          "forward_only:entry_order=20<cursor=30": 6,
+          "precondition:blue_block_location:expected=held:actual=left_floor": 8,
+          "precondition:blue_block_location:expected=held:actual=right_floor": 6,
+          "precondition:contact_mode:expected=free_transport:actual=free_space": 14,
+          "precondition:gripper:expected=closed:actual=open": 14,
+          "precondition:holding:expected=blue_block:actual=none": 14
+        },
+        "T4.acquire_from_black_table": {
+          "precondition:blue_block_location:expected=black_table:actual=held": 6,
+          "precondition:blue_block_location:expected=black_table:actual=left_floor": 8,
+          "precondition:blue_block_location:expected=black_table:actual=right_floor": 6,
+          "precondition:contact_mode:expected=free_space:actual=free_transport": 6,
+          "precondition:drawer:expected=open:actual=closed": 4,
+          "precondition:gripper:expected=open:actual=closed": 6,
+          "precondition:holding:expected=none:actual=blue_block": 6
+        },
+        "T4.close_drawer": {
+          "precondition:blue_block_location:expected=drawer:actual=held": 6,
+          "precondition:blue_block_location:expected=drawer:actual=left_floor": 8,
+          "precondition:blue_block_location:expected=drawer:actual=right_floor": 6,
+          "precondition:contact_mode:expected=free_space:actual=free_transport": 6,
+          "precondition:drawer:expected=open:actual=closed": 4,
+          "precondition:gripper:expected=open:actual=closed": 6,
+          "precondition:holding:expected=none:actual=blue_block": 6
+        },
+        "T4.deliver_to_drawer": {
+          "precondition:blue_block_location:expected=held:actual=left_floor": 8,
+          "precondition:blue_block_location:expected=held:actual=right_floor": 6,
+          "precondition:contact_mode:expected=free_transport:actual=free_space": 14,
+          "precondition:drawer:expected=open:actual=closed": 4,
+          "precondition:gripper:expected=closed:actual=open": 14,
+          "precondition:holding:expected=blue_block:actual=none": 14,
+          "transition:intermediate_release_forbidden:drawer": 4
+        },
+        "T4.open_drawer": {
+          "forward_only:entry_order=10<cursor=20": 8,
+          "precondition:contact_mode:expected=free_space:actual=free_transport": 6,
+          "precondition:drawer:expected=closed:actual=open": 16,
+          "precondition:gripper:expected=open:actual=closed": 6,
+          "precondition:holding:expected=none:actual=blue_block": 6
+        },
+        "T5.acquire_from_drawer": {
+          "precondition:blue_block_location:expected=drawer:actual=held": 6,
+          "precondition:blue_block_location:expected=drawer:actual=left_floor": 8,
+          "precondition:blue_block_location:expected=drawer:actual=right_floor": 6,
+          "precondition:contact_mode:expected=free_space:actual=free_transport": 6,
+          "precondition:drawer:expected=open:actual=closed": 4,
+          "precondition:gripper:expected=open:actual=closed": 6,
+          "precondition:holding:expected=none:actual=blue_block": 6
+        },
+        "T5.close_drawer": {
+          "precondition:blue_block_location:expected=black_table:actual=held": 6,
+          "precondition:blue_block_location:expected=black_table:actual=left_floor": 8,
+          "precondition:blue_block_location:expected=black_table:actual=right_floor": 6,
+          "precondition:contact_mode:expected=free_space:actual=free_transport": 6,
+          "precondition:drawer:expected=open:actual=closed": 4,
+          "precondition:gripper:expected=open:actual=closed": 6,
+          "precondition:holding:expected=none:actual=blue_block": 6
+        },
+        "T5.deliver_to_black_table": {
+          "precondition:blue_block_location:expected=held:actual=left_floor": 8,
+          "precondition:blue_block_location:expected=held:actual=right_floor": 6,
+          "precondition:contact_mode:expected=free_transport:actual=free_space": 14,
+          "precondition:drawer:expected=open:actual=closed": 4,
+          "precondition:gripper:expected=closed:actual=open": 14,
+          "precondition:holding:expected=blue_block:actual=none": 14,
+          "transition:intermediate_release_forbidden:black_table": 4
+        },
+        "T5.open_drawer": {
+          "forward_only:entry_order=10<cursor=20": 8,
+          "precondition:contact_mode:expected=free_space:actual=free_transport": 6,
+          "precondition:drawer:expected=closed:actual=open": 16,
+          "precondition:gripper:expected=open:actual=closed": 6,
+          "precondition:holding:expected=none:actual=blue_block": 6
+        },
+        "T6.acquire_moving_block": {
+          "precondition:blue_block_location:expected=moving_source:actual=held": 6,
+          "precondition:blue_block_location:expected=moving_source:actual=left_floor": 8,
+          "precondition:blue_block_location:expected=moving_source:actual=right_floor": 6,
+          "precondition:contact_mode:expected=free_space:actual=free_transport": 6,
+          "precondition:gripper:expected=open:actual=closed": 6,
+          "precondition:holding:expected=none:actual=blue_block": 6,
+          "precondition:stack:expected=unassembled:actual=unknown": 20,
+          "precondition:support_blue_block_location:expected=black_table:actual=unknown": 20
+        },
+        "T6.stack_on_support_block": {
+          "precondition:blue_block_location:expected=held:actual=left_floor": 8,
+          "precondition:blue_block_location:expected=held:actual=right_floor": 6,
+          "precondition:contact_mode:expected=free_transport:actual=free_space": 14,
+          "precondition:gripper:expected=closed:actual=open": 14,
+          "precondition:holding:expected=blue_block:actual=none": 14,
+          "precondition:stack:expected=unassembled:actual=unknown": 20,
+          "precondition:support_blue_block_location:expected=black_table:actual=unknown": 20
+        },
+        "T7.acquire_from_drawer_top": {
+          "precondition:blue_block_location:expected=drawer_top:actual=held": 6,
+          "precondition:blue_block_location:expected=drawer_top:actual=left_floor": 8,
+          "precondition:blue_block_location:expected=drawer_top:actual=right_floor": 6,
+          "precondition:contact_mode:expected=free_space:actual=free_transport": 6,
+          "precondition:gripper:expected=open:actual=closed": 6,
+          "precondition:holding:expected=none:actual=blue_block": 6
+        },
+        "T7.deliver_to_black_table": {
+          "precondition:blue_block_location:expected=held:actual=left_floor": 8,
+          "precondition:blue_block_location:expected=held:actual=right_floor": 6,
+          "precondition:contact_mode:expected=free_transport:actual=free_space": 14,
+          "precondition:gripper:expected=closed:actual=open": 14,
+          "precondition:holding:expected=blue_block:actual=none": 14,
+          "transition:intermediate_release_forbidden:black_table": 6
+        },
+        "T8.acquire_top_block_from_stack": {
+          "precondition:blue_block_location:expected=stacked:actual=held": 6,
+          "precondition:blue_block_location:expected=stacked:actual=left_floor": 8,
+          "precondition:blue_block_location:expected=stacked:actual=right_floor": 6,
+          "precondition:contact_mode:expected=free_space:actual=free_transport": 6,
+          "precondition:gripper:expected=open:actual=closed": 6,
+          "precondition:holding:expected=none:actual=blue_block": 6,
+          "precondition:stack:expected=assembled:actual=unknown": 20,
+          "precondition:support_blue_block_location:expected=black_table:actual=unknown": 20
+        },
+        "T8.deliver_unstacked_to_black_table": {
+          "precondition:blue_block_location:expected=held:actual=left_floor": 8,
+          "precondition:blue_block_location:expected=held:actual=right_floor": 6,
+          "precondition:contact_mode:expected=free_transport:actual=free_space": 14,
+          "precondition:gripper:expected=closed:actual=open": 14,
+          "precondition:holding:expected=blue_block:actual=none": 14,
+          "precondition:stack:expected=unassembled:actual=unknown": 20,
+          "precondition:support_blue_block_location:expected=black_table:actual=unknown": 20
+        }
+      },
+      "stale_frontier_entries": 0
+    },
+    "plans": [
+      {
+        "final_state": {
+          "blue_block_location": "right_floor",
+          "contact_mode": "free_space",
+          "cursor_t1": 0,
+          "cursor_t2": 20,
+          "cursor_t3": 30,
+          "cursor_t4": 0,
+          "cursor_t5": 0,
+          "cursor_t6": 0,
+          "cursor_t7": 0,
+          "cursor_t8": 0,
+          "drawer": "closed",
+          "gripper": "open",
+          "holding": "none",
+          "last_policy": "T3",
+          "stack": "unknown",
+          "support_blue_block_location": "unknown",
+          "white_container": "closed"
+        },
+        "operators": [
+          "T2.acquire_from_floor",
+          "T3.deliver_to_floor"
+        ],
+        "policy_sequence": [
+          "T2",
+          "T3"
+        ],
+        "steps": [
+          {
+            "cost": {
+              "base_cost": 1.0,
+              "policy_switch_penalty": 0.0,
+              "same_policy_continuation_penalty": 0.0,
+              "total": 1.0,
+              "transition_cost": 0.0
+            },
+            "operator": "T2.acquire_from_floor",
+            "policy_id": "T2",
+            "state_after": {
+              "blue_block_location": "held",
+              "contact_mode": "free_transport",
+              "cursor_t1": 0,
+              "cursor_t2": 20,
+              "cursor_t3": 0,
+              "cursor_t4": 0,
+              "cursor_t5": 0,
+              "cursor_t6": 0,
+              "cursor_t7": 0,
+              "cursor_t8": 0,
+              "drawer": "closed",
+              "gripper": "closed",
+              "holding": "blue_block",
+              "last_policy": "T2",
+              "stack": "unknown",
+              "support_blue_block_location": "unknown",
+              "white_container": "closed"
+            },
+            "state_before": {
+              "blue_block_location": "left_floor",
+              "contact_mode": "free_space",
+              "cursor_t1": 0,
+              "cursor_t2": 0,
+              "cursor_t3": 0,
+              "cursor_t4": 0,
+              "cursor_t5": 0,
+              "cursor_t6": 0,
+              "cursor_t7": 0,
+              "cursor_t8": 0,
+              "drawer": "closed",
+              "gripper": "open",
+              "holding": "none",
+              "last_policy": null,
+              "stack": "unknown",
+              "support_blue_block_location": "unknown",
+              "white_container": "closed"
+            }
+          },
+          {
+            "cost": {
+              "base_cost": 1.0,
+              "policy_switch_penalty": 0.25,
+              "same_policy_continuation_penalty": 0.0,
+              "total": 1.25,
+              "transition_cost": 0.0
+            },
+            "operator": "T3.deliver_to_floor",
+            "policy_id": "T3",
+            "state_after": {
+              "blue_block_location": "right_floor",
+              "contact_mode": "free_space",
+              "cursor_t1": 0,
+              "cursor_t2": 20,
+              "cursor_t3": 30,
+              "cursor_t4": 0,
+              "cursor_t5": 0,
+              "cursor_t6": 0,
+              "cursor_t7": 0,
+              "cursor_t8": 0,
+              "drawer": "closed",
+              "gripper": "open",
+              "holding": "none",
+              "last_policy": "T3",
+              "stack": "unknown",
+              "support_blue_block_location": "unknown",
+              "white_container": "closed"
+            },
+            "state_before": {
+              "blue_block_location": "held",
+              "contact_mode": "free_transport",
+              "cursor_t1": 0,
+              "cursor_t2": 20,
+              "cursor_t3": 0,
+              "cursor_t4": 0,
+              "cursor_t5": 0,
+              "cursor_t6": 0,
+              "cursor_t7": 0,
+              "cursor_t8": 0,
+              "drawer": "closed",
+              "gripper": "closed",
+              "holding": "blue_block",
+              "last_policy": "T2",
+              "stack": "unknown",
+              "support_blue_block_location": "unknown",
+              "white_container": "closed"
+            }
+          }
+        ],
+        "total_cost": 2.25
+      },
+      {
+        "final_state": {
+          "blue_block_location": "right_floor",
+          "contact_mode": "free_space",
+          "cursor_t1": 20,
+          "cursor_t2": 20,
+          "cursor_t3": 30,
+          "cursor_t4": 0,
+          "cursor_t5": 0,
+          "cursor_t6": 0,
+          "cursor_t7": 0,
+          "cursor_t8": 0,
+          "drawer": "closed",
+          "gripper": "open",
+          "holding": "none",
+          "last_policy": "T3",
+          "stack": "unknown",
+          "support_blue_block_location": "unknown",
+          "white_container": "open"
+        },
+        "operators": [
+          "T1.open_white_container",
+          "T2.acquire_from_floor",
+          "T3.deliver_to_floor"
+        ],
+        "policy_sequence": [
+          "T1",
+          "T2",
+          "T3"
+        ],
+        "steps": [
+          {
+            "cost": {
+              "base_cost": 1.0,
+              "policy_switch_penalty": 0.0,
+              "same_policy_continuation_penalty": 0.0,
+              "total": 1.0,
+              "transition_cost": 0.0
+            },
+            "operator": "T1.open_white_container",
+            "policy_id": "T1",
+            "state_after": {
+              "blue_block_location": "left_floor",
+              "contact_mode": "free_space",
+              "cursor_t1": 20,
+              "cursor_t2": 0,
+              "cursor_t3": 0,
+              "cursor_t4": 0,
+              "cursor_t5": 0,
+              "cursor_t6": 0,
+              "cursor_t7": 0,
+              "cursor_t8": 0,
+              "drawer": "closed",
+              "gripper": "open",
+              "holding": "none",
+              "last_policy": "T1",
+              "stack": "unknown",
+              "support_blue_block_location": "unknown",
+              "white_container": "open"
+            },
+            "state_before": {
+              "blue_block_location": "left_floor",
+              "contact_mode": "free_space",
+              "cursor_t1": 0,
+              "cursor_t2": 0,
+              "cursor_t3": 0,
+              "cursor_t4": 0,
+              "cursor_t5": 0,
+              "cursor_t6": 0,
+              "cursor_t7": 0,
+              "cursor_t8": 0,
+              "drawer": "closed",
+              "gripper": "open",
+              "holding": "none",
+              "last_policy": null,
+              "stack": "unknown",
+              "support_blue_block_location": "unknown",
+              "white_container": "closed"
+            }
+          },
+          {
+            "cost": {
+              "base_cost": 1.0,
+              "policy_switch_penalty": 0.25,
+              "same_policy_continuation_penalty": 0.0,
+              "total": 1.25,
+              "transition_cost": 0.0
+            },
+            "operator": "T2.acquire_from_floor",
+            "policy_id": "T2",
+            "state_after": {
+              "blue_block_location": "held",
+              "contact_mode": "free_transport",
+              "cursor_t1": 20,
+              "cursor_t2": 20,
+              "cursor_t3": 0,
+              "cursor_t4": 0,
+              "cursor_t5": 0,
+              "cursor_t6": 0,
+              "cursor_t7": 0,
+              "cursor_t8": 0,
+              "drawer": "closed",
+              "gripper": "closed",
+              "holding": "blue_block",
+              "last_policy": "T2",
+              "stack": "unknown",
+              "support_blue_block_location": "unknown",
+              "white_container": "open"
+            },
+            "state_before": {
+              "blue_block_location": "left_floor",
+              "contact_mode": "free_space",
+              "cursor_t1": 20,
+              "cursor_t2": 0,
+              "cursor_t3": 0,
+              "cursor_t4": 0,
+              "cursor_t5": 0,
+              "cursor_t6": 0,
+              "cursor_t7": 0,
+              "cursor_t8": 0,
+              "drawer": "closed",
+              "gripper": "open",
+              "holding": "none",
+              "last_policy": "T1",
+              "stack": "unknown",
+              "support_blue_block_location": "unknown",
+              "white_container": "open"
+            }
+          },
+          {
+            "cost": {
+              "base_cost": 1.0,
+              "policy_switch_penalty": 0.25,
+              "same_policy_continuation_penalty": 0.0,
+              "total": 1.25,
+              "transition_cost": 0.0
+            },
+            "operator": "T3.deliver_to_floor",
+            "policy_id": "T3",
+            "state_after": {
+              "blue_block_location": "right_floor",
+              "contact_mode": "free_space",
+              "cursor_t1": 20,
+              "cursor_t2": 20,
+              "cursor_t3": 30,
+              "cursor_t4": 0,
+              "cursor_t5": 0,
+              "cursor_t6": 0,
+              "cursor_t7": 0,
+              "cursor_t8": 0,
+              "drawer": "closed",
+              "gripper": "open",
+              "holding": "none",
+              "last_policy": "T3",
+              "stack": "unknown",
+              "support_blue_block_location": "unknown",
+              "white_container": "open"
+            },
+            "state_before": {
+              "blue_block_location": "held",
+              "contact_mode": "free_transport",
+              "cursor_t1": 20,
+              "cursor_t2": 20,
+              "cursor_t3": 0,
+              "cursor_t4": 0,
+              "cursor_t5": 0,
+              "cursor_t6": 0,
+              "cursor_t7": 0,
+              "cursor_t8": 0,
+              "drawer": "closed",
+              "gripper": "closed",
+              "holding": "blue_block",
+              "last_policy": "T2",
+              "stack": "unknown",
+              "support_blue_block_location": "unknown",
+              "white_container": "open"
+            }
+          }
+        ],
+        "total_cost": 3.5
+      }
+    ],
+    "status": "PLAN_FOUND"
+  },
+  "selected_plan": {
+    "final_state": {
+      "blue_block_location": "right_floor",
+      "contact_mode": "free_space",
+      "cursor_t1": 0,
+      "cursor_t2": 20,
+      "cursor_t3": 30,
+      "cursor_t4": 0,
+      "cursor_t5": 0,
+      "cursor_t6": 0,
+      "cursor_t7": 0,
+      "cursor_t8": 0,
+      "drawer": "closed",
+      "gripper": "open",
+      "holding": "none",
+      "last_policy": "T3",
+      "stack": "unknown",
+      "support_blue_block_location": "unknown",
+      "white_container": "closed"
+    },
+    "operators": [
+      "T2.acquire_from_floor",
+      "T3.deliver_to_floor"
+    ],
+    "policy_sequence": [
+      "T2",
+      "T3"
+    ],
+    "steps": [
+      {
+        "cost": {
+          "base_cost": 1.0,
+          "policy_switch_penalty": 0.0,
+          "same_policy_continuation_penalty": 0.0,
+          "total": 1.0,
+          "transition_cost": 0.0
+        },
+        "operator": "T2.acquire_from_floor",
+        "policy_id": "T2",
+        "state_after": {
+          "blue_block_location": "held",
+          "contact_mode": "free_transport",
+          "cursor_t1": 0,
+          "cursor_t2": 20,
+          "cursor_t3": 0,
+          "cursor_t4": 0,
+          "cursor_t5": 0,
+          "cursor_t6": 0,
+          "cursor_t7": 0,
+          "cursor_t8": 0,
+          "drawer": "closed",
+          "gripper": "closed",
+          "holding": "blue_block",
+          "last_policy": "T2",
+          "stack": "unknown",
+          "support_blue_block_location": "unknown",
+          "white_container": "closed"
+        },
+        "state_before": {
+          "blue_block_location": "left_floor",
+          "contact_mode": "free_space",
+          "cursor_t1": 0,
+          "cursor_t2": 0,
+          "cursor_t3": 0,
+          "cursor_t4": 0,
+          "cursor_t5": 0,
+          "cursor_t6": 0,
+          "cursor_t7": 0,
+          "cursor_t8": 0,
+          "drawer": "closed",
+          "gripper": "open",
+          "holding": "none",
+          "last_policy": null,
+          "stack": "unknown",
+          "support_blue_block_location": "unknown",
+          "white_container": "closed"
+        }
+      },
+      {
+        "cost": {
+          "base_cost": 1.0,
+          "policy_switch_penalty": 0.25,
+          "same_policy_continuation_penalty": 0.0,
+          "total": 1.25,
+          "transition_cost": 0.0
+        },
+        "operator": "T3.deliver_to_floor",
+        "policy_id": "T3",
+        "state_after": {
+          "blue_block_location": "right_floor",
+          "contact_mode": "free_space",
+          "cursor_t1": 0,
+          "cursor_t2": 20,
+          "cursor_t3": 30,
+          "cursor_t4": 0,
+          "cursor_t5": 0,
+          "cursor_t6": 0,
+          "cursor_t7": 0,
+          "cursor_t8": 0,
+          "drawer": "closed",
+          "gripper": "open",
+          "holding": "none",
+          "last_policy": "T3",
+          "stack": "unknown",
+          "support_blue_block_location": "unknown",
+          "white_container": "closed"
+        },
+        "state_before": {
+          "blue_block_location": "held",
+          "contact_mode": "free_transport",
+          "cursor_t1": 0,
+          "cursor_t2": 20,
+          "cursor_t3": 0,
+          "cursor_t4": 0,
+          "cursor_t5": 0,
+          "cursor_t6": 0,
+          "cursor_t7": 0,
+          "cursor_t8": 0,
+          "drawer": "closed",
+          "gripper": "closed",
+          "holding": "blue_block",
+          "last_policy": "T2",
+          "stack": "unknown",
+          "support_blue_block_location": "unknown",
+          "white_container": "closed"
+        }
+      }
+    ],
+    "total_cost": 2.25
+  }
+}

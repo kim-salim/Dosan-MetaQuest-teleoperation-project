@@ -1,0 +1,235 @@
+{
+  "b_entries": [
+    {
+      "B_retained_length_mm": 0.0,
+      "collision_status": "NOT_CHECKED",
+      "dataset": "T6",
+      "demonstration_velocity_mm_s": [
+        48.073876945915316,
+        21.6328946043769,
+        -32.60202052968822
+      ],
+      "dry_run_only": true,
+      "entry_id": "web:h_semantic_f79fda7aa722:T6:ep11:f421",
+      "episode": 11,
+      "frame": 421,
+      "ik_status": "NOT_CHECKED",
+      "minimum_bridge_z_mm": null,
+      "position_mm": [
+        546.2490234375,
+        207.84657287597656,
+        456.05975341796875
+      ],
+      "robot_executable": false,
+      "semantic_label": "lift_transport_align_and_stack_blue_block_on_support_block",
+      "semantic_state": {
+        "completed_subgoals": [
+          "gripper=closed",
+          "held_object=moving_blue_block",
+          "moving_blue_block=held",
+          "stack=unassembled",
+          "support_blue_block=on_black_table"
+        ],
+        "contact_mode": "free_transport_assumed",
+        "entry_preconditions": [
+          "gripper=closed",
+          "held_object=moving_blue_block",
+          "moving_blue_block=held",
+          "stack=unassembled",
+          "support_blue_block=on_black_table"
+        ],
+        "gripper_closed": true,
+        "holding": true,
+        "object_state": "lift_transport_align_and_stack_blue_block_on_support_block"
+      },
+      "velocity_method": "episode_manifest_nominal",
+      "velocity_sample_count": 1,
+      "velocity_source_episodes": [
+        11
+      ]
+    }
+  ],
+  "composition_id": "web_dijkstra_4bc933263ffa4c70",
+  "handoff_id": "h_semantic_f79fda7aa722",
+  "mode": "representative_boundary_dry_run_design",
+  "model_lifecycle": {
+    "load_both_before_act_a": true,
+    "separate_a_b_generations_and_queues": true,
+    "shared_gpu_inference_arbiter": true,
+    "warmup_outputs_discarded": true
+  },
+  "planners": {
+    "feasibility": {
+      "acceleration_limit_mm_s2": 4000.0,
+      "axis_velocity_limit_mm_s": 255.0,
+      "backtracking_ratio_limit": 2.5,
+      "boundary_acceleration_jump_limit_mm_s2": 4000.0,
+      "curvature_limit_per_mm": 0.25,
+      "enforce_payload_transport_floor": false,
+      "integrated_squared_jerk_limit": 10000000.0,
+      "jerk_limit_mm_s3": 4000.0,
+      "transport_floor_tolerance_mm": 1e-06,
+      "velocity_limit_mm_s": 300.0
+    },
+    "initial_duration_search": {
+      "bridge_duration_max_s": 8.0,
+      "bridge_duration_min_s": 2.0,
+      "bridge_duration_step_s": 0.5
+    },
+    "sampling": {
+      "bridge_sample_hz": 60.0,
+      "curvature_epsilon": 1e-09
+    },
+    "selection": {
+      "near_shortest_delta": 0.005,
+      "primary_objective": "total_C_length_mm",
+      "runtime_entry_top_k": 1,
+      "top_k": 10
+    },
+    "semantic_compatibility": {
+      "a_allowed_labels": [
+        "lift_transport_and_align_blue_block_to_black_table"
+      ],
+      "b_allowed_labels": [
+        "lift_transport_align_and_stack_blue_block_on_support_block"
+      ],
+      "require_same_gripper": true,
+      "required_a_completed_subgoals": [
+        "blue_block=held",
+        "gripper=closed",
+        "held_object=blue_block"
+      ]
+    },
+    "tail_duration_search": {
+      "bridge_duration_max_s": 2.5,
+      "bridge_duration_min_s": 0.2,
+      "bridge_duration_step_s": 0.1
+    }
+  },
+  "policy_checkpoints": {
+    "ACT-A": "/home/rvlab/lerobot_models/models/act_a0509_blue_block_t2_table_bs32_40k_20260821/040000/pretrained_model",
+    "ACT-B": "/home/rvlab/lerobot_models/models/act_a0509_blue_block_t6_bs32_50k_20260824/050000/pretrained_model"
+  },
+  "purpose": "Setup-only support shell; actual transitions are owned by the exact planner-compiled Multi-V2 episode manifests.",
+  "representative_boundary": {
+    "approach_epsilon_mm": 0.05,
+    "approach_frames": 3,
+    "boundary_id": "web:h_semantic_f79fda7aa722:source_exit",
+    "center_position_mm": [
+      377.4434814453125,
+      101.25784301757812,
+      542.145751953125
+    ],
+    "commit_radius_mm": 20.0,
+    "commit_stable_frames": 3,
+    "direction_cosine_minimum": 0.7,
+    "enabled": true,
+    "prearm_radius_mm": 40.0,
+    "representative_tangent": [
+      0.017688780004854025,
+      -0.9977324073416255,
+      -0.0649395904069647
+    ],
+    "representative_velocity_mm_s": [
+      1.8974481067188702,
+      -107.02521410763914,
+      -6.965969548775049
+    ],
+    "role": "a_exit"
+  },
+  "representative_paths": {
+    "A": {
+      "dataset": "T2",
+      "phase": 0.54,
+      "role": "a_exit",
+      "segment": "S2",
+      "support_episode": 26,
+      "support_frame": 426
+    },
+    "B": {
+      "dataset": "T6",
+      "phase": 0.73,
+      "role": "b_entry",
+      "segment": "S2",
+      "support_episode": 11,
+      "support_frame": 421
+    },
+    "single_representative_per_task": true
+  },
+  "runtime_handoff": {
+    "a_chunk_velocity_window_steps": 15,
+    "b_chunk_max_observation_age_s": 1.5,
+    "b_chunk_velocity_method": "linear_regression",
+    "b_chunk_velocity_window_steps": 15,
+    "b_final_refresh_enabled": true,
+    "b_final_refresh_lead_s": 0.25,
+    "b_first_action_position_jump_limit_mm": 75.0,
+    "b_inference_timeout_s": 1.0,
+    "b_predicted_velocity_limit_mm_s": 300.0,
+    "b_prime_lead_s": 1.25,
+    "control_hz": 30.0,
+    "handoff_first_target_tolerance_mm": 75.0,
+    "handoff_position_tolerance_mm": 10.0,
+    "handoff_velocity_tolerance_mm_s": 75.0,
+    "velocity_epsilon": 1e-09,
+    "velocity_history_capacity": 120,
+    "velocity_smoothing_method": "linear_regression",
+    "velocity_window_frames": 15,
+    "warmup_inferences": 2
+  },
+  "safety": {
+    "collision_status": "NOT_CHECKED",
+    "dry_run_only": true,
+    "endpoint_fallback_enabled": true,
+    "gripper_bridge_state": "closed",
+    "holding_state": "blue_block",
+    "ik_status": "NOT_CHECKED",
+    "live_authority": "external_gate_only",
+    "orientation_status": "V2_QUATERNION_SLERP",
+    "payload_state": "BLUE_BLOCK_HELD",
+    "publish_robot_commands": false,
+    "robot_executable": false,
+    "v2_failure_action": "fail_closed"
+  },
+  "schema_version": "a0509.task_c_v2_support_runtime.v1",
+  "web_generation": {
+    "first_edge_handoff_id": "h_semantic_f79fda7aa722",
+    "multi_stage_plan": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/docs/artifacts/t2_to_t6_terminal_stack_level2_v13_2026-09-04/multi_stage_plan.json",
+    "physical_validation_performed": false,
+    "runtime_command_profile": {
+      "acceleration_limit_mm_s2": 4000.0,
+      "ack_safe_axis_speed_envelope_mm_s": 127.5,
+      "acknowledged_command_span_steps": 2,
+      "axis_velocity_limit_mm_s": 255.0,
+      "bridge_ack_mode": "bounded_pipeline",
+      "cartesian_velocity_limit_mm_s": 300.0,
+      "control_hz": 30.0,
+      "integrated_squared_jerk_limit": 10000000.0,
+      "jerk_limit_mm_s3": 4000.0,
+      "linear_ramp_mm_per_tick": 8.5,
+      "max_ack_lag_steps": 1,
+      "max_acknowledged_rotation_span_deg": 1.25,
+      "max_acknowledged_xyz_axis_span_mm": 8.5,
+      "orientation_ramp_deg_per_tick": 1.25,
+      "physical_validation_performed": false,
+      "profile_id": "a0509_ramp8p5_ack_span2_v1",
+      "schema_version": "a0509.runtime_command_profile.v1"
+    },
+    "setup_only": true,
+    "template": "/home/rvlab/Dosan-MetaQuest-teleoperation-project/docs/artifacts/task_c_t2_t3_floor_to_floor_v2_2026-08-25/v2_fail_closed_support_runtime_manifest_t2_t3.json",
+    "template_sha256": "15295ea0b35b541ef4d05e02282e5f760d69092953f9402cb04f19ff14a4ecc5"
+  },
+  "workspace": {
+    "maximum_mm": [
+      650.0,
+      350.0,
+      600.0
+    ],
+    "minimum_mm": [
+      50.0,
+      -350.0,
+      0.0
+    ],
+    "robot_certified": false
+  }
+}

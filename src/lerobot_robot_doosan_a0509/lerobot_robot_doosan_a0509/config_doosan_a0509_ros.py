@@ -57,8 +57,12 @@ class DoosanA0509RosConfig(RobotConfig):
     robot_state_topic: str = "/rt_topic/robot_state"
     solution_space_topic: str = "/rt_topic/solution_space"
     gripper_commanded_state_topic: str = "/jrt_gripper/commanded_state"
+    gripper_completed_command_topic: str = "/jrt_gripper/completed_command"
+    gripper_driver_busy_topic: str = "/jrt_gripper/driver_busy"
+    gripper_last_command_ok_topic: str = "/jrt_gripper/last_command_ok"
     teleop_ready_topic: str = "/vr/teleop_ready"
     live_state_topic: str = "/vr/live_robot_output_enabled"
+    commanded_posx_topic: str = "/vr/commanded_posx"
 
     lerobot_target_topic: str = "/control/lerobot/target_posx"
     lerobot_gripper_topic: str = "/control/lerobot/gripper_target"
@@ -84,7 +88,12 @@ class DoosanA0509RosConfig(RobotConfig):
 
     def __post_init__(self) -> None:
         super().__post_init__()
-        if self.mode not in {"shadow_record", "policy_dry_run", "policy_live"}:
+        if self.mode not in {
+            "shadow_record",
+            "policy_shadow",
+            "policy_dry_run",
+            "policy_live",
+        }:
             raise ValueError(f"unsupported robot mode: {self.mode}")
         if self.state_max_age_sec <= 0.0:
             raise ValueError("state_max_age_sec must be positive")

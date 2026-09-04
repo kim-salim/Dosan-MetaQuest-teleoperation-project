@@ -37,3 +37,21 @@ salim_imformation
 
 # Python-generated package metadata
 **/*.egg-info/
+
+# Local patch/editor backups
+*.orig
+*.rej
+
+# Generated experiment artifacts (curated summaries may be force-added)
+/docs/artifacts/
+/camera_video*.jpg
+
+# Local LeRobot training mounts and outputs
+/docker/lerobot_training/data/
+/docker/lerobot_training/outputs*/
+/docker/lerobot_training/cache*/
+/docker/lerobot_training/user-home*/
+
+# Coverage outputs
+.coverage
+htmlcov/

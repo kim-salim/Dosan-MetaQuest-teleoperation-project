@@ -141,7 +141,8 @@ robot, starts RT, moves the arm, changes Tool I/O, or enables live output.
 | mapper-accepted MetaQuest pose | 0.30 s | MUX | source -> disabled, gripper stop, live false and hold |
 | LeRobot target input | 0.30 s | MUX | same |
 | selected command heartbeat | 0.35 s | streamer | local live false and existing TCP/last-command hold |
-| LeRobot robot state | 0.50 s | Robot plugin | reject `policy_live` action |
+| LeRobot dynamic robot state | 0.50 s | Robot plugin | reject `policy_live` action |
+| LeRobot latched safety state | valid until superseded | Robot plugin | reject missing or unsafe state |
 | MetaQuest teacher input | 0.30 s | Teleoperator plugin | reject teacher action |
 | MetaQuest XY-yaw calibration | latched | mapper/MUX/Teleoperator | block MetaQuest target, selection, and teacher action |
 
@@ -273,12 +274,56 @@ Keep source `METAQUEST`. Use Robot mode `policy_dry_run`; policy actions appear
 only on `/control/lerobot/debug_action`. They do not enter the MUX. Compare policy
 output with teacher and execution diagnostics offline.
 
+LeRobot 0.6's rollout context currently selects scalar hardware features by a
+`.pos` suffix. In `policy_dry_run` and `policy_live` only, the A0509 Robot
+adapter therefore exposes ordered internal `.pos` aliases for the existing 13D
+observation and 7D action fields. The adapter maps policy actions back to the
+canonical `target_*`/`gripper_target` keys before validation and ROS publish.
+`shadow_record` keeps the original dataset field names, vector order, and
+schema unchanged.
+
+
+#### Jetson Thor ACT asynchronous FIFO
+
+The accepted 020000 ACT checkpoint uses `chunk_size=100`,
+`n_action_steps=100`, `temporal_ensemble_coeff=None`, and FP32 inference.
+LeRobot 0.6's prefix-guided RTC interface is not implemented by ACT. The
+project therefore adapts ACT to the RTC worker only in
+`--inference.rtc.enabled=false` mode, which provides asynchronous FIFO
+prefetch without RTC action blending.
+
+The Thor rollout process uses the following CPU split:
+
+- CPU 0-5: Doosan bringup, MUX, safety, ServoL, and Tool I/O
+- CPU 6: single-threaded LeRobot ROS executor
+- CPU 7-8: rollout main loop and camera capture
+- CPU 9-13: ACT inference worker
+
+The camera readers and ROS executor retain only their latest state. The ACT
+worker performs two discarded CUDA warmup forwards, then generates the next
+100-action chunk when five actions remain. The main loop consumes the FIFO at
+30 Hz. Run the non-commanding verification with:
+
+```bash
+./scripts/run_a0509_act_policy_dry_run.sh
+```
+
+The 2026-08-09 60-second dry-run measured 29.85 Hz over 1,771 published debug
+actions, with 29-38 ms message intervals and no queue gap across chunk
+boundaries. Warmed chunk inference was 55-83 ms, below the five-action prefetch
+margin of about 167 ms. Live output and MUX source selection remained disabled.
+
+ACT can regress the bounded gripper channel slightly outside [0, 1]. Both
+`policy_dry_run` and `policy_live` clamp bounded overshoot up to 5% into
+`[0, 1]`; non-finite values and overshoot beyond 5% remain rejected. The MUX
+still owns the 0.3/0.7 open/close hysteresis and duplicate suppression.
 ### Policy live
 
 1. Disable live output and confirm `/vr/live_robot_output_enabled: false`.
-2. Explicitly select `LEROBOT`.
-3. Start the policy with Robot mode `policy_live` and verify fresh policy input,
-   MUX source, heartbeat, robot state, and safety output.
+2. Start the policy with Robot mode `policy_live` while the MUX remains
+   `DISABLED`, then verify that fresh policy input is stable at 30 Hz.
+3. Explicitly select `LEROBOT` and verify MUX source, heartbeat, robot state,
+   and safety output.
 4. The user may then enable live output as a separate deliberate operation.
 
 The LeRobot plugin never selects the source and never calls live-enable. Enabling

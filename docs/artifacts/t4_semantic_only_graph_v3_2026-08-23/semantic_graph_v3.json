@@ -1,0 +1,378 @@
+{
+  "schema_version": "a0509.semantic_only_graph.v3",
+  "task_id": "t4",
+  "dataset_repo_id": "local/a0509_blue_block_t4",
+  "dataset_root": "/home/rvlab/lerobot_datasets/a0509_blue_block_t4",
+  "associated_model_path": "/home/rvlab/lerobot_models/models/act_a0509_blue_block_t4_bs32_80k_20260823/080000/pretrained_model",
+  "model_used_for_semantic_extraction": false,
+  "task_description": "Open the drawer, pick up the blue block, place it inside the drawer, and then close the drawer",
+  "task_semantic_label": "store_blue_block_in_drawer_and_close_drawer",
+  "episode_count": 30,
+  "event_grammar": [
+    "C1",
+    "O1",
+    "C2",
+    "O2"
+  ],
+  "events": {
+    "C1": {
+      "semantic_label": "grasp_drawer_handle",
+      "label_ko": "서랍 손잡이 파지",
+      "gripper_change": "open_to_closed",
+      "manipulated_object": "drawer_handle",
+      "semantic_effect": "drawer_handle_held",
+      "confidence": "high",
+      "representative_position_mm": [
+        552.8124084472656,
+        -185.69886016845703,
+        292.3791046142578
+      ]
+    },
+    "O1": {
+      "semantic_label": "release_handle_after_opening_drawer",
+      "label_ko": "서랍을 연 뒤 손잡이 해제",
+      "gripper_change": "closed_to_open",
+      "manipulated_object": "drawer_handle",
+      "semantic_effect": "drawer_open",
+      "confidence": "high",
+      "representative_position_mm": [
+        400.80418395996094,
+        -179.9756317138672,
+        298.0476837158203
+      ]
+    },
+    "C2": {
+      "semantic_label": "grasp_blue_block_on_black_table",
+      "label_ko": "검은 테이블의 파란 블록 파지",
+      "gripper_change": "open_to_closed",
+      "manipulated_object": "blue_block",
+      "semantic_effect": "blue_block_held",
+      "confidence": "high",
+      "representative_position_mm": [
+        398.82151794433594,
+        2.115923762321472,
+        356.9054260253906
+      ]
+    },
+    "O2": {
+      "semantic_label": "release_blue_block_in_drawer",
+      "label_ko": "서랍 안에 파란 블록 방출",
+      "gripper_change": "closed_to_open",
+      "manipulated_object": "blue_block",
+      "semantic_effect": "blue_block_in_drawer",
+      "confidence": "high",
+      "representative_position_mm": [
+        529.7503356933594,
+        -183.7257308959961,
+        305.45729064941406
+      ]
+    }
+  },
+  "hierarchy": {
+    "task": "store_blue_block_in_drawer_and_close_drawer",
+    "subgoals": [
+      "open_drawer",
+      "acquire_blue_block",
+      "place_blue_block_in_drawer",
+      "close_drawer"
+    ]
+  },
+  "state_nodes": [
+    {
+      "node_id": "START",
+      "summary": "G: open\nDrawer: closed\nBlock: black table",
+      "semantic_state": {
+        "gripper": "open",
+        "drawer": "closed",
+        "blue_block": "on_black_table",
+        "held_object": "none"
+      }
+    },
+    {
+      "node_id": "C1",
+      "summary": "G: closed\nDrawer: closed\nHeld: handle",
+      "semantic_state": {
+        "gripper": "closed",
+        "drawer": "closed",
+        "blue_block": "on_black_table",
+        "held_object": "drawer_handle"
+      }
+    },
+    {
+      "node_id": "O1",
+      "summary": "G: open\nDrawer: open\nBlock: black table",
+      "semantic_state": {
+        "gripper": "open",
+        "drawer": "open",
+        "blue_block": "on_black_table",
+        "held_object": "none"
+      }
+    },
+    {
+      "node_id": "C2",
+      "summary": "G: closed\nDrawer: open\nHeld: blue block",
+      "semantic_state": {
+        "gripper": "closed",
+        "drawer": "open",
+        "blue_block": "held",
+        "held_object": "blue_block"
+      }
+    },
+    {
+      "node_id": "O2",
+      "summary": "G: open\nDrawer: open\nBlock: in drawer",
+      "semantic_state": {
+        "gripper": "open",
+        "drawer": "open",
+        "blue_block": "in_drawer",
+        "held_object": "none"
+      }
+    },
+    {
+      "node_id": "TAIL",
+      "summary": "G: open\nDrawer: closed\nBlock: in drawer",
+      "semantic_state": {
+        "gripper": "open",
+        "drawer": "closed",
+        "blue_block": "in_drawer",
+        "held_object": "none"
+      }
+    }
+  ],
+  "semantic_notes": [
+    "Drawer closing occurs after O2 while the gripper remains open, so S5 is not anchored by another C/O event.",
+    "S5 is kept as one semantic tail; no internal close-drawer boundary is invented."
+  ],
+  "segments": [
+    {
+      "spec": {
+        "segment_id": "S1",
+        "parent_subgoal": "open_drawer",
+        "semantic_label": "approach_drawer_handle",
+        "label_ko": "서랍 손잡이로 접근",
+        "start_anchor": "START",
+        "end_anchor": "C1",
+        "gripper_semantics": "open; closes at C1",
+        "manipulated_object": "drawer_handle",
+        "entry_state": {
+          "gripper": "open",
+          "drawer": "closed",
+          "blue_block": "on_black_table",
+          "held_object": "none"
+        },
+        "exit_state": {
+          "gripper": "closed",
+          "drawer": "closed",
+          "blue_block": "on_black_table",
+          "held_object": "drawer_handle"
+        },
+        "evidence": [
+          "TASK_DESCRIPTION",
+          "C1",
+          "TCP approach motion",
+          "prior multi-camera review"
+        ],
+        "confidence": "high"
+      },
+      "path_length_mm": {
+        "median": 430.6628064821804,
+        "mean": 439.8062059434796,
+        "std": 47.64767024918337,
+        "min": 382.21819720571284,
+        "max": 561.6508530738465
+      },
+      "phase_residual_mm": {
+        "p90_mean": 44.80912365572607,
+        "p95_max": 71.72597295410955
+      }
+    },
+    {
+      "spec": {
+        "segment_id": "S2",
+        "parent_subgoal": "open_drawer",
+        "semantic_label": "manipulate_drawer_open",
+        "label_ko": "손잡이를 조작하여 서랍 열기",
+        "start_anchor": "C1",
+        "end_anchor": "O1",
+        "gripper_semantics": "closed; opens at O1",
+        "manipulated_object": "drawer_handle",
+        "entry_state": {
+          "gripper": "closed",
+          "drawer": "closed",
+          "blue_block": "on_black_table",
+          "held_object": "drawer_handle"
+        },
+        "exit_state": {
+          "gripper": "open",
+          "drawer": "open",
+          "blue_block": "on_black_table",
+          "held_object": "none"
+        },
+        "evidence": [
+          "TASK_DESCRIPTION",
+          "C1-O1",
+          "TCP drawer motion",
+          "prior multi-camera review"
+        ],
+        "confidence": "high"
+      },
+      "path_length_mm": {
+        "median": 182.1775976841347,
+        "mean": 183.93516941550368,
+        "std": 22.516619561173975,
+        "min": 148.07360737241214,
+        "max": 246.86075938091486
+      },
+      "phase_residual_mm": {
+        "p90_mean": 50.18569892118788,
+        "p95_max": 69.06834089954967
+      }
+    },
+    {
+      "spec": {
+        "segment_id": "S3",
+        "parent_subgoal": "acquire_blue_block",
+        "semantic_label": "approach_blue_block_on_black_table",
+        "label_ko": "검은 테이블의 파란 블록으로 접근",
+        "start_anchor": "O1",
+        "end_anchor": "C2",
+        "gripper_semantics": "open; closes at C2",
+        "manipulated_object": "blue_block",
+        "entry_state": {
+          "gripper": "open",
+          "drawer": "open",
+          "blue_block": "on_black_table",
+          "held_object": "none"
+        },
+        "exit_state": {
+          "gripper": "closed",
+          "drawer": "open",
+          "blue_block": "held",
+          "held_object": "blue_block"
+        },
+        "evidence": [
+          "TASK_DESCRIPTION",
+          "O1-C2",
+          "TCP approach motion",
+          "prior multi-camera review"
+        ],
+        "confidence": "high"
+      },
+      "path_length_mm": {
+        "median": 469.74159267359244,
+        "mean": 479.2486505977003,
+        "std": 50.44393800923387,
+        "min": 400.5640302359945,
+        "max": 623.1398247747029
+      },
+      "phase_residual_mm": {
+        "p90_mean": 63.00451484655269,
+        "p95_max": 89.40938970928049
+      }
+    },
+    {
+      "spec": {
+        "segment_id": "S4",
+        "parent_subgoal": "place_blue_block_in_drawer",
+        "semantic_label": "lift_transport_and_align_blue_block_in_drawer",
+        "label_ko": "파란 블록을 들어 서랍 안으로 운반·정렬",
+        "start_anchor": "C2",
+        "end_anchor": "O2",
+        "gripper_semantics": "closed; opens at O2",
+        "manipulated_object": "blue_block",
+        "entry_state": {
+          "gripper": "closed",
+          "drawer": "open",
+          "blue_block": "held",
+          "held_object": "blue_block"
+        },
+        "exit_state": {
+          "gripper": "open",
+          "drawer": "open",
+          "blue_block": "in_drawer",
+          "held_object": "none"
+        },
+        "evidence": [
+          "TASK_DESCRIPTION",
+          "C2-O2",
+          "TCP lift/transport",
+          "prior multi-camera review"
+        ],
+        "confidence": "high"
+      },
+      "path_length_mm": {
+        "median": 507.0107194286018,
+        "mean": 503.20425150318096,
+        "std": 41.09760443204965,
+        "min": 434.54193607931626,
+        "max": 627.4267927932334
+      },
+      "phase_residual_mm": {
+        "p90_mean": 70.28558820049867,
+        "p95_max": 94.62583310587806
+      }
+    },
+    {
+      "spec": {
+        "segment_id": "S5",
+        "parent_subgoal": "close_drawer",
+        "semantic_label": "close_drawer_and_retract_with_open_gripper",
+        "label_ko": "열린 그리퍼로 서랍을 닫고 후퇴",
+        "start_anchor": "O2",
+        "end_anchor": "END",
+        "gripper_semantics": "open throughout",
+        "manipulated_object": "drawer_front",
+        "entry_state": {
+          "gripper": "open",
+          "drawer": "open",
+          "blue_block": "in_drawer",
+          "held_object": "none"
+        },
+        "exit_state": {
+          "gripper": "open",
+          "drawer": "closed",
+          "blue_block": "in_drawer",
+          "held_object": "none"
+        },
+        "evidence": [
+          "TASK_DESCRIPTION",
+          "TCP post-O2 motion",
+          "prior multi-camera review"
+        ],
+        "confidence": "medium"
+      },
+      "path_length_mm": {
+        "median": 1115.6757471293295,
+        "mean": 1119.9790575627633,
+        "std": 104.27579349631681,
+        "min": 952.756429190628,
+        "max": 1350.5341841773627
+      },
+      "phase_residual_mm": {
+        "p90_mean": 81.8316867679215,
+        "p95_max": 114.53094492605837
+      }
+    }
+  ],
+  "representative": {
+    "synthetic": "component median XYZ at each semantic phase",
+    "individual_episode_selected": false
+  },
+  "standardization": {
+    "axis": "per-segment Cartesian arc-length phase 0..1",
+    "coordinate_frame": "Doosan base",
+    "units": "mm",
+    "phase_points": 101,
+    "frame_number_average_used": false,
+    "image_pixel_average_used": false
+  },
+  "scope": {
+    "semantic_information_only": true,
+    "transition_fitness_included": false,
+    "spherical_boundaries_included": false,
+    "bridge_planning_included": false,
+    "robot_executable": false,
+    "original_dataset_modified": false,
+    "model_modified": false
+  }
+}

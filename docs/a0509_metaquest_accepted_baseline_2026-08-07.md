@@ -31,7 +31,7 @@ copy this file to a new name rather than editing the accepted snapshot.
 | Prediction | full to 20 ms, decay to 80 ms, then hold |
 | Tracking invalid | 300 ms |
 | Raw input timeout | 500 ms |
-| Position jump guard | 150 mm |
+| Position jump guard | 200 mm |
 | Rotation jump guard | 45 deg |
 
 Pose resampling remains enabled with a one-second, 128-sample bounded buffer.
@@ -185,13 +185,21 @@ cd ~/Dosan-MetaQuest-teleoperation-project
 ./scripts/record_lerobot_shadow_pilot.sh
 ```
 
-The script verifies this baseline checksum and runs the read-only shadow
-preflight before creating a dataset directory. Its defaults are one 30-second
-episode, a 30 FPS dataset target, real-time H.264 NVENC streaming with preset
-12 (`p1`), no PNG image-writer processes or threads, no display, no sound, and
-no Hub upload.
+The script verifies this baseline checksum and runs a guarded shadow preflight
+before creating a dataset directory. With the accepted default
+`EPISODE_INITIAL_GRIPPER_STATE=open`, the preflight first establishes a
+driver-verified physical OPEN state; existing verified OPEN is reused, otherwise
+a fresh OPEN must be accepted, completed, and confirmed by Tool DO readback.
+Its remaining defaults are one 30-second episode, a 30 FPS dataset target,
+real-time H.264 NVENC streaming with preset 12 (`p1`), no PNG image-writer
+processes or threads, no display, no sound, and no Hub upload.
 The default dataset root is a new timestamped directory below
-`~/lerobot_datasets/`.
+`~/lerobot_datasets/`. At a natural episode time limit, robot output is forced
+safe before an operator review: `n`/Right commits and advances, `r`/Left clears
+and repeats the same index, and `q`/Esc commits and ends the session. Keys used
+during recording keep their existing early-next, re-record, and stop behavior.
+An accepted buffer is committed before the next physical reset starts, so
+cancelling a reset cannot lose the previous episode.
 
 The recorder main process and camera threads are confined to CPUs 6-9. A single
 `spawn`-started encoder worker is confined to CPUs 10-13. Both run at

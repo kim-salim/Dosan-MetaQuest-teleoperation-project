@@ -1,0 +1,38 @@
+{
+  "default_profile_id": "a0509_ramp7p5_ack_span2_v1",
+  "profiles": {
+    "a0509_ramp7p5_ack_span2_v1": {
+      "acceleration_limit_mm_s2": 4000.0,
+      "ack_safe_axis_speed_envelope_mm_s": 112.5,
+      "acknowledged_command_span_steps": 2,
+      "axis_velocity_limit_mm_s": 225.0,
+      "bridge_ack_mode": "bounded_pipeline",
+      "cartesian_velocity_limit_mm_s": 300.0,
+      "control_hz": 30.0,
+      "integrated_squared_jerk_limit": 10000000.0,
+      "jerk_limit_mm_s3": 4000.0,
+      "linear_ramp_mm_per_tick": 7.5,
+      "max_ack_lag_steps": 1,
+      "orientation_ramp_deg_per_tick": 1.25,
+      "role": "rollback_and_v12_baseline"
+    },
+    "a0509_ramp8p5_ack_span2_v1": {
+      "acceleration_limit_mm_s2": 4000.0,
+      "ack_safe_axis_speed_envelope_mm_s": 127.5,
+      "acknowledged_command_span_steps": 2,
+      "axis_velocity_limit_mm_s": 255.0,
+      "bridge_ack_mode": "bounded_pipeline",
+      "cartesian_velocity_limit_mm_s": 300.0,
+      "control_hz": 30.0,
+      "integrated_squared_jerk_limit": 10000000.0,
+      "jerk_limit_mm_s3": 4000.0,
+      "linear_ramp_mm_per_tick": 8.5,
+      "max_ack_lag_steps": 1,
+      "orientation_ramp_deg_per_tick": 1.25,
+      "physical_validation_performed": false,
+      "predecessor_profile_id": "a0509_ramp7p5_ack_span2_v1",
+      "role": "v13_opt_in_candidate"
+    }
+  },
+  "schema_version": "a0509.runtime_command_profiles.v1"
+}

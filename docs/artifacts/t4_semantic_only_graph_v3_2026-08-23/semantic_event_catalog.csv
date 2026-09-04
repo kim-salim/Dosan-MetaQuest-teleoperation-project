@@ -1,0 +1,5 @@
+event_id,semantic_label,label_ko,gripper_change,manipulated_object,semantic_effect,representative_x_mm,representative_y_mm,representative_z_mm,confidence
+C1,grasp_drawer_handle,서랍 손잡이 파지,open_to_closed,drawer_handle,drawer_handle_held,552.8124084472656,-185.69886016845703,292.3791046142578,high
+O1,release_handle_after_opening_drawer,서랍을 연 뒤 손잡이 해제,closed_to_open,drawer_handle,drawer_open,400.80418395996094,-179.9756317138672,298.0476837158203,high
+C2,grasp_blue_block_on_black_table,검은 테이블의 파란 블록 파지,open_to_closed,blue_block,blue_block_held,398.82151794433594,2.115923762321472,356.9054260253906,high
+O2,release_blue_block_in_drawer,서랍 안에 파란 블록 방출,closed_to_open,blue_block,blue_block_in_drawer,529.7503356933594,-183.7257308959961,305.45729064941406,high

@@ -1,0 +1,8 @@
+# Generated research tables and vector plots are immutable artifact outputs.
+docs/artifacts/**/*.csv -text -diff
+docs/artifacts/**/*.svg -text -diff
+
+# Korean experiment headers intentionally use Markdown hard line breaks.
+docs/*.md whitespace=-blank-at-eol,-blank-at-eof
+docs/artifacts/**/*.md whitespace=-blank-at-eol,-blank-at-eof
+offline_tools/semantic_segmentation/*.py whitespace=-blank-at-eol
